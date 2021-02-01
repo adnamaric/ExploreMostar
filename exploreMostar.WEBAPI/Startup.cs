@@ -1,4 +1,5 @@
 ﻿using exploreMostar.WebAPI.Database;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,10 +30,11 @@ namespace exploreMostar.WEBAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen();
-
+            // statički konekšn string
             var connection = @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
-
+            services.AddScoped<IKorisniciServis, ProizvodServis>();
+            services.AddScoped<IKorisniciService, KorisniciService>();
 
         }
 

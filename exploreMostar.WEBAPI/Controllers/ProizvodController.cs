@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Model;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,23 +14,15 @@ namespace exploreMostar.WebAPI.Controllers
     [ApiController]
     public class ProizvodController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<List<Proizvod>> Get()
+        private readonly IKorisniciServis _proizvodiServis;
+        public ProizvodController(IKorisniciServis proizvodiServis)
         {
-            var list = new List<Proizvod>()
-            {
-                new Proizvod()
-                {
-                    Naziv="novi",
-                    ProizvodID=1
-                },
-                new Proizvod()
-                {
-                    Naziv="novi2",
-                    ProizvodID=2
-                }
-            };
-            return list;
+            _proizvodiServis = proizvodiServis;
+        }
+        [HttpGet]
+        public ActionResult<IList<Proizvod>> Get()
+        {
+            return Ok(_proizvodiServis.Get());
            
         }
         [HttpGet("{id}")]
@@ -65,5 +58,16 @@ namespace exploreMostar.WebAPI.Controllers
                 ProizvodID =-1
             };
         }
+
+        [HttpPut("{id}")]
+        public Proizvod Update(Proizvod proizvod)
+        {
+            return new Proizvod()
+            {
+                Naziv = proizvod.Naziv,
+                ProizvodID = -1
+            };
+        }
+
     }
 }
