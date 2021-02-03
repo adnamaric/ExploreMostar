@@ -12,7 +12,6 @@ namespace exploreMostar.WebAPI.Database
             Hoteli = new HashSet<Hoteli>();
             Kafici = new HashSet<Kafici>();
             KorisnikKategorija = new HashSet<KorisnikKategorija>();
-            MeniKategorija = new HashSet<MeniKategorija>();
             Nightclubs = new HashSet<Nightclubs>();
             Prevoz = new HashSet<Prevoz>();
             Restorani = new HashSet<Restorani>();
@@ -27,7 +26,6 @@ namespace exploreMostar.WebAPI.Database
         public ICollection<Hoteli> Hoteli { get; set; }
         public ICollection<Kafici> Kafici { get; set; }
         public ICollection<KorisnikKategorija> KorisnikKategorija { get; set; }
-        public ICollection<MeniKategorija> MeniKategorija { get; set; }
         public ICollection<Nightclubs> Nightclubs { get; set; }
         public ICollection<Prevoz> Prevoz { get; set; }
         public ICollection<Restorani> Restorani { get; set; }

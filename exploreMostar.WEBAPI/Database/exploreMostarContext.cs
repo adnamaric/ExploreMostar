@@ -26,9 +26,9 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Kafici> Kafici { get; set; }
         public virtual DbSet<Kategorije> Kategorije { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
+        public virtual DbSet<KorisnickaUloga> KorisnickaUloga { get; set; }
         public virtual DbSet<KorisnikKategorija> KorisnikKategorija { get; set; }
         public virtual DbSet<Markeri> Markeri { get; set; }
-        public virtual DbSet<MeniKategorija> MeniKategorija { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Nightclubs> Nightclubs { get; set; }
         public virtual DbSet<Prevoz> Prevoz { get; set; }
@@ -40,7 +40,7 @@ namespace exploreMostar.WebAPI.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-HB2VMU2\\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=True;");
             }
         }
@@ -302,27 +302,21 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Grad)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.GradId).HasColumnName("GradID");
 
                 entity.Property(e => e.Ime)
                     .IsRequired()
                     .HasMaxLength(30);
 
+                entity.Property(e => e.KorisnickaUlogaId).HasColumnName("KorisnickaUlogaID");
+
                 entity.Property(e => e.KorisnickoIme)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.LozinkaHash)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.LozinkaHash).HasMaxLength(50);
 
-                entity.Property(e => e.LozinkaSalt)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.LozinkaSalt).HasMaxLength(50);
 
                 entity.Property(e => e.Prezime)
                     .IsRequired()
@@ -332,10 +326,24 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.GradNavigation)
+                entity.HasOne(d => d.Grad)
                     .WithMany(p => p.Korisnici)
                     .HasForeignKey(d => d.GradId)
                     .HasConstraintName("FK__Korisnici__GradI__03F0984C");
+
+                entity.HasOne(d => d.KorisnickaUloga)
+                    .WithMany(p => p.Korisnici)
+                    .HasForeignKey(d => d.KorisnickaUlogaId)
+                    .HasConstraintName("FK__Korisnici__Koris__29221CFB");
+            });
+
+            modelBuilder.Entity<KorisnickaUloga>(entity =>
+            {
+                entity.Property(e => e.KorisnickaUlogaId).HasColumnName("KorisnickaUlogaID");
+
+                entity.Property(e => e.Naziv)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<KorisnikKategorija>(entity =>
@@ -386,25 +394,6 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Markeri)
                     .HasForeignKey(d => d.GradId)
                     .HasConstraintName("FK__Markeri__GradID__08B54D69");
-            });
-
-            modelBuilder.Entity<MeniKategorija>(entity =>
-            {
-                entity.Property(e => e.MeniKategorijaId).HasColumnName("MeniKategorijaID");
-
-                entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
-
-                entity.Property(e => e.MeniId).HasColumnName("MeniID");
-
-                entity.HasOne(d => d.Kategorija)
-                    .WithMany(p => p.MeniKategorija)
-                    .HasForeignKey(d => d.KategorijaId)
-                    .HasConstraintName("FK__MeniKateg__Kateg__66603565");
-
-                entity.HasOne(d => d.Meni)
-                    .WithMany(p => p.MeniKategorija)
-                    .HasForeignKey(d => d.MeniId)
-                    .HasConstraintName("FK__MeniKateg__MeniI__6754599E");
             });
 
             modelBuilder.Entity<Menu>(entity =>

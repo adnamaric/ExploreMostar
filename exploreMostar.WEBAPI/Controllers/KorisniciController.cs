@@ -19,7 +19,7 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
-        public ActionResult<IList<Korisnici>> Get()
+        public ActionResult<IList<Model.Korisnici>> Get()
         {
             return _service.Get().ToList();
 

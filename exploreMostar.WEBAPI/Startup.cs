@@ -1,4 +1,5 @@
-﻿using exploreMostar.WebAPI.Database;
+﻿using AutoMapper;
+using exploreMostar.WebAPI.Database;
 using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,8 @@ namespace exploreMostar.WEBAPI
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IKorisniciServis, ProizvodServis>();
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddAutoMapper();
+
 
         }
 

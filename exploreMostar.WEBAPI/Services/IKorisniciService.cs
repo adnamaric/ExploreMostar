@@ -8,6 +8,6 @@ namespace exploreMostar.WebAPI.Services
 {
     public interface IKorisniciService
     {
-        IList<Korisnici> Get();
+        IList<Model.Korisnici> Get();
     }
 }
