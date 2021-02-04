@@ -1,4 +1,5 @@
-﻿using exploreMostar.WebAPI.Database;
+﻿using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Database;
 using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ namespace exploreMostar.WebAPI.Controllers
         {
             return _service.Get().ToList();
 
+        }
+
+        [HttpPost]
+        public Model.Korisnici Insert(KorisniciInsertRequest request)
+        {
+            return _service.Insert(request);
         }
     }
 }

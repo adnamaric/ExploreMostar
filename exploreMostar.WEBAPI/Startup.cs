@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using exploreMostar.WebAPI.Database;
+using exploreMostar.WebAPI.Filters;
 using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,13 +30,14 @@ namespace exploreMostar.WEBAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(x=>x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen();
             // statički konekšn string
             var connection = @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IKorisniciServis, ProizvodServis>();
             services.AddScoped<IKorisniciService, KorisniciService>();
+
             services.AddAutoMapper();
 
 

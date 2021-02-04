@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace exploreMostar.WebAPI.Mappers
         public Mapper()
         {
             CreateMap<Database.Korisnici, Model.Korisnici>();
+            CreateMap<Database.Korisnici, KorisniciInsertRequest>().ReverseMap();
+
         }
     }
 }

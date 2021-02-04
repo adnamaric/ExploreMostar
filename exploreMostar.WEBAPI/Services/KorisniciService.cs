@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
+using exploreMostar.WebAPI.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,20 @@ namespace exploreMostar.WebAPI.Services
             //}
             //return result;
             return _mapper.Map<List<Model.Korisnici>>(list);
+        }
+
+        public Model.Korisnici Insert(KorisniciInsertRequest request)
+        {
+            var entity = _mapper.Map<Database.Korisnici>(request);
+            if (request.Password != request.PasswordConfirmation)
+            {
+                throw new UserException("Passwordi se ne poklapaju!");
+            }
+            entity.LozinkaHash = "test";
+            entity.LozinkaSalt = "test";
+            _context.Korisnici.Add(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Korisnici>(entity);
         }
     }
 }
