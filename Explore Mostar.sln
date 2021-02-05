@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.WebAPI", "exploreMostar.WEBAPI\exploreMostar.WebAPI.csproj", "{48137719-7E2D-4246-98CC-41059CB38EC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exploreMostar.WebAPI", "exploreMostar.WEBAPI\exploreMostar.WebAPI.csproj", "{48137719-7E2D-4246-98CC-41059CB38EC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.Model", "exploreMostar.Model\exploreMostar.Model.csproj", "{8DFAA9A0-88BD-45A8-BED3-63027DD0DBCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exploreMostar.Model", "exploreMostar.Model\exploreMostar.Model.csproj", "{8DFAA9A0-88BD-45A8-BED3-63027DD0DBCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.WinUI", "exploreMostar.WinUI\exploreMostar.WinUI.csproj", "{30C232AC-9B11-4430-9839-A47058C466F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8DFAA9A0-88BD-45A8-BED3-63027DD0DBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFAA9A0-88BD-45A8-BED3-63027DD0DBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFAA9A0-88BD-45A8-BED3-63027DD0DBCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30C232AC-9B11-4430-9839-A47058C466F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C232AC-9B11-4430-9839-A47058C466F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C232AC-9B11-4430-9839-A47058C466F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C232AC-9B11-4430-9839-A47058C466F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

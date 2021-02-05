@@ -37,8 +37,11 @@ namespace exploreMostar.WEBAPI
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IKorisniciServis, ProizvodServis>();
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IApartmaniService, ApartmaniService>();
+            services.AddScoped<IAtrakcijeService, AtrakcijeService>();
 
             services.AddAutoMapper();
+           
 
 
         }

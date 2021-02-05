@@ -36,6 +36,7 @@ namespace exploreMostar.WebAPI.Services
             //    });
             //}
             //return result;
+
             return _mapper.Map<List<Model.Korisnici>>(list);
         }
 
