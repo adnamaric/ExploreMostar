@@ -39,6 +39,7 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IApartmaniService, ApartmaniService>();
             services.AddScoped<IAtrakcijeService, AtrakcijeService>();
+            services.AddScoped<IDodatneOpcijeService, DodatneOpcijeService>();
 
             services.AddAutoMapper();
            
