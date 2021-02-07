@@ -42,66 +42,74 @@ namespace exploreMostar.WinUI.Menu
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(120)))), ((int)(((byte)(228)))));
             this.button1.Location = new System.Drawing.Point(28, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 82);
+            this.button1.Size = new System.Drawing.Size(157, 134);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Korisnici";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(15)))));
             this.button2.Location = new System.Drawing.Point(207, 47);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 82);
+            this.button2.Size = new System.Drawing.Size(159, 134);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Text = "Sadržaj";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(42)))), ((int)(((byte)(39)))));
             this.button3.Location = new System.Drawing.Point(384, 47);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 82);
+            this.button3.Size = new System.Drawing.Size(161, 134);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "Analize";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(561, 47);
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(194)))), ((int)(((byte)(0)))));
+            this.button4.Location = new System.Drawing.Point(565, 47);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 82);
+            this.button4.Size = new System.Drawing.Size(175, 134);
             this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Text = "Objave";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(742, 47);
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(128)))), ((int)(((byte)(202)))));
+            this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button5.Location = new System.Drawing.Point(756, 47);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 82);
+            this.button5.Size = new System.Drawing.Size(166, 134);
             this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Text = "Kategorije";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // hScrollBar1
             // 
             this.hScrollBar1.Location = new System.Drawing.Point(-1, 538);
             this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(937, 30);
+            this.hScrollBar1.Size = new System.Drawing.Size(1080, 30);
             this.hScrollBar1.TabIndex = 5;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(936, -2);
+            this.vScrollBar1.Location = new System.Drawing.Point(1101, 9);
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(20, 540);
             this.vScrollBar1.TabIndex = 6;
@@ -153,11 +161,24 @@ namespace exploreMostar.WinUI.Menu
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "groupBox5";
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Black;
+            this.button6.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button6.Location = new System.Drawing.Point(943, 47);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(166, 134);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Recenzije";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(951, 564);
+            this.ClientSize = new System.Drawing.Size(1121, 562);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -192,5 +213,6 @@ namespace exploreMostar.WinUI.Menu
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button6;
     }
 }
