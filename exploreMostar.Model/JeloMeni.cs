@@ -4,7 +4,15 @@ using System.Text;
 
 namespace exploreMostar.Model
 {
-    class JeloMeni
+    public partial class JeloMeni
     {
+
+        public int JeloMeliId { get; set; }
+        public int? JeloId { get; set; }
+        public int? MeniId { get; set; }
+
+        public Jela Jelo { get; set; }
+        public Menu Meni { get; set; }
+    
     }
 }
