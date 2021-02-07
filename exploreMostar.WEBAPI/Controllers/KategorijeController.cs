@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using exploreMostar.WebAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,17 @@ namespace exploreMostar.WebAPI.Controllers
     [ApiController]
     public class KategorijeController : ControllerBase
     {
+        private readonly IKategorijeService _service;
+
+        public KategorijeController(IKategorijeService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public List<Model.Kategorije> Get()
+        {
+            return _service.Get();
+        }
     }
 }

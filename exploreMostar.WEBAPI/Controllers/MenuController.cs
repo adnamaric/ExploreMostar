@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using exploreMostar.WebAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,17 @@ namespace exploreMostar.WebAPI.Controllers
     [ApiController]
     public class MenuController : ControllerBase
     {
+        private readonly IMenuService _service;
+
+        public MenuController(IMenuService service)
+        {
+            _service = service;
+        }
+        [HttpGet]
+        public ActionResult<IList<Model.Menu>> Get()
+        {
+            return _service.Get().ToList();
+
+        }
     }
 }
