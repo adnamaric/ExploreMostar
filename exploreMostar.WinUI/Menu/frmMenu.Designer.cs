@@ -165,7 +165,7 @@ namespace exploreMostar.WinUI.Menu
             // 
             this.button6.BackColor = System.Drawing.Color.Black;
             this.button6.ForeColor = System.Drawing.SystemColors.Menu;
-            this.button6.Location = new System.Drawing.Point(943, 47);
+            this.button6.Location = new System.Drawing.Point(932, 47);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(166, 134);
             this.button6.TabIndex = 12;
@@ -190,6 +190,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenu";
             this.Text = "Explore Mostar";

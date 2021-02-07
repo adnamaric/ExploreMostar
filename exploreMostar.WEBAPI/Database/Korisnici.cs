@@ -9,12 +9,12 @@ namespace exploreMostar.WebAPI.Database
         {
             KorisnikKategorija = new HashSet<KorisnikKategorija>();
         }
-        public int KorisnikId { get; set; }
 
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
+        public int KorisnikId { get; set; }
         public int? GradId { get; set; }
         public int? KorisnickaUlogaId { get; set; }
         public string KorisnickoIme { get; set; }

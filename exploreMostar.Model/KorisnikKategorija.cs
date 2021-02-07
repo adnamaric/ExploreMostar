@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace exploreMostar.WebAPI.Database
+namespace exploreMostar.Model
 {
     public partial class KorisnikKategorija
     {
-        public int? KorisnikId { get; set; }
-        public int? KategorijaId { get; set; }
         public int KorisnikKategorijaId { get; set; }
 
-        public Kategorije Kategorija { get; set; }
-        public Korisnici Korisnik { get; set; }
+        public int? KorisnikId { get; set; }
+        public int? KategorijaId { get; set; }
+
     }
 }

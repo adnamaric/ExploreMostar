@@ -40,7 +40,7 @@ namespace exploreMostar.WebAPI.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-HB2VMU2\\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=True;");
             }
         }
@@ -348,9 +348,7 @@ namespace exploreMostar.WebAPI.Database
 
             modelBuilder.Entity<KorisnikKategorija>(entity =>
             {
-                entity.HasKey(e => e.KorisnikKategorija1);
-
-                entity.Property(e => e.KorisnikKategorija1).HasColumnName("KorisnikKategorija");
+                entity.Property(e => e.KorisnikKategorijaId).HasColumnName("KorisnikKategorijaID");
 
                 entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
 
