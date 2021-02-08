@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl.Http;
 using Flurl;
+using exploreMostar.Model.Requests;
+
 namespace exploreMostar.WinUI.Korisnici
 {
     public partial class frmKorisnici : Form
@@ -32,7 +34,12 @@ namespace exploreMostar.WinUI.Korisnici
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             // var result = "https://localhost:44333/api/Korisnici".GetJsonAsync<IList<Model.Korisnici>>().Result;
-            var result = await _aPIService.Get<IList<Model.Korisnici>>();
+            var search = new KorisniciSearchRequest()
+            {
+                Ime = txtPretraga.Text
+
+            };
+            var result = await _aPIService.Get<IList<Model.Korisnici>>(search);
 
             dgvKorisnici.DataSource = result;
         }

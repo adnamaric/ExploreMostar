@@ -19,23 +19,19 @@ namespace exploreMostar.WebAPI.Services
             _context = context;
             _mapper = mapper;
         }
-        public IList<Model.Korisnici> Get()
+        public IList<Model.Korisnici> Get(KorisniciSearchRequest request)
         {
-            var list= _context.Korisnici.ToList();
-            //List<Model.Korisnici> result = new List<Model.Korisnici>();
-            //foreach(var item in list)
-            //{
-            //    result.Add(new Model.Korisnici()
-            //    {
-            //        Ime = item.Ime,
-            //        KorisnickoIme = item.KorisnickoIme,
-            //        Email = item.Email,
-            //        Prezime = item.Prezime,
-
-
-            //    });
-            //}
-            //return result;
+            var query = _context.Korisnici.AsQueryable();
+           
+            if (!string.IsNullOrWhiteSpace(request?.Ime))
+            {
+                query = query.Where(y => y.Ime.StartsWith(request.Ime));
+            }
+            if (!string.IsNullOrWhiteSpace(request?.Prezime))
+            {
+                query = query.Where(y => y.Prezime.StartsWith(request.Prezime));
+            }
+            var list = query.ToList();
 
             return _mapper.Map<List<Model.Korisnici>>(list);
         }

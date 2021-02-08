@@ -9,7 +9,7 @@ namespace exploreMostar.WebAPI.Services
 {
     public interface IKorisniciService
     {
-        IList<Model.Korisnici> Get();
+        IList<Model.Korisnici> Get(KorisniciSearchRequest request);
         Model.Korisnici Insert(KorisniciInsertRequest request);
 
     }
