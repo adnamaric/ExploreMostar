@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Flurl.Http;
+using Flurl;
 namespace exploreMostar.WinUI.Korisnici
 {
     public partial class frmKorisnici : Form
     {
+        private readonly APIService _aPIService = new APIService ("korisnici");
         public frmKorisnici()
         {
             InitializeComponent();
@@ -25,6 +27,14 @@ namespace exploreMostar.WinUI.Korisnici
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btnPrikazi_Click(object sender, EventArgs e)
+        {
+            // var result = "https://localhost:44333/api/Korisnici".GetJsonAsync<IList<Model.Korisnici>>().Result;
+            var result = await _aPIService.Get<IList<Model.Korisnici>>();
+
+            dgvKorisnici.DataSource = result;
         }
     }
 }
