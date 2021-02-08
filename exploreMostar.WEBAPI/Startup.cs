@@ -51,6 +51,10 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<INightClubsService, NightClubsService>();
             services.AddScoped<IPrevozService, PrevozService>();
             services.AddScoped<IRestoraniService, RestoraniService>();
+            services.AddScoped<IJeloMeniService, JeloMeniService>();
+            services.AddScoped<IKorisnikKategorijaService, KorisnikKategorijaService>();
+            services.AddScoped<IVrstaRestoranaService, VrstaRestoranaService>();
+            services.AddScoped<IVrstaAtrakcijaService, VrstaAtrakcijaService>();
 
             services.AddAutoMapper();
            
