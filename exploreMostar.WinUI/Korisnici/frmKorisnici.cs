@@ -43,5 +43,10 @@ namespace exploreMostar.WinUI.Korisnici
 
             dgvKorisnici.DataSource = result;
         }
+
+        private void dgvKorisnici_DoubleClick(object sender, EventArgs e)
+        {
+            var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
+        }
     }
 }

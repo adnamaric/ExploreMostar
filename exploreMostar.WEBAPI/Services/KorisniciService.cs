@@ -49,5 +49,10 @@ namespace exploreMostar.WebAPI.Services
             _context.SaveChanges();
             return _mapper.Map<Model.Korisnici>(entity);
         }
+        public Model.Korisnici GetById(int id)
+        {
+            var entity = _context.Korisnici.Find(id);
+            return _mapper.Map<Model.Korisnici>(entity);
+        }
     }
 }

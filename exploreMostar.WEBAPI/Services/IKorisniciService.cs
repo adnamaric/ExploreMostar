@@ -10,6 +10,8 @@ namespace exploreMostar.WebAPI.Services
     public interface IKorisniciService
     {
         IList<Model.Korisnici> Get(KorisniciSearchRequest request);
+        Model.Korisnici GetById(int id);
+
         Model.Korisnici Insert(KorisniciInsertRequest request);
 
     }

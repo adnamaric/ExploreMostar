@@ -31,7 +31,11 @@ namespace exploreMostar.WebAPI.Controllers
         {
             return _service.Insert(request);
         }
-       
+        [HttpGet("{id}")]
+        public Model.Korisnici GetById(int id)
+        {
+            return _service.GetById(id);
+        }
 
     }
 }
