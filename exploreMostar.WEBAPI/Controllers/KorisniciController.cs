@@ -20,7 +20,7 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
-        public IList<Model.Korisnici> Get([FromQuery]KorisniciSearchRequest request)
+        public IList<Model.Korisnici> Get([FromQuery] KorisniciSearchRequest request)
         {
             return _service.Get(request);
 
@@ -37,5 +37,10 @@ namespace exploreMostar.WebAPI.Controllers
             return _service.GetById(id);
         }
 
+        [HttpPut("{id}")]
+        public Model.Korisnici Update(int id,KorisniciInsertRequest request)
+        {
+            return _service.Update(id,request);
+        }
     }
 }

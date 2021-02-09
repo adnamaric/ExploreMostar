@@ -14,5 +14,8 @@ namespace exploreMostar.WebAPI.Services
 
         Model.Korisnici Insert(KorisniciInsertRequest request);
 
+        Model.Korisnici Update(int id,KorisniciInsertRequest request);
+
+
     }
 }

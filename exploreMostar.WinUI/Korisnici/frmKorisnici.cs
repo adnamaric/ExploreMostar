@@ -47,6 +47,13 @@ namespace exploreMostar.WinUI.Korisnici
         private void dgvKorisnici_DoubleClick(object sender, EventArgs e)
         {
             var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
+            frmKorisniciDetalji frm = new frmKorisniciDetalji(int.Parse(id.ToString()));
+            frm.Show();
+        }
+
+        private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

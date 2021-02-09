@@ -54,5 +54,22 @@ namespace exploreMostar.WebAPI.Services
             var entity = _context.Korisnici.Find(id);
             return _mapper.Map<Model.Korisnici>(entity);
         }
+
+        public Model.Korisnici Update(int id, KorisniciInsertRequest request)
+        {
+            var entity = _context.Korisnici.Find(id);
+            _mapper.Map(request, entity);
+            if (!string.IsNullOrWhiteSpace(request.Password))
+            {
+                if (request.Password != request.PasswordConfirmation)
+                {
+                    throw new Exception("Passwordi se ne preklapaju!");
+                }
+                //hasing..
+            }
+            _context.SaveChanges();
+            return _mapper.Map<Model.Korisnici>(entity);
+
+        }
     }
 }

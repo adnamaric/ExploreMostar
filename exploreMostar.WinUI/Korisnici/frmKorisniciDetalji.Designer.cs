@@ -29,6 +29,7 @@ namespace exploreMostar.WinUI.Korisnici
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,12 +39,14 @@ namespace exploreMostar.WinUI.Korisnici
             this.label4 = new System.Windows.Forms.Label();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPasswordConfrirm = new System.Windows.Forms.TextBox();
             this.btnSnimi = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIme
@@ -52,7 +55,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(320, 20);
             this.txtIme.TabIndex = 0;
-            this.txtIme.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtPrezime
             // 
@@ -69,7 +71,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Ime";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -79,7 +80,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Prezime";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -105,7 +105,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Telefon";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtTelefon
             // 
@@ -113,23 +112,22 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(320, 20);
             this.txtTelefon.TabIndex = 7;
-            this.txtTelefon.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(91, 261);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Telefon";
+            this.label5.Text = "Korisnicko ime";
             // 
-            // textBox1
+            // txtKorisnickoIme
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 277);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(320, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(91, 277);
+            this.txtKorisnickoIme.Name = "txtKorisnickoIme";
+            this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
+            this.txtKorisnickoIme.TabIndex = 9;
             // 
             // label6
             // 
@@ -171,6 +169,11 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnSnimi.TabIndex = 15;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = true;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmKorisniciDetalji
             // 
@@ -183,7 +186,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtKorisnickoIme);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.label3);
@@ -194,6 +197,8 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtIme);
             this.Name = "frmKorisniciDetalji";
             this.Text = "frmKorisniciDetalji";
+            this.Load += new System.EventHandler(this.frmKorisniciDetalji_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,11 +215,12 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtKorisnickoIme;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPasswordConfrirm;
         private System.Windows.Forms.Button btnSnimi;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
