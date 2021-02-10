@@ -47,6 +47,14 @@ namespace exploreMostar.WinUI.Korisnici
                     await _service.Insert<Model.Korisnici>(request);
 
                 }
+                MessageBox.Show("Operacija uspješna!");
+                txtIme.Clear();
+                txtPrezime.Clear();
+                txtEmail.Clear();
+                txtTelefon.Clear();
+                txtPassword.Clear();
+                txtPasswordConfrirm.Clear();
+                txtKorisnickoIme.Clear();
             }
            
         }
@@ -68,7 +76,7 @@ namespace exploreMostar.WinUI.Korisnici
         {
             if (string.IsNullOrWhiteSpace(txtIme.Text))
             {
-                errorProvider.SetError(txtIme, "Obavezno polje");
+                errorProvider.SetError(txtIme, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
                 lbObaveznoPolje.Visible = true;
             }
@@ -84,7 +92,7 @@ namespace exploreMostar.WinUI.Korisnici
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                errorProvider.SetError(txtEmail, "Obavezno polje");
+                errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
             }
             else
@@ -96,7 +104,7 @@ namespace exploreMostar.WinUI.Korisnici
         {
             if (string.IsNullOrWhiteSpace(txtTelefon.Text))
             {
-                errorProvider.SetError(txtTelefon, "Obavezno polje");
+                errorProvider.SetError(txtTelefon, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
             }
             else
@@ -108,7 +116,7 @@ namespace exploreMostar.WinUI.Korisnici
         {
             if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length<=3)
             {
-                errorProvider.SetError(txtKorisnickoIme, "Obavezno polje");
+                errorProvider.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
             }
             else
@@ -122,7 +130,7 @@ namespace exploreMostar.WinUI.Korisnici
         {
             if (string.IsNullOrWhiteSpace(txtPrezime.Text))
             {
-                errorProvider.SetError(txtPrezime, "Obavezno polje");
+                errorProvider.SetError(txtPrezime, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
                 lbObaveznoPrezime.Visible = true;
             }
@@ -134,6 +142,9 @@ namespace exploreMostar.WinUI.Korisnici
             }
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -135,7 +135,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
             this.txtKorisnickoIme.TabIndex = 9;
             this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
-
             // 
             // label6
             // 
