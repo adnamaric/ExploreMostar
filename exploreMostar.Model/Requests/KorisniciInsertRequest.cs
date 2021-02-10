@@ -20,5 +20,6 @@ namespace exploreMostar.Model.Requests
         public string KorisnickoIme { get; set; }
         public string Password { get; set; }
         public string PasswordConfirmation{ get; set; }
+        public int? GradId { get; set; }
     }
 }

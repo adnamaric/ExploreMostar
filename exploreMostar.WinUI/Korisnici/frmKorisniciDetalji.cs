@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+//using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,17 +15,20 @@ namespace exploreMostar.WinUI.Korisnici
     public partial class frmKorisniciDetalji : Form
     {
         private readonly APIService _service = new APIService("korisnici");
+        private readonly APIService _gradovi = new APIService("gradovi");
+
         private int? _id = null;
         public frmKorisniciDetalji(int? korisnikId = null)
         {
             InitializeComponent();
             _id = korisnikId;
-            
+
         }
 
-       
+
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
+            var nesto = cmbGradovi.SelectedIndex;
             if (this.ValidateChildren())
             {
                 var request = new KorisniciInsertRequest
@@ -35,7 +39,8 @@ namespace exploreMostar.WinUI.Korisnici
                     Telefon = txtTelefon.Text,
                     Password = txtPassword.Text,
                     PasswordConfirmation = txtPasswordConfrirm.Text,
-                    KorisnickoIme = txtKorisnickoIme.Text
+                    KorisnickoIme = txtKorisnickoIme.Text,
+                    GradId = cmbGradovi.SelectedIndex
                 };
 
                 if (_id.HasValue)
@@ -56,11 +61,29 @@ namespace exploreMostar.WinUI.Korisnici
                 txtPasswordConfrirm.Clear();
                 txtKorisnickoIme.Clear();
             }
-           
-        }
 
+        }
+        private async Task LoadGradovi()
+        {
+            var result = await _gradovi.Get<List<Model.Gradovi>>(null);
+            cmbGradovi.DataSource = result;
+            cmbGradovi.DisplayMember = "Naziv";
+            cmbGradovi.ValueMember = "GradId";
+        }
         private async void frmKorisniciDetalji_Load(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    await LoadGradovi();
+            //}
+            //catch(AggregateException err)
+            //{
+            //    foreach (var errInner in err.InnerExceptions)
+            //    {
+            //        Debug.WriteLine(errInner); //this will call ToString() on the inner execption and get you message, stacktrace and you could perhaps drill down further into the inner exception of it if necessary 
+            //    }
+            await LoadGradovi();
+            //}
             if (_id.HasValue)
             {
                 var korisnik = await _service.GetById<Model.Korisnici>(_id);
@@ -84,7 +107,7 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 lbObaveznoPolje.Visible = false;
                 errorProvider.SetError(txtIme, null);
-                
+
             }
         }
 
@@ -114,7 +137,7 @@ namespace exploreMostar.WinUI.Korisnici
         }
         private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length<=3)
+            if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length <= 3)
             {
                 errorProvider.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
@@ -143,6 +166,12 @@ namespace exploreMostar.WinUI.Korisnici
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+       
+
+        private void cmbGradovi_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

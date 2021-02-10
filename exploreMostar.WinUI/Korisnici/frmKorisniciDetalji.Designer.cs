@@ -48,6 +48,8 @@ namespace exploreMostar.WinUI.Korisnici
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lbObaveznoPolje = new System.Windows.Forms.Label();
             this.lbObaveznoPrezime = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbGradovi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +107,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(88, 199);
+            this.label4.Location = new System.Drawing.Point(85, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 8;
@@ -113,7 +115,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(88, 215);
+            this.txtTelefon.Location = new System.Drawing.Point(88, 205);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(320, 20);
             this.txtTelefon.TabIndex = 7;
@@ -122,7 +124,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(91, 261);
+            this.label5.Location = new System.Drawing.Point(85, 280);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 10;
@@ -130,7 +132,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtKorisnickoIme
             // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(91, 277);
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(88, 296);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
             this.txtKorisnickoIme.TabIndex = 9;
@@ -139,7 +141,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 308);
+            this.label6.Location = new System.Drawing.Point(85, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 12;
@@ -147,7 +149,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(91, 324);
+            this.txtPassword.Location = new System.Drawing.Point(88, 354);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 11;
@@ -155,7 +157,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(276, 308);
+            this.label7.Location = new System.Drawing.Point(273, 331);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 13);
             this.label7.TabIndex = 14;
@@ -163,14 +165,14 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPasswordConfrirm
             // 
-            this.txtPasswordConfrirm.Location = new System.Drawing.Point(276, 324);
+            this.txtPasswordConfrirm.Location = new System.Drawing.Point(276, 354);
             this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
             this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
             this.txtPasswordConfrirm.TabIndex = 13;
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(372, 388);
+            this.btnSnimi.Location = new System.Drawing.Point(381, 401);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(112, 44);
             this.btnSnimi.TabIndex = 15;
@@ -204,11 +206,31 @@ namespace exploreMostar.WinUI.Korisnici
             this.lbObaveznoPrezime.Text = "Obavezno polje";
             this.lbObaveznoPrezime.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(85, 238);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Grad";
+            // 
+            // cmbGradovi
+            // 
+            this.cmbGradovi.FormattingEnabled = true;
+            this.cmbGradovi.Location = new System.Drawing.Point(88, 254);
+            this.cmbGradovi.Name = "cmbGradovi";
+            this.cmbGradovi.Size = new System.Drawing.Size(320, 21);
+            this.cmbGradovi.TabIndex = 20;
+            this.cmbGradovi.SelectedIndexChanged += new System.EventHandler(this.cmbGradovi_SelectedIndexChanged);
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 457);
+            this.ClientSize = new System.Drawing.Size(579, 538);
+            this.Controls.Add(this.cmbGradovi);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lbObaveznoPrezime);
             this.Controls.Add(this.lbObaveznoPolje);
             this.Controls.Add(this.btnSnimi);
@@ -254,5 +276,7 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label lbObaveznoPolje;
         private System.Windows.Forms.Label lbObaveznoPrezime;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbGradovi;
     }
 }
