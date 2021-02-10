@@ -61,6 +61,26 @@ namespace exploreMostar.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Group_256 {
+            get {
+                object obj = ResourceManager.GetObject("User-Group-256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Group_2561 {
+            get {
+                object obj = ResourceManager.GetObject("User-Group-2561", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mandatorno polje.
         /// </summary>
         public static string Validation_RequiredField {

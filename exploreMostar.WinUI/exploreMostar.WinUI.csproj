@@ -165,5 +165,11 @@
       <Name>exploreMostar.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Group-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Group-256.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

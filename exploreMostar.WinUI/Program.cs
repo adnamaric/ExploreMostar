@@ -1,4 +1,5 @@
 ﻿using exploreMostar.WinUI.Korisnici;
+using exploreMostar.WinUI.Menu;
 //using exploreMostar.WinUI.Menu;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace exploreMostar.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIndex());
+            Application.Run(new frmMenu());
         }
     }
 }
