@@ -222,6 +222,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.cmbGradovi.Name = "cmbGradovi";
             this.cmbGradovi.Size = new System.Drawing.Size(320, 21);
             this.cmbGradovi.TabIndex = 20;
+            this.cmbGradovi.Text = "Odaberite grad";
             this.cmbGradovi.SelectedIndexChanged += new System.EventHandler(this.cmbGradovi_SelectedIndexChanged);
             // 
             // frmKorisniciDetalji

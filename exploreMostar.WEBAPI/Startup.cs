@@ -40,7 +40,7 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<IApartmaniService, ApartmaniService>();
             services.AddScoped<IAtrakcijeService, AtrakcijeService>();
             services.AddScoped<IDodatneOpcijeService, DodatneOpcijeService>();
-            services.AddScoped<IDrzaveService, DrzaveService>();
+            services.AddScoped<IService<Model.KorisnickaUloga, object>, BaseService<Model.KorisnickaUloga,object,KorisnickaUloga>>();
             services.AddScoped<IGradoviService, GradoviService>();
             services.AddScoped<IHoteliService, HoteliService>();
             services.AddScoped<IJelaService, JelaService>();

@@ -28,7 +28,7 @@ namespace exploreMostar.WinUI.Korisnici
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var nesto = cmbGradovi.SelectedIndex;
+           
             if (this.ValidateChildren())
             {
                 var request = new KorisniciInsertRequest
@@ -66,12 +66,18 @@ namespace exploreMostar.WinUI.Korisnici
         private async Task LoadGradovi()
         {
             var result = await _gradovi.Get<List<Model.Gradovi>>(null);
+            result.Insert(0, new Model.Gradovi() {Naziv="Odaberite grad", GradId=-1 });
+            
+            
             cmbGradovi.DataSource = result;
             cmbGradovi.DisplayMember = "Naziv";
             cmbGradovi.ValueMember = "GradId";
+            
         }
+     
         private async void frmKorisniciDetalji_Load(object sender, EventArgs e)
         {
+            cmbGradovi.Text = "Odaberite grad";
             //try
             //{
             //    await LoadGradovi();
@@ -91,7 +97,7 @@ namespace exploreMostar.WinUI.Korisnici
                 txtPrezime.Text = korisnik.Prezime;
                 txtEmail.Text = korisnik.Email;
                 txtTelefon.Text = korisnik.Telefon;
-                
+                cmbGradovi.SelectedIndex = (int)korisnik.GradId;
             }
         }
 

@@ -19,12 +19,11 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
-        public List<T> Get(TSearch search)
+        public List<T> Get([FromQuery] TSearch search)
         {
             return _service.Get(search);
         }
         [HttpGet("{id}")]
-
         public T GetById(int id)
         {
             return _service.GetById(id);
