@@ -12,47 +12,31 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmMenu : Form
     {
+        private readonly APIService _korisnici = new APIService("korisnici");
+
         public frmMenu()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void frmMenu_Load(object sender, EventArgs e)
+        private async Task LoadKorisnici ()
         {
-
+            var result= await _korisnici.Get<List<Model.Korisnici>>(null);
+            var number = result.Count();
+            button4.Text= number.ToString();
+            button4.Text += " korisnika";
         }
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        private async void frmMenu_Load(object sender, EventArgs e)
         {
-
+            await LoadKorisnici();
         }
 
-        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
