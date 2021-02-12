@@ -106,6 +106,18 @@
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnici\frmListaKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmListaKorisnika.Designer.cs">
+      <DependentUpon>frmListaKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\frmKategorijeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmKategorijeMenu.Designer.cs">
+      <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\frmKorisniciMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,11 +130,11 @@
     <Compile Include="Menu\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\frmSadrzaj.cs">
+    <Compile Include="Menu\frmSadrzajMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\frmSadrzaj.Designer.cs">
-      <DependentUpon>frmSadrzaj.cs</DependentUpon>
+    <Compile Include="Menu\frmSadrzajMenu.Designer.cs">
+      <DependentUpon>frmSadrzajMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\try.cs">
       <SubType>Form</SubType>
@@ -141,14 +153,20 @@
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmListaKorisnika.resx">
+      <DependentUpon>frmListaKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmKategorijeMenu.resx">
+      <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmKorisniciMenu.resx">
       <DependentUpon>frmKorisniciMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\frmSadrzaj.resx">
-      <DependentUpon>frmSadrzaj.cs</DependentUpon>
+    <EmbeddedResource Include="Menu\frmSadrzajMenu.resx">
+      <DependentUpon>frmSadrzajMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\try.resx">
       <DependentUpon>try.cs</DependentUpon>

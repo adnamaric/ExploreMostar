@@ -129,6 +129,7 @@ namespace exploreMostar.WinUI.Menu
             this.button8.TabIndex = 26;
             this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button1
             // 

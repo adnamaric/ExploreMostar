@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Korisnici;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,7 +47,7 @@ namespace exploreMostar.WinUI.Menu
 
         private void button5_MouseEnter(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Black;
+            button5.BackColor = Color.Red;
             button5.ForeColor = Color.White;
         }
 
@@ -112,7 +113,33 @@ namespace exploreMostar.WinUI.Menu
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmKorisnici frm = new frmKorisnici();
+            frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

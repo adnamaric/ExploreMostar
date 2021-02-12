@@ -31,9 +31,9 @@ namespace exploreMostar.WinUI.Korisnici
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKorisnici));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvKorisnici = new System.Windows.Forms.DataGridView();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.dgvKorisnici = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -48,18 +48,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Korisnici";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // dgvKorisnici
-            // 
-            this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
-            this.dgvKorisnici.Name = "dgvKorisnici";
-            this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKorisnici.Size = new System.Drawing.Size(776, 366);
-            this.dgvKorisnici.TabIndex = 0;
-            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
-            this.dgvKorisnici.DoubleClick += new System.EventHandler(this.dgvKorisnici_DoubleClick);
             // 
             // btnPrikazi
             // 
@@ -77,6 +65,19 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtPretraga.Name = "txtPretraga";
             this.txtPretraga.Size = new System.Drawing.Size(533, 20);
             this.txtPretraga.TabIndex = 2;
+            // 
+            // dgvKorisnici
+            // 
+            this.dgvKorisnici.AllowUserToOrderColumns = true;
+            this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
+            this.dgvKorisnici.Name = "dgvKorisnici";
+            this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKorisnici.Size = new System.Drawing.Size(776, 366);
+            this.dgvKorisnici.TabIndex = 0;
+            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
+            this.dgvKorisnici.DoubleClick += new System.EventHandler(this.dgvKorisnici_DoubleClick);
             // 
             // frmKorisnici
             // 
@@ -100,8 +101,8 @@ namespace exploreMostar.WinUI.Korisnici
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvKorisnici;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.DataGridView dgvKorisnici;
     }
 }

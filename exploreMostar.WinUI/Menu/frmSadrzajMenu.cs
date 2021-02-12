@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace exploreMostar.WinUI.Menu
 {
-    public partial class frmSadrzaj : Form
+    public partial class frmSadrzajMenu : Form
     {
-        public frmSadrzaj()
+        public frmSadrzajMenu()
         {
             InitializeComponent();
         }

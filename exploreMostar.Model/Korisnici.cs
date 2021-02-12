@@ -13,6 +13,8 @@ namespace exploreMostar.Model
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
         public int? GradId { get; set; }
+        public string Grad { get; set; }
+
 
     }
 }

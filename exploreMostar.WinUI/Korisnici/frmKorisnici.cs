@@ -16,6 +16,8 @@ namespace exploreMostar.WinUI.Korisnici
     public partial class frmKorisnici : Form
     {
         private readonly APIService _aPIService = new APIService ("korisnici");
+        private readonly APIService _gradovi = new APIService("gradovi");
+
         public frmKorisnici()
         {
             InitializeComponent();
@@ -40,15 +42,27 @@ namespace exploreMostar.WinUI.Korisnici
 
             };
             var result = await _aPIService.Get<IList<Model.Korisnici>>(search);
+            var gradovi = await _gradovi.Get<IList<Model.Gradovi>>(null);
 
+            foreach (var korisnik in result)
+            {
+                korisnik.Grad= gradovi.Where(y => y.GradId == korisnik.GradId).Select(y => y.Naziv).FirstOrDefault();
+                if(korisnik.Grad==null)
+                {
+                    korisnik.Grad = "/";
+                }
+            }
+           
+       
             dgvKorisnici.DataSource = result;
+            
         }
 
         private void dgvKorisnici_DoubleClick(object sender, EventArgs e)
         {
-            var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
-            frmKorisniciDetalji frm = new frmKorisniciDetalji(int.Parse(id.ToString()));
-            frm.Show();
+            //var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
+            //frmKorisniciDetalji frm = new frmKorisniciDetalji(int.Parse(id.ToString()));
+            //frm.Show();
         }
 
         private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)

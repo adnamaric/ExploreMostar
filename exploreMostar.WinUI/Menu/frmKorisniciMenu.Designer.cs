@@ -51,6 +51,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.TabIndex = 0;
             this.button1.Text = "Lista korisnika";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
@@ -67,6 +68,7 @@ namespace exploreMostar.WinUI.Menu
             this.button2.TabIndex = 1;
             this.button2.Text = "Dodavanje korisnika";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
             this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
@@ -83,6 +85,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3.TabIndex = 2;
             this.button3.Text = "Modificiranje korisnika";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
             this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
@@ -99,6 +102,7 @@ namespace exploreMostar.WinUI.Menu
             this.button4.TabIndex = 3;
             this.button4.Text = "Brisanje korisnika";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             this.button4.MouseEnter += new System.EventHandler(this.button4_MouseEnter);
             this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
             // 
@@ -115,6 +119,7 @@ namespace exploreMostar.WinUI.Menu
             this.button5.TabIndex = 4;
             this.button5.Text = "Oduzimanje permisija";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             this.button5.Leave += new System.EventHandler(this.button5_Leave);
             this.button5.MouseEnter += new System.EventHandler(this.button5_MouseEnter);
             this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
