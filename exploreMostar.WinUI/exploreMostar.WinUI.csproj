@@ -108,12 +108,6 @@
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Korisnici\frmListaKorisnika.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Korisnici\frmListaKorisnika.Designer.cs">
-      <DependentUpon>frmListaKorisnika.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menu\frmKategorijeMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,9 +148,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Korisnici\frmListaKorisnika.resx">
-      <DependentUpon>frmListaKorisnika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmKategorijeMenu.resx">
       <DependentUpon>frmKategorijeMenu.cs</DependentUpon>

@@ -139,7 +139,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            frmKorisniciDetalji frm = new frmKorisniciDetalji();
+            frm.Show();
         }
     }
 }

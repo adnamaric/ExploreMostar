@@ -25,6 +25,7 @@ namespace exploreMostar.WinUI.Korisnici
 
         private async void frmKorisnici_Load(object sender, EventArgs e)
         {
+
             await LoadGradovi();
             cmbSort.Items.Add("SortByName");
             cmbSort.Items.Add("SortByLastName");
@@ -58,11 +59,11 @@ namespace exploreMostar.WinUI.Korisnici
                 result = result.Where(y => y.Prezime == txtPrezimePretraga.Text).ToList();
 
             }
-            if(cmbSort.SelectedIndex== 0)
+            if (cmbSort.SelectedIndex == 0)
             {
                 result = result.OrderBy(y => y.Ime).ToList();
             }
-            if (cmbSort.SelectedIndex ==1)
+            if (cmbSort.SelectedIndex == 1)
             {
                 result = result.OrderBy(y => y.Prezime).ToList();
             }
@@ -72,22 +73,25 @@ namespace exploreMostar.WinUI.Korisnici
             }
             if (cmbGradovi.SelectedIndex != 0)
             {
-               result=result.Where(y => y.GradId == cmbGradovi.SelectedIndex).ToList();
+                result = result.Where(y => y.GradId == cmbGradovi.SelectedIndex).ToList();
             }
-            else if(cmbGradovi.SelectedIndex == 0 )
+            else if (cmbGradovi.SelectedIndex == 0)
             {
                 result = result.ToList();
             }
+            var temp = 0;
             foreach (var korisnik in result)
             {
-                korisnik.Grad= gradovi.Where(y => y.GradId == korisnik.GradId).Select(y => y.Naziv).FirstOrDefault();
-                if(korisnik.Grad==null)
+                korisnik.Rbr = ++temp;
+                korisnik.Grad = gradovi.Where(y => y.GradId == korisnik.GradId).Select(y => y.Naziv).FirstOrDefault();
+                if (korisnik.Grad == null)
                 {
                     korisnik.Grad = "/";
                 }
             }
-           
-       
+            
+            dgvKorisnici.AutoGenerateColumns = false;
+            
             dgvKorisnici.DataSource = result;
             
         }

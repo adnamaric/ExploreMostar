@@ -43,6 +43,12 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.brojK = new System.Windows.Forms.Label();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -67,8 +73,16 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // dgvKorisnici
             // 
+            this.dgvKorisnici.AllowDrop = true;
             this.dgvKorisnici.AllowUserToOrderColumns = true;
             this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RBr,
+            this.Ime,
+            this.Prezime,
+            this.Email,
+            this.Username,
+            this.Grad});
             this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
             this.dgvKorisnici.Name = "dgvKorisnici";
@@ -166,6 +180,42 @@ namespace exploreMostar.WinUI.Korisnici
             this.brojK.Size = new System.Drawing.Size(0, 13);
             this.brojK.TabIndex = 11;
             // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "RedniBroj";
+            this.RBr.Name = "RBr";
+            // 
+            // Ime
+            // 
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            // 
+            // Prezime
+            // 
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            // 
+            // Grad
+            // 
+            this.Grad.DataPropertyName = "Grad";
+            this.Grad.HeaderText = "Grad";
+            this.Grad.Name = "Grad";
+            // 
             // frmKorisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +259,11 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label brojK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
     }
 }
