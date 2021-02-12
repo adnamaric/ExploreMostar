@@ -23,8 +23,14 @@ namespace exploreMostar.WinUI.Korisnici
             InitializeComponent();
         }
 
-        private void frmKorisnici_Load(object sender, EventArgs e)
+        private async void frmKorisnici_Load(object sender, EventArgs e)
         {
+            await LoadGradovi();
+            cmbSort.Items.Add("SortByName");
+            cmbSort.Items.Add("SortByLastName");
+            cmbSort.Items.Add("SortByUser");
+            var result = await _aPIService.Get<IList<Model.Korisnici>>(null);
+            brojK.Text = result.Count().ToString();
 
         }
 
@@ -43,7 +49,35 @@ namespace exploreMostar.WinUI.Korisnici
             };
             var result = await _aPIService.Get<IList<Model.Korisnici>>(search);
             var gradovi = await _gradovi.Get<IList<Model.Gradovi>>(null);
+            if (search.Ime != "")
+            {
+                result = result.Where(y => y.Ime == search.Ime).ToList();
+            }
+            if (txtPrezimePretraga.Text != "")
+            {
+                result = result.Where(y => y.Prezime == txtPrezimePretraga.Text).ToList();
 
+            }
+            if(cmbSort.SelectedIndex== 0)
+            {
+                result = result.OrderBy(y => y.Ime).ToList();
+            }
+            if (cmbSort.SelectedIndex ==1)
+            {
+                result = result.OrderBy(y => y.Prezime).ToList();
+            }
+            if (cmbSort.SelectedIndex == 2)
+            {
+                result = result.OrderBy(y => y.KorisnickoIme).ToList();
+            }
+            if (cmbGradovi.SelectedIndex != 0)
+            {
+               result=result.Where(y => y.GradId == cmbGradovi.SelectedIndex).ToList();
+            }
+            else if(cmbGradovi.SelectedIndex == 0 )
+            {
+                result = result.ToList();
+            }
             foreach (var korisnik in result)
             {
                 korisnik.Grad= gradovi.Where(y => y.GradId == korisnik.GradId).Select(y => y.Naziv).FirstOrDefault();
@@ -69,5 +103,22 @@ namespace exploreMostar.WinUI.Korisnici
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private async Task LoadGradovi()
+        {
+            var result = await _gradovi.Get<List<Model.Gradovi>>(null);
+            result.Insert(0, new Model.Gradovi() { Naziv = "Odaberite grad", GradId = -1 });
+
+
+            cmbGradovi.DataSource = result;
+            cmbGradovi.DisplayMember = "Naziv";
+            cmbGradovi.ValueMember = "GradId";
+
+        }
+
     }
 }

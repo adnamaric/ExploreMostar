@@ -31,9 +31,18 @@ namespace exploreMostar.WinUI.Korisnici
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKorisnici));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnPrikazi = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
+            this.cmbGradovi = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Sortiraj = new System.Windows.Forms.Label();
+            this.cmbSort = new System.Windows.Forms.ComboBox();
+            this.txtPrezimePretraga = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnPrikazi = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.brojK = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -41,29 +50,19 @@ namespace exploreMostar.WinUI.Korisnici
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKorisnici);
-            this.groupBox1.Location = new System.Drawing.Point(12, 57);
+            this.groupBox1.Location = new System.Drawing.Point(12, 124);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 385);
+            this.groupBox1.Size = new System.Drawing.Size(844, 423);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Korisnici";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // btnPrikazi
-            // 
-            this.btnPrikazi.Location = new System.Drawing.Point(673, 28);
-            this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(115, 39);
-            this.btnPrikazi.TabIndex = 1;
-            this.btnPrikazi.Text = "Prikaži";
-            this.btnPrikazi.UseVisualStyleBackColor = true;
-            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
-            // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(15, 31);
+            this.txtPretraga.Location = new System.Drawing.Point(128, 41);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(533, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(203, 20);
             this.txtPretraga.TabIndex = 2;
             // 
             // dgvKorisnici
@@ -74,18 +73,115 @@ namespace exploreMostar.WinUI.Korisnici
             this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKorisnici.Size = new System.Drawing.Size(776, 366);
+            this.dgvKorisnici.Size = new System.Drawing.Size(838, 404);
             this.dgvKorisnici.TabIndex = 0;
             this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
             this.dgvKorisnici.DoubleClick += new System.EventHandler(this.dgvKorisnici_DoubleClick);
+            // 
+            // cmbGradovi
+            // 
+            this.cmbGradovi.FormattingEnabled = true;
+            this.cmbGradovi.Location = new System.Drawing.Point(496, 38);
+            this.cmbGradovi.Name = "cmbGradovi";
+            this.cmbGradovi.Size = new System.Drawing.Size(148, 21);
+            this.cmbGradovi.TabIndex = 3;
+            this.cmbGradovi.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Pretraga po imenu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(398, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Pretraga po gradu";
+            // 
+            // Sortiraj
+            // 
+            this.Sortiraj.AutoSize = true;
+            this.Sortiraj.Location = new System.Drawing.Point(398, 86);
+            this.Sortiraj.Name = "Sortiraj";
+            this.Sortiraj.Size = new System.Drawing.Size(51, 13);
+            this.Sortiraj.TabIndex = 6;
+            this.Sortiraj.Text = "Sortiranje";
+            // 
+            // cmbSort
+            // 
+            this.cmbSort.FormattingEnabled = true;
+            this.cmbSort.Location = new System.Drawing.Point(496, 86);
+            this.cmbSort.Name = "cmbSort";
+            this.cmbSort.Size = new System.Drawing.Size(148, 21);
+            this.cmbSort.TabIndex = 7;
+            // 
+            // txtPrezimePretraga
+            // 
+            this.txtPrezimePretraga.Location = new System.Drawing.Point(128, 83);
+            this.txtPrezimePretraga.Name = "txtPrezimePretraga";
+            this.txtPrezimePretraga.Size = new System.Drawing.Size(203, 20);
+            this.txtPrezimePretraga.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Pretraga po prezimenu";
+            // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPrikazi.Location = new System.Drawing.Point(709, 38);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(112, 50);
+            this.btnPrikazi.TabIndex = 1;
+            this.btnPrikazi.Text = "Prikaži";
+            this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Ukupno korisnika:";
+            // 
+            // brojK
+            // 
+            this.brojK.AutoSize = true;
+            this.brojK.Location = new System.Drawing.Point(111, 9);
+            this.brojK.Name = "brojK";
+            this.brojK.Size = new System.Drawing.Size(0, 13);
+            this.brojK.TabIndex = 11;
             // 
             // frmKorisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 454);
+            this.ClientSize = new System.Drawing.Size(868, 550);
+            this.Controls.Add(this.brojK);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtPrezimePretraga);
+            this.Controls.Add(this.cmbSort);
+            this.Controls.Add(this.Sortiraj);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
+            this.Controls.Add(this.cmbGradovi);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKorisnici";
@@ -101,8 +197,17 @@ namespace exploreMostar.WinUI.Korisnici
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.DataGridView dgvKorisnici;
+        private System.Windows.Forms.ComboBox cmbGradovi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Sortiraj;
+        private System.Windows.Forms.ComboBox cmbSort;
+        private System.Windows.Forms.TextBox txtPrezimePretraga;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPrikazi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label brojK;
     }
 }
