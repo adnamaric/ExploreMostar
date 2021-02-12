@@ -39,7 +39,9 @@ namespace exploreMostar.WinUI.Menu
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            frmKorisniciMenu frm = new frmKorisniciMenu();
+            frm.Show();
+          
         }
 
         private void button7_Click(object sender, EventArgs e)

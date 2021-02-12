@@ -18,7 +18,7 @@ namespace exploreMostar.WebAPI.Services
             _mapper = mapper;
         }
 
-        public List<TModel> Get(TSearch search)
+        public virtual List<TModel> Get(TSearch search)
         {
            var lista = _context.Set<TDatabase>().ToList();
 
@@ -26,7 +26,7 @@ namespace exploreMostar.WebAPI.Services
             
         }
 
-        public TModel GetById(int id)
+        public virtual TModel GetById(int id)
         {
             var entity = _context.Set<TDatabase>().Find(id);
             return _mapper.Map<TModel>(entity);
