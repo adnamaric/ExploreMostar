@@ -108,10 +108,34 @@
     <Compile Include="Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\frmKategorijeMenu.cs">
+    <Compile Include="Menu\SadrzajSubMenu\frmApartmaniMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\frmKategorijeMenu.Designer.cs">
+    <Compile Include="Menu\SadrzajSubMenu\frmApartmaniMenu.Designer.cs">
+      <DependentUpon>frmApartmaniMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmAtrakcijeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmAtrakcijeMenu.Designer.cs">
+      <DependentUpon>frmAtrakcijeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmHoteliMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmHoteliMenu.Designer.cs">
+      <DependentUpon>frmHoteliMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmKaficiMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmKaficiMenu.Designer.cs">
+      <DependentUpon>frmKaficiMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmKategorijeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmKategorijeMenu.Designer.cs">
       <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmKorisniciMenu.cs">
@@ -125,6 +149,24 @@
     </Compile>
     <Compile Include="Menu\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmNocniKluboviMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmNocniKluboviMenu.Designer.cs">
+      <DependentUpon>frmNocniKluboviMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmPrevozMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmPrevozMenu.Designer.cs">
+      <DependentUpon>frmPrevozMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmRestoraniMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmRestoraniMenu.Designer.cs">
+      <DependentUpon>frmRestoraniMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmSadrzajMenu.cs">
       <SubType>Form</SubType>
@@ -149,7 +191,19 @@
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\frmKategorijeMenu.resx">
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmApartmaniMenu.resx">
+      <DependentUpon>frmApartmaniMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmAtrakcijeMenu.resx">
+      <DependentUpon>frmAtrakcijeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmHoteliMenu.resx">
+      <DependentUpon>frmHoteliMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmKaficiMenu.resx">
+      <DependentUpon>frmKaficiMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmKategorijeMenu.resx">
       <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmKorisniciMenu.resx">
@@ -157,6 +211,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmNocniKluboviMenu.resx">
+      <DependentUpon>frmNocniKluboviMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmPrevozMenu.resx">
+      <DependentUpon>frmPrevozMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmRestoraniMenu.resx">
+      <DependentUpon>frmRestoraniMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmSadrzajMenu.resx">
       <DependentUpon>frmSadrzajMenu.cs</DependentUpon>
@@ -211,6 +274,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\User-Group-256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sadržaj\Apartmani\" />
+    <Folder Include="Sadržaj\Atrakcije\" />
+    <Folder Include="Sadržaj\Hoteli\" />
+    <Folder Include="Sadržaj\Kafići\" />
+    <Folder Include="Sadržaj\Noćni klubovi\" />
+    <Folder Include="Sadržaj\Ostalo\" />
+    <Folder Include="Sadržaj\Prevoz\" />
+    <Folder Include="Sadržaj\Restorani\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

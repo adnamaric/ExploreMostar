@@ -124,5 +124,9 @@ namespace exploreMostar.WinUI.Korisnici
 
         }
 
+        private void txtPretraga_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

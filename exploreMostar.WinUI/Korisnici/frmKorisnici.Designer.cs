@@ -70,6 +70,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtPretraga.Name = "txtPretraga";
             this.txtPretraga.Size = new System.Drawing.Size(203, 20);
             this.txtPretraga.TabIndex = 2;
+            this.txtPretraga.TextChanged += new System.EventHandler(this.txtPretraga_TextChanged);
             // 
             // dgvKorisnici
             // 
@@ -166,7 +167,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Location = new System.Drawing.Point(9, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 13);
             this.label4.TabIndex = 10;
@@ -235,6 +236,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKorisnici";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmKorisnici";
             this.Load += new System.EventHandler(this.frmKorisnici_Load);
             this.groupBox1.ResumeLayout(false);

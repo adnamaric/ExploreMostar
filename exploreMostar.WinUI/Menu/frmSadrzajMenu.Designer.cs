@@ -74,6 +74,7 @@ namespace exploreMostar.WinUI.Menu
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // button7
             // 
@@ -109,6 +110,7 @@ namespace exploreMostar.WinUI.Menu
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button1
             // 
@@ -126,6 +128,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -161,6 +164,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
@@ -179,7 +183,7 @@ namespace exploreMostar.WinUI.Menu
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // frmSadrzaj
+            // frmSadrzajMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +196,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
-            this.Name = "frmSadrzaj";
+            this.Name = "frmSadrzajMenu";
             this.Text = "frmSadrzaj";
             this.Load += new System.EventHandler(this.frmSadrzaj_Load);
             this.ResumeLayout(false);
