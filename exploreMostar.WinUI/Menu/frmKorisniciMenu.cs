@@ -109,5 +109,10 @@ namespace exploreMostar.WinUI.Menu
             button4.BackColor = Color.DarkBlue;
             button4.ForeColor = Color.White;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

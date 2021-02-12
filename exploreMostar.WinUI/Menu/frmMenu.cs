@@ -48,5 +48,11 @@ namespace exploreMostar.WinUI.Menu
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmSadrzaj frmSadrzaj = new frmSadrzaj();
+            frmSadrzaj.Show();
+        }
     }
 }
