@@ -327,10 +327,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(30);
 
-                entity.Property(e => e.Slika)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Telefon)
                     .IsRequired()
                     .HasMaxLength(50);

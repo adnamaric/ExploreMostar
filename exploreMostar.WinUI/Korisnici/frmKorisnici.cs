@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Flurl.Http;
 using Flurl;
 using exploreMostar.Model.Requests;
+using System.IO;
 
 namespace exploreMostar.WinUI.Korisnici
 {
@@ -88,19 +89,32 @@ namespace exploreMostar.WinUI.Korisnici
                 {
                     korisnik.Grad = "/";
                 }
+               
             }
-            
+            //if (result..Length != 0)
+            //{
+            //    pictureBox.Image = BytesToImage(clanak.Slika);
+            //}
+            //else
+            //{
+            //    pictureBox.Image = Properties.Resources.Noimage;
+            //}
+
             dgvKorisnici.AutoGenerateColumns = false;
             
             dgvKorisnici.DataSource = result;
             
         }
-
+        public Image BytesToImage(byte[] arr)
+        {
+            MemoryStream ms = new MemoryStream(arr);
+            return Image.FromStream(ms);
+        }
         private void dgvKorisnici_DoubleClick(object sender, EventArgs e)
         {
-            //var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
-            //frmKorisniciDetalji frm = new frmKorisniciDetalji(int.Parse(id.ToString()));
-            //frm.Show();
+            var id = dgvKorisnici.SelectedRows[0].Cells[0].Value;
+            frmKorisniciDetalji frm = new frmKorisniciDetalji(int.Parse(id.ToString()));
+            frm.Show();
         }
 
         private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)

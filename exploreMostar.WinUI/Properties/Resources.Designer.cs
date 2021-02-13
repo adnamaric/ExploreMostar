@@ -10,8 +10,9 @@
 
 namespace exploreMostar.WinUI.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -88,5 +89,7 @@ namespace exploreMostar.WinUI.Properties {
                 return ResourceManager.GetString("Validation_RequiredField", resourceCulture);
             }
         }
+
+        public static Image NoImage { get; internal set; }
     }
 }

@@ -61,6 +61,7 @@ namespace exploreMostar.WinUI.Korisnici
             
 
         }
+       
         private async Task LoadGradovi()
         {
             var result = await _gradovi.Get<List<Model.Gradovi>>(null);
@@ -91,11 +92,31 @@ namespace exploreMostar.WinUI.Korisnici
             if (_id.HasValue)
             {
                 var korisnik = await _service.GetById<Model.Korisnici>(_id);
-                txtIme.Text = korisnik.Ime;
-                txtPrezime.Text = korisnik.Prezime;
-                txtEmail.Text = korisnik.Email;
-                txtTelefon.Text = korisnik.Telefon;
-                cmbGradovi.SelectedIndex = (int)korisnik.GradId;
+                if (korisnik != null)
+                {
+                    txtIme.Text = korisnik.Ime;
+                    txtPrezime.Text = korisnik.Prezime;
+                    txtEmail.Text = korisnik.Email;
+                    txtTelefon.Text = korisnik.Telefon;
+                    txtSlikaInput.Text = korisnik.Slika.ToString();
+                    if (korisnik.GradId != null)
+                    {
+                        cmbGradovi.SelectedIndex = (int)korisnik.GradId;
+                    }
+                    else
+                    {
+                        cmbGradovi.SelectedIndex = 0;
+                    }
+                    txtKorisnickoIme.Text = korisnik.KorisnickoIme;
+                    if (txtSlikaInput.Text.Length != 0)
+                    {
+                        circleButton1.Image = BytesToImage(korisnik.Slika);
+                    }
+                    else
+                    {
+                        circleButton1.Image = Properties.Resources.NoImage;
+                    }
+                }
             }
         }
 
@@ -177,8 +198,26 @@ namespace exploreMostar.WinUI.Korisnici
                 lblImePrezime.Text += txtPrezime.Text;
             }
         }
+        ////if (result..Length != 0)
+        ////{
+        ////    pictureBox.Image = BytesToImage(clanak.Slika);
+        ////}
+        ////else
+        ////{
+        ////    pictureBox.Image = Properties.Resources.Noimage;
+        ////}
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //dgvKorisnici.AutoGenerateColumns = false;
+            
+        //    dgvKorisnici.DataSource = result;
+            
+        //}
+    public Image BytesToImage(byte[] arr)
+    {
+        MemoryStream ms = new MemoryStream(arr);
+        return Image.FromStream(ms);
+    }
+    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
