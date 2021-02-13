@@ -134,7 +134,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            frmUrediKorisnika frm = new frmUrediKorisnika();
+            frm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
