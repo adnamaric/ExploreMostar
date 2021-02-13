@@ -112,8 +112,9 @@ namespace exploreMostar.WinUI.Korisnici
                     if (korisnik.Slika.Length != 0)
                     {
                         circleButton1.Image = BytesToImage(korisnik.Slika);
-                        txtSlikaInput.Text = Convert.ToBase64String(korisnik.Slika);
-                      
+                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(korisnik.Slika);
+
+
                     }
                     else
                     {
