@@ -99,7 +99,7 @@ namespace exploreMostar.WinUI.Korisnici
                     txtPrezime.Text = korisnik.Prezime;
                     txtEmail.Text = korisnik.Email;
                     txtTelefon.Text = korisnik.Telefon;
-                    txtSlikaInput.Text = korisnik.Slika.ToString();
+                   // txtSlikaInput.Text = korisnik.Slika.ToString();
                     if (korisnik.GradId != null)
                     {
                         cmbGradovi.SelectedIndex = (int)korisnik.GradId;
@@ -109,9 +109,11 @@ namespace exploreMostar.WinUI.Korisnici
                         cmbGradovi.SelectedIndex = 0;
                     }
                     txtKorisnickoIme.Text = korisnik.KorisnickoIme;
-                    if (txtSlikaInput.Text != "System.Byte[]")
+                    if (korisnik.Slika.Length != 0)
                     {
                         circleButton1.Image = BytesToImage(korisnik.Slika);
+                        txtSlikaInput.Text = Convert.ToBase64String(korisnik.Slika);
+                      
                     }
                     else
                     {
@@ -233,7 +235,22 @@ namespace exploreMostar.WinUI.Korisnici
         {
 
         }
+        private void PrikaziSliku()
+        {
+            var result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                //var request = file;
+                txtSlikaInput.Text = fileName;
+                slika = file;
+                Image image = Image.FromFile(fileName);
+                circleButton1.Image = image;
 
+                //circleButton1.Image.Height = 100;
+            }
+        }
        
 
         private void btnDodajSliku_Click_1(object sender, EventArgs e)
