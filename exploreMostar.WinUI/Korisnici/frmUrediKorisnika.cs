@@ -47,9 +47,10 @@ namespace exploreMostar.WinUI.Korisnici
         //}
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (circleButton1.Image != null)
+            if (txtSlikaInput.Text.Length != 0)
             {
-                circleButton1.Image.Dispose();
+                circleButton1.Image = null;
+                txtSlikaInput.Clear();
             }
             var korid = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
             

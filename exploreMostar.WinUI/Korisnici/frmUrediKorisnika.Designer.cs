@@ -29,11 +29,9 @@ namespace exploreMostar.WinUI.Korisnici
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblImePrezime = new System.Windows.Forms.Label();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSlikaInput = new System.Windows.Forms.TextBox();
-            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.label10 = new System.Windows.Forms.Label();
             this.lbObaveznoP = new System.Windows.Forms.Label();
             this.cmbGradovi = new System.Windows.Forms.ComboBox();
@@ -58,15 +56,8 @@ namespace exploreMostar.WinUI.Korisnici
             this.label9 = new System.Windows.Forms.Label();
             this.cmbOdaberiKorisnika = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.SuspendLayout();
-            // 
-            // lblImePrezime
-            // 
-            this.lblImePrezime.AutoSize = true;
-            this.lblImePrezime.Location = new System.Drawing.Point(525, 166);
-            this.lblImePrezime.Name = "lblImePrezime";
-            this.lblImePrezime.Size = new System.Drawing.Size(0, 13);
-            this.lblImePrezime.TabIndex = 54;
             // 
             // btnDodajSliku
             // 
@@ -93,17 +84,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtSlikaInput.Name = "txtSlikaInput";
             this.txtSlikaInput.Size = new System.Drawing.Size(320, 20);
             this.txtSlikaInput.TabIndex = 51;
-            // 
-            // circleButton1
-            // 
-            this.circleButton1.BackColor = System.Drawing.Color.White;
-            this.circleButton1.FlatAppearance.BorderSize = 0;
-            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(528, 16);
-            this.circleButton1.Name = "circleButton1";
-            this.circleButton1.Size = new System.Drawing.Size(134, 130);
-            this.circleButton1.TabIndex = 50;
-            this.circleButton1.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -311,6 +291,17 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // circleButton1
+            // 
+            this.circleButton1.BackColor = System.Drawing.Color.White;
+            this.circleButton1.FlatAppearance.BorderSize = 0;
+            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton1.Location = new System.Drawing.Point(528, 16);
+            this.circleButton1.Name = "circleButton1";
+            this.circleButton1.Size = new System.Drawing.Size(134, 130);
+            this.circleButton1.TabIndex = 50;
+            this.circleButton1.UseVisualStyleBackColor = false;
+            // 
             // frmUrediKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +309,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.ClientSize = new System.Drawing.Size(690, 548);
             this.Controls.Add(this.cmbOdaberiKorisnika);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblImePrezime);
             this.Controls.Add(this.btnDodajSliku);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtSlikaInput);
@@ -353,7 +343,6 @@ namespace exploreMostar.WinUI.Korisnici
         }
 
         #endregion
-        private System.Windows.Forms.Label lblImePrezime;
         private System.Windows.Forms.Button btnDodajSliku;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSlikaInput;
