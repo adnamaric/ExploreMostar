@@ -31,6 +31,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Markeri> Markeri { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Nightclubs> Nightclubs { get; set; }
+        public virtual DbSet<Objava> Objava { get; set; }
         public virtual DbSet<Prevoz> Prevoz { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
@@ -67,6 +68,8 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.Slika).HasMaxLength(1);
+
                 entity.HasOne(d => d.DodatnaOpcija)
                     .WithMany(p => p.Apartmani)
                     .HasForeignKey(d => d.DodatnaOpcijaId)
@@ -101,6 +104,8 @@ namespace exploreMostar.WebAPI.Database
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Slika).HasMaxLength(1);
 
                 entity.Property(e => e.VrstaAtrakcijeId).HasColumnName("VrstaAtrakcijeID");
 
@@ -322,6 +327,10 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(30);
 
+                entity.Property(e => e.Slika)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Telefon)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -433,6 +442,15 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Nightclubs)
                     .HasForeignKey(d => d.MarkerId)
                     .HasConstraintName("FK__Nightclub__Marke__0E6E26BF");
+            });
+
+            modelBuilder.Entity<Objava>(entity =>
+            {
+                entity.Property(e => e.Naziv).HasMaxLength(50);
+
+                entity.Property(e => e.Sadrzaj).HasMaxLength(250);
+
+                entity.Property(e => e.Slika).HasMaxLength(1);
             });
 
             modelBuilder.Entity<Prevoz>(entity =>

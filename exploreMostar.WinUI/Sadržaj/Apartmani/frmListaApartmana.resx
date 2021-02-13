@@ -117,29 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="RBr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAd0SU1FB+UC
-        DQUvL73xbPMAAALQSURBVEhLvdc3qxRRGIDhUQQVA2YtzFqIWJgKG2trA4KIoTP9BCPCtRDUQrASMRXi
-        DzAhIggqBjCLlSBoIeac9X2HPcu3s3vv7N47+MHD3Ttzzndmz5y0WRvRDxOxBsdwD2/wveY17uIoLGNZ
-        65TGYCzCoPy/xpiCrTDxN/wtYRkfbBus22OMwiXswXAvEAOxGvfxB60a6Yl1HsAeMFfLGA+f0sJ212zs
-        xScUE/6G3fwY12v87DXvFct/xj6MQFNMwhOkxM/gu4sJvuIitmA+fNhhsIf87LXNuIAviHV/4TCaGp+J
-        p4iFoztYBRsqi6FYiduIOWzcb97Q7XPwHLFg4nuy6zuNqTiNOD7s9rWox0K8RGww+YDdSIOukxgLG4/5
-        HKzTkMdivEUsEP3ECUxGp2EjtxDzbUceS/AR8WZkd72D72gIOg3feRxwziAHdLYU8cYPvMAVHMR6LMAY
-        9Een4YA7j5TfRSZ/1z6R0+kMurAMs2CFtpa+NmITUsNy6c1Gw/fX7QpTQTjPXdNTw3b3fwkXmUdIDbvS
-        5d3poJmBuRiAqsPF5xpSw46j7BAuw0XEv72Zs2XRsmG/drrggj8BVUexq1038hedLjgAnDpVxzzEweUK
-        lg/tdEHuMlXHRsR1+zjyyRxPF05253BVYa5zSPltax3yORy7211kBaoKc5kz5bet+rrvwp1u6Cbqu0gf
-        wu3xBmLuHaiHjfjCY4FTcH3ubVjXHDGn+/t0NIT9HrvEY5AVS0+LLcI61o3nMDciN5ymcK3ej+KhzW5f
-        jna2RMtY1joxhzkPoNv9YCSOoNi4PXEWG+CyOg6OVvnZa96zTOw1mcuc5u4xLOA3L54WU5JXeIirNX72
-        WvFhZQ6/aWmjKfxV4Tt3mYsTv13Wsa7vtNUvlNJwBO6Co7F41m7FMpbdiT5PR7dNJ7xPfxJ27Xt4Vpbn
-        Ma95zzKWLTm5ZNk/GWtIyWGy2DcAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>140, 17</value>
+  <metadata name="Ime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Prezime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Username.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Grad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RBr.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Prezime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Username.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Grad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

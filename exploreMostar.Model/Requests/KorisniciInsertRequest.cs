@@ -21,5 +21,7 @@ namespace exploreMostar.Model.Requests
         public string Password { get; set; }
         public string PasswordConfirmation{ get; set; }
         public int? GradId { get; set; }
+        public byte[] Slika { get; set; }
+        public byte[] SlikaThumb { get; set; }
     }
 }

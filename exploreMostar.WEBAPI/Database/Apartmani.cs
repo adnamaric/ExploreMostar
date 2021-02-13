@@ -13,6 +13,7 @@ namespace exploreMostar.WebAPI.Database
         public int? GodinaIzgradnje { get; set; }
         public int KategorijaId { get; set; }
         public int? Ocjena { get; set; }
+        public byte[] Slika { get; set; }
 
         public DodatneOpcije DodatnaOpcija { get; set; }
         public Kategorije Kategorija { get; set; }

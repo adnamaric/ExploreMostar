@@ -20,6 +20,7 @@ namespace exploreMostar.WebAPI.Database
         public string KorisnickoIme { get; set; }
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
+        public string Slika { get; set; }
 
         public Gradovi Grad { get; set; }
         public KorisnickaUloga KorisnickaUloga { get; set; }

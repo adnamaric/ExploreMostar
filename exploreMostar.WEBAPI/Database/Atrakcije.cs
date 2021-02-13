@@ -11,6 +11,7 @@ namespace exploreMostar.WebAPI.Database
         public int? MarkerId { get; set; }
         public int? VrstaAtrakcijeId { get; set; }
         public int KategorijaId { get; set; }
+        public byte[] Slika { get; set; }
 
         public Kategorije Kategorija { get; set; }
         public Markeri Marker { get; set; }

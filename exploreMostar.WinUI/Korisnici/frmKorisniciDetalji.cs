@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 //using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace exploreMostar.WinUI.Korisnici
 
         }
 
-
+        public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
            
@@ -42,7 +43,9 @@ namespace exploreMostar.WinUI.Korisnici
                     KorisnickoIme = txtKorisnickoIme.Text,
                     GradId = cmbGradovi.SelectedIndex
                 };
-
+                
+               request.Slika = slika;
+               // btnDodajSliku_Click();
                 if (_id.HasValue)
                 {
                     await _service.Update<Model.Korisnici>(_id, request);
@@ -53,14 +56,9 @@ namespace exploreMostar.WinUI.Korisnici
 
                 }
                 MessageBox.Show("Operacija uspješna!");
-                txtIme.Clear();
-                txtPrezime.Clear();
-                txtEmail.Clear();
-                txtTelefon.Clear();
-                txtPassword.Clear();
-                txtPasswordConfrirm.Clear();
-                txtKorisnickoIme.Clear();
+               
             }
+            
 
         }
         private async Task LoadGradovi()
@@ -115,6 +113,10 @@ namespace exploreMostar.WinUI.Korisnici
                 errorProvider.SetError(txtIme, null);
 
             }
+            if (txtIme.Text != "")
+            {
+                lblImePrezime.Text = txtIme.Text+" ";
+            }
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
@@ -123,6 +125,7 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
                 e.Cancel = true;
+                lbObaveznoP.Visible = true;
             }
             else
             {
@@ -169,6 +172,10 @@ namespace exploreMostar.WinUI.Korisnici
                 errorProvider.SetError(txtPrezime, null);
 
             }
+            if (txtPrezime.Text != "")
+            {
+                lblImePrezime.Text += txtPrezime.Text;
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,6 +187,45 @@ namespace exploreMostar.WinUI.Korisnici
         private void cmbGradovi_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void circleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void btnDodajSliku_Click_1(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                //var request = file;
+                txtSlikaInput.Text = fileName;
+                slika = file;
+                Image image = Image.FromFile(fileName);
+                circleButton1.Image = image;
+                
+                //circleButton1.Image.Height = 100;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            txtIme.Clear();
+            txtPrezime.Clear();
+            txtEmail.Clear();
+            txtKorisnickoIme.Clear();
+            txtPassword.Clear();
+            txtPasswordConfrirm.Clear();
+            txtSlikaInput.Clear();
+            lblImePrezime.Text = "";
+            txtTelefon.Clear();
+            cmbGradovi.SelectedIndex = 0;
         }
     }
 }
