@@ -57,6 +57,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtIme = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbOdaberiKorisnika = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblImePrezime
@@ -69,12 +70,13 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(429, 424);
+            this.btnDodajSliku.Location = new System.Drawing.Point(429, 420);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(79, 26);
             this.btnDodajSliku.TabIndex = 53;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
+            this.btnDodajSliku.Click += new System.EventHandler(this.btnDodajSliku_Click);
             // 
             // label11
             // 
@@ -305,6 +307,10 @@ namespace exploreMostar.WinUI.Korisnici
             this.cmbOdaberiKorisnika.TabIndex = 58;
             this.cmbOdaberiKorisnika.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmUrediKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,5 +381,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbOdaberiKorisnika;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

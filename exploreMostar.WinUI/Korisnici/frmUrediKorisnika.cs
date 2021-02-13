@@ -23,6 +23,7 @@ namespace exploreMostar.WinUI.Korisnici
         }
         private readonly APIService _korisnici = new APIService("korisnici");
         private readonly APIService _gradovi = new APIService("gradovi");
+        public byte[] slika;
         private async void frmUrediKorisnika_Load(object sender, EventArgs e)
         {
             await LoadKorisnici();
@@ -46,8 +47,12 @@ namespace exploreMostar.WinUI.Korisnici
         //}
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (circleButton1.Image != null)
+            {
+                circleButton1.Image.Dispose();
+            }
             var korid = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
-
+            
 
 
             var result = await _korisnici.Get<List<Model.Korisnici>>(null);
@@ -174,7 +179,7 @@ namespace exploreMostar.WinUI.Korisnici
 
 
                 };
-
+                request.Slika = slika;
                 if (cmbGradovi.SelectedIndex != 0)
                 {
                     request.GradId = cmbGradovi.SelectedIndex;
@@ -187,6 +192,23 @@ namespace exploreMostar.WinUI.Korisnici
                 await LoadKorisnici();
                 MessageBox.Show("Operacija uspješna!");
 
+            }
+        }
+
+        private void btnDodajSliku_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                //var request = file;
+                txtSlikaInput.Text = fileName;
+                slika = file;
+                Image image = Image.FromFile(fileName);
+                circleButton1.Image = image;
+
+                //circleButton1.Image.Height = 100;
             }
         }
     }
