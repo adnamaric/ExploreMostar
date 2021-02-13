@@ -91,6 +91,7 @@ namespace exploreMostar.WinUI.Korisnici
             //}
             if (_id.HasValue)
             {
+               // lblImePrezime.Text = txtIme.Text + " " + txtPrezime.Text;
                 var korisnik = await _service.GetById<Model.Korisnici>(_id);
                 if (korisnik != null)
                 {
@@ -108,13 +109,13 @@ namespace exploreMostar.WinUI.Korisnici
                         cmbGradovi.SelectedIndex = 0;
                     }
                     txtKorisnickoIme.Text = korisnik.KorisnickoIme;
-                    if (txtSlikaInput.Text.Length != 0)
+                    if (txtSlikaInput.Text != "System.Byte[]")
                     {
                         circleButton1.Image = BytesToImage(korisnik.Slika);
                     }
                     else
                     {
-                        circleButton1.Image = Properties.Resources.NoImage;
+                        circleButton1.Image = null;
                     }
                 }
             }
