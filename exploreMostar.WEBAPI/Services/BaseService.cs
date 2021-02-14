@@ -9,8 +9,8 @@ namespace exploreMostar.WebAPI.Services
 {
     public class BaseService<TModel, TSearch,TDatabase> : IService<TModel, TSearch> where TDatabase:class
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
+        protected readonly exploreMostarContext _context;
+        protected readonly IMapper _mapper;
 
         public BaseService(exploreMostarContext context, IMapper mapper)
         {

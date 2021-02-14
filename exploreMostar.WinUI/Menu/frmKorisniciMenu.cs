@@ -129,7 +129,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            frmUklanjanjeKorisnika frm = new frmUklanjanjeKorisnika();
+            frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
