@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,21 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class KorisnikKategorijaController : ControllerBase
+
+    public class KorisnikKategorijaController : BaseCRUDController<Model.KorisnikKategorija, ByNameSearchRequest, KorisnikKategorijaUpsertRequest, KorisnikKategorijaUpsertRequest>
     {
-        private readonly IKorisnikKategorijaService _service;
-
-        public KorisnikKategorijaController(IKorisnikKategorijaService service)
+        public KorisnikKategorijaController(ICRUDService<KorisnikKategorija, ByNameSearchRequest, KorisnikKategorijaUpsertRequest, KorisnikKategorijaUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public ActionResult<IList<Model.KorisnikKategorija>> Get()
-        {
-            return _service.Get().ToList();
-
         }
     }
 }

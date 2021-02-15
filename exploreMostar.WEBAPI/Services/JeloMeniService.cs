@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class JeloMeniService :IJeloMeniService
+    public class JeloMeniService : BaseCRUDService<Model.JeloMeni, ByNameSearchRequest, Database.JeloMeni, JeloMeniUpsertRequest, JeloMeniUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public JeloMeniService(exploreMostarContext context, IMapper mapper)
+        public JeloMeniService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public List<Model.JeloMeni> Get()
-        {
-            var lista = _context.JeloMeni.ToList();
-
-            return _mapper.Map<List<Model.JeloMeni>>(lista);
         }
     }
 }

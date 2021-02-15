@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,21 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class MenuController : ControllerBase
+
+    public class MenuController : BaseCRUDController<Model.Menu, ByNameSearchRequest, MenuUpsertRequest, MenuUpsertRequest>
     {
-        private readonly IMenuService _service;
-
-        public MenuController(IMenuService service)
+        public MenuController(ICRUDService<Menu, ByNameSearchRequest, MenuUpsertRequest, MenuUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public ActionResult<IList<Model.Menu>> Get()
-        {
-            return _service.Get().ToList();
-
         }
     }
 }

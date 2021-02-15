@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class RestoraniService:IRestoraniService
+    public class RestoraniService : BaseCRUDService<Model.Restorani, ByNameSearchRequest, Database.Restorani, RestoraniUpsertRequest, RestoraniUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public RestoraniService(exploreMostarContext context, IMapper mapper)
+        public RestoraniService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public IList<Model.Restorani> Get()
-        {
-            var list = _context.Restorani.ToList();
-
-            return _mapper.Map<List<Model.Restorani>>(list);
         }
     }
 }

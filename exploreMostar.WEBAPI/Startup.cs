@@ -36,29 +36,39 @@ namespace exploreMostar.WEBAPI
             // statički konekšn string
             var connection = @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<IKorisniciServis, ProizvodServis>();
+           
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IDodatneOpcijeService, DodatneOpcijeService>();
             services.AddScoped<IService<Model.KorisnickaUloga, object>, BaseService<Model.KorisnickaUloga,object,KorisnickaUloga>>();
            
-            services.AddScoped<IJelaService, JelaService>();
-            services.AddScoped<IKategorijeService, KategorijeService>();
-            services.AddScoped<IKorisnickaUlogaService, KorisnickaUlogaService>();
+           
             services.AddScoped<IMarkeriService, MarkeriService>();
-            services.AddScoped<IMenuService, MenuService>();
-            services.AddScoped<INightClubsService, NightClubsService>();
-            services.AddScoped<IPrevozService, PrevozService>();
-            services.AddScoped<IRestoraniService, RestoraniService>();
-            services.AddScoped<IJeloMeniService, JeloMeniService>();
-            services.AddScoped<IKorisnikKategorijaService, KorisnikKategorijaService>();
-            services.AddScoped<IVrstaRestoranaService, VrstaRestoranaService>();
-            services.AddScoped<IVrstaAtrakcijaService, VrstaAtrakcijaService>();
+            
+        
+           
+           
+            
+           
+           
+          
             services.AddScoped<ICRUDService<Model.Apartmani,ByNameSearchRequest,ApartmaniUpsertRequest, ApartmaniUpsertRequest>,ApartmaniService>();
             services.AddScoped<ICRUDService<Model.Atrakcije, ByNameSearchRequest, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest>, AtrakcijeService>();
             services.AddScoped<ICRUDService<Model.Drzave, ByNameSearchRequest, DrzaveUpsertRequest, DrzaveUpsertRequest>, DrzaveService>();
             services.AddScoped<ICRUDService<Model.Gradovi, ByNameSearchRequest, GradoviUpsertRequest, GradoviUpsertRequest>, GradoviService>();
             services.AddScoped<ICRUDService<Model.Hoteli, ByNameSearchRequest, HoteliUpsertRequest, HoteliUpsertRequest>, HoteliService>();
+            services.AddScoped<ICRUDService<Model.Jela, ByNameSearchRequest, JelaUpsertRequest, JelaUpsertRequest>, JelaService>();
+            services.AddScoped<ICRUDService<Model.JeloMeni, ByNameSearchRequest, JeloMeniUpsertRequest, JeloMeniUpsertRequest>, JeloMeniService>();
+            services.AddScoped<ICRUDService<Model.Kategorije, ByNameSearchRequest, KategorijeUpsertRequest, KategorijeUpsertRequest>, KategorijeService>();
+            services.AddScoped<ICRUDService<Model.KorisnikKategorija, ByNameSearchRequest, KorisnikKategorijaUpsertRequest, KorisnikKategorijaUpsertRequest>, KorisnikKategorijaService>();
+            services.AddScoped<ICRUDService<Model.Menu, ByNameSearchRequest, MenuUpsertRequest, MenuUpsertRequest>, MenuService>();
+            services.AddScoped<ICRUDService<Model.Nightclubs, ByNameSearchRequest, NightClubsUpsertRequest, NightClubsUpsertRequest>, NightClubsService>();
+            services.AddScoped<ICRUDService<Model.Prevoz, ByNameSearchRequest, PrevozUpsertRequest, PrevozUpsertRequest>, PrevozService>();
+            services.AddScoped<ICRUDService<Model.Restorani, ByNameSearchRequest, RestoraniUpsertRequest, RestoraniUpsertRequest>, RestoraniService>();
 
+            services.AddScoped<IService<Model.KorisnickaUloga, ByNameSearchRequest>, KorisnickaUlogaService>();
+            services.AddScoped<IService<Model.VrstaAtrakcija, ByNameSearchRequest>, VrstaAtrakcijaService>();
+            services.AddScoped<IService<Model.VrstaRestorana, ByNameSearchRequest>, VrstaRestoranaService>();
+            
             services.AddAutoMapper();
            
 

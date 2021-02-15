@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,23 +10,9 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class VrstaAtrakcijaController : BaseController<Model.VrstaAtrakcija, object>
+    public class VrstaAtrakcijaController : BaseController<Model.VrstaAtrakcija, ByNameSearchRequest>
     {
-        //private readonly IVrstaAtrakcijaService _service;
-
-        //public VrstaAtrakcijaController(IVrstaAtrakcijaService service)
-        //{
-        //    _service = service;
-        //}
-        //[HttpGet]
-        //public ActionResult<IList<Model.VrstaAtrakcija>> Get()
-        //{
-        //    return _service.Get().ToList();
-
-        //}
-        public VrstaAtrakcijaController(IService<VrstaAtrakcija, object> service) : base(service)
+        public VrstaAtrakcijaController(IService<VrstaAtrakcija, ByNameSearchRequest> service) : base(service)
         {
         }
     }

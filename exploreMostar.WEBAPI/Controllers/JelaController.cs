@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,20 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class JelaController : ControllerBase
-    {
-        private readonly IJelaService _service;
 
-        public JelaController(IJelaService service)
+    public class JelaController : BaseCRUDController<Model.Jela, ByNameSearchRequest, JelaUpsertRequest, JelaUpsertRequest>
+    {
+        public JelaController(ICRUDService<Jela, ByNameSearchRequest, JelaUpsertRequest, JelaUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public List<Model.Jela> Get()
-        {
-            return _service.Get();
         }
     }
 }

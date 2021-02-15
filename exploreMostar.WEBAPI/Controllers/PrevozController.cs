@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,21 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PrevozController : ControllerBase
+
+    public class PrevozController : BaseCRUDController<Model.Prevoz, ByNameSearchRequest, PrevozUpsertRequest, PrevozUpsertRequest>
     {
-        private readonly IPrevozService _service;
-
-        public PrevozController(IPrevozService service)
+        public PrevozController(ICRUDService<Prevoz, ByNameSearchRequest, PrevozUpsertRequest, PrevozUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public ActionResult<IList<Model.Prevoz>> Get()
-        {
-            return _service.Get().ToList();
-
         }
     }
 }

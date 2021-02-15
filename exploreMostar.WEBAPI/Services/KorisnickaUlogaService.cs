@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class KorisnickaUlogaService:IKorisnickaUlogaService
+    public class KorisnickaUlogaService : BaseService<Model.KorisnickaUloga, ByNameSearchRequest, Database.KorisnickaUloga>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public KorisnickaUlogaService(exploreMostarContext context, IMapper mapper)
+        public KorisnickaUlogaService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public IList<Model.KorisnickaUloga> Get()
-        {
-            var list = _context.KorisnickaUloga.ToList();
-
-            return _mapper.Map<List<Model.KorisnickaUloga>>(list);
         }
     }
 }

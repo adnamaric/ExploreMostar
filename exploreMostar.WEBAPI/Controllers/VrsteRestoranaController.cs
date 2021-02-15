@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,22 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class VrsteRestoranaController : ControllerBase
+
+    public class VrsteRestoranaController : BaseController<Model.VrstaRestorana, ByNameSearchRequest>
     {
-        private readonly IVrstaRestoranaService _service;
-
-        public VrsteRestoranaController(IVrstaRestoranaService service)
+        public VrsteRestoranaController(IService<VrstaRestorana, ByNameSearchRequest> service) : base(service)
         {
-            _service = service;
-        }
-
-        [HttpGet]
-        public ActionResult<IList<Model.VrstaRestorana>> Get()
-        {
-            return _service.Get().ToList();
-
         }
     }
 }
