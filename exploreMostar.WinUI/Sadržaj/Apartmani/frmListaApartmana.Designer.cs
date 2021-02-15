@@ -36,24 +36,23 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvKorisnici = new System.Windows.Forms.DataGridView();
-            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvApartmani = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.brojApar = new System.Windows.Forms.Label();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 76);
+            this.label3.Location = new System.Drawing.Point(21, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 21;
@@ -95,16 +94,17 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // btnPrikazi
             // 
             this.btnPrikazi.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPrikazi.Location = new System.Drawing.Point(718, 25);
+            this.btnPrikazi.Location = new System.Drawing.Point(750, 30);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(112, 50);
             this.btnPrikazi.TabIndex = 13;
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvKorisnici);
+            this.groupBox1.Controls.Add(this.dgvApartmani);
             this.groupBox1.Location = new System.Drawing.Point(21, 111);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(844, 423);
@@ -112,60 +112,23 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Korisnici";
             // 
-            // dgvKorisnici
+            // dgvApartmani
             // 
-            this.dgvKorisnici.AllowDrop = true;
-            this.dgvKorisnici.AllowUserToOrderColumns = true;
-            this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvApartmani.AllowDrop = true;
+            this.dgvApartmani.AllowUserToOrderColumns = true;
+            this.dgvApartmani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApartmani.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RBr,
-            this.Ime,
-            this.Prezime,
-            this.Email,
-            this.Username,
-            this.Grad});
-            this.dgvKorisnici.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKorisnici.Location = new System.Drawing.Point(3, 16);
-            this.dgvKorisnici.Name = "dgvKorisnici";
-            this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKorisnici.Size = new System.Drawing.Size(838, 404);
-            this.dgvKorisnici.TabIndex = 0;
-            // 
-            // RBr
-            // 
-            this.RBr.DataPropertyName = "RBr";
-            this.RBr.HeaderText = "RedniBroj";
-            this.RBr.Name = "RBr";
-            // 
-            // Ime
-            // 
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
-            this.Ime.Name = "Ime";
-            // 
-            // Prezime
-            // 
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.Name = "Prezime";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            // 
-            // Grad
-            // 
-            this.Grad.DataPropertyName = "Grad";
-            this.Grad.HeaderText = "Grad";
-            this.Grad.Name = "Grad";
+            this.Naziv,
+            this.Lokacija,
+            this.GodinaIzgradnje,
+            this.Ocjena});
+            this.dgvApartmani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvApartmani.Location = new System.Drawing.Point(3, 16);
+            this.dgvApartmani.Name = "dgvApartmani";
+            this.dgvApartmani.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
+            this.dgvApartmani.TabIndex = 0;
             // 
             // label2
             // 
@@ -176,14 +139,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label2.TabIndex = 22;
             this.label2.Text = "Ukupno apartmana:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(125, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 23;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -192,13 +147,51 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.comboBox1.Size = new System.Drawing.Size(203, 21);
             this.comboBox1.TabIndex = 24;
             // 
+            // brojApar
+            // 
+            this.brojApar.AutoSize = true;
+            this.brojApar.Location = new System.Drawing.Point(128, 9);
+            this.brojApar.Name = "brojApar";
+            this.brojApar.Size = new System.Drawing.Size(0, 13);
+            this.brojApar.TabIndex = 25;
+            // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "Redni Broj";
+            this.RBr.Name = "RBr";
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            // 
+            // Lokacija
+            // 
+            this.Lokacija.DataPropertyName = "Lokacija";
+            this.Lokacija.HeaderText = "Lokacija";
+            this.Lokacija.Name = "Lokacija";
+            // 
+            // GodinaIzgradnje
+            // 
+            this.GodinaIzgradnje.DataPropertyName = "GodinaIzgradnje";
+            this.GodinaIzgradnje.HeaderText = "Godina Izgradnje";
+            this.GodinaIzgradnje.Name = "GodinaIzgradnje";
+            // 
+            // Ocjena
+            // 
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.Name = "Ocjena";
+            // 
             // frmListaApartmana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 530);
+            this.Controls.Add(this.brojApar);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbSort);
@@ -211,7 +204,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Text = "frmListaApartmana";
             this.Load += new System.EventHandler(this.frmListaApartmana_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,15 +219,14 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvKorisnici;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
+        private System.Windows.Forms.DataGridView dgvApartmani;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label brojApar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lokacija;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GodinaIzgradnje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
     }
 }

@@ -14,6 +14,6 @@ namespace exploreMostar.Model
         public int? Ocjena { get; set; }
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
-
+        public int Rbr { get; set; }
     }
 }

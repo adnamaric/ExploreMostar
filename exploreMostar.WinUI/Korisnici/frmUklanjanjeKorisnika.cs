@@ -33,6 +33,7 @@ namespace exploreMostar.WinUI.Korisnici
             var korid = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
 
 
+            var gradovi = await _gradovi.Get<List<Model.Korisnici>>(null);
 
             var result = await _korisnici.Get<List<Model.Korisnici>>(null);
             if (korid.KorisnikId != 0)
@@ -45,9 +46,10 @@ namespace exploreMostar.WinUI.Korisnici
                 txtTelefon.Text = odabrani.Telefon;
                 txtKorisnickoIme.Text = odabrani.KorisnickoIme;
                 _id = korid.KorisnikId;
-                if (odabrani.GradId != null)
+                if (odabrani.GradId != 0 && odabrani.Grad !=null)
                 {
-                    cmbGradovi.SelectedIndex = (int)odabrani.GradId;
+                    var grad=gradovi.Where(y => y.GradId == odabrani.GradId).FirstOrDefault();
+                    cmbGradovi.SelectedValue = grad;
                 }
                 //else
                 //{
@@ -132,7 +134,7 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 item.ImePrezime = item.Ime + " " + item.Prezime;
             }
-            result.Insert(0, new Model.Korisnici() { Ime = "Odaberite korisnika", KorisnikId = 0 });
+           
 
             cmbOdaberiKorisnika.DataSource = result;
             //cmbOdaberiKorisnika.AccessibilityObject.
@@ -148,9 +150,9 @@ namespace exploreMostar.WinUI.Korisnici
             
             if (odabrani.KorisnikId != 0)
             {
-                // await _korisnici.Delete<Model.Korisnici>(odabrani.KorisnikId);
+                await _korisnici.Delete<Model.Korisnici>(odabrani.KorisnikId);
 
-               // await _korisnici.Delete<Model.Korisnici>(odabrani.KorisnikId);
+           
             }
             await LoadKorisnici();
         }

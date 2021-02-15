@@ -16,6 +16,6 @@ namespace exploreMostar.WebAPI.Services
 
         Model.Korisnici Update(int id,KorisniciInsertRequest request);
 
-       // void Delete(int id);
+       bool Delete(int id);
     }
 }

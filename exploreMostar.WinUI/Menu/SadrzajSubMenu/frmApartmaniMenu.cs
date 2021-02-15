@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Apartmani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace exploreMostar.WinUI.Menu
         public frmApartmaniMenu()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaApartmana frm = new frmListaApartmana();
+            frm.Show();
         }
     }
 }

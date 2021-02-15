@@ -71,13 +71,21 @@ namespace exploreMostar.WebAPI.Services
             return _mapper.Map<Model.Korisnici>(entity);
 
         }
-        public void  Delete(int id)
+        public bool  Delete(int id)
         {
-            var entity = _context.Korisnici.Find(id);
+            if (id != 0)
+            {
+               var kor= _context.Korisnici.Find(id);
+                if (kor != null)
+                {
+                    _context.Korisnici.Remove(kor);
+                    _context.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
 
-            _context.Remove(entity);
-            _context.SaveChanges();
-           
+
 
         }
     }
