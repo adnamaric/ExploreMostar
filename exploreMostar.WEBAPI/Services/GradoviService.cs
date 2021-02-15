@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class GradoviService:IGradoviService
+    public class GradoviService : BaseCRUDService<Model.Gradovi, ByNameSearchRequest, Database.Gradovi, GradoviUpsertRequest, GradoviUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public GradoviService(exploreMostarContext context, IMapper mapper)
+        public GradoviService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public List<Model.Gradovi> Get()
-        {
-            var lista = _context.Gradovi.ToList();
-
-            return _mapper.Map<List<Model.Gradovi>>(lista);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using exploreMostar.WebAPI.Filters;
 using exploreMostar.WebAPI.Services;
@@ -37,12 +38,9 @@ namespace exploreMostar.WEBAPI
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IKorisniciServis, ProizvodServis>();
             services.AddScoped<IKorisniciService, KorisniciService>();
-            services.AddScoped<IApartmaniService, ApartmaniService>();
-            services.AddScoped<IAtrakcijeService, AtrakcijeService>();
             services.AddScoped<IDodatneOpcijeService, DodatneOpcijeService>();
             services.AddScoped<IService<Model.KorisnickaUloga, object>, BaseService<Model.KorisnickaUloga,object,KorisnickaUloga>>();
-            services.AddScoped<IGradoviService, GradoviService>();
-            services.AddScoped<IHoteliService, HoteliService>();
+           
             services.AddScoped<IJelaService, JelaService>();
             services.AddScoped<IKategorijeService, KategorijeService>();
             services.AddScoped<IKorisnickaUlogaService, KorisnickaUlogaService>();
@@ -55,6 +53,11 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<IKorisnikKategorijaService, KorisnikKategorijaService>();
             services.AddScoped<IVrstaRestoranaService, VrstaRestoranaService>();
             services.AddScoped<IVrstaAtrakcijaService, VrstaAtrakcijaService>();
+            services.AddScoped<ICRUDService<Model.Apartmani,ByNameSearchRequest,ApartmaniUpsertRequest, ApartmaniUpsertRequest>,ApartmaniService>();
+            services.AddScoped<ICRUDService<Model.Atrakcije, ByNameSearchRequest, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest>, AtrakcijeService>();
+            services.AddScoped<ICRUDService<Model.Drzave, ByNameSearchRequest, DrzaveUpsertRequest, DrzaveUpsertRequest>, DrzaveService>();
+            services.AddScoped<ICRUDService<Model.Gradovi, ByNameSearchRequest, GradoviUpsertRequest, GradoviUpsertRequest>, GradoviService>();
+            services.AddScoped<ICRUDService<Model.Hoteli, ByNameSearchRequest, HoteliUpsertRequest, HoteliUpsertRequest>, HoteliService>();
 
             services.AddAutoMapper();
            

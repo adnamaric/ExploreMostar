@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,21 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DrzaveController : ControllerBase
+
+    public class DrzaveController : BaseCRUDController<Model.Drzave, ByNameSearchRequest, DrzaveUpsertRequest, DrzaveUpsertRequest>
     {
-        private readonly IDrzaveService _service;
-
-        public DrzaveController(IDrzaveService service)
+        public DrzaveController(ICRUDService<Drzave, ByNameSearchRequest, DrzaveUpsertRequest, DrzaveUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-
-        [HttpGet]
-        public List<Model.Drzave> Get()
-        {
-            return _service.Get();
         }
     }
 }

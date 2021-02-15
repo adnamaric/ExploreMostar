@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class DrzaveService:IDrzaveService
+    public class DrzaveService : BaseCRUDService<Model.Drzave, ByNameSearchRequest, Database.Drzave, DrzaveUpsertRequest, DrzaveUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public DrzaveService(exploreMostarContext context, IMapper mapper)
+        public DrzaveService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public List<Model.Drzave> Get()
-        {
-            var lista = _context.Drzave.ToList();
-
-            return _mapper.Map<List<Model.Drzave>>(lista);
         }
     }
 }

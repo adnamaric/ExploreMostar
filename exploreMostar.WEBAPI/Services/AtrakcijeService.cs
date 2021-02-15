@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,21 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class AtrakcijeService:IAtrakcijeService
+    public class AtrakcijeService : BaseCRUDService<Model.Atrakcije, ByNameSearchRequest, Database.Atrakcije, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public AtrakcijeService(exploreMostarContext context, IMapper mapper)
+        public AtrakcijeService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-        public List<Model.Atrakcije> Get()
-        {
-            var lista = _context.Atrakcije.ToList();
-
-            return _mapper.Map<List<Model.Atrakcije>>(lista);
         }
     }
 }

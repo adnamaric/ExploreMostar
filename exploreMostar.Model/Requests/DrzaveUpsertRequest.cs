@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace exploreMostar.Model
+namespace exploreMostar.Model.Requests
 {
-    public partial class Drzave
+   public class DrzaveUpsertRequest
     {
-        public int DrzavaId { get; set; }
+       
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
-        //zastava?
     }
 }

@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,20 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HoteliController : ControllerBase
-    {
-        private readonly IHoteliService _service;
 
-        public HoteliController(IHoteliService service)
+    public class HoteliController : BaseCRUDController<Model.Hoteli, ByNameSearchRequest, HoteliUpsertRequest, HoteliUpsertRequest>
+    {
+        public HoteliController(ICRUDService<Hoteli, ByNameSearchRequest, HoteliUpsertRequest, HoteliUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public List<Model.Hoteli> Get()
-        {
-            return _service.Get();
         }
     }
 }

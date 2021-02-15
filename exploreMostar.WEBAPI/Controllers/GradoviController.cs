@@ -1,4 +1,6 @@
-﻿using exploreMostar.WebAPI.Services;
+﻿using exploreMostar.Model;
+using exploreMostar.Model.Requests;
+using exploreMostar.WebAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,20 +10,11 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class GradoviController : ControllerBase
-    {
-        private readonly IGradoviService _service;
 
-        public GradoviController(IGradoviService service)
+    public class GradoviController : BaseCRUDController<Model.Gradovi, ByNameSearchRequest, GradoviUpsertRequest, GradoviUpsertRequest>
+    {
+        public GradoviController(ICRUDService<Gradovi, ByNameSearchRequest, GradoviUpsertRequest, GradoviUpsertRequest> service) : base(service)
         {
-            _service = service;
-        }
-        [HttpGet]
-        public List<Model.Gradovi> Get()
-        {
-            return _service.Get();
         }
     }
 }

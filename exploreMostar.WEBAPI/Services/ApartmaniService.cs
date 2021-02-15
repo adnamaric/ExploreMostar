@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using System;
 using System.Collections.Generic;
@@ -7,22 +8,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Services
 {
-    public class ApartmaniService:IApartmaniService
+    public class ApartmaniService : BaseCRUDService<Model.Apartmani, ByNameSearchRequest, Database.Apartmani, ApartmaniUpsertRequest, ApartmaniUpsertRequest>
     {
-        private readonly exploreMostarContext _context;
-        private readonly IMapper _mapper;
-
-        public ApartmaniService(exploreMostarContext context, IMapper mapper)
+        public ApartmaniService(exploreMostarContext context, IMapper mapper) : base(context, mapper)
         {
-            _context = context;
-            _mapper = mapper;
-        }
-
-        public List<Model.Apartmani> Get()
-        {
-            var lista = _context.Apartmani.ToList();
-
-            return _mapper.Map<List<Model.Apartmani>>(lista);
         }
     }
 }
