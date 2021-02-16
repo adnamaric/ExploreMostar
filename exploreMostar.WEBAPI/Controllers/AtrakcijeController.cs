@@ -5,9 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Threading.Tasks;
-
 
 namespace exploreMostar.WebAPI.Controllers
 {
@@ -17,7 +15,5 @@ namespace exploreMostar.WebAPI.Controllers
         public AtrakcijeController(ICRUDService<Model.Atrakcije, ByNameSearchRequest, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest> service) : base(service)
         {
         }
-
-
     }
 }

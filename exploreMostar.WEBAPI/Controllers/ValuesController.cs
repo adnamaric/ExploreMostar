@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace exploreMostar.WEBAPI.Controllers
@@ -15,7 +14,6 @@ namespace exploreMostar.WEBAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-
             return new string[] { "value1", "value2" };
         }
 
@@ -43,7 +41,5 @@ namespace exploreMostar.WEBAPI.Controllers
         public void Delete(int id)
         {
         }
-
-
     }
 }
