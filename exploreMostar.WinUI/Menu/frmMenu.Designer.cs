@@ -104,7 +104,7 @@ namespace exploreMostar.WinUI.Menu
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.Brown;
+            this.button7.BackColor = System.Drawing.Color.Red;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.SystemColors.Control;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));

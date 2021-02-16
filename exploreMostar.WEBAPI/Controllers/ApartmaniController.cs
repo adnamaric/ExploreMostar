@@ -19,9 +19,6 @@ namespace exploreMostar.WebAPI.Controllers
         public ApartmaniController(ICRUDService<Apartmani, ByNameSearchRequest, ApartmaniUpsertRequest, ApartmaniUpsertRequest> service) : base(service)
         {
         }
-
-      
     }
-
 
 }
