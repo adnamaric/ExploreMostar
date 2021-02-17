@@ -16,5 +16,7 @@ namespace exploreMostar.Model.Requests
         public int? MarkerId { get; set; }
   
         public int KategorijaId { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
     }
 }
