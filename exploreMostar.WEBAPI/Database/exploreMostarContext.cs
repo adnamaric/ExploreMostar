@@ -54,7 +54,7 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.ApartmanId).HasColumnName("ApartmanID");
 
-                entity.Property(e => e.DodatnaOpcijaId).HasColumnName("DodatnaOpcijaID");
+                entity.Property(e => e.KategorijaApartmana).HasMaxLength(1);
 
                 entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
 
@@ -66,12 +66,7 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Slika).HasMaxLength(1);
-
-                entity.HasOne(d => d.DodatnaOpcija)
-                    .WithMany(p => p.Apartmani)
-                    .HasForeignKey(d => d.DodatnaOpcijaId)
-                    .HasConstraintName("FK__Apartmani__Dodat__5812160E");
+                entity.Property(e => e.Tv).HasColumnName("TV");
 
                 entity.HasOne(d => d.Kategorija)
                     .WithMany(p => p.Apartmani)

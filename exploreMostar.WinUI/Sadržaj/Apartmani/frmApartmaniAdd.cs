@@ -61,6 +61,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             var longitude = point.Longitude;
             txtLat.Text = latitude.ToString();
             txtLong.Text = longitude.ToString();
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,15 +92,38 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             button2.BackColor = Color.Red;
             button2.ForeColor = Color.White;
             button2.FlatAppearance.BorderColor = Color.Black;
-
-
+            bb3.Text = "Da";
+            bb4.Text = "Ne";
+            bb4.BackColor = Color.Red;
+            bb4.ForeColor = Color.White;
+            bb4.FlatAppearance.BorderColor = Color.Black;
+            bb5.Text = "Da";
+            bb6.Text = "Ne";
+            bb6.BackColor = Color.Red;
+            bb6.ForeColor = Color.White;
+            bb6.FlatAppearance.BorderColor = Color.Black;
+            bb7.Text = "Da";
+            bb8.Text = "Ne";
+            bb8.BackColor = Color.Red;
+            bb8.ForeColor = Color.White;
+            bb8.FlatAppearance.BorderColor = Color.Black;
+            bb9.Text = "Da";
+            bb10.Text = "Ne";
+            bb10.BackColor = Color.Red;
+            bb10.ForeColor = Color.White;
+            bb10.FlatAppearance.BorderColor = Color.Black;
+            bb11.Text = "Da";
+            bb12.Text = "Ne";
+            bb12.BackColor = Color.Red;
+            bb12.ForeColor = Color.White;
+            bb12.FlatAppearance.BorderColor = Color.Black;
         }
 
         //private void rb_on_Click(object sender, EventArgs e)
         //{
         //    rb_off.BackColor = Color.Transparent;
-           
-          
+
+
 
         //    rb_on.FlatAppearance.BorderColor = Color.Black;
         //    rb_on.BackColor = Color.Green;
@@ -109,14 +133,14 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         //private void rb_off_Click(object sender, EventArgs e)
         //{
         //    rb_off.BackColor = Color.Red;
-         
+
         //    rb_off.FlatAppearance.BorderColor = Color.Black;
         //    rb_on.BackColor = Color.Transparent;
         //    rb_on.ForeColor = Color.Black;
 
         //}
 
-       
+
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -186,6 +210,96 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             button2.ForeColor = Color.White;
             button2.BackColor = Color.Red;
             button2.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void bb3_Click(object sender, EventArgs e)
+        {
+           bb3.BackColor = Color.DarkGreen;
+            bb3.ForeColor = Color.White;
+            bb3.FlatAppearance.BorderColor = Color.Black;
+            bb4.ForeColor = Color.Black;
+            bb4.BackColor = Color.Transparent;
+        }
+
+        private void bb4_Click(object sender, EventArgs e)
+        {
+            bb3.ForeColor = Color.Black;
+            bb3.BackColor = Color.Transparent;
+            bb4.ForeColor = Color.White;
+            bb4.BackColor = Color.Red;
+            bb4.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void bb5_Click(object sender, EventArgs e)
+        {
+            bb5.BackColor = Color.DarkGreen;
+            bb5.ForeColor = Color.White;
+            bb5.FlatAppearance.BorderColor = Color.Black;
+            bb6.ForeColor = Color.Black;
+            bb6.BackColor = Color.Transparent;
+        }
+
+        private void bb6_Click(object sender, EventArgs e)
+        {
+            bb5.ForeColor = Color.Black;
+            bb5.BackColor = Color.Transparent;
+            bb6.ForeColor = Color.White;
+            bb6.BackColor = Color.Red;
+            bb6.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void bb7_Click(object sender, EventArgs e)
+        {
+            bb7.BackColor = Color.DarkGreen;
+            bb7.ForeColor = Color.White;
+            bb7.FlatAppearance.BorderColor = Color.Black;
+            bb8.ForeColor = Color.Black;
+            bb8.BackColor = Color.Transparent;
+        }
+
+        private void bb8_Click(object sender, EventArgs e)
+        {
+            bb7.ForeColor = Color.Black;
+            bb7.BackColor = Color.Transparent;
+            bb8.ForeColor = Color.White;
+            bb8.BackColor = Color.Red;
+            bb8.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void bb9_Click(object sender, EventArgs e)
+        {
+            bb9.BackColor = Color.DarkGreen;
+            bb9.ForeColor = Color.White;
+            bb9.FlatAppearance.BorderColor = Color.Black;
+            bb10.ForeColor = Color.Black;
+            bb10.BackColor = Color.Transparent;
+        }
+
+        private void bb10_Click(object sender, EventArgs e)
+        {
+            bb9.ForeColor = Color.Black;
+            bb9.BackColor = Color.Transparent;
+            bb10.ForeColor = Color.White;
+            bb10.BackColor = Color.Red;
+            bb10.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void bb11_Click(object sender, EventArgs e)
+        {
+            bb11.BackColor = Color.DarkGreen;
+            bb11.ForeColor = Color.White;
+            bb11.FlatAppearance.BorderColor = Color.Black;
+            bb12.ForeColor = Color.Black;
+            bb12.BackColor = Color.Transparent;
+        }
+
+        private void bb12_Click(object sender, EventArgs e)
+        {
+            bb11.ForeColor = Color.Black;
+            bb11.BackColor = Color.Transparent;
+            bb12.ForeColor = Color.White;
+            bb12.BackColor = Color.Red;
+            bb12.FlatAppearance.BorderColor = Color.Black;
         }
     }
 }

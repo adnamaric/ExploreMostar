@@ -7,7 +7,6 @@ namespace exploreMostar.WebAPI.Database
     {
         public DodatneOpcije()
         {
-            Apartmani = new HashSet<Apartmani>();
             Hoteli = new HashSet<Hoteli>();
         }
 
@@ -16,7 +15,6 @@ namespace exploreMostar.WebAPI.Database
         public bool? Parking { get; set; }
         public int DodatnaOpcijaId { get; set; }
 
-        public ICollection<Apartmani> Apartmani { get; set; }
         public ICollection<Hoteli> Hoteli { get; set; }
     }
 }

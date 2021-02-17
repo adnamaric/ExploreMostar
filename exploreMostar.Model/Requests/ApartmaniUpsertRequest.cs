@@ -9,14 +9,18 @@ namespace exploreMostar.Model.Requests
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
         public int? GodinaIzgradnje { get; set; }
-        public int? Ocjena { get; set; }
-        public byte[] Slika { get; set; }
-        public byte[] SlikaThumb { get; set; }
-        public int? DodatnaOpcijaId { get; set; }
-        public int? MarkerId { get; set; }
-  
         public int KategorijaId { get; set; }
+        public int? Ocjena { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public bool? Bazen { get; set; }
+        public bool? Parking { get; set; }
+        public bool? Tv { get; set; }
+        public bool? Wifi { get; set; }
+        public byte[] Slika { get; set; }
+        public byte[] SlikaThumb { get; set; }
+        public bool? AparatZaKafu { get; set; }
+        public string KategorijaApartmana { get; set; }
+        public bool? Klima { get; set; }
     }
 }
