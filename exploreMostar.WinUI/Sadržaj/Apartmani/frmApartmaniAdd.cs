@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 {
     public partial class frmApartmaniAdd : Form
     {
+        private readonly APIService _apartmani = new APIService("apartmani");
+
         public frmApartmaniAdd()
         {
             InitializeComponent();
@@ -27,48 +30,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             comboBox1.Items.Add("C");
             comboBox1.Items.Add("D");
             comboBox1.Items.Add("E");
-
+            txtNazivA.Focus();
         }
-
-        private void txtLok_TextChanged(object sender, EventArgs e)
-        {
-          
-
-        }
-
-     
-
-        private void txtLok_LocationChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtLok_ImeModeChanged(object sender, EventArgs e)
-        {
-            var dovedimeovdje = "tu sam";
-
-        }
-
-        private void txtLok_AcceptsTabChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLok_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLok_ModifiedChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         
         private void RadioButtonAppear()
         {
@@ -217,18 +180,20 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.FlatAppearance.BorderColor = Color.Black;
         }
 
-        private void btnSnimi_Click(object sender, EventArgs e)
+        private async void btnSnimi_Click(object sender, EventArgs e)
         {
             var request = new ApartmaniUpsertRequest
             {
-                //Naziv=txtNazivA.Text,
+                Naziv=txtNazivA.Text,
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
-                Longitude = longitude
-
+                Longitude = longitude,
+                GodinaIzgradnje=2015,
+                KategorijaId=5
 
             };
-
+            request.Slika = slika;
+            request.KategorijaApartmana = comboBox1.SelectedItem.ToString();
             if (button1.BackColor == Color.DarkGreen)
             {
                 request.Wifi = true;
@@ -277,6 +242,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             {
                 request.AparatZaKafu = false;
             }
+            if (request != null)
+            {
+                await _apartmani.Insert<Model.Apartmani>(request);
+            }
         }
         public double latitude;
         public double longitude;
@@ -294,19 +263,40 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         //    txtLong.Text = longitude.ToString();
         //}
 
-        private void txtLok_MouseLeave(object sender, EventArgs e)
+        
+        public byte[] slika;
+        private void btnDodajSliku_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                //var request = file;
+                txtSlikaInput.Text = fileName;
+                slika = file;
+                Image image = Image.FromFile(fileName);
+                btnSlika.Image = image;
+
+               
+            }
+        }
+
+        private void txtLok_Leave(object sender, EventArgs e)
         {
             if (txtLok.Text != "")
             {
-                var address = txtLok.Text;
-                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
-                var point = locationService.GetLatLongFromAddress(address);
-                var latitude = point.Latitude;
-                var longitude = point.Longitude;
-                this.latitude = latitude;
-                this.longitude = longitude;
-                txtLat.Text = latitude.ToString();
-                txtLong.Text = longitude.ToString();
+                //var address = txtLok.Text;
+                //var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                //var point = locationService.GetLatLongFromAddress(address);
+                //var latitude = point.Latitude;
+                //var longitude = point.Longitude;
+                //this.latitude = latitude;
+                //this.longitude = longitude;
+                //txtLat.Text = latitude.ToString();
+                //txtLong.Text = longitude.ToString();
+                this.latitude = 0;
+                this.longitude = 0;
             }
         }
     }

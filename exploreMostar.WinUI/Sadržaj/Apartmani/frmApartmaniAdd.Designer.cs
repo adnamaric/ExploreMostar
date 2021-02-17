@@ -42,7 +42,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Slika = new System.Windows.Forms.TextBox();
+            this.txtSlikaInput = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bb12 = new System.Windows.Forms.Button();
             this.bb11 = new System.Windows.Forms.Button();
@@ -62,9 +62,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSlika = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,13 +93,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 2;
-            this.txtLok.AcceptsTabChanged += new System.EventHandler(this.txtLok_AcceptsTabChanged);
-            this.txtLok.ModifiedChanged += new System.EventHandler(this.txtLok_ModifiedChanged);
-            this.txtLok.LocationChanged += new System.EventHandler(this.txtLok_LocationChanged);
-            this.txtLok.TextChanged += new System.EventHandler(this.txtLok_TextChanged);
             this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
-            this.txtLok.MouseLeave += new System.EventHandler(this.txtLok_MouseLeave);
-            this.txtLok.ImeModeChanged += new System.EventHandler(this.txtLok_ImeModeChanged);
             // 
             // txtLat
             // 
@@ -147,6 +142,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.btnDodajSliku.TabIndex = 10;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
+            this.btnDodajSliku.Click += new System.EventHandler(this.btnDodajSliku_Click);
             // 
             // label3
             // 
@@ -174,12 +170,12 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label4.TabIndex = 13;
             this.label4.Text = "Slika";
             // 
-            // Slika
+            // txtSlikaInput
             // 
-            this.Slika.Location = new System.Drawing.Point(88, 176);
-            this.Slika.Name = "Slika";
-            this.Slika.Size = new System.Drawing.Size(239, 20);
-            this.Slika.TabIndex = 14;
+            this.txtSlikaInput.Location = new System.Drawing.Point(88, 176);
+            this.txtSlikaInput.Name = "txtSlikaInput";
+            this.txtSlikaInput.Size = new System.Drawing.Size(239, 20);
+            this.txtSlikaInput.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -202,7 +198,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(15, 219);
+            this.groupBox1.Location = new System.Drawing.Point(15, 223);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 176);
             this.groupBox1.TabIndex = 19;
@@ -383,13 +379,13 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label5.TabIndex = 20;
             this.label5.Text = "Wifi";
             // 
-            // button3
+            // btnSlika
             // 
-            this.button3.Location = new System.Drawing.Point(412, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(271, 190);
-            this.button3.TabIndex = 20;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSlika.Location = new System.Drawing.Point(412, 14);
+            this.btnSlika.Name = "btnSlika";
+            this.btnSlika.Size = new System.Drawing.Size(271, 190);
+            this.btnSlika.TabIndex = 20;
+            this.btnSlika.UseVisualStyleBackColor = true;
             // 
             // btnSnimi
             // 
@@ -414,6 +410,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.button5.TabIndex = 29;
             this.button5.UseVisualStyleBackColor = false;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmApartmaniAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,9 +421,9 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.ClientSize = new System.Drawing.Size(702, 496);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnSnimi);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSlika);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Slika);
+            this.Controls.Add(this.txtSlikaInput);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
@@ -460,7 +460,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Slika;
+        private System.Windows.Forms.TextBox txtSlikaInput;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -480,8 +480,9 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Button bb10;
         private System.Windows.Forms.Button bb9;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSlika;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

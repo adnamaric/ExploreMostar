@@ -9,7 +9,7 @@ namespace exploreMostar.Model
     {
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
-        public int ApartmanId { get; set; }
+        //public int ApartmanId { get; set; }
         public int? GodinaIzgradnje { get; set; }
         public int KategorijaId { get; set; }
         public int? Ocjena { get; set; }

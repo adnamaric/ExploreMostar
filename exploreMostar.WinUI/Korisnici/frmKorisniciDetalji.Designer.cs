@@ -277,7 +277,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.btnDodajSliku.Location = new System.Drawing.Point(414, 428);
             this.btnDodajSliku.Name = "btnDodajSliku";
-            this.btnDodajSliku.Size = new System.Drawing.Size(79, 26);
+            this.btnDodajSliku.Size = new System.Drawing.Size(59, 20);
             this.btnDodajSliku.TabIndex = 26;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
