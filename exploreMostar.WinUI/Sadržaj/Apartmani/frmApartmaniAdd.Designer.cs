@@ -29,6 +29,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApartmaniAdd));
             this.Sadrzaj = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLok = new System.Windows.Forms.TextBox();
@@ -36,33 +37,34 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label1 = new System.Windows.Forms.Label();
             this.txtLong = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtNazivA = new System.Windows.Forms.TextBox();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Slika = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bb12 = new System.Windows.Forms.Button();
+            this.bb11 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.bb10 = new System.Windows.Forms.Button();
+            this.bb9 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.bb8 = new System.Windows.Forms.Button();
+            this.bb7 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.bb6 = new System.Windows.Forms.Button();
+            this.bb5 = new System.Windows.Forms.Button();
+            this.bb4 = new System.Windows.Forms.Button();
+            this.bb3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.bb4 = new System.Windows.Forms.Button();
-            this.bb3 = new System.Windows.Forms.Button();
-            this.bb6 = new System.Windows.Forms.Button();
-            this.bb5 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.bb8 = new System.Windows.Forms.Button();
-            this.bb7 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.bb10 = new System.Windows.Forms.Button();
-            this.bb9 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.bb12 = new System.Windows.Forms.Button();
-            this.bb11 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnSnimi = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,20 +90,21 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.txtLok.Location = new System.Drawing.Point(88, 48);
             this.txtLok.Name = "txtLok";
-            this.txtLok.Size = new System.Drawing.Size(286, 20);
+            this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 2;
             this.txtLok.AcceptsTabChanged += new System.EventHandler(this.txtLok_AcceptsTabChanged);
             this.txtLok.ModifiedChanged += new System.EventHandler(this.txtLok_ModifiedChanged);
             this.txtLok.LocationChanged += new System.EventHandler(this.txtLok_LocationChanged);
             this.txtLok.TextChanged += new System.EventHandler(this.txtLok_TextChanged);
             this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
+            this.txtLok.MouseLeave += new System.EventHandler(this.txtLok_MouseLeave);
             this.txtLok.ImeModeChanged += new System.EventHandler(this.txtLok_ImeModeChanged);
             // 
             // txtLat
             // 
             this.txtLat.Location = new System.Drawing.Point(88, 77);
             this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(286, 20);
+            this.txtLat.Size = new System.Drawing.Size(239, 20);
             this.txtLat.TabIndex = 3;
             // 
             // label1
@@ -117,7 +120,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.txtLong.Location = new System.Drawing.Point(88, 111);
             this.txtLong.Name = "txtLong";
-            this.txtLong.Size = new System.Drawing.Size(286, 20);
+            this.txtLong.Size = new System.Drawing.Size(239, 20);
             this.txtLong.TabIndex = 5;
             // 
             // txtNaziv
@@ -129,26 +132,18 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtNaziv.TabIndex = 7;
             this.txtNaziv.Text = "Naziv";
             // 
-            // textBox1
+            // txtNazivA
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(460, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 178);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.txtNazivA.Location = new System.Drawing.Point(88, 14);
+            this.txtNazivA.Name = "txtNazivA";
+            this.txtNazivA.Size = new System.Drawing.Size(239, 20);
+            this.txtNazivA.TabIndex = 8;
             // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(460, 204);
+            this.btnDodajSliku.Location = new System.Drawing.Point(333, 172);
             this.btnDodajSliku.Name = "btnDodajSliku";
-            this.btnDodajSliku.Size = new System.Drawing.Size(223, 43);
+            this.btnDodajSliku.Size = new System.Drawing.Size(53, 27);
             this.btnDodajSliku.TabIndex = 10;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
@@ -167,7 +162,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(88, 145);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(286, 21);
+            this.comboBox1.Size = new System.Drawing.Size(239, 21);
             this.comboBox1.TabIndex = 12;
             // 
             // label4
@@ -179,12 +174,12 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label4.TabIndex = 13;
             this.label4.Text = "Slika";
             // 
-            // textBox2
+            // Slika
             // 
-            this.textBox2.Location = new System.Drawing.Point(88, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(286, 20);
-            this.textBox2.TabIndex = 14;
+            this.Slika.Location = new System.Drawing.Point(88, 176);
+            this.Slika.Name = "Slika";
+            this.Slika.Size = new System.Drawing.Size(239, 20);
+            this.Slika.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -207,13 +202,139 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(16, 283);
+            this.groupBox1.Location = new System.Drawing.Point(15, 219);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 176);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodatne opcije";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // bb12
+            // 
+            this.bb12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb12.Location = new System.Drawing.Point(271, 116);
+            this.bb12.Name = "bb12";
+            this.bb12.Size = new System.Drawing.Size(40, 29);
+            this.bb12.TabIndex = 43;
+            this.bb12.UseVisualStyleBackColor = true;
+            this.bb12.Click += new System.EventHandler(this.bb12_Click);
+            // 
+            // bb11
+            // 
+            this.bb11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb11.Location = new System.Drawing.Point(235, 116);
+            this.bb11.Name = "bb11";
+            this.bb11.Size = new System.Drawing.Size(40, 29);
+            this.bb11.TabIndex = 42;
+            this.bb11.UseVisualStyleBackColor = true;
+            this.bb11.Click += new System.EventHandler(this.bb11_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(191, 124);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Aparat";
+            // 
+            // bb10
+            // 
+            this.bb10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb10.Location = new System.Drawing.Point(271, 71);
+            this.bb10.Name = "bb10";
+            this.bb10.Size = new System.Drawing.Size(40, 29);
+            this.bb10.TabIndex = 40;
+            this.bb10.UseVisualStyleBackColor = true;
+            this.bb10.Click += new System.EventHandler(this.bb10_Click);
+            // 
+            // bb9
+            // 
+            this.bb9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb9.Location = new System.Drawing.Point(235, 71);
+            this.bb9.Name = "bb9";
+            this.bb9.Size = new System.Drawing.Size(40, 29);
+            this.bb9.TabIndex = 39;
+            this.bb9.UseVisualStyleBackColor = true;
+            this.bb9.Click += new System.EventHandler(this.bb9_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(191, 79);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Klima";
+            // 
+            // bb8
+            // 
+            this.bb8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb8.Location = new System.Drawing.Point(271, 30);
+            this.bb8.Name = "bb8";
+            this.bb8.Size = new System.Drawing.Size(40, 29);
+            this.bb8.TabIndex = 37;
+            this.bb8.UseVisualStyleBackColor = true;
+            this.bb8.Click += new System.EventHandler(this.bb8_Click);
+            // 
+            // bb7
+            // 
+            this.bb7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb7.Location = new System.Drawing.Point(235, 30);
+            this.bb7.Name = "bb7";
+            this.bb7.Size = new System.Drawing.Size(40, 29);
+            this.bb7.TabIndex = 36;
+            this.bb7.UseVisualStyleBackColor = true;
+            this.bb7.Click += new System.EventHandler(this.bb7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(191, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Tv";
+            // 
+            // bb6
+            // 
+            this.bb6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb6.Location = new System.Drawing.Point(108, 116);
+            this.bb6.Name = "bb6";
+            this.bb6.Size = new System.Drawing.Size(40, 29);
+            this.bb6.TabIndex = 34;
+            this.bb6.UseVisualStyleBackColor = true;
+            this.bb6.Click += new System.EventHandler(this.bb6_Click);
+            // 
+            // bb5
+            // 
+            this.bb5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb5.Location = new System.Drawing.Point(72, 116);
+            this.bb5.Name = "bb5";
+            this.bb5.Size = new System.Drawing.Size(40, 29);
+            this.bb5.TabIndex = 33;
+            this.bb5.UseVisualStyleBackColor = true;
+            this.bb5.Click += new System.EventHandler(this.bb5_Click);
+            // 
+            // bb4
+            // 
+            this.bb4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb4.Location = new System.Drawing.Point(108, 71);
+            this.bb4.Name = "bb4";
+            this.bb4.Size = new System.Drawing.Size(40, 29);
+            this.bb4.TabIndex = 32;
+            this.bb4.UseVisualStyleBackColor = true;
+            this.bb4.Click += new System.EventHandler(this.bb4_Click);
+            // 
+            // bb3
+            // 
+            this.bb3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bb3.Location = new System.Drawing.Point(72, 71);
+            this.bb3.Name = "bb3";
+            this.bb3.Size = new System.Drawing.Size(40, 29);
+            this.bb3.TabIndex = 31;
+            this.bb3.UseVisualStyleBackColor = true;
+            this.bb3.Click += new System.EventHandler(this.bb3_Click);
             // 
             // button2
             // 
@@ -262,146 +383,52 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label5.TabIndex = 20;
             this.label5.Text = "Wifi";
             // 
-            // bb4
+            // button3
             // 
-            this.bb4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb4.Location = new System.Drawing.Point(108, 71);
-            this.bb4.Name = "bb4";
-            this.bb4.Size = new System.Drawing.Size(40, 29);
-            this.bb4.TabIndex = 32;
-            this.bb4.UseVisualStyleBackColor = true;
-            this.bb4.Click += new System.EventHandler(this.bb4_Click);
+            this.button3.Location = new System.Drawing.Point(412, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(271, 190);
+            this.button3.TabIndex = 20;
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // bb3
+            // btnSnimi
             // 
-            this.bb3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb3.Location = new System.Drawing.Point(72, 71);
-            this.bb3.Name = "bb3";
-            this.bb3.Size = new System.Drawing.Size(40, 29);
-            this.bb3.TabIndex = 31;
-            this.bb3.UseVisualStyleBackColor = true;
-            this.bb3.Click += new System.EventHandler(this.bb3_Click);
+            this.btnSnimi.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSnimi.ForeColor = System.Drawing.Color.White;
+            this.btnSnimi.Location = new System.Drawing.Point(537, 343);
+            this.btnSnimi.Name = "btnSnimi";
+            this.btnSnimi.Size = new System.Drawing.Size(132, 43);
+            this.btnSnimi.TabIndex = 21;
+            this.btnSnimi.Text = "Sačuvaj";
+            this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
-            // bb6
+            // button5
             // 
-            this.bb6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb6.Location = new System.Drawing.Point(108, 116);
-            this.bb6.Name = "bb6";
-            this.bb6.Size = new System.Drawing.Size(40, 29);
-            this.bb6.TabIndex = 34;
-            this.bb6.UseVisualStyleBackColor = true;
-            this.bb6.Click += new System.EventHandler(this.bb6_Click);
-            // 
-            // bb5
-            // 
-            this.bb5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb5.Location = new System.Drawing.Point(72, 116);
-            this.bb5.Name = "bb5";
-            this.bb5.Size = new System.Drawing.Size(40, 29);
-            this.bb5.TabIndex = 33;
-            this.bb5.UseVisualStyleBackColor = true;
-            this.bb5.Click += new System.EventHandler(this.bb5_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(191, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 13);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Tv";
-            // 
-            // bb8
-            // 
-            this.bb8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb8.Location = new System.Drawing.Point(271, 30);
-            this.bb8.Name = "bb8";
-            this.bb8.Size = new System.Drawing.Size(40, 29);
-            this.bb8.TabIndex = 37;
-            this.bb8.UseVisualStyleBackColor = true;
-            this.bb8.Click += new System.EventHandler(this.bb8_Click);
-            // 
-            // bb7
-            // 
-            this.bb7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb7.Location = new System.Drawing.Point(235, 30);
-            this.bb7.Name = "bb7";
-            this.bb7.Size = new System.Drawing.Size(40, 29);
-            this.bb7.TabIndex = 36;
-            this.bb7.UseVisualStyleBackColor = true;
-            this.bb7.Click += new System.EventHandler(this.bb7_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(191, 79);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Klima";
-            // 
-            // bb10
-            // 
-            this.bb10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb10.Location = new System.Drawing.Point(271, 71);
-            this.bb10.Name = "bb10";
-            this.bb10.Size = new System.Drawing.Size(40, 29);
-            this.bb10.TabIndex = 40;
-            this.bb10.UseVisualStyleBackColor = true;
-            this.bb10.Click += new System.EventHandler(this.bb10_Click);
-            // 
-            // bb9
-            // 
-            this.bb9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb9.Location = new System.Drawing.Point(235, 71);
-            this.bb9.Name = "bb9";
-            this.bb9.Size = new System.Drawing.Size(40, 29);
-            this.bb9.TabIndex = 39;
-            this.bb9.UseVisualStyleBackColor = true;
-            this.bb9.Click += new System.EventHandler(this.bb9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(191, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 13);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "Aparat";
-            // 
-            // bb12
-            // 
-            this.bb12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb12.Location = new System.Drawing.Point(271, 116);
-            this.bb12.Name = "bb12";
-            this.bb12.Size = new System.Drawing.Size(40, 29);
-            this.bb12.TabIndex = 43;
-            this.bb12.UseVisualStyleBackColor = true;
-            this.bb12.Click += new System.EventHandler(this.bb12_Click);
-            // 
-            // bb11
-            // 
-            this.bb11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bb11.Location = new System.Drawing.Point(235, 116);
-            this.bb11.Name = "bb11";
-            this.bb11.Size = new System.Drawing.Size(40, 29);
-            this.bb11.TabIndex = 42;
-            this.bb11.UseVisualStyleBackColor = true;
-            this.bb11.Click += new System.EventHandler(this.bb11_Click);
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(465, 343);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(66, 44);
+            this.button5.TabIndex = 29;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // frmApartmaniAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 586);
+            this.ClientSize = new System.Drawing.Size(702, 496);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnSnimi);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Slika);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDodajSliku);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.txtLong);
             this.Controls.Add(this.label1);
@@ -412,7 +439,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Name = "frmApartmaniAdd";
             this.Text = "frmApartmaniAdd";
             this.Load += new System.EventHandler(this.frmApartmaniAdd_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -429,13 +455,12 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLong;
         private System.Windows.Forms.Label txtNaziv;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtNazivA;
         private System.Windows.Forms.Button btnDodajSliku;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Slika;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -455,5 +480,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Button bb10;
         private System.Windows.Forms.Button bb9;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSnimi;
+        private System.Windows.Forms.Button button5;
     }
 }

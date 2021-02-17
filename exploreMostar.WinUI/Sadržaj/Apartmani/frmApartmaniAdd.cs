@@ -1,4 +1,5 @@
-﻿using GoogleMaps.LocationServices;
+﻿using exploreMostar.Model.Requests;
+using GoogleMaps.LocationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +22,18 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         private void frmApartmaniAdd_Load(object sender, EventArgs e)
         {
-            
+            comboBox1.Items.Add("A");
+            comboBox1.Items.Add("B");
+            comboBox1.Items.Add("C");
+            comboBox1.Items.Add("D");
+            comboBox1.Items.Add("E");
+
         }
 
         private void txtLok_TextChanged(object sender, EventArgs e)
         {
+          
 
-         
         }
 
      
@@ -54,13 +60,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         private void txtLok_ModifiedChanged(object sender, EventArgs e)
         {
-            var address = txtLok.Text;
-            var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
-            var point = locationService.GetLatLongFromAddress(address);
-            var latitude = point.Latitude;
-            var longitude = point.Longitude;
-            txtLat.Text = latitude.ToString();
-            txtLong.Text = longitude.ToString();
+           
 
         }
 
@@ -72,21 +72,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         
         private void RadioButtonAppear()
         {
-            //rb_off.Appearance = Appearance.Button;
-            //rb_on.Appearance = Appearance.Button;
-            //rb_off.BackColor = Color.Red;
-            //rbBazenOff.BackColor = Color.Red;
-            //rbBazenOff.Appearance = Appearance.Button;
-            //rbBazenOn.Appearance = Appearance.Button;
-            //rb_on.Text = "Da";
-            //rb_off.Text = "Ne";
-            //rbBazenOn.Text = "Da";
-            //rbBazenOff.Text = "Ne";
-            //rp1.Appearance = Appearance.Button;
-            //rp1.Text = "Da";
-            //rp2.Appearance = Appearance.Button;
-            //rp2.Text = "Ne";
-            //rp2.BackColor = Color.Red;
+          
             button1.Text = "Da";
             button2.Text = "Ne";
             button2.BackColor = Color.Red;
@@ -117,81 +103,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.BackColor = Color.Red;
             bb12.ForeColor = Color.White;
             bb12.FlatAppearance.BorderColor = Color.Black;
+            //btnOk.Text = "OK";
+            //btnOk.BackColor = Color.DarkGreen;
+            //btnOk.ForeColor=Color.White;
         }
-
-        //private void rb_on_Click(object sender, EventArgs e)
-        //{
-        //    rb_off.BackColor = Color.Transparent;
-
-
-
-        //    rb_on.FlatAppearance.BorderColor = Color.Black;
-        //    rb_on.BackColor = Color.Green;
-        //    rb_off.ForeColor = Color.Black;
-        //}
-
-        //private void rb_off_Click(object sender, EventArgs e)
-        //{
-        //    rb_off.BackColor = Color.Red;
-
-        //    rb_off.FlatAppearance.BorderColor = Color.Black;
-        //    rb_on.BackColor = Color.Transparent;
-        //    rb_on.ForeColor = Color.Black;
-
-        //}
-
-
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-       
-
-        //private void rbBazenOn_Click(object sender, EventArgs e)
-        //{
-        //    rbBazenOff.BackColor = Color.Transparent;
-        //    rbBazenOn.FlatAppearance.BorderColor = Color.Black;
-        //}
-
-        //private void rbBazenOff_Click(object sender, EventArgs e)
-        //{
-
-        //    rbBazenOn.BackColor = Color.Transparent;
-        //    rbBazenOff.FlatAppearance.BorderColor = Color.Black;
-        //}
-
-        //private void rP1_Click(object sender, EventArgs e)
-        //{
-            
-        //}
-
-   
-
-        //private void rP2_Click(object sender, EventArgs e)
-        //{
-
-        //    rP1.BackColor = Color.Transparent;
-        //    rP2.FlatAppearance.BorderColor = Color.Black;
-        //}
-
-        //private void rp1_Click_1(object sender, EventArgs e)
-        //{
-        //    rp2.BackColor = Color.Transparent;
-        //    rp1.FlatAppearance.BorderColor = Color.Black;
-        //}
-
-        //private void rp2_Click(object sender, EventArgs e)
-        //{
-        //    rp1.BackColor = Color.Transparent;
-        //    rp2.FlatAppearance.BorderColor = Color.Black;
-        //}
-
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -300,6 +215,99 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.ForeColor = Color.White;
             bb12.BackColor = Color.Red;
             bb12.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void btnSnimi_Click(object sender, EventArgs e)
+        {
+            var request = new ApartmaniUpsertRequest
+            {
+                //Naziv=txtNazivA.Text,
+                Lokacija = txtLok.Text,
+                Latitude = latitude,
+                Longitude = longitude
+
+
+            };
+
+            if (button1.BackColor == Color.DarkGreen)
+            {
+                request.Wifi = true;
+            }
+            else
+            {
+                request.Wifi = false;
+            }
+            if(bb3.BackColor== Color.DarkGreen)
+            {
+                request.Bazen = true;
+            }
+            else
+            {
+                request.Bazen = false;
+            }
+            if (bb5.BackColor == Color.DarkGreen)
+            {
+                request.Parking = true;
+            }
+            else
+            {
+                request.Parking = false;
+            }
+            if (bb7.BackColor == Color.DarkGreen)
+            {
+                request.Tv = true;
+            }
+            else
+            {
+                request.Tv = false;
+            }
+            if (bb9.BackColor == Color.DarkGreen)
+            {
+                request.Klima = true;
+            }
+            else
+            {
+                request.Klima = false;
+            }
+            if (bb11.BackColor == Color.DarkGreen)
+            {
+                request.AparatZaKafu = true;
+            }
+            else
+            {
+                request.AparatZaKafu = false;
+            }
+        }
+        public double latitude;
+        public double longitude;
+
+        //private void btnOk_Click(object sender, EventArgs e)
+        //{
+        //    var address = txtLok.Text;
+        //    var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+        //    var point = locationService.GetLatLongFromAddress(address);
+        //    var latitude = point.Latitude;
+        //     var longitude = point.Longitude;
+        //    this.latitude = latitude;
+        //    this.longitude = longitude;
+        //    txtLat.Text = latitude.ToString();
+        //    txtLong.Text = longitude.ToString();
+        //}
+
+        private void txtLok_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtLok.Text != "")
+            {
+                var address = txtLok.Text;
+                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var point = locationService.GetLatLongFromAddress(address);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                this.latitude = latitude;
+                this.longitude = longitude;
+                txtLat.Text = latitude.ToString();
+                txtLong.Text = longitude.ToString();
+            }
         }
     }
 }
