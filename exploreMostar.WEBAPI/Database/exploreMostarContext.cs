@@ -62,8 +62,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(200);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -80,11 +78,6 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Apartmani__Kateg__160F4887");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Apartmani)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Apartmani__Marke__0A9D95DB");
             });
 
             modelBuilder.Entity<Atrakcije>(entity =>

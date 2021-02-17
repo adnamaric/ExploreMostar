@@ -15,5 +15,7 @@ namespace exploreMostar.Model
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public int Rbr { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
     }
 }

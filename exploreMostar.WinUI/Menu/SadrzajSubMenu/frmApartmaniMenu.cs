@@ -23,5 +23,11 @@ namespace exploreMostar.WinUI.Menu
             frmListaApartmana frm = new frmListaApartmana();
             frm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmApartmaniAdd frmApartmaniAdd = new frmApartmaniAdd();
+            frmApartmaniAdd.Show();
+        }
     }
 }
