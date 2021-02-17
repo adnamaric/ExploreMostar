@@ -30,10 +30,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
          
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
+     
 
         private void txtLok_LocationChanged(object sender, EventArgs e)
         {
@@ -71,36 +68,124 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         private void RadioButtonAppear()
         {
-            rb_off.Appearance = Appearance.Button;
-            rb_on.Appearance = Appearance.Button;
-            rb_on.BackColor = Color.Green;
-            rb_off.BackColor = Color.Red;
+            //rb_off.Appearance = Appearance.Button;
+            //rb_on.Appearance = Appearance.Button;
+            //rb_off.BackColor = Color.Red;
+            //rbBazenOff.BackColor = Color.Red;
+            //rbBazenOff.Appearance = Appearance.Button;
+            //rbBazenOn.Appearance = Appearance.Button;
+            //rb_on.Text = "Da";
+            //rb_off.Text = "Ne";
+            //rbBazenOn.Text = "Da";
+            //rbBazenOff.Text = "Ne";
+            //rp1.Appearance = Appearance.Button;
+            //rp1.Text = "Da";
+            //rp2.Appearance = Appearance.Button;
+            //rp2.Text = "Ne";
+            //rp2.BackColor = Color.Red;
+            button1.Text = "Da";
+            button2.Text = "Ne";
+            button2.BackColor = Color.Red;
+            button2.ForeColor = Color.White;
+            button2.FlatAppearance.BorderColor = Color.Black;
+
+
+        }
+
+        //private void rb_on_Click(object sender, EventArgs e)
+        //{
+        //    rb_off.BackColor = Color.Transparent;
+           
+          
+
+        //    rb_on.FlatAppearance.BorderColor = Color.Black;
+        //    rb_on.BackColor = Color.Green;
+        //    rb_off.ForeColor = Color.Black;
+        //}
+
+        //private void rb_off_Click(object sender, EventArgs e)
+        //{
+        //    rb_off.BackColor = Color.Red;
+         
+        //    rb_off.FlatAppearance.BorderColor = Color.Black;
+        //    rb_on.BackColor = Color.Transparent;
+        //    rb_on.ForeColor = Color.Black;
+
+        //}
+
+       
+
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+       
+
+        //private void rbBazenOn_Click(object sender, EventArgs e)
+        //{
+        //    rbBazenOff.BackColor = Color.Transparent;
+        //    rbBazenOn.FlatAppearance.BorderColor = Color.Black;
+        //}
+
+        //private void rbBazenOff_Click(object sender, EventArgs e)
+        //{
+
+        //    rbBazenOn.BackColor = Color.Transparent;
+        //    rbBazenOff.FlatAppearance.BorderColor = Color.Black;
+        //}
+
+        //private void rP1_Click(object sender, EventArgs e)
+        //{
             
-            rb_on.Text = "Da";
-            rb_off.Text = "Ne";
+        //}
+
+   
+
+        //private void rP2_Click(object sender, EventArgs e)
+        //{
+
+        //    rP1.BackColor = Color.Transparent;
+        //    rP2.FlatAppearance.BorderColor = Color.Black;
+        //}
+
+        //private void rp1_Click_1(object sender, EventArgs e)
+        //{
+        //    rp2.BackColor = Color.Transparent;
+        //    rp1.FlatAppearance.BorderColor = Color.Black;
+        //}
+
+        //private void rp2_Click(object sender, EventArgs e)
+        //{
+        //    rp1.BackColor = Color.Transparent;
+        //    rp2.FlatAppearance.BorderColor = Color.Black;
+        //}
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.DarkGreen;
+            button1.ForeColor = Color.White;
+            button1.FlatAppearance.BorderColor = Color.Black;
+            button2.ForeColor = Color.Black;
+            button2.BackColor = Color.Transparent;
+
         }
 
-        private void rb_on_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            rb_off.BackColor = Color.Transparent;
-            rb_on.ForeColor = Color.White;
-            rb_on.BackColor = Color.Green;
-            rb_off.ForeColor = Color.Black;
-        }
-
-        private void rb_off_Click(object sender, EventArgs e)
-        {
-            rb_off.BackColor = Color.Red;
-            rb_off.ForeColor = Color.White;
-            rb_on.BackColor = Color.Transparent;
-            rb_on.ForeColor = Color.Black;
-
+            button1.ForeColor = Color.Black;
+            button1.BackColor = Color.Transparent;
+            button2.ForeColor = Color.White;
+            button2.BackColor = Color.Red;
+            button2.FlatAppearance.BorderColor = Color.Black;
         }
     }
 }

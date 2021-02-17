@@ -45,7 +45,19 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.rb_on = new System.Windows.Forms.RadioButton();
             this.rb_off = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rbBazenOff = new System.Windows.Forms.RadioButton();
+            this.rbBazenOn = new System.Windows.Forms.RadioButton();
+            this.rp2 = new System.Windows.Forms.RadioButton();
+            this.rp1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Sadrzaj
@@ -155,7 +167,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 175);
+            this.label4.Location = new System.Drawing.Point(13, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 13;
@@ -172,51 +184,185 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.rb_on.AutoSize = true;
             this.rb_on.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rb_on.FlatAppearance.BorderSize = 0;
-            this.rb_on.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.rb_on.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.rb_on.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.rb_on.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.rb_on.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.rb_on.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_on.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_on.Location = new System.Drawing.Point(219, 267);
+            this.rb_on.Location = new System.Drawing.Point(450, 357);
             this.rb_on.Name = "rb_on";
-            this.rb_on.Size = new System.Drawing.Size(14, 13);
+            this.rb_on.Size = new System.Drawing.Size(13, 12);
             this.rb_on.TabIndex = 17;
             this.rb_on.TabStop = true;
             this.rb_on.UseVisualStyleBackColor = true;
-            this.rb_on.Click += new System.EventHandler(this.rb_on_Click);
             // 
             // rb_off
             // 
             this.rb_off.AutoSize = true;
             this.rb_off.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rb_off.FlatAppearance.BorderSize = 0;
-            this.rb_off.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
             this.rb_off.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.rb_off.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.rb_off.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_off.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_off.Location = new System.Drawing.Point(252, 267);
+            this.rb_off.Location = new System.Drawing.Point(483, 357);
             this.rb_off.Name = "rb_off";
-            this.rb_off.Size = new System.Drawing.Size(14, 13);
+            this.rb_off.Size = new System.Drawing.Size(13, 12);
             this.rb_off.TabIndex = 18;
             this.rb_off.TabStop = true;
             this.rb_off.UseVisualStyleBackColor = true;
-            this.rb_off.Click += new System.EventHandler(this.rb_off_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(16, 283);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(388, 176);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dodatne opcije";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(108, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 29);
+            this.button2.TabIndex = 30;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(72, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 29);
+            this.button1.TabIndex = 29;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Location = new System.Drawing.Point(191, 38);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 20);
+            this.checkBox1.TabIndex = 20;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Parking";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Bazen";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Wifi";
+            // 
+            // rbBazenOff
+            // 
+            this.rbBazenOff.AutoSize = true;
+            this.rbBazenOff.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbBazenOff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.rbBazenOff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.rbBazenOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbBazenOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbBazenOff.Location = new System.Drawing.Point(483, 391);
+            this.rbBazenOff.Name = "rbBazenOff";
+            this.rbBazenOff.Size = new System.Drawing.Size(13, 12);
+            this.rbBazenOff.TabIndex = 26;
+            this.rbBazenOff.TabStop = true;
+            this.rbBazenOff.UseVisualStyleBackColor = true;
+            // 
+            // rbBazenOn
+            // 
+            this.rbBazenOn.AutoSize = true;
+            this.rbBazenOn.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbBazenOn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.rbBazenOn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.rbBazenOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbBazenOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbBazenOn.Location = new System.Drawing.Point(450, 391);
+            this.rbBazenOn.Name = "rbBazenOn";
+            this.rbBazenOn.Size = new System.Drawing.Size(13, 12);
+            this.rbBazenOn.TabIndex = 25;
+            this.rbBazenOn.TabStop = true;
+            this.rbBazenOn.UseVisualStyleBackColor = true;
+            // 
+            // rp2
+            // 
+            this.rp2.AutoSize = true;
+            this.rp2.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rp2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.rp2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.rp2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rp2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rp2.Location = new System.Drawing.Point(483, 428);
+            this.rp2.Name = "rp2";
+            this.rp2.Size = new System.Drawing.Size(13, 12);
+            this.rp2.TabIndex = 28;
+            this.rp2.TabStop = true;
+            this.rp2.UseVisualStyleBackColor = true;
+            // 
+            // rp1
+            // 
+            this.rp1.AutoSize = true;
+            this.rp1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rp1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.rp1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.rp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rp1.Location = new System.Drawing.Point(450, 428);
+            this.rp1.Name = "rp1";
+            this.rp1.Size = new System.Drawing.Size(13, 12);
+            this.rp1.TabIndex = 27;
+            this.rp1.TabStop = true;
+            this.rp1.UseVisualStyleBackColor = true;
             // 
             // frmApartmaniAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 586);
-            this.Controls.Add(this.rb_on);
-            this.Controls.Add(this.rb_off);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.rp2);
+            this.Controls.Add(this.rp1);
             this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.rbBazenOff);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.rbBazenOn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDodajSliku);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.rb_off);
             this.Controls.Add(this.txtNaziv);
+            this.Controls.Add(this.rb_on);
             this.Controls.Add(this.txtLong);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLat);
@@ -227,6 +373,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Text = "frmApartmaniAdd";
             this.Load += new System.EventHandler(this.frmApartmaniAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +398,16 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RadioButton rb_on;
         private System.Windows.Forms.RadioButton rb_off;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton rbBazenOff;
+        private System.Windows.Forms.RadioButton rbBazenOn;
+        private System.Windows.Forms.RadioButton rp2;
+        private System.Windows.Forms.RadioButton rp1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
