@@ -204,6 +204,12 @@
     <Compile Include="Sadržaj\Apartmani\frmApartmaniAdd.Designer.cs">
       <DependentUpon>frmApartmaniAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Apartmani\frmApartmaniUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Apartmani\frmApartmaniUpdate.Designer.cs">
+      <DependentUpon>frmApartmaniUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Apartmani\frmListaApartmana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </Compile>
     <EmbeddedResource Include="Sadržaj\Apartmani\frmApartmaniAdd.resx">
       <DependentUpon>frmApartmaniAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Apartmani\frmApartmaniUpdate.resx">
+      <DependentUpon>frmApartmaniUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Apartmani\frmListaApartmana.resx">
       <DependentUpon>frmListaApartmana.cs</DependentUpon>

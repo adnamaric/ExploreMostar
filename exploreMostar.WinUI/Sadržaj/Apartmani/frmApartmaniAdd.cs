@@ -347,7 +347,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 {
                     array[i].BackColor = Color.Transparent;
                     array[i].ForeColor = Color.Black;
-                    j = i + 1;
+                     j = i + 1;
                     array[j].BackColor = Color.Red;
                     array[j].ForeColor = Color.White;
                 }
