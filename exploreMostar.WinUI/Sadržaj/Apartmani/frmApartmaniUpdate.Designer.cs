@@ -138,6 +138,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb12.Size = new System.Drawing.Size(40, 29);
             this.bb12.TabIndex = 43;
             this.bb12.UseVisualStyleBackColor = true;
+            this.bb12.Click += new System.EventHandler(this.bb12_Click);
             // 
             // bb11
             // 
@@ -147,6 +148,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb11.Size = new System.Drawing.Size(40, 29);
             this.bb11.TabIndex = 42;
             this.bb11.UseVisualStyleBackColor = true;
+            this.bb11.Click += new System.EventHandler(this.bb11_Click);
             // 
             // label10
             // 
@@ -165,6 +167,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb10.Size = new System.Drawing.Size(40, 29);
             this.bb10.TabIndex = 40;
             this.bb10.UseVisualStyleBackColor = true;
+            this.bb10.Click += new System.EventHandler(this.bb10_Click);
             // 
             // bb9
             // 
@@ -174,6 +177,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb9.Size = new System.Drawing.Size(40, 29);
             this.bb9.TabIndex = 39;
             this.bb9.UseVisualStyleBackColor = true;
+            this.bb9.Click += new System.EventHandler(this.bb9_Click);
             // 
             // label9
             // 
@@ -192,6 +196,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb8.Size = new System.Drawing.Size(40, 29);
             this.bb8.TabIndex = 37;
             this.bb8.UseVisualStyleBackColor = true;
+            this.bb8.Click += new System.EventHandler(this.bb8_Click);
             // 
             // bb7
             // 
@@ -201,6 +206,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb7.Size = new System.Drawing.Size(40, 29);
             this.bb7.TabIndex = 36;
             this.bb7.UseVisualStyleBackColor = true;
+            this.bb7.Click += new System.EventHandler(this.bb7_Click);
             // 
             // label8
             // 
@@ -219,6 +225,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb6.Size = new System.Drawing.Size(40, 29);
             this.bb6.TabIndex = 34;
             this.bb6.UseVisualStyleBackColor = true;
+            this.bb6.Click += new System.EventHandler(this.bb6_Click);
             // 
             // bb5
             // 
@@ -228,6 +235,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb5.Size = new System.Drawing.Size(40, 29);
             this.bb5.TabIndex = 33;
             this.bb5.UseVisualStyleBackColor = true;
+            this.bb5.Click += new System.EventHandler(this.bb5_Click);
             // 
             // bb4
             // 
@@ -237,6 +245,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb4.Size = new System.Drawing.Size(40, 29);
             this.bb4.TabIndex = 32;
             this.bb4.UseVisualStyleBackColor = true;
+            this.bb4.Click += new System.EventHandler(this.bb4_Click);
             // 
             // bb3
             // 
@@ -246,6 +255,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.bb3.Size = new System.Drawing.Size(40, 29);
             this.bb3.TabIndex = 31;
             this.bb3.UseVisualStyleBackColor = true;
+            this.bb3.Click += new System.EventHandler(this.bb3_Click);
             // 
             // button2
             // 
@@ -255,6 +265,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.button2.Size = new System.Drawing.Size(40, 29);
             this.button2.TabIndex = 30;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -264,6 +275,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.button1.Size = new System.Drawing.Size(40, 29);
             this.button1.TabIndex = 29;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
