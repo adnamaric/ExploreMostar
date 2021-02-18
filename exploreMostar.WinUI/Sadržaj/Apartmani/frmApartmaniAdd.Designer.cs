@@ -93,6 +93,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 2;
+            this.txtLok.TextChanged += new System.EventHandler(this.txtLok_TextChanged);
             this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // txtLat
@@ -409,6 +410,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 29;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // openFileDialog1
             // 

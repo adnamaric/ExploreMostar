@@ -244,8 +244,19 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             }
             if (request != null)
             {
-                await _apartmani.Insert<Model.Apartmani>(request);
+                try
+                {
+                    await _apartmani.Insert<Model.Apartmani>(request);
+                    MessageBox.Show("Uspješno ste dodali apartmani!");
+                    Obrisi();
+                }
+                catch
+                {
+                    MessageBox.Show("Greška prilikom dodavanja!");
+
+                }
             }
+           
         }
         public double latitude;
         public double longitude;
@@ -286,17 +297,61 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         {
             if (txtLok.Text != "")
             {
-                //var address = txtLok.Text;
-                //var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
-                //var point = locationService.GetLatLongFromAddress(address);
-                //var latitude = point.Latitude;
-                //var longitude = point.Longitude;
-                //this.latitude = latitude;
-                //this.longitude = longitude;
-                //txtLat.Text = latitude.ToString();
-                //txtLong.Text = longitude.ToString();
-                this.latitude = 0;
-                this.longitude = 0;
+                var address = txtLok.Text;
+                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var point = locationService.GetLatLongFromAddress(address);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                this.latitude = latitude;
+                this.longitude = longitude;
+                txtLat.Text = latitude.ToString();
+                txtLong.Text = longitude.ToString();
+                txtLat.Enabled = false;
+                txtLong.Enabled = false;
+
+                //this.latitude = 0;
+                //this.longitude = 0;
+            }
+
+        }
+
+        private void txtLok_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void SwitchColors()
+        {
+
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Obrisi();
+
+        }
+        private void Obrisi()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            txtLat.Enabled = true;
+            txtLong.Enabled = true;
+            txtSlikaInput.Clear();
+            button2.BackColor = Color.Red;
+            Button[] array = { button1, button2, bb3, bb4, bb5, bb6, bb7, bb8, bb9, bb10, bb11, bb12 };
+            var i = 0;
+            var j = 0;
+            foreach (var item in array)
+            {
+                if (array[i].BackColor == Color.DarkGreen)
+                {
+                    array[i].BackColor = Color.Transparent;
+                    array[i].ForeColor = Color.Black;
+                    j = i + 1;
+                    array[j].BackColor = Color.Red;
+                    array[j].ForeColor = Color.White;
+                }
+                i++;
             }
         }
     }
