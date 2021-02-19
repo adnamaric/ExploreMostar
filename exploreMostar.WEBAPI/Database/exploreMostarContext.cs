@@ -162,7 +162,7 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.HotelId).HasColumnName("HotelID");
 
-                entity.Property(e => e.DodatnaOpcijaId).HasColumnName("DodatnaOpcijaID");
+                entity.Property(e => e.Kategorija).HasMaxLength(1);
 
                 entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
 
@@ -170,27 +170,17 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(200);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.DodatnaOpcija)
-                    .WithMany(p => p.Hoteli)
-                    .HasForeignKey(d => d.DodatnaOpcijaId)
-                    .HasConstraintName("FK__Hoteli__DodatnaO__5BE2A6F2");
+                entity.Property(e => e.Tv).HasColumnName("TV");
 
-                entity.HasOne(d => d.Kategorija)
+                entity.HasOne(d => d.KategorijaNavigation)
                     .WithMany(p => p.Hoteli)
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Hoteli__Kategori__17F790F9");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Hoteli)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Hoteli__MarkerID__0C85DE4D");
             });
 
             modelBuilder.Entity<Jela>(entity =>

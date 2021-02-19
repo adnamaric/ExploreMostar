@@ -4,18 +4,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace exploreMostar.WinUI.Sadržaj.Apartmani
+namespace exploreMostar.WinUI.Sadržaj.Hoteli
 {
-    public partial class frmApartmaniUpdate : Form
+    public partial class frmHoteliUpdate : Form
     {
-        private readonly APIService _apartmani = new APIService("apartmani");
+        private readonly APIService _hoteli = new APIService("hoteli");
         private int? _id = null;
         private bool? b1 = false;
         private bool? b2 = false;
@@ -23,27 +22,24 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private bool? b4 = false;
         private bool? b5 = false;
         private bool? b6 = false;
-        
-
-        public frmApartmaniUpdate()
+        public frmHoteliUpdate()
         {
             InitializeComponent();
         }
 
-        private async void frmApartmaniUpdate_Load(object sender, EventArgs e)
+        private async void frmHoteliUpdate_Load(object sender, EventArgs e)
         {
-            await LoadApartmani();
-            
+            await LoadHoteli();
         }
-        private async Task LoadApartmani()
+        private async Task LoadHoteli()
         {
-            var result = await _apartmani.Get<List<Model.Apartmani>>(null);
+            var result = await _hoteli.Get<List<Model.Hoteli>>(null);
 
-            result.Insert(0, new Model.Apartmani() { Naziv = "Odaberite apartman", ApartmanId = 0 });
+            result.Insert(0, new Model.Hoteli() { Naziv = "Odaberite hotel", HotelId = 0 });
 
             cmbOdabirApartmana.DataSource = result;
             cmbOdabirApartmana.DisplayMember = "Naziv";
-            cmbOdabirApartmana.ValueMember = "ApartmanId";
+            cmbOdabirApartmana.ValueMember = "HotelId";
             cmbKat.Items.Add("A");
             cmbKat.Items.Add("B");
             cmbKat.Items.Add("C");
@@ -64,20 +60,20 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 btnSlika.Image = null;
                 txtSlikaInput.Clear();
             }
-            var apid = (Model.Apartmani)cmbOdabirApartmana.SelectedItem;
+            var apid = (Model.Hoteli)cmbOdabirApartmana.SelectedItem;
 
 
 
-            var result = await _apartmani.Get<List<Model.Apartmani>>(null);
-            if (apid.ApartmanId != 0)
+            var result = await _hoteli.Get<List<Model.Hoteli>>(null);
+            if (apid.HotelId != 0)
             {
-                var odabrani = result.Where(y => y.ApartmanId == apid.ApartmanId).FirstOrDefault();
+                var odabrani = result.Where(y => y.HotelId == apid.HotelId).FirstOrDefault();
                 txtNazivA.Text = odabrani.Naziv;
                 txtLok.Text = odabrani.Lokacija;
                 txtLat.Text = odabrani.Latitude.ToString();
                 txtLong.Text = odabrani.Longitude.ToString();
-                cmbKat.SelectedItem = odabrani.KategorijaApartmana;
-                _id = odabrani.ApartmanId;
+                cmbKat.SelectedItem = odabrani.Kategorija;
+                _id = odabrani.HotelId;
                 b1 = odabrani.Wifi;
                 b2 = odabrani.Bazen;
                 b3 = odabrani.Parking;
@@ -87,7 +83,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 txtOcjena.Text = odabrani.Ocjena.ToString();
                 if (odabrani.GodinaIzgradnje != null)
                 {
-                    cmbGodine.SelectedItem =  odabrani.GodinaIzgradnje.ToString();
+                    cmbGodine.SelectedItem = odabrani.GodinaIzgradnje.ToString();
                 }
                 bool?[] niz = { b1, b2, b3, b4, b5, b6 };
                 Check(niz);
@@ -104,14 +100,12 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
                 }
             }
-
         }
-
         private void Check(bool?[] niz)
         {
             int i = 0;
-            int j =i+1;
-            int additional =i;
+            int j = i + 1;
+            int additional = i;
             Button[] arrayB = { button1, button2, bb3, bb4, bb5, bb6, bb7, bb8, bb9, bb10, bb11, bb12 };
             //0-11
             //0-5
@@ -143,7 +137,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     arrayB[j].ForeColor = Color.Black;
                     arrayB[j].Text = "Ne";
                 }
-               
+
                 i++;
                 if (i == 6)
                 {
@@ -171,7 +165,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     additional = i + 1;
                 }
                 j = additional + 1;
-               
+
 
 
             }
@@ -228,21 +222,22 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             }
         }
         public byte[] slika;
+
         private async void btnSnimi_Click(object sender, EventArgs e)
-        { 
-                if (this.ValidateChildren())
-                {
-                    //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
-                    byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
+        {
+            if (this.ValidateChildren())
+            {
+                //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
+                byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
                 Check2();
-                var request = new ApartmaniUpsertRequest
+                var request = new HoteliUpsertRequest
                 {
                     Naziv = txtNazivA.Text,
                     Lokacija = txtLok.Text,
                     Latitude = double.Parse(txtLat.Text),
                     Slika = bytes,
                     Longitude = double.Parse(txtLong.Text),
-                    KategorijaApartmana = cmbKat.SelectedItem.ToString(),
+                    Kategorija = cmbKat.SelectedItem.ToString(),
                     KategorijaId = 5,
                     Wifi = b1,
                     Bazen = b2,
@@ -251,25 +246,24 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     Klima = b5,
                     AparatZaKafu = b6,
                     Ocjena = double.Parse(txtOcjena.Text)
-                 };
-                    request.Slika = slika;
-                   
-                    if (_id!=null || _id!=0)
-                    {
-                        await _apartmani.Update<Model.Apartmani>(_id, request);
-                        MessageBox.Show("Operacija uspješna!");
+                };
+                request.Slika = slika;
+
+                if (_id != null || _id != 0)
+                {
+                    await _hoteli.Update<Model.Hoteli>(_id, request);
+                    MessageBox.Show("Operacija uspješna!");
 
                 }
 
 
             }
-            
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)
         {
- 
-                var result = openFileDialog1.ShowDialog();
+
+            var result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 var fileName = openFileDialog1.FileName;
@@ -282,7 +276,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
                 //circleButton1.Image.Height = 100;
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -350,6 +343,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         private void bb8_Click(object sender, EventArgs e)
         {
+
             bb7.ForeColor = Color.Black;
             bb7.BackColor = Color.Transparent;
             bb8.ForeColor = Color.White;
@@ -392,11 +386,5 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.BackColor = Color.Red;
             bb12.FlatAppearance.BorderColor = Color.Black;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-        
 }

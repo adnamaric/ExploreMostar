@@ -216,6 +216,18 @@
     <Compile Include="Sadržaj\Apartmani\frmListaApartmana.Designer.cs">
       <DependentUpon>frmListaApartmana.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmHoteliAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmHoteliAdd.Designer.cs">
+      <DependentUpon>frmHoteliAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmHoteliUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmHoteliUpdate.Designer.cs">
+      <DependentUpon>frmHoteliUpdate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +301,12 @@
     <EmbeddedResource Include="Sadržaj\Apartmani\frmListaApartmana.resx">
       <DependentUpon>frmListaApartmana.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Hoteli\frmHoteliAdd.resx">
+      <DependentUpon>frmHoteliAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Hoteli\frmHoteliUpdate.resx">
+      <DependentUpon>frmHoteliUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -330,7 +348,6 @@
   <ItemGroup>
     <Folder Include="Kategorije\" />
     <Folder Include="Sadržaj\Atrakcije\" />
-    <Folder Include="Sadržaj\Hoteli\" />
     <Folder Include="Sadržaj\Kafići\" />
     <Folder Include="Sadržaj\Noćni klubovi\" />
     <Folder Include="Sadržaj\Ostalo\" />

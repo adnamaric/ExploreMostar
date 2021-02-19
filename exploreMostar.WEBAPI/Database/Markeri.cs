@@ -8,7 +8,6 @@ namespace exploreMostar.WebAPI.Database
         public Markeri()
         {
             Atrakcije = new HashSet<Atrakcije>();
-            Hoteli = new HashSet<Hoteli>();
             Kafici = new HashSet<Kafici>();
             Nightclubs = new HashSet<Nightclubs>();
             Restorani = new HashSet<Restorani>();
@@ -24,7 +23,6 @@ namespace exploreMostar.WebAPI.Database
 
         public Gradovi Grad { get; set; }
         public ICollection<Atrakcije> Atrakcije { get; set; }
-        public ICollection<Hoteli> Hoteli { get; set; }
         public ICollection<Kafici> Kafici { get; set; }
         public ICollection<Nightclubs> Nightclubs { get; set; }
         public ICollection<Restorani> Restorani { get; set; }

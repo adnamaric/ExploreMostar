@@ -11,23 +11,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace exploreMostar.WinUI.Sadržaj.Apartmani
+namespace exploreMostar.WinUI.Sadržaj.Hoteli
 {
-    public partial class frmApartmaniAdd : Form
+    public partial class frmHoteliAdd : Form
     {
-        private readonly APIService _apartmani = new APIService("apartmani");
-
-        public frmApartmaniAdd()
+        private readonly APIService _hoteli = new APIService("hoteli");
+        public frmHoteliAdd()
         {
             InitializeComponent();
-            RadioButtonAppear();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "yyyy";
             dateTimePicker1.ShowUpDown = true;
-
+            ButtonAppear();
         }
 
-        private void frmApartmaniAdd_Load(object sender, EventArgs e)
+        private void frmHoteliAdd_Load(object sender, EventArgs e)
         {
             comboBox1.Items.Add("A");
             comboBox1.Items.Add("B");
@@ -36,10 +34,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             comboBox1.Items.Add("E");
             txtNazivA.Focus();
         }
-        
-        private void RadioButtonAppear()
+        private void ButtonAppear()
         {
-          
             button1.Text = "Da";
             button2.Text = "Ne";
             button2.BackColor = Color.Red;
@@ -70,9 +66,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.BackColor = Color.Red;
             bb12.ForeColor = Color.White;
             bb12.FlatAppearance.BorderColor = Color.Black;
-            //btnOk.Text = "OK";
-            //btnOk.BackColor = Color.DarkGreen;
-            //btnOk.ForeColor=Color.White;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,7 +75,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             button1.FlatAppearance.BorderColor = Color.Black;
             button2.ForeColor = Color.Black;
             button2.BackColor = Color.Transparent;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,7 +88,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         private void bb3_Click(object sender, EventArgs e)
         {
-           bb3.BackColor = Color.DarkGreen;
+            bb3.BackColor = Color.DarkGreen;
             bb3.ForeColor = Color.White;
             bb3.FlatAppearance.BorderColor = Color.Black;
             bb4.ForeColor = Color.Black;
@@ -183,23 +175,25 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.BackColor = Color.Red;
             bb12.FlatAppearance.BorderColor = Color.Black;
         }
-
+        public double latitude;
+        public double longitude;
+        public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new ApartmaniUpsertRequest
+            var request = new HoteliUpsertRequest
             {
-                Naziv=txtNazivA.Text,
+                Naziv = txtNazivA.Text,
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
                 Longitude = longitude,
-                KategorijaId=5
+                KategorijaId = 5
 
             };
-            
-           request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
+
+            request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
             request.Ocjena = double.Parse(txtOcjena.Text);
             request.Slika = slika;
-            request.KategorijaApartmana = comboBox1.SelectedItem.ToString();
+            request.Kategorija = comboBox1.SelectedItem.ToString();
             if (button1.BackColor == Color.DarkGreen)
             {
                 request.Wifi = true;
@@ -208,7 +202,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             {
                 request.Wifi = false;
             }
-            if(bb3.BackColor== Color.DarkGreen)
+            if (bb3.BackColor == Color.DarkGreen)
             {
                 request.Bazen = true;
             }
@@ -252,7 +246,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             {
                 try
                 {
-                    await _apartmani.Insert<Model.Apartmani>(request);
+                    await _hoteli.Insert<Model.Hoteli>(request);
                     MessageBox.Show("Uspješno ste dodali apartmani!");
                     Obrisi();
                 }
@@ -262,26 +256,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
                 }
             }
-           
         }
-        public double latitude;
-        public double longitude;
 
-        //private void btnOk_Click(object sender, EventArgs e)
-        //{
-        //    var address = txtLok.Text;
-        //    var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
-        //    var point = locationService.GetLatLongFromAddress(address);
-        //    var latitude = point.Latitude;
-        //     var longitude = point.Longitude;
-        //    this.latitude = latitude;
-        //    this.longitude = longitude;
-        //    txtLat.Text = latitude.ToString();
-        //    txtLong.Text = longitude.ToString();
-        //}
-
-        
-        public byte[] slika;
         private void btnDodajSliku_Click(object sender, EventArgs e)
         {
             var result = openFileDialog1.ShowDialog();
@@ -295,7 +271,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 Image image = Image.FromFile(fileName);
                 btnSlika.Image = image;
 
-               
+
             }
         }
 
@@ -318,21 +294,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
-
-        }
-
-        private void txtLok_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void SwitchColors()
-        {
-
-        }
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Obrisi();
-
         }
         private void Obrisi()
         {
@@ -343,6 +304,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             txtLat.Enabled = true;
             txtLong.Enabled = true;
             txtSlikaInput.Clear();
+            txtOcjena.Clear();
+            comboBox1.SelectedIndex = 0;
             button2.BackColor = Color.Red;
             Button[] array = { button1, button2, bb3, bb4, bb5, bb6, bb7, bb8, bb9, bb10, bb11, bb12 };
             var i = 0;
@@ -353,12 +316,18 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 {
                     array[i].BackColor = Color.Transparent;
                     array[i].ForeColor = Color.Black;
-                     j = i + 1;
+                    j = i + 1;
                     array[j].BackColor = Color.Red;
                     array[j].ForeColor = Color.White;
                 }
                 i++;
             }
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Obrisi();
         }
     }
 }

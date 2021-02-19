@@ -25,18 +25,23 @@ namespace exploreMostar.WinUI.Menu
         private void button7_Click(object sender, EventArgs e)
         {
             frmAtrakcijeMenu frmAtrakcijeMenu = new frmAtrakcijeMenu();
+            button7.BackColor = Color.Indigo;
             frmAtrakcijeMenu.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             frmHoteliMenu frmHoteliMenu = new frmHoteliMenu();
+            button4.BackColor = Color.Indigo;
+
             frmHoteliMenu.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             frmNocniKluboviMenu frmNocniKluboviMenu = new frmNocniKluboviMenu();
+            button2.BackColor = Color.Indigo;
+
             frmNocniKluboviMenu.Show();
         }
 
@@ -48,24 +53,32 @@ namespace exploreMostar.WinUI.Menu
         private void button8_Click(object sender, EventArgs e)
         {
             frmApartmaniMenu frmApartmaniMenu = new frmApartmaniMenu();
+            button8.BackColor = Color.Indigo;
+
             frmApartmaniMenu.Show();
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
             frmRestoraniMenu frmRestoraniMenu = new frmRestoraniMenu();
+            button6.BackColor = Color.Indigo;
+
             frmRestoraniMenu.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             frmKaficiMenu frmKaficiMenu = new frmKaficiMenu();
+            button1.BackColor = Color.Indigo;
+
             frmKaficiMenu.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             frmPrevozMenu frmPrevozMenu = new frmPrevozMenu();
+            button3.BackColor = Color.Indigo;
+
             frmPrevozMenu.Show();
         }
 

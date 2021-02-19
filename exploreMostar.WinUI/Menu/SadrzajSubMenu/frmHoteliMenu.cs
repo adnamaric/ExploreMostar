@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Hoteli;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace exploreMostar.WinUI.Menu
         public frmHoteliMenu()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmHoteliAdd frm = new frmHoteliAdd();
+            frm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmHoteliUpdate frm = new frmHoteliUpdate();
+            frm.Show();
         }
     }
 }
