@@ -228,6 +228,12 @@
     <Compile Include="Sadržaj\Hoteli\frmHoteliUpdate.Designer.cs">
       <DependentUpon>frmHoteliUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmListaHotela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Hoteli\frmListaHotela.Designer.cs">
+      <DependentUpon>frmListaHotela.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Hoteli\frmHoteliUpdate.resx">
       <DependentUpon>frmHoteliUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Hoteli\frmListaHotela.resx">
+      <DependentUpon>frmListaHotela.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

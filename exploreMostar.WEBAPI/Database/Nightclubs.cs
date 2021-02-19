@@ -8,10 +8,12 @@ namespace exploreMostar.WebAPI.Database
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
         public int NightClubId { get; set; }
-        public int? MarkerId { get; set; }
         public int KategorijaId { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
+        public byte[] Slika { get; set; }
+        public double? Ocjena { get; set; }
 
         public Kategorije Kategorija { get; set; }
-        public Markeri Marker { get; set; }
     }
 }

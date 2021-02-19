@@ -5,14 +5,6 @@ namespace exploreMostar.WebAPI.Database
 {
     public partial class Markeri
     {
-        public Markeri()
-        {
-            Atrakcije = new HashSet<Atrakcije>();
-            Kafici = new HashSet<Kafici>();
-            Nightclubs = new HashSet<Nightclubs>();
-            Restorani = new HashSet<Restorani>();
-        }
-
         public int MarkerId { get; set; }
         public string Ime { get; set; }
         public string Adresa { get; set; }
@@ -22,9 +14,5 @@ namespace exploreMostar.WebAPI.Database
         public string Opis { get; set; }
 
         public Gradovi Grad { get; set; }
-        public ICollection<Atrakcije> Atrakcije { get; set; }
-        public ICollection<Kafici> Kafici { get; set; }
-        public ICollection<Nightclubs> Nightclubs { get; set; }
-        public ICollection<Restorani> Restorani { get; set; }
     }
 }

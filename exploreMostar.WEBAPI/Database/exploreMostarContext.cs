@@ -81,32 +81,27 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.AtrakcijaId).HasColumnName("AtrakcijaID");
 
+                entity.Property(e => e.Kategorija).HasMaxLength(1);
+
                 entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
 
                 entity.Property(e => e.Lokacija)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Slika).HasMaxLength(1);
+                entity.Property(e => e.Opis).HasMaxLength(250);
 
                 entity.Property(e => e.VrstaAtrakcijeId).HasColumnName("VrstaAtrakcijeID");
 
-                entity.HasOne(d => d.Kategorija)
+                entity.HasOne(d => d.KategorijaNavigation)
                     .WithMany(p => p.Atrakcije)
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Atrakcije__Kateg__17036CC0");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Atrakcije)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Atrakcije__Marke__0B91BA14");
 
                 entity.HasOne(d => d.VrstaAtrakcije)
                     .WithMany(p => p.Atrakcije)
@@ -235,8 +230,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -248,11 +241,6 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Kafici__Kategori__18EBB532");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Kafici)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Kafici__MarkerID__0D7A0286");
 
                 entity.HasOne(d => d.Ponuda)
                     .WithMany(p => p.Kafici)
@@ -400,8 +388,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -411,11 +397,6 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Nightclub__Kateg__19DFD96B");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Nightclubs)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Nightclub__Marke__0E6E26BF");
             });
 
             modelBuilder.Entity<Objava>(entity =>
@@ -463,8 +444,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(200);
 
-                entity.Property(e => e.MarkerId).HasColumnName("MarkerID");
-
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -478,11 +457,6 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Restorani__Kateg__1AD3FDA4");
-
-                entity.HasOne(d => d.Marker)
-                    .WithMany(p => p.Restorani)
-                    .HasForeignKey(d => d.MarkerId)
-                    .HasConstraintName("FK__Restorani__Marke__0F624AF8");
 
                 entity.HasOne(d => d.Ponuda)
                     .WithMany(p => p.Restorani)
