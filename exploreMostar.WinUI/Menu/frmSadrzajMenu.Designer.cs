@@ -43,7 +43,6 @@ namespace exploreMostar.WinUI.Menu
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Indigo;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
@@ -61,7 +60,6 @@ namespace exploreMostar.WinUI.Menu
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Indigo;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
@@ -79,7 +77,6 @@ namespace exploreMostar.WinUI.Menu
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Indigo;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
@@ -97,7 +94,6 @@ namespace exploreMostar.WinUI.Menu
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Indigo;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
@@ -115,7 +111,6 @@ namespace exploreMostar.WinUI.Menu
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Indigo;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -133,7 +128,6 @@ namespace exploreMostar.WinUI.Menu
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Indigo;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -151,7 +145,6 @@ namespace exploreMostar.WinUI.Menu
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Indigo;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
@@ -169,7 +162,6 @@ namespace exploreMostar.WinUI.Menu
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Indigo;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
@@ -182,6 +174,7 @@ namespace exploreMostar.WinUI.Menu
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // frmSadrzajMenu
             // 

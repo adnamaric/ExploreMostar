@@ -66,6 +66,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.btnSnimi = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtOcjena = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +203,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(15, 223);
+            this.groupBox1.Location = new System.Drawing.Point(12, 287);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 176);
             this.groupBox1.TabIndex = 19;
@@ -416,11 +420,47 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 207);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Godina";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(88, 207);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(239, 20);
+            this.dateTimePicker1.TabIndex = 31;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 240);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Ocjena";
+            // 
+            // txtOcjena
+            // 
+            this.txtOcjena.Location = new System.Drawing.Point(88, 240);
+            this.txtOcjena.Name = "txtOcjena";
+            this.txtOcjena.Size = new System.Drawing.Size(239, 20);
+            this.txtOcjena.TabIndex = 33;
+            // 
             // frmApartmaniAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 496);
+            this.Controls.Add(this.txtOcjena);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.btnSlika);
@@ -486,5 +526,9 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtOcjena;
     }
 }

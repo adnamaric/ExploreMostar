@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private async void frmApartmaniUpdate_Load(object sender, EventArgs e)
         {
             await LoadApartmani();
+            
         }
         private async Task LoadApartmani()
         {
@@ -47,6 +49,12 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             cmbKat.Items.Add("C");
             cmbKat.Items.Add("D");
             cmbKat.Items.Add("E");
+            int max = 2021;
+            int start = 1990;
+            while (start <= max)
+            {
+                cmbGodine.Items.Add(start++.ToString());
+            }
         }
 
         private async void cmbOdabirApartmana_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +84,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 b4 = odabrani.Tv;
                 b5 = odabrani.Klima;
                 b6 = odabrani.AparatZaKafu;
+                txtOcjena.Text = odabrani.Ocjena.ToString();
+                if (odabrani.GodinaIzgradnje != null)
+                {
+                    cmbGodine.SelectedItem =  odabrani.GodinaIzgradnje.ToString();
+                }
                 bool?[] niz = { b1, b2, b3, b4, b5, b6 };
                 Check(niz);
                 if (odabrani.Slika.Length != 0)
@@ -230,14 +243,14 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     Slika = bytes,
                     Longitude = double.Parse(txtLong.Text),
                     KategorijaApartmana = cmbKat.SelectedItem.ToString(),
-                    KategorijaId=5,
-                    Wifi=b1,
-                    Bazen=b2,
-                    Parking=b3,
-                    Tv=b4,
-                    Klima=b5,
-                    AparatZaKafu=b6
-
+                    KategorijaId = 5,
+                    Wifi = b1,
+                    Bazen = b2,
+                    Parking = b3,
+                    Tv = b4,
+                    Klima = b5,
+                    AparatZaKafu = b6,
+                    Ocjena = double.Parse(txtOcjena.Text)
                  };
                     request.Slika = slika;
                    
@@ -378,6 +391,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             bb12.ForeColor = Color.White;
             bb12.BackColor = Color.Red;
             bb12.FlatAppearance.BorderColor = Color.Black;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
         

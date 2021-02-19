@@ -68,5 +68,10 @@ namespace exploreMostar.WinUI.Menu
             frmPrevozMenu frmPrevozMenu = new frmPrevozMenu();
             frmPrevozMenu.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

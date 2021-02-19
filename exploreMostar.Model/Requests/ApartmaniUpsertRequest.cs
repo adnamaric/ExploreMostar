@@ -10,7 +10,6 @@ namespace exploreMostar.Model.Requests
         public string Lokacija { get; set; }
         public int? GodinaIzgradnje { get; set; }
         public int KategorijaId { get; set; }
-        public int? Ocjena { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
         public bool? Bazen { get; set; }
@@ -22,5 +21,6 @@ namespace exploreMostar.Model.Requests
         public bool? AparatZaKafu { get; set; }
         public string KategorijaApartmana { get; set; }
         public bool? Klima { get; set; }
+        public double? Ocjena { get; set; }
     }
 }

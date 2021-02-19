@@ -21,6 +21,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         {
             InitializeComponent();
             RadioButtonAppear();
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "yyyy";
+            dateTimePicker1.ShowUpDown = true;
+
         }
 
         private void frmApartmaniAdd_Load(object sender, EventArgs e)
@@ -188,10 +192,13 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
                 Longitude = longitude,
-                GodinaIzgradnje=2015,
+                
                 KategorijaId=5
 
             };
+            
+           request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
+            request.Ocjena = double.Parse(txtOcjena.Text);
             request.Slika = slika;
             request.KategorijaApartmana = comboBox1.SelectedItem.ToString();
             if (button1.BackColor == Color.DarkGreen)

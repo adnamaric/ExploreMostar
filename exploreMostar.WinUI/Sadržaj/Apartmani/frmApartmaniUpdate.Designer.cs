@@ -68,6 +68,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.cmbOdabirApartmana = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbGodine = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtOcjena = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +127,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(22, 279);
+            this.groupBox1.Location = new System.Drawing.Point(22, 325);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 176);
             this.groupBox1.TabIndex = 43;
@@ -341,7 +345,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.btnDodajSliku.Location = new System.Drawing.Point(340, 228);
             this.btnDodajSliku.Name = "btnDodajSliku";
-            this.btnDodajSliku.Size = new System.Drawing.Size(53, 27);
+            this.btnDodajSliku.Size = new System.Drawing.Size(59, 27);
             this.btnDodajSliku.TabIndex = 38;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
@@ -433,11 +437,48 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(20, 265);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Godina";
+            // 
+            // cmbGodine
+            // 
+            this.cmbGodine.FormattingEnabled = true;
+            this.cmbGodine.Location = new System.Drawing.Point(94, 262);
+            this.cmbGodine.Name = "cmbGodine";
+            this.cmbGodine.Size = new System.Drawing.Size(239, 21);
+            this.cmbGodine.TabIndex = 50;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(20, 293);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "Ocjena";
+            // 
+            // txtOcjena
+            // 
+            this.txtOcjena.Location = new System.Drawing.Point(94, 293);
+            this.txtOcjena.Name = "txtOcjena";
+            this.txtOcjena.Size = new System.Drawing.Size(239, 20);
+            this.txtOcjena.TabIndex = 52;
+            // 
             // frmApartmaniUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 513);
+            this.Controls.Add(this.txtOcjena);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cmbGodine);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cmbOdabirApartmana);
             this.Controls.Add(this.button5);
@@ -507,5 +548,9 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.ComboBox cmbOdabirApartmana;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbGodine;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtOcjena;
     }
 }
