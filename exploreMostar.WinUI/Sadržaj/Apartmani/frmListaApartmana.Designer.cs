@@ -30,21 +30,21 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbSort = new System.Windows.Forms.ComboBox();
+            this.cmbFilterByGrade = new System.Windows.Forms.ComboBox();
             this.Sortiraj = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvApartmani = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.brojApar = new System.Windows.Forms.Label();
             this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbFilterByYear = new System.Windows.Forms.ComboBox();
+            this.brojApar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -54,26 +54,26 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Pretraga po godini";
+            this.label3.Text = "Filtriranje po godini";
             // 
-            // cmbSort
+            // cmbFilterByGrade
             // 
-            this.cmbSort.FormattingEnabled = true;
-            this.cmbSort.Location = new System.Drawing.Point(471, 30);
-            this.cmbSort.Name = "cmbSort";
-            this.cmbSort.Size = new System.Drawing.Size(148, 21);
-            this.cmbSort.TabIndex = 19;
+            this.cmbFilterByGrade.FormattingEnabled = true;
+            this.cmbFilterByGrade.Location = new System.Drawing.Point(471, 36);
+            this.cmbFilterByGrade.Name = "cmbFilterByGrade";
+            this.cmbFilterByGrade.Size = new System.Drawing.Size(204, 21);
+            this.cmbFilterByGrade.TabIndex = 19;
             // 
             // Sortiraj
             // 
             this.Sortiraj.AutoSize = true;
-            this.Sortiraj.Location = new System.Drawing.Point(401, 33);
+            this.Sortiraj.Location = new System.Drawing.Point(371, 40);
             this.Sortiraj.Name = "Sortiraj";
-            this.Sortiraj.Size = new System.Drawing.Size(51, 13);
+            this.Sortiraj.Size = new System.Drawing.Size(94, 13);
             this.Sortiraj.TabIndex = 18;
-            this.Sortiraj.Text = "Sortiranje";
+            this.Sortiraj.Text = "Filtriranje po ocjeni";
             // 
             // label1
             // 
@@ -130,31 +130,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
             this.dgvApartmani.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Ukupno apartmana:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 76);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 21);
-            this.comboBox1.TabIndex = 24;
-            // 
-            // brojApar
-            // 
-            this.brojApar.AutoSize = true;
-            this.brojApar.Location = new System.Drawing.Point(128, 9);
-            this.brojApar.Name = "brojApar";
-            this.brojApar.Size = new System.Drawing.Size(0, 13);
-            this.brojApar.TabIndex = 25;
-            // 
             // RBr
             // 
             this.RBr.DataPropertyName = "RBr";
@@ -185,16 +160,41 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Ukupno apartmana:";
+            // 
+            // cmbFilterByYear
+            // 
+            this.cmbFilterByYear.FormattingEnabled = true;
+            this.cmbFilterByYear.Location = new System.Drawing.Point(120, 76);
+            this.cmbFilterByYear.Name = "cmbFilterByYear";
+            this.cmbFilterByYear.Size = new System.Drawing.Size(203, 21);
+            this.cmbFilterByYear.TabIndex = 24;
+            // 
+            // brojApar
+            // 
+            this.brojApar.AutoSize = true;
+            this.brojApar.Location = new System.Drawing.Point(128, 9);
+            this.brojApar.Name = "brojApar";
+            this.brojApar.Size = new System.Drawing.Size(0, 13);
+            this.brojApar.TabIndex = 25;
+            // 
             // frmListaApartmana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 530);
             this.Controls.Add(this.brojApar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbFilterByYear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbSort);
+            this.Controls.Add(this.cmbFilterByGrade);
             this.Controls.Add(this.Sortiraj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPretraga);
@@ -213,7 +213,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbSort;
+        private System.Windows.Forms.ComboBox cmbFilterByGrade;
         private System.Windows.Forms.Label Sortiraj;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPretraga;
@@ -221,7 +221,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvApartmani;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFilterByYear;
         private System.Windows.Forms.Label brojApar;
         private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;

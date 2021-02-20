@@ -29,5 +29,11 @@ namespace exploreMostar.WinUI.Menu
             frmHoteliUpdate frm = new frmHoteliUpdate();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaHotela frm = new frmListaHotela();
+            frm.Show();
+        }
     }
 }
