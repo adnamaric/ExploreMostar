@@ -25,5 +25,6 @@ namespace exploreMostar.Model
         public string KategorijaApartmana { get; set; }
         public bool? Klima { get; set; }
         public double? Ocjena { get; set; }
+        public string DodatneOpcije { get; set; }
     }
 }

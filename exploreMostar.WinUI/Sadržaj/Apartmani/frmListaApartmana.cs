@@ -82,6 +82,40 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     result = result.Where(y => Convert.ToInt32(y.Ocjena) == broj).ToList();
                 }
             }
+           
+            foreach(var item in result)
+            {
+                string dodatne = "";
+                if (item.Wifi != false)
+                {
+                    dodatne += "Wifi, ";
+                }
+                if (item.Tv != false)
+                {
+                    dodatne += "Tv, ";
+                }
+                if (item.Bazen != false)
+                {
+                    dodatne += "Bazen, ";
+
+                }
+                if (item.AparatZaKafu != false)
+                {
+                    dodatne += "AparatZaKafu, ";
+
+                }
+                if (item.Parking != false)
+                {
+                    dodatne += "Parking, ";
+
+                }
+                if (item.Klima != false)
+                {
+                    dodatne += "Klima, ";
+
+                }
+                item.DodatneOpcije = dodatne;
+            }
             dgvApartmani.AutoGenerateColumns = false;
             dgvApartmani.DataSource = result;
             //var gradovi = await _gradovi.Get<IList<Model.Gradovi>>(null);
