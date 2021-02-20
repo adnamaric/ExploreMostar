@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Noćni_klubovi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace exploreMostar.WinUI.Menu
         public frmNocniKluboviMenu()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmNocniKluboviAdd frm = new frmNocniKluboviAdd();
+            frm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmNocniKluboviUpdate frm = new frmNocniKluboviUpdate();
+            frm.Show();
         }
     }
 }

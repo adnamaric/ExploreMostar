@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace exploreMostar.WinUI.Menu
+namespace exploreMostar.WinUI.Sadržaj.Kafići
 {
-    public partial class frmKaficiMenu : Form
+    public partial class frmKaficiAdd : Form
     {
-        public frmKaficiMenu()
+        public frmKaficiAdd()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }

@@ -40,13 +40,13 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.label2 = new System.Windows.Forms.Label();
             this.cmbFilterByYear = new System.Windows.Forms.ComboBox();
             this.brojApar = new System.Windows.Forms.Label();
-            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kategorija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dodatneopcije = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kategorija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -160,29 +160,16 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.brojApar.Size = new System.Drawing.Size(0, 13);
             this.brojApar.TabIndex = 25;
             // 
-            // RBr
+            // Dodatneopcije
             // 
-            this.RBr.DataPropertyName = "RBr";
-            this.RBr.HeaderText = "Redni Broj";
-            this.RBr.Name = "RBr";
+            this.Dodatneopcije.DataPropertyName = "DodatneOpcije";
+            this.Dodatneopcije.HeaderText = "Dodatne opcije";
+            this.Dodatneopcije.Name = "Dodatneopcije";
             // 
-            // Naziv
+            // Kategorija
             // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            // 
-            // Lokacija
-            // 
-            this.Lokacija.DataPropertyName = "Lokacija";
-            this.Lokacija.HeaderText = "Lokacija";
-            this.Lokacija.Name = "Lokacija";
-            // 
-            // GodinaIzgradnje
-            // 
-            this.GodinaIzgradnje.DataPropertyName = "GodinaIzgradnje";
-            this.GodinaIzgradnje.HeaderText = "Godina Izgradnje";
-            this.GodinaIzgradnje.Name = "GodinaIzgradnje";
+            this.Kategorija.HeaderText = "Kategorija";
+            this.Kategorija.Name = "Kategorija";
             // 
             // Ocjena
             // 
@@ -190,16 +177,29 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
             // 
-            // Kategorija
+            // GodinaIzgradnje
             // 
-            this.Kategorija.HeaderText = "Kategorija";
-            this.Kategorija.Name = "Kategorija";
+            this.GodinaIzgradnje.DataPropertyName = "GodinaIzgradnje";
+            this.GodinaIzgradnje.HeaderText = "Godina Izgradnje";
+            this.GodinaIzgradnje.Name = "GodinaIzgradnje";
             // 
-            // Dodatneopcije
+            // Lokacija
             // 
-            this.Dodatneopcije.DataPropertyName = "DodatneOpcije";
-            this.Dodatneopcije.HeaderText = "Dodatne opcije";
-            this.Dodatneopcije.Name = "Dodatneopcije";
+            this.Lokacija.DataPropertyName = "Lokacija";
+            this.Lokacija.HeaderText = "Lokacija";
+            this.Lokacija.Name = "Lokacija";
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "Redni Broj";
+            this.RBr.Name = "RBr";
             // 
             // frmListaApartmana
             // 

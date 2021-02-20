@@ -280,7 +280,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         //    txtLong.Text = longitude.ToString();
         //}
 
-        
+    
         public byte[] slika;
         private void btnDodajSliku_Click(object sender, EventArgs e)
         {

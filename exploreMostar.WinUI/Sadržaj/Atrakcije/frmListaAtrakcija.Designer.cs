@@ -46,7 +46,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vrsta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
@@ -130,7 +129,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.groupBox1.Size = new System.Drawing.Size(844, 423);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Korisnici";
+            this.groupBox1.Text = "Atrakcije";
             // 
             // dgvApartmani
             // 
@@ -142,7 +141,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Naziv,
             this.Vrsta,
             this.Lokacija,
-            this.GodinaIzgradnje,
             this.Ocjena});
             this.dgvApartmani.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvApartmani.Location = new System.Drawing.Point(3, 16);
@@ -201,12 +199,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Lokacija.HeaderText = "Lokacija";
             this.Lokacija.Name = "Lokacija";
             // 
-            // GodinaIzgradnje
-            // 
-            this.GodinaIzgradnje.DataPropertyName = "GodinaIzgradnje";
-            this.GodinaIzgradnje.HeaderText = "Godina Izgradnje";
-            this.GodinaIzgradnje.Name = "GodinaIzgradnje";
-            // 
             // Ocjena
             // 
             this.Ocjena.DataPropertyName = "Ocjena";
@@ -259,7 +251,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vrsta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lokacija;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GodinaIzgradnje;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
     }
 }

@@ -10,55 +10,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace exploreMostar.WinUI.Sadržaj.Atrakcije
+namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
 {
-    public partial class frmAtrakcijeUpdate : Form
+    public partial class frmNocniKluboviUpdate : Form
     {
-        private readonly APIService _atrakcije = new APIService("atrakcije");
-        private readonly APIService _vrsteatrakcija = new APIService("VrstaAtrakcija");
-        public frmAtrakcijeUpdate()
+        private readonly APIService _nightclubs = new APIService("nightclubs");
+
+        public frmNocniKluboviUpdate()
         {
             InitializeComponent();
         }
 
-        private int? _id = null;
+       
 
-        private async void frmAtrakcijeUpdate_Load(object sender, EventArgs e)
+        private async void frmNocniKluboviUpdate_Load(object sender, EventArgs e)
         {
-            var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+            var result = await _nightclubs.Get<List<Model.Nightclubs>>(null);
 
-            result.Insert(0, new Model.Atrakcije() { AtrakcijaId = 0 });
-            cmbAtrakcije.DataSource = result;
-            cmbAtrakcije.DisplayMember = "Naziv";
-            cmbAtrakcije.ValueMember = "AtrakcijaId";
-
-        
+            result.Insert(0, new Model.Nightclubs() { NightClubId = 0 });
+            cmbNightClubs.DataSource = result;
+            cmbNightClubs.DisplayMember = "Naziv";
+            cmbNightClubs.ValueMember = "NightClubId";
         }
-
-        private async void cmbAtrakcije_SelectedIndexChanged(object sender, EventArgs e)
+        private int? _id = null;
+        public byte[] slika;
+        private async void cmbNightClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
-           await LoadVrsteAtrakcija();
             if (txtSlikaInput.Text.Length != 0)
             {
                 btnSlika.Image = null;
                 txtSlikaInput.Clear();
             }
-            var apid = (Model.Atrakcije)cmbAtrakcije.SelectedItem;
-            var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
-            if (apid.AtrakcijaId != 0)
+            var apid = (Model.Nightclubs)cmbNightClubs.SelectedItem;
+            var result = await _nightclubs.Get<List<Model.Nightclubs>>(null);
+            if (apid.NightClubId != 0)
             {
-                var odabrani = result.Where(y => y.AtrakcijaId == apid.AtrakcijaId).FirstOrDefault();
+                var odabrani = result.Where(y => y.NightClubId == apid.NightClubId).FirstOrDefault();
                 txtNazivA.Text = odabrani.Naziv;
                 txtLok.Text = odabrani.Lokacija;
                 txtLat.Text = odabrani.Latitude.ToString();
                 txtLong.Text = odabrani.Longitude.ToString();
                 txtOcjena.Text = odabrani.Ocjena.ToString();
-                txtOpis.Text = odabrani.Opis;
-                _id = odabrani.AtrakcijaId;
-                if (odabrani.VrstaAtrakcijeId != null)
-                {
-                    cmbVrsta.SelectedValue = odabrani.VrstaAtrakcijeId;
-                }
+              
+                _id = odabrani.NightClubId;
+               
                 if (odabrani.Slika.Length != 0)
                 {
 
@@ -73,17 +68,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 }
             }
         }
-        private async Task LoadVrsteAtrakcija()
-        {
-            var result = await _vrsteatrakcija.Get<List<Model.VrstaAtrakcija>>(null);
-            result.Insert(0, new Model.VrstaAtrakcija() { Naziv = "Odaberite atrakciju", VrstaAtrakcijeId = -1 });
 
-
-            cmbVrsta.DataSource = result;
-            cmbVrsta.DisplayMember = "Naziv";
-            cmbVrsta.ValueMember = "VrstaAtrakcijeId";
-
-        }
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
@@ -91,7 +76,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
 
-                var request = new AtrakcijeUpsertRequest
+                var request = new NightClubsUpsertRequest
                 {
                     Naziv = txtNazivA.Text,
                     Lokacija = txtLok.Text,
@@ -99,20 +84,15 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                     Slika = bytes,
                     Longitude = double.Parse(txtLong.Text),
                     KategorijaId = 3,
-                    Ocjena = double.Parse(txtOcjena.Text),
-                    Opis = txtOpis.Text
+                    Ocjena = double.Parse(txtOcjena.Text)
                 };
                 if (slika != null)
                 {
                     request.Slika = slika;
                 }
-                if (cmbVrsta.SelectedIndex != -1)
-                {
-                    request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
-                }
                 if (_id != null || _id != 0)
                 {
-                    await _atrakcije.Update<Model.Atrakcije>(_id, request);
+                    await _nightclubs.Update<Model.Nightclubs>(_id, request);
                     MessageBox.Show("Operacija uspješna!");
 
                 }
@@ -120,7 +100,12 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
 
             }
         }
-        public byte[] slika;
+
+        private void txtSlikaInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnDodajSliku_Click(object sender, EventArgs e)
         {
             var result = openFileDialog1.ShowDialog();
@@ -134,13 +119,8 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 Image image = Image.FromFile(fileName);
                 btnSlika.Image = image;
 
-                
+
             }
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

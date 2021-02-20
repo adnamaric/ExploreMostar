@@ -20,6 +20,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Hoteli, HoteliUpsertRequest>().ReverseMap();
             CreateMap<Database.Hoteli, Model.Hoteli>();
             CreateMap<Database.Atrakcije, AtrakcijeUpsertRequest>().ReverseMap();
+            CreateMap<Database.Nightclubs, Model.Nightclubs>();
+            CreateMap<Database.Nightclubs, NightClubsUpsertRequest>().ReverseMap();
 
 
         }

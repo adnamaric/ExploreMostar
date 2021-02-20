@@ -1,7 +1,7 @@
 ﻿
-namespace exploreMostar.WinUI.Sadržaj.Atrakcije
+namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
 {
-    partial class frmAtrakcijeUpdate
+    partial class frmNocniKluboviAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,8 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAtrakcijeUpdate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNocniKluboviAdd));
             this.label6 = new System.Windows.Forms.Label();
-            this.txtOpis = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtOcjena = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -40,8 +38,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.btnSlika = new System.Windows.Forms.Button();
             this.txtSlikaInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbVrsta = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.txtNazivA = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.Label();
@@ -50,41 +46,21 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.txtLat = new System.Windows.Forms.TextBox();
             this.txtLok = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Sadrzaj = new System.Windows.Forms.Label();
-            this.cmbAtrakcije = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 133);
+            this.label6.Location = new System.Drawing.Point(12, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 78;
             this.label6.Text = "Lokacija";
             // 
-            // txtOpis
-            // 
-            this.txtOpis.Location = new System.Drawing.Point(16, 310);
-            this.txtOpis.Name = "txtOpis";
-            this.txtOpis.Size = new System.Drawing.Size(370, 102);
-            this.txtOpis.TabIndex = 77;
-            this.txtOpis.Text = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 285);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 13);
-            this.label5.TabIndex = 76;
-            this.label5.Text = "Opis";
-            // 
             // txtOcjena
             // 
-            this.txtOcjena.Location = new System.Drawing.Point(91, 255);
+            this.txtOcjena.Location = new System.Drawing.Point(88, 208);
             this.txtOcjena.Name = "txtOcjena";
             this.txtOcjena.Size = new System.Drawing.Size(239, 20);
             this.txtOcjena.TabIndex = 75;
@@ -92,7 +68,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 258);
+            this.label12.Location = new System.Drawing.Point(12, 211);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 74;
@@ -102,7 +78,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // 
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(491, 387);
+            this.button5.Location = new System.Drawing.Point(432, 292);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 73;
@@ -113,7 +89,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.btnSnimi.BackColor = System.Drawing.Color.DarkGreen;
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(563, 387);
+            this.btnSnimi.Location = new System.Drawing.Point(504, 292);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(132, 43);
             this.btnSnimi.TabIndex = 72;
@@ -123,15 +99,15 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // 
             // btnSlika
             // 
-            this.btnSlika.Location = new System.Drawing.Point(421, 60);
+            this.btnSlika.Location = new System.Drawing.Point(403, 23);
             this.btnSlika.Name = "btnSlika";
-            this.btnSlika.Size = new System.Drawing.Size(265, 222);
+            this.btnSlika.Size = new System.Drawing.Size(288, 209);
             this.btnSlika.TabIndex = 71;
             this.btnSlika.UseVisualStyleBackColor = true;
             // 
             // txtSlikaInput
             // 
-            this.txtSlikaInput.Location = new System.Drawing.Point(91, 221);
+            this.txtSlikaInput.Location = new System.Drawing.Point(88, 174);
             this.txtSlikaInput.Name = "txtSlikaInput";
             this.txtSlikaInput.Size = new System.Drawing.Size(239, 20);
             this.txtSlikaInput.TabIndex = 70;
@@ -139,32 +115,15 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 228);
+            this.label4.Location = new System.Drawing.Point(13, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 69;
             this.label4.Text = "Slika";
             // 
-            // cmbVrsta
-            // 
-            this.cmbVrsta.FormattingEnabled = true;
-            this.cmbVrsta.Location = new System.Drawing.Point(91, 93);
-            this.cmbVrsta.Name = "cmbVrsta";
-            this.cmbVrsta.Size = new System.Drawing.Size(239, 21);
-            this.cmbVrsta.TabIndex = 68;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "Vrsta";
-            // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(336, 217);
+            this.btnDodajSliku.Location = new System.Drawing.Point(333, 170);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(53, 27);
             this.btnDodajSliku.TabIndex = 66;
@@ -174,7 +133,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // 
             // txtNazivA
             // 
-            this.txtNazivA.Location = new System.Drawing.Point(91, 60);
+            this.txtNazivA.Location = new System.Drawing.Point(87, 49);
             this.txtNazivA.Name = "txtNazivA";
             this.txtNazivA.Size = new System.Drawing.Size(239, 20);
             this.txtNazivA.TabIndex = 65;
@@ -182,7 +141,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // txtNaziv
             // 
             this.txtNaziv.AutoSize = true;
-            this.txtNaziv.Location = new System.Drawing.Point(16, 63);
+            this.txtNaziv.Location = new System.Drawing.Point(12, 52);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(34, 13);
             this.txtNaziv.TabIndex = 64;
@@ -190,7 +149,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // 
             // txtLong
             // 
-            this.txtLong.Location = new System.Drawing.Point(91, 193);
+            this.txtLong.Location = new System.Drawing.Point(88, 146);
             this.txtLong.Name = "txtLong";
             this.txtLong.Size = new System.Drawing.Size(239, 20);
             this.txtLong.TabIndex = 63;
@@ -198,7 +157,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 190);
+            this.label1.Location = new System.Drawing.Point(12, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 62;
@@ -206,69 +165,38 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             // 
             // txtLat
             // 
-            this.txtLat.Location = new System.Drawing.Point(91, 159);
+            this.txtLat.Location = new System.Drawing.Point(88, 112);
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(239, 20);
             this.txtLat.TabIndex = 61;
             // 
             // txtLok
             // 
-            this.txtLok.Location = new System.Drawing.Point(91, 130);
+            this.txtLok.Location = new System.Drawing.Point(88, 83);
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 60;
+            this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 160);
+            this.label2.Location = new System.Drawing.Point(12, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 59;
             this.label2.Text = "Lat";
             // 
-            // Sadrzaj
-            // 
-            this.Sadrzaj.AutoSize = true;
-            this.Sadrzaj.Location = new System.Drawing.Point(233, 101);
-            this.Sadrzaj.Name = "Sadrzaj";
-            this.Sadrzaj.Size = new System.Drawing.Size(47, 13);
-            this.Sadrzaj.TabIndex = 58;
-            this.Sadrzaj.Text = "Lokacija";
-            // 
-            // cmbAtrakcije
-            // 
-            this.cmbAtrakcije.FormattingEnabled = true;
-            this.cmbAtrakcije.Location = new System.Drawing.Point(121, 13);
-            this.cmbAtrakcije.Name = "cmbAtrakcije";
-            this.cmbAtrakcije.Size = new System.Drawing.Size(239, 21);
-            this.cmbAtrakcije.TabIndex = 79;
-            this.cmbAtrakcije.SelectedIndexChanged += new System.EventHandler(this.cmbAtrakcije_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 13);
-            this.label7.TabIndex = 80;
-            this.label7.Text = "Odaberite atrakciju";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // frmAtrakcijeUpdate
+            // frmNocniKluboviAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 442);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbAtrakcije);
+            this.ClientSize = new System.Drawing.Size(703, 365);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtOpis);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtOcjena);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button5);
@@ -276,8 +204,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Controls.Add(this.btnSlika);
             this.Controls.Add(this.txtSlikaInput);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbVrsta);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDodajSliku);
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
@@ -286,10 +212,9 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Controls.Add(this.txtLat);
             this.Controls.Add(this.txtLok);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Sadrzaj);
-            this.Name = "frmAtrakcijeUpdate";
-            this.Text = "frmAtrakcijeUpdate";
-            this.Load += new System.EventHandler(this.frmAtrakcijeUpdate_Load);
+            this.Name = "frmNocniKluboviAdd";
+            this.Text = "frmNocniKluboviAdd";
+            this.Load += new System.EventHandler(this.frmNocniKluboviAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,8 +223,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         #endregion
 
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox txtOpis;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOcjena;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button5;
@@ -307,8 +230,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         private System.Windows.Forms.Button btnSlika;
         private System.Windows.Forms.TextBox txtSlikaInput;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbVrsta;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDodajSliku;
         private System.Windows.Forms.TextBox txtNazivA;
         private System.Windows.Forms.Label txtNaziv;
@@ -317,9 +238,6 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         private System.Windows.Forms.TextBox txtLat;
         private System.Windows.Forms.TextBox txtLok;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label Sadrzaj;
-        private System.Windows.Forms.ComboBox cmbAtrakcije;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

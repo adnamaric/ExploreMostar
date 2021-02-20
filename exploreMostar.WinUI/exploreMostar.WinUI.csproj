@@ -252,6 +252,24 @@
     <Compile Include="Sadržaj\Hoteli\frmListaHotela.Designer.cs">
       <DependentUpon>frmListaHotela.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Kafići\frmKaficiAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Kafići\frmKaficiAdd.Designer.cs">
+      <DependentUpon>frmKaficiAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviAdd.Designer.cs">
+      <DependentUpon>frmNocniKluboviAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.Designer.cs">
+      <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +361,12 @@
     <EmbeddedResource Include="Sadržaj\Hoteli\frmListaHotela.resx">
       <DependentUpon>frmListaHotela.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Noćni klubovi\frmNocniKluboviAdd.resx">
+      <DependentUpon>frmNocniKluboviAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.resx">
+      <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -383,8 +407,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Kategorije\" />
-    <Folder Include="Sadržaj\Kafići\" />
-    <Folder Include="Sadržaj\Noćni klubovi\" />
     <Folder Include="Sadržaj\Ostalo\" />
     <Folder Include="Sadržaj\Prevoz\" />
     <Folder Include="Sadržaj\Restorani\" />
