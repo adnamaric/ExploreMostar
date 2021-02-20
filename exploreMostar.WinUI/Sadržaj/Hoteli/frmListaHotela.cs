@@ -86,5 +86,10 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,5 +29,11 @@ namespace exploreMostar.WinUI.Menu
             frmNocniKluboviUpdate frm = new frmNocniKluboviUpdate();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaNightClubs frm = new frmListaNightClubs();
+            frm.Show();
+        }
     }
 }

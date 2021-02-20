@@ -132,6 +132,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hoteli";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dgvHoteli
             // 
