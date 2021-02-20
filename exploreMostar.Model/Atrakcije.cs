@@ -17,6 +17,9 @@ namespace exploreMostar.Model
         public byte[] Slika { get; set; }
         public byte[] SlikaThumn { get; set; }
         public string Kategorija { get; set; }
+        public int Rbr { get; set; }
         public double? Ocjena { get; set; }
+        public string Vrsta { get; set; }
+
     }
 }

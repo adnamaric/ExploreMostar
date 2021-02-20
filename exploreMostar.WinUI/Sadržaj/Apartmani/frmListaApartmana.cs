@@ -86,5 +86,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             dgvApartmani.DataSource = result;
             //var gradovi = await _gradovi.Get<IList<Model.Gradovi>>(null);
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

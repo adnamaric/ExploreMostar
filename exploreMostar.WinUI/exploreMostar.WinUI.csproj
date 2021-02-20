@@ -228,6 +228,12 @@
     <Compile Include="Sadržaj\Atrakcije\frmAtrakcijeUpdate.Designer.cs">
       <DependentUpon>frmAtrakcijeUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Atrakcije\frmListaAtrakcija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Atrakcije\frmListaAtrakcija.Designer.cs">
+      <DependentUpon>frmListaAtrakcija.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Hoteli\frmHoteliAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Atrakcije\frmAtrakcijeUpdate.resx">
       <DependentUpon>frmAtrakcijeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Atrakcije\frmListaAtrakcija.resx">
+      <DependentUpon>frmListaAtrakcija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Hoteli\frmHoteliAdd.resx">
       <DependentUpon>frmHoteliAdd.cs</DependentUpon>

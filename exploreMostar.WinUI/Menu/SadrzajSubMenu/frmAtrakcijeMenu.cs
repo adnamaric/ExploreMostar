@@ -34,5 +34,11 @@ namespace exploreMostar.WinUI.Menu
             frmAtrakcijeUpdate frm = new frmAtrakcijeUpdate();
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaAtrakcija frm = new frmListaAtrakcija();
+            frm.Show();
+        }
     }
 }
