@@ -19,6 +19,7 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Apartmani, ApartmaniUpsertRequest>().ReverseMap();
             CreateMap<Database.Hoteli, HoteliUpsertRequest>().ReverseMap();
             CreateMap<Database.Hoteli, Model.Hoteli>();
+            CreateMap<Database.Atrakcije, AtrakcijeUpsertRequest>().ReverseMap();
 
 
         }

@@ -57,6 +57,17 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                
 
             }
+            if (search.Naziv != "")
+            {
+                foreach (var item in result)
+                {
+                    if (item.Naziv.Contains(search.Naziv))
+                    {
+                        result = result.Where(y => y.HotelId == item.HotelId).ToList();
+                    }
+
+                }
+            }
             if (cmbFilterYear.SelectedIndex != -1)
             {
                 result = result.Where(y => y.GodinaIzgradnje == int.Parse(cmbFilterYear.SelectedItem.ToString())).ToList();

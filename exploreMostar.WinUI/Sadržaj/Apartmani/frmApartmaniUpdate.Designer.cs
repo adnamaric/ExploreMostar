@@ -418,7 +418,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // cmbOdabirApartmana
             // 
             this.cmbOdabirApartmana.FormattingEnabled = true;
-            this.cmbOdabirApartmana.Location = new System.Drawing.Point(110, 12);
+            this.cmbOdabirApartmana.Location = new System.Drawing.Point(109, 17);
             this.cmbOdabirApartmana.Name = "cmbOdabirApartmana";
             this.cmbOdabirApartmana.Size = new System.Drawing.Size(238, 21);
             this.cmbOdabirApartmana.TabIndex = 47;
@@ -427,7 +427,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 15);
+            this.label11.Location = new System.Drawing.Point(12, 20);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 48;
