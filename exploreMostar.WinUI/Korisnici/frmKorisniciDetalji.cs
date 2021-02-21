@@ -41,7 +41,8 @@ namespace exploreMostar.WinUI.Korisnici
                     Password = txtPassword.Text,
                     PasswordConfirmation = txtPasswordConfrirm.Text,
                     KorisnickoIme = txtKorisnickoIme.Text,
-                    GradId = cmbGradovi.SelectedIndex
+                    GradId = cmbGradovi.SelectedIndex,
+                    PutanjaSlike = openFileDialog1.FileName
                 };
                 
                request.Slika = slika;

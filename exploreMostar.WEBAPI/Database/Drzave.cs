@@ -13,6 +13,7 @@ namespace exploreMostar.WebAPI.Database
         public int DrzavaId { get; set; }
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
+        public string PutanjaSlike { get; set; }
 
         public ICollection<Gradovi> Gradovi { get; set; }
     }

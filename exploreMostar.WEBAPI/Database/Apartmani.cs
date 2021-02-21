@@ -23,6 +23,7 @@ namespace exploreMostar.WebAPI.Database
         public bool? AparatZaKafu { get; set; }
         public string KategorijaApartmana { get; set; }
         public double? Ocjena { get; set; }
+        public string PutanjaSlike { get; set; }
 
         public Kategorije Kategorija { get; set; }
     }

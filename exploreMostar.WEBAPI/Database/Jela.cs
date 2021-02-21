@@ -16,6 +16,7 @@ namespace exploreMostar.WebAPI.Database
         public string Sastojci { get; set; }
         public double? Ocjena { get; set; }
         public int? KategorijaJelaId { get; set; }
+        public string PutanjaSlike { get; set; }
 
         public KategorijaJela KategorijaJela { get; set; }
         public ICollection<JeloMeni> JeloMeni { get; set; }

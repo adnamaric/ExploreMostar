@@ -56,8 +56,8 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             {
                 Naziv = txtNazivA.Text,
                 Sastojci= txtOpis.Text,
-                
-            };
+                PutanjaSlike= openFileDialog1.FileName
+        };
             if (comboBox1.SelectedIndex != 0)
             {
                 request.KategorijaJelaId = (int)comboBox1.SelectedValue;

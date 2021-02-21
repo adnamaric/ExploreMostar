@@ -18,6 +18,8 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
         private readonly APIService _kjela = new APIService("kategorijejela");
         private int? _id = null;
         public byte[] slika;
+        public byte[] origigi;
+
         public frmJelaUpdate()
         {
             InitializeComponent();
@@ -29,6 +31,8 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             var result1 = await _kjela.Get<List<Model.KategorijeJela>>(null);
 
             result.Insert(0, new Model.Jela() { Naziv = "Odaberite jelo", JeloId = 0 });
+            result1.Insert(0, new Model.KategorijeJela() { Naziv = "", KategorijaJelaId = -1 });
+
             comboBox1.DataSource = result1;
             comboBox1.DisplayMember = "Naziv";
             comboBox1.ValueMember = "KategorijaJelaId";
@@ -56,20 +60,20 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             {
                 var odabrani = result.Where(y => y.JeloId == apid.JeloId).FirstOrDefault();
                 txtNazivA.Text = odabrani.Naziv;
-               
+                if(odabrani.KategorijaJelaId!=null)
+                       comboBox1.SelectedValue = odabrani.KategorijaJelaId;
                 _id = odabrani.JeloId;
                 txtOpis.Text = odabrani.Sastojci;
                 txtOcjena.Text = odabrani.Ocjena.ToString();
-          
+                origigi = odabrani.Slika;
                 if (odabrani.Slika.Length != 0)
                 {
-
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
-
-                        btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
-                    }
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
+                    
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    btnSlika.Image = image;
+                  
 
 
                 }
@@ -81,7 +85,13 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             if (this.ValidateChildren())
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
+              
+
+                // if the original encoding was ASCII
+             
+
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
+                string xy = Encoding.ASCII.GetString(bytes);
 
                 var request = new JelaUpsertRequest
                 {
@@ -92,8 +102,12 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
                     Ocjena = double.Parse(txtOcjena.Text),
                     Sastojci=txtOpis.Text
                 };
-                request.Slika = slika;
-
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
+                else
+                //request.Slika = slika;
+                if (comboBox2.SelectedIndex != 0)
+                    request.KategorijaJelaId = (int)comboBox1.SelectedValue;
                 if (_id != null || _id != 0)
                 {
                     await _jela.Update<Model.Jela>(_id, request);

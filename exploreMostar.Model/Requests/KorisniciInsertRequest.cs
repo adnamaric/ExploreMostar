@@ -23,5 +23,6 @@ namespace exploreMostar.Model.Requests
         public int? GradId { get; set; }
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
+        public string PutanjaSlike { get; set; }
     }
 }

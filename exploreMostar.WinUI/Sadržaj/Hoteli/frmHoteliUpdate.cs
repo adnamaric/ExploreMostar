@@ -94,7 +94,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                     {
 
                         btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
+                        txtSlikaInput.Text = System.Text.Encoding.Unicode.GetString(odabrani.Slika);
                     }
 
 
@@ -247,7 +247,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                     AparatZaKafu = b6,
                     Ocjena = double.Parse(txtOcjena.Text)
                 };
-                request.Slika = slika;
+                //request.Slika = slika;
 
                 if (_id != null || _id != 0)
                 {

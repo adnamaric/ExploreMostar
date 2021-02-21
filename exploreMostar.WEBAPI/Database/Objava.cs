@@ -9,5 +9,6 @@ namespace exploreMostar.WebAPI.Database
         public string Naziv { get; set; }
         public string Sadrzaj { get; set; }
         public byte[] Slika { get; set; }
+        public string PutanjaSlike { get; set; }
     }
 }

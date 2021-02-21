@@ -67,7 +67,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnDodajSliku.TabIndex = 53;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
-            this.btnDodajSliku.Click += new System.EventHandler(this.btnDodajSliku_Click);
             // 
             // label11
             // 
@@ -155,7 +154,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnSnimi.TabIndex = 43;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = true;
-            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click_1);
             // 
             // label7
             // 

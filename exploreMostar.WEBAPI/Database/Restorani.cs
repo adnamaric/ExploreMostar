@@ -16,6 +16,7 @@ namespace exploreMostar.WebAPI.Database
         public double? Longitude { get; set; }
         public byte[] Slika { get; set; }
         public double? Ocjena { get; set; }
+        public string PutanjaSlike { get; set; }
 
         public Kategorije Kategorija { get; set; }
         public JeloMeni Ponuda { get; set; }

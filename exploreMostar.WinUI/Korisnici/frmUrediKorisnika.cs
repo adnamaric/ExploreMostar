@@ -77,67 +77,14 @@ namespace exploreMostar.WinUI.Korisnici
                 //}
                 if (odabrani.Slika.Length != 0)
                 {
-                    //MemoryStream stream = new MemoryStream(odabrani.Slika);
-                    //var newImage = System.Drawing.Image.FromStream(stream);
-                    //MemoryStream ms = new MemoryStream(odabrani.Slika);
-                    // Copy data into ms here, e.g. reading from NetworkStream
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    // Rewind the stream ready for reading
-                    //  ms.Position = 0;
-                    //Bitmap bmp = new Bitmap(ms);
-
-                    //using (var ms = new MemoryStream(odabrani.Slika))
-
-                    //{
-                    //    Image img = Image.FromStream(ms);
-
-                    //    circleButton1.Image = img;
-                    //}
-                   
-                    //
-                    //return Image.FromStream(ms);
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
-                        // Do something with ms..
-                        circleButton1.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
-                    }
-                    
-                    //txtSlikaInput.Text = Convert.ToBase64String(odabrani.Slika);
-                    //var file = File.ReadAllBytes(txtSlikaInput.Text);
-                    ////var request = file;
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    circleButton1.Image = image;
 
 
-                    //Image image = Image.FromFile(txtSlikaInput.Text);
-                    //circleButton1.Image = image;
-                    //byte[] imageBytes = Encoding.Unicode.GetBytes(txtSlikaInput.Text);
-                    //using (MemoryStream ms = new MemoryStream(imageBytes))
-                    //{
-                    //    ms.Write();
-                    //    circleButton1.Image = new Bitmap(ms);
-                    //}
-                    // MemoryStream ms = new MemoryStream(odabrani.Slik);
-                    // Copy data into ms here, e.g. reading from NetworkStream
 
-                    // Rewind the stream ready for reading
-                    //ms.Position = 0;
-                    //Bitmap bmp = new Bitmap(ms);
-                    //circleButton1.Image = bmp;
-                    //byte[] buffer = new byte[txtSlikaInput.Text.Length];
-                    ////byte[] buffer = new byte[16 * 1024];
-                    //using (MemoryStream ms = new MemoryStream())
-                    //{
-                    //    int read;
-                    //    while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
-                    //    {
-                    //        ms.Write(buffer, 0, read);
-                    //    }
-                    //    return ms.ToArray();
-                    //}
-                    //    else
-                    //{
-                    //    circleButton1.Image = null;
-                    //}
                 }
 
 
@@ -159,7 +106,26 @@ namespace exploreMostar.WinUI.Korisnici
             
         }
 
-        private async void btnSnimi_Click(object sender, EventArgs e)
+       
+
+        private void btnDodajSliku_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                //var request = file;
+                txtSlikaInput.Text = fileName;
+                slika = file;
+                Image image = Image.FromFile(fileName);
+                circleButton1.Image = image;
+
+                
+            }
+        }
+
+        private async void btnSnimi_Click_1(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
             {
@@ -175,12 +141,13 @@ namespace exploreMostar.WinUI.Korisnici
                     Password = txtPassword.Text,
                     PasswordConfirmation = txtPasswordConfrirm.Text,
                     KorisnickoIme = txtKorisnickoIme.Text,
-                    Slika= bytes
+                    Slika = bytes
 
 
 
                 };
-                request.Slika = slika;
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
                 if (cmbGradovi.SelectedIndex != 0)
                 {
                     request.GradId = cmbGradovi.SelectedIndex;
@@ -193,23 +160,6 @@ namespace exploreMostar.WinUI.Korisnici
                 await LoadKorisnici();
                 MessageBox.Show("Operacija uspješna!");
 
-            }
-        }
-
-        private void btnDodajSliku_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                var fileName = openFileDialog1.FileName;
-                var file = File.ReadAllBytes(fileName);
-                //var request = file;
-                txtSlikaInput.Text = fileName;
-                slika = file;
-                Image image = Image.FromFile(fileName);
-                circleButton1.Image = image;
-
-                //circleButton1.Image.Height = 100;
             }
         }
     }
