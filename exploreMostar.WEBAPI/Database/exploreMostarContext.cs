@@ -81,8 +81,6 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.AtrakcijaId).HasColumnName("AtrakcijaID");
 
-                entity.Property(e => e.Kategorija).HasMaxLength(1);
-
                 entity.Property(e => e.KategorijaId).HasColumnName("KategorijaID");
 
                 entity.Property(e => e.Lokacija)
@@ -97,7 +95,7 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.VrstaAtrakcijeId).HasColumnName("VrstaAtrakcijeID");
 
-                entity.HasOne(d => d.KategorijaNavigation)
+                entity.HasOne(d => d.Kategorija)
                     .WithMany(p => p.Atrakcije)
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
@@ -188,9 +186,7 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Ocjena)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Sastojci).HasMaxLength(100);
 
                 entity.Property(e => e.Vrsta)
                     .IsRequired()

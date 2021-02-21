@@ -87,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="Menu\SadrzajSubMenu\frmOstaloMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmOstaloMenu.Designer.cs">
+      <DependentUpon>frmOstaloMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyRectangle.cs" />
     <Compile Include="CircleButton.cs">
       <SubType>Component</SubType>
@@ -279,11 +285,23 @@
     <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.Designer.cs">
       <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sadržaj\Ostalo\frmOstalo.cs">
+    <Compile Include="Sadržaj\Ostalo\Jela\frmJelaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sadržaj\Ostalo\frmOstalo.Designer.cs">
-      <DependentUpon>frmOstalo.cs</DependentUpon>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmJelaAdd.Designer.cs">
+      <DependentUpon>frmJelaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmJelaUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmJelaUpdate.Designer.cs">
+      <DependentUpon>frmJelaUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmListaJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmListaJela.Designer.cs">
+      <DependentUpon>frmListaJela.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -326,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmNocniKluboviMenu.resx">
       <DependentUpon>frmNocniKluboviMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmOstaloMenu.resx">
+      <DependentUpon>frmOstaloMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmPrevozMenu.resx">
       <DependentUpon>frmPrevozMenu.cs</DependentUpon>
@@ -384,6 +405,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.resx">
       <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmJelaAdd.resx">
+      <DependentUpon>frmJelaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmJelaUpdate.resx">
+      <DependentUpon>frmJelaUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmListaJela.resx">
+      <DependentUpon>frmListaJela.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

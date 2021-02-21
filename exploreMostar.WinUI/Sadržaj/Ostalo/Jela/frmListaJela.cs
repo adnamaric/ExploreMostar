@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace exploreMostar.WinUI.Sadržaj.Ostalo
+namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 {
-    public partial class frmOstalo : Form
+    public partial class frmListaJela : Form
     {
-        public frmOstalo()
+        public frmListaJela()
         {
             InitializeComponent();
         }

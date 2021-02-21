@@ -15,10 +15,9 @@ namespace exploreMostar.WebAPI.Database
         public string Opis { get; set; }
         public byte[] Slika { get; set; }
         public byte[] SlikaThumn { get; set; }
-        public string Kategorija { get; set; }
         public double? Ocjena { get; set; }
 
-        public Kategorije KategorijaNavigation { get; set; }
+        public Kategorije Kategorija { get; set; }
         public VrstaAtrakcija VrstaAtrakcije { get; set; }
     }
 }
