@@ -114,7 +114,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__30_;
             this.button1.Location = new System.Drawing.Point(401, 112);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(372, 76);
@@ -165,7 +165,7 @@ namespace exploreMostar.WinUI.Menu
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__34_;
             this.button5.Location = new System.Drawing.Point(401, 259);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(372, 75);

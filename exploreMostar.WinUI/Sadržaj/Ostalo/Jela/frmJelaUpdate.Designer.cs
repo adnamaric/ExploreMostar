@@ -46,6 +46,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.txtNaziv = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // txtOpis
@@ -102,6 +103,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnSnimi.TabIndex = 86;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // btnSlika
             // 
@@ -152,6 +154,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnDodajSliku.TabIndex = 80;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
+            this.btnDodajSliku.Click += new System.EventHandler(this.btnDodajSliku_Click);
             // 
             // txtNazivA
             // 
@@ -172,19 +175,24 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(99, 12);
+            this.comboBox2.Location = new System.Drawing.Point(99, 17);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(239, 21);
             this.comboBox2.TabIndex = 92;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(21, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 93;
             this.label1.Text = "Odaberite jelo";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmJelaUpdate
             // 
@@ -209,6 +217,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmJelaUpdate";
             this.Text = "frmJelaUpdate";
+            this.Load += new System.EventHandler(this.frmJelaUpdate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +241,6 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
         private System.Windows.Forms.Label txtNaziv;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Menu.SadrzajSubMenu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,15 +54,14 @@ namespace exploreMostar.WinUI.Menu
         private void button8_Click(object sender, EventArgs e)
         {
             frmApartmaniMenu frmApartmaniMenu = new frmApartmaniMenu();
-            button8.BackColor = Color.Indigo;
-
+           
             frmApartmaniMenu.Show();
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
             frmRestoraniMenu frmRestoraniMenu = new frmRestoraniMenu();
-            button6.BackColor = Color.Indigo;
+           
 
             frmRestoraniMenu.Show();
         }
@@ -69,7 +69,7 @@ namespace exploreMostar.WinUI.Menu
         private void button1_Click(object sender, EventArgs e)
         {
             frmKaficiMenu frmKaficiMenu = new frmKaficiMenu();
-            button1.BackColor = Color.Indigo;
+          
 
             frmKaficiMenu.Show();
         }
@@ -84,7 +84,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            frmOstaloMenu frm = new frmOstaloMenu();
+            frm.Show();
         }
     }
 }

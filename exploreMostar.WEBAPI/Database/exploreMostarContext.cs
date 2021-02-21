@@ -24,6 +24,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Jela> Jela { get; set; }
         public virtual DbSet<JeloMeni> JeloMeni { get; set; }
         public virtual DbSet<Kafici> Kafici { get; set; }
+        public virtual DbSet<KategorijaJela> KategorijaJela { get; set; }
         public virtual DbSet<Kategorije> Kategorije { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
         public virtual DbSet<KorisnickaUloga> KorisnickaUloga { get; set; }
@@ -182,15 +183,18 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.JeloId).HasColumnName("JeloID");
 
+                entity.Property(e => e.KategorijaJelaId).HasColumnName("KategorijaJelaID");
+
                 entity.Property(e => e.Naziv)
                     .IsRequired()
                     .HasMaxLength(50);
 
                 entity.Property(e => e.Sastojci).HasMaxLength(100);
 
-                entity.Property(e => e.Vrsta)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.HasOne(d => d.KategorijaJela)
+                    .WithMany(p => p.Jela)
+                    .HasForeignKey(d => d.KategorijaJelaId)
+                    .HasConstraintName("FK__Jela__Kategorija__5224328E");
             });
 
             modelBuilder.Entity<JeloMeni>(entity =>
@@ -242,6 +246,13 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Kafici)
                     .HasForeignKey(d => d.PonudaId)
                     .HasConstraintName("FK__Kafici__PonudaID__787EE5A0");
+            });
+
+            modelBuilder.Entity<KategorijaJela>(entity =>
+            {
+                entity.Property(e => e.KategorijaJelaId).HasColumnName("KategorijaJelaID");
+
+                entity.Property(e => e.Naziv).HasMaxLength(250);
             });
 
             modelBuilder.Entity<Kategorije>(entity =>

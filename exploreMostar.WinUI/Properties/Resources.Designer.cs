@@ -10,9 +10,8 @@
 
 namespace exploreMostar.WinUI.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -89,7 +88,55 @@ namespace exploreMostar.WinUI.Properties {
                 return ResourceManager.GetString("Validation_RequiredField", resourceCulture);
             }
         }
-
-        public static Image NoImage { get; internal set; }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__30_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (30)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__34_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (34)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__41_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (41)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__43_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (43)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__44_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (44)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -87,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="Menu\SadrzajSubMenu\frmJelaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmJelaMenu.Designer.cs">
+      <DependentUpon>frmJelaMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\SadrzajSubMenu\frmOstaloMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmHoteliMenu.resx">
       <DependentUpon>frmHoteliMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmJelaMenu.resx">
+      <DependentUpon>frmJelaMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmKaficiMenu.resx">
       <DependentUpon>frmKaficiMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +466,21 @@
     <Folder Include="Kategorije\" />
     <Folder Include="Sadržaj\Prevoz\" />
     <Folder Include="Sadržaj\Restorani\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2830%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2834%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2841%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2843%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2844%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

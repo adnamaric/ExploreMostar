@@ -68,7 +68,8 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<IService<Model.KorisnickaUloga, ByNameSearchRequest>, KorisnickaUlogaService>();
             services.AddScoped<IService<Model.VrstaAtrakcija, ByNameSearchRequest>, VrstaAtrakcijaService>();
             services.AddScoped<IService<Model.VrstaRestorana, ByNameSearchRequest>, VrstaRestoranaService>();
-            
+            services.AddScoped<IService<Model.KategorijeJela, ByNameSearchRequest>, KategorijeJelaService>();
+
             services.AddAutoMapper();
            
 

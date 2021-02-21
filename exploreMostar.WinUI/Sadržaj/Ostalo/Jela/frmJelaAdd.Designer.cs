@@ -44,6 +44,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.txtNaziv = new System.Windows.Forms.Label();
             this.txtOpis = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // txtOcjena
@@ -83,6 +84,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnSnimi.TabIndex = 70;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // btnSlika
             // 
@@ -133,6 +135,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnDodajSliku.TabIndex = 63;
             this.btnDodajSliku.Text = "Dodaj";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
+            this.btnDodajSliku.Click += new System.EventHandler(this.btnDodajSliku_Click);
             // 
             // txtNazivA
             // 
@@ -161,11 +164,15 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 170);
+            this.label5.Location = new System.Drawing.Point(16, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 76;
             this.label5.Text = "Sastojci";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmJelaAdd
             // 
@@ -188,6 +195,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmJelaAdd";
             this.Text = "frmJelaAdd";
+            this.Load += new System.EventHandler(this.frmJelaAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +217,6 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
         private System.Windows.Forms.Label txtNaziv;
         private System.Windows.Forms.RichTextBox txtOpis;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

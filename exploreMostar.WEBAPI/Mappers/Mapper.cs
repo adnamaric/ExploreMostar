@@ -22,6 +22,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Atrakcije, AtrakcijeUpsertRequest>().ReverseMap();
             CreateMap<Database.Nightclubs, Model.Nightclubs>();
             CreateMap<Database.Nightclubs, NightClubsUpsertRequest>().ReverseMap();
+            CreateMap<Database.Jela, JelaUpsertRequest>().ReverseMap();
+            CreateMap<Database.Jela, Model.Jela>();
 
 
         }
