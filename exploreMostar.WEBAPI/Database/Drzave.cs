@@ -14,6 +14,7 @@ namespace exploreMostar.WebAPI.Database
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
         public string PutanjaSlike { get; set; }
+        public byte[] Slika { get; set; }
 
         public ICollection<Gradovi> Gradovi { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Prevoz;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,17 +20,20 @@ namespace exploreMostar.WinUI.Menu
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmListaPrevoza frm = new frmListaPrevoza();
+            frm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            frmPrevozUpdate frm = new frmPrevozUpdate();
+            frm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            frmPrevozAdd frm = new frmPrevozAdd();
+            frm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

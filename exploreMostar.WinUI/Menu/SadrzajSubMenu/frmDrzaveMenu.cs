@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Ostalo.Drzave;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +11,28 @@ using System.Windows.Forms;
 
 namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
 {
-    public partial class frmOstaloMenu : Form
+    public partial class frmDrzaveMenu : Form
     {
-        public frmOstaloMenu()
+        public frmDrzaveMenu()
         {
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            frmJelaMenu frm = new frmJelaMenu();
+            frmDrzaveAdd frm = new frmDrzaveAdd();
             frm.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            frmGradoviMenu frm = new frmGradoviMenu();
+            frmDrzaveUpdate frm = new frmDrzaveUpdate();
             frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmDrzaveMenu frm = new frmDrzaveMenu();
+            frmDrzaveList frm = new frmDrzaveList();
             frm.Show();
         }
     }

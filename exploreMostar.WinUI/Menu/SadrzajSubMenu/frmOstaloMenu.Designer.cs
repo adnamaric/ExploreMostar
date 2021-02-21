@@ -49,6 +49,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button7
             // 
@@ -74,7 +75,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
             this.button6.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__43_;
-            this.button6.Location = new System.Drawing.Point(31, 122);
+            this.button6.Location = new System.Drawing.Point(31, 128);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(735, 75);
             this.button6.TabIndex = 17;
@@ -82,6 +83,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // frmOstaloMenu
             // 

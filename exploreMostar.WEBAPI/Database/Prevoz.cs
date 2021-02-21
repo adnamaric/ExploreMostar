@@ -10,6 +10,8 @@ namespace exploreMostar.WebAPI.Database
         public string Telefon { get; set; }
         public int PrevozId { get; set; }
         public int? KategorijaId { get; set; }
+        public byte[] Slika { get; set; }
+        public string PutanjaSlike { get; set; }
 
         public Kategorije Kategorija { get; set; }
     }

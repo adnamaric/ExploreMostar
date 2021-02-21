@@ -9,6 +9,7 @@ namespace exploreMostar.Model
         public int DrzavaId { get; set; }
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
-        //zastava?
+        public string PutanjaSlike { get; set; }
+        public byte[] Slika { get; set; }
     }
 }

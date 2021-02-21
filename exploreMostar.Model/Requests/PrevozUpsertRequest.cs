@@ -10,5 +10,7 @@ namespace exploreMostar.Model.Requests
         public string Vrsta { get; set; }
         public string Telefon { get; set; }
         public int? KategorijaId { get; set; }
+        public byte[] Slika { get; set; }
+        public string PutanjaSlike { get; set; }
     }
 }

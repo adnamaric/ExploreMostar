@@ -87,6 +87,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="Menu\SadrzajSubMenu\frmDrzaveMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmDrzaveMenu.Designer.cs">
+      <DependentUpon>frmDrzaveMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmGradoviMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\SadrzajSubMenu\frmGradoviMenu.Designer.cs">
+      <DependentUpon>frmGradoviMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\SadrzajSubMenu\frmJelaMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +303,42 @@
     <Compile Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.Designer.cs">
       <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveAdd.Designer.cs">
+      <DependentUpon>frmDrzaveAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveList.Designer.cs">
+      <DependentUpon>frmDrzaveList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Drzave\frmDrzaveUpdate.Designer.cs">
+      <DependentUpon>frmDrzaveUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviAdd.Designer.cs">
+      <DependentUpon>frmGradoviAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviList.Designer.cs">
+      <DependentUpon>frmGradoviList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviUpdate.Designer.cs">
+      <DependentUpon>frmGradoviUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Ostalo\Jela\frmJelaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +356,24 @@
     </Compile>
     <Compile Include="Sadržaj\Ostalo\Jela\frmListaJela.Designer.cs">
       <DependentUpon>frmListaJela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmListaPrevoza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmListaPrevoza.Designer.cs">
+      <DependentUpon>frmListaPrevoza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmPrevozAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmPrevozAdd.Designer.cs">
+      <DependentUpon>frmPrevozAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmPrevozUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Prevoz\frmPrevozUpdate.Designer.cs">
+      <DependentUpon>frmPrevozUpdate.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -332,6 +398,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmAtrakcijeMenu.resx">
       <DependentUpon>frmAtrakcijeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmDrzaveMenu.resx">
+      <DependentUpon>frmDrzaveMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmGradoviMenu.resx">
+      <DependentUpon>frmGradoviMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmHoteliMenu.resx">
       <DependentUpon>frmHoteliMenu.cs</DependentUpon>
@@ -415,6 +487,24 @@
     <EmbeddedResource Include="Sadržaj\Noćni klubovi\frmNocniKluboviUpdate.resx">
       <DependentUpon>frmNocniKluboviUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Drzave\frmDrzaveAdd.resx">
+      <DependentUpon>frmDrzaveAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Drzave\frmDrzaveList.resx">
+      <DependentUpon>frmDrzaveList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Drzave\frmDrzaveUpdate.resx">
+      <DependentUpon>frmDrzaveUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Gradovi\frmGradoviAdd.resx">
+      <DependentUpon>frmGradoviAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Gradovi\frmGradoviList.resx">
+      <DependentUpon>frmGradoviList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Gradovi\frmGradoviUpdate.resx">
+      <DependentUpon>frmGradoviUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmJelaAdd.resx">
       <DependentUpon>frmJelaAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +513,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmListaJela.resx">
       <DependentUpon>frmListaJela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Prevoz\frmPrevozAdd.resx">
+      <DependentUpon>frmPrevozAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Prevoz\frmPrevozUpdate.resx">
+      <DependentUpon>frmPrevozUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -464,7 +560,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Kategorije\" />
-    <Folder Include="Sadržaj\Prevoz\" />
     <Folder Include="Sadržaj\Restorani\" />
   </ItemGroup>
   <ItemGroup>

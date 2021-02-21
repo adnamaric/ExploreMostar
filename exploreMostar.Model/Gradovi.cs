@@ -9,7 +9,8 @@ namespace exploreMostar.Model
 
         public int GradId { get; set; }
         public string Naziv { get; set; }
+        public int DrzavaId { get; set; }
 
-       
+
     }
 }
