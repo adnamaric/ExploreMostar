@@ -7,7 +7,6 @@ namespace exploreMostar.WebAPI.Database
     {
         public JeloMeni()
         {
-            Kafici = new HashSet<Kafici>();
             Restorani = new HashSet<Restorani>();
         }
 
@@ -17,7 +16,6 @@ namespace exploreMostar.WebAPI.Database
 
         public Jela Jelo { get; set; }
         public Menu Meni { get; set; }
-        public ICollection<Kafici> Kafici { get; set; }
         public ICollection<Restorani> Restorani { get; set; }
     }
 }

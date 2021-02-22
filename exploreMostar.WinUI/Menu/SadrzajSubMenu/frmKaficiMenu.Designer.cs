@@ -80,6 +80,7 @@ namespace exploreMostar.WinUI.Menu
             this.button2.TabIndex = 18;
             this.button2.Text = "Dodavanje kafića";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -96,6 +97,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.TabIndex = 17;
             this.button1.Text = "Lista kafića";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmKaficiMenu
             // 
@@ -107,6 +109,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmKaficiMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmKaficiMenu";
             this.ResumeLayout(false);
 

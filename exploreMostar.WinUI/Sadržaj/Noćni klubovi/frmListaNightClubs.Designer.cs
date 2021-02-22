@@ -38,12 +38,12 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvApartmani = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -137,23 +137,6 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
             this.dgvApartmani.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Ukupno:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 51;
-            // 
             // RBr
             // 
             this.RBr.DataPropertyName = "RBr";
@@ -178,6 +161,23 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Ukupno:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(68, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 51;
+            // 
             // frmListaNightClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +194,7 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmListaNightClubs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaNightClubs";
             this.Load += new System.EventHandler(this.frmListaNightClubs_Load);
             this.groupBox1.ResumeLayout(false);

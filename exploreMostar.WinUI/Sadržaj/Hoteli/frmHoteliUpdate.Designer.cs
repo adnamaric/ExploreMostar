@@ -499,6 +499,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Sadrzaj);
             this.Name = "frmHoteliUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHoteliUpdate";
             this.Load += new System.EventHandler(this.frmHoteliUpdate_Load);
             this.groupBox1.ResumeLayout(false);

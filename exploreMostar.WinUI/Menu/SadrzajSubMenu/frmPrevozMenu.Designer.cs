@@ -110,6 +110,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmPrevozMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPrevozMenu";
             this.ResumeLayout(false);
 

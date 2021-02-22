@@ -113,6 +113,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmGradoviAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGradoviAdd";
             this.Load += new System.EventHandler(this.frmGradoviAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

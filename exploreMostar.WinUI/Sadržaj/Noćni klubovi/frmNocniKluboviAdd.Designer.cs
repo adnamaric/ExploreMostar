@@ -213,6 +213,7 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.Controls.Add(this.txtLok);
             this.Controls.Add(this.label2);
             this.Name = "frmNocniKluboviAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNocniKluboviAdd";
             this.Load += new System.EventHandler(this.frmNocniKluboviAdd_Load);
             this.ResumeLayout(false);

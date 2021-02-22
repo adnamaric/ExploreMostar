@@ -234,18 +234,11 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.PonudaId).HasColumnName("PonudaID");
-
                 entity.HasOne(d => d.Kategorija)
                     .WithMany(p => p.Kafici)
                     .HasForeignKey(d => d.KategorijaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Kafici__Kategori__18EBB532");
-
-                entity.HasOne(d => d.Ponuda)
-                    .WithMany(p => p.Kafici)
-                    .HasForeignKey(d => d.PonudaId)
-                    .HasConstraintName("FK__Kafici__PonudaID__787EE5A0");
             });
 
             modelBuilder.Entity<KategorijaJela>(entity =>

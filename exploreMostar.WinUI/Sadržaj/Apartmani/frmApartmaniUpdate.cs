@@ -282,8 +282,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
                 //circleButton1.Image.Height = 100;
             }
-            if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
+         
             
         }
 

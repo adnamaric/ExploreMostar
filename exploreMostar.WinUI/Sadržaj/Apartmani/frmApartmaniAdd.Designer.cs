@@ -479,6 +479,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Sadrzaj);
             this.Name = "frmApartmaniAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmApartmaniAdd";
             this.Load += new System.EventHandler(this.frmApartmaniAdd_Load);
             this.groupBox1.ResumeLayout(false);

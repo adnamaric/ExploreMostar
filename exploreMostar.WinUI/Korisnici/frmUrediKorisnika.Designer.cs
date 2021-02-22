@@ -61,7 +61,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(429, 420);
+            this.btnDodajSliku.Location = new System.Drawing.Point(370, 415);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(79, 26);
             this.btnDodajSliku.TabIndex = 53;
@@ -71,7 +71,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(103, 407);
+            this.label11.Location = new System.Drawing.Point(44, 402);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 52;
@@ -79,7 +79,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtSlikaInput
             // 
-            this.txtSlikaInput.Location = new System.Drawing.Point(103, 424);
+            this.txtSlikaInput.Location = new System.Drawing.Point(44, 419);
             this.txtSlikaInput.Name = "txtSlikaInput";
             this.txtSlikaInput.Size = new System.Drawing.Size(320, 20);
             this.txtSlikaInput.TabIndex = 51;
@@ -88,7 +88,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(100, 355);
+            this.label10.Location = new System.Drawing.Point(41, 350);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 13);
             this.label10.TabIndex = 49;
@@ -99,7 +99,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoP.AutoSize = true;
             this.lbObaveznoP.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoP.Location = new System.Drawing.Point(103, 224);
+            this.lbObaveznoP.Location = new System.Drawing.Point(44, 219);
             this.lbObaveznoP.Name = "lbObaveznoP";
             this.lbObaveznoP.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoP.TabIndex = 48;
@@ -109,7 +109,7 @@ namespace exploreMostar.WinUI.Korisnici
             // cmbGradovi
             // 
             this.cmbGradovi.FormattingEnabled = true;
-            this.cmbGradovi.Location = new System.Drawing.Point(103, 292);
+            this.cmbGradovi.Location = new System.Drawing.Point(44, 287);
             this.cmbGradovi.Name = "cmbGradovi";
             this.cmbGradovi.Size = new System.Drawing.Size(320, 21);
             this.cmbGradovi.TabIndex = 47;
@@ -118,7 +118,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(103, 276);
+            this.label8.Location = new System.Drawing.Point(44, 271);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 46;
@@ -128,7 +128,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoPrezime.AutoSize = true;
             this.lbObaveznoPrezime.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPrezime.Location = new System.Drawing.Point(106, 172);
+            this.lbObaveznoPrezime.Location = new System.Drawing.Point(47, 167);
             this.lbObaveznoPrezime.Name = "lbObaveznoPrezime";
             this.lbObaveznoPrezime.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoPrezime.TabIndex = 45;
@@ -139,7 +139,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoPolje.AutoSize = true;
             this.lbObaveznoPolje.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPolje.Location = new System.Drawing.Point(100, 120);
+            this.lbObaveznoPolje.Location = new System.Drawing.Point(41, 115);
             this.lbObaveznoPolje.Name = "lbObaveznoPolje";
             this.lbObaveznoPolje.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoPolje.TabIndex = 44;
@@ -148,7 +148,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(540, 477);
+            this.btnSnimi.Location = new System.Drawing.Point(469, 465);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(112, 44);
             this.btnSnimi.TabIndex = 43;
@@ -159,7 +159,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(275, 368);
+            this.label7.Location = new System.Drawing.Point(216, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 13);
             this.label7.TabIndex = 42;
@@ -167,7 +167,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPasswordConfrirm
             // 
-            this.txtPasswordConfrirm.Location = new System.Drawing.Point(278, 384);
+            this.txtPasswordConfrirm.Location = new System.Drawing.Point(219, 379);
             this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
             this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
             this.txtPasswordConfrirm.TabIndex = 41;
@@ -175,7 +175,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(100, 368);
+            this.label6.Location = new System.Drawing.Point(41, 363);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 40;
@@ -183,7 +183,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(103, 384);
+            this.txtPassword.Location = new System.Drawing.Point(44, 379);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 39;
@@ -191,7 +191,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(100, 316);
+            this.label5.Location = new System.Drawing.Point(41, 311);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 38;
@@ -199,7 +199,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtKorisnickoIme
             // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(103, 332);
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(44, 327);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
             this.txtKorisnickoIme.TabIndex = 37;
@@ -207,7 +207,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(100, 237);
+            this.label4.Location = new System.Drawing.Point(41, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 36;
@@ -215,7 +215,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(103, 253);
+            this.txtTelefon.Location = new System.Drawing.Point(44, 248);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(320, 20);
             this.txtTelefon.TabIndex = 35;
@@ -223,7 +223,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 185);
+            this.label3.Location = new System.Drawing.Point(44, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 34;
@@ -231,7 +231,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(103, 201);
+            this.txtEmail.Location = new System.Drawing.Point(44, 196);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(320, 20);
             this.txtEmail.TabIndex = 33;
@@ -239,7 +239,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 133);
+            this.label2.Location = new System.Drawing.Point(44, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 32;
@@ -248,7 +248,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(100, 81);
+            this.label1.Location = new System.Drawing.Point(41, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 31;
@@ -256,14 +256,14 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(103, 149);
+            this.txtPrezime.Location = new System.Drawing.Point(44, 144);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(320, 20);
             this.txtPrezime.TabIndex = 30;
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(103, 97);
+            this.txtIme.Location = new System.Drawing.Point(44, 92);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(320, 20);
             this.txtIme.TabIndex = 29;
@@ -295,7 +295,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.circleButton1.BackColor = System.Drawing.Color.White;
             this.circleButton1.FlatAppearance.BorderSize = 0;
             this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(528, 16);
+            this.circleButton1.Location = new System.Drawing.Point(460, 11);
             this.circleButton1.Name = "circleButton1";
             this.circleButton1.Size = new System.Drawing.Size(134, 130);
             this.circleButton1.TabIndex = 50;
@@ -305,7 +305,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 548);
+            this.ClientSize = new System.Drawing.Size(620, 524);
             this.Controls.Add(this.cmbOdaberiKorisnika);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDodajSliku);
@@ -334,6 +334,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Name = "frmUrediKorisnika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUrediKorisnika";
             this.Load += new System.EventHandler(this.frmUrediKorisnika_Load);
             this.ResumeLayout(false);

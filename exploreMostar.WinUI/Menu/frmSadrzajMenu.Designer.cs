@@ -190,6 +190,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Name = "frmSadrzajMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSadrzaj";
             this.Load += new System.EventHandler(this.frmSadrzaj_Load);
             this.ResumeLayout(false);

@@ -211,6 +211,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmListaJela";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaJela";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

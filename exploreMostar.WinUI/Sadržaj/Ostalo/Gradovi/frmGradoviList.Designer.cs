@@ -38,13 +38,13 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvApartmani = new System.Windows.Forms.DataGridView();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Drzava = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Drzava = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -135,6 +135,23 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
             this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
             this.dgvApartmani.TabIndex = 0;
             // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "Rbr.";
+            this.RBr.Name = "RBr";
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            // 
+            // Drzava
+            // 
+            this.Drzava.HeaderText = "Drzava";
+            this.Drzava.Name = "Drzava";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -169,23 +186,6 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
             this.comboBox2.Size = new System.Drawing.Size(204, 21);
             this.comboBox2.TabIndex = 63;
             // 
-            // RBr
-            // 
-            this.RBr.DataPropertyName = "RBr";
-            this.RBr.HeaderText = "Rbr.";
-            this.RBr.Name = "RBr";
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            // 
-            // Drzava
-            // 
-            this.Drzava.HeaderText = "Drzava";
-            this.Drzava.Name = "Drzava";
-            // 
             // frmGradoviList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,6 +204,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmGradoviList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGradoviList";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).EndInit();

@@ -30,6 +30,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Drzave, Model.Drzave>().ReverseMap();
             CreateMap<Database.Prevoz, Model.Prevoz>();
             CreateMap<Database.Prevoz, PrevozUpsertRequest>().ReverseMap();
+            CreateMap<Database.Kafici, KaficiUpsertRequest>().ReverseMap();
+            CreateMap<Database.Kafici, Model.Kafici>().ReverseMap();
 
 
         }

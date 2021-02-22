@@ -285,6 +285,18 @@
     <Compile Include="Sadržaj\Kafići\frmKaficiAdd.Designer.cs">
       <DependentUpon>frmKaficiAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Kafići\frmKaficiUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Kafići\frmKaficiUpdate.Designer.cs">
+      <DependentUpon>frmKaficiUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Kafići\frmListaKafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Kafići\frmListaKafica.Designer.cs">
+      <DependentUpon>frmListaKafica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Noćni klubovi\frmListaNightClubs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -478,6 +490,15 @@
     <EmbeddedResource Include="Sadržaj\Hoteli\frmListaHotela.resx">
       <DependentUpon>frmListaHotela.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Kafići\frmKaficiAdd.resx">
+      <DependentUpon>frmKaficiAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Kafići\frmKaficiUpdate.resx">
+      <DependentUpon>frmKaficiUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Kafići\frmListaKafica.resx">
+      <DependentUpon>frmListaKafica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Noćni klubovi\frmListaNightClubs.resx">
       <DependentUpon>frmListaNightClubs.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,6 +534,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmListaJela.resx">
       <DependentUpon>frmListaJela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Prevoz\frmListaPrevoza.resx">
+      <DependentUpon>frmListaPrevoza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Prevoz\frmPrevozAdd.resx">
       <DependentUpon>frmPrevozAdd.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Kafići;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,20 @@ namespace exploreMostar.WinUI.Menu
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+            frmKaficiUpdate frm = new frmKaficiUpdate();
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmKaficiAdd frm = new frmKaficiAdd();
+            frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaKafica frm = new frmListaKafica();
+            frm.Show();
         }
     }
 }

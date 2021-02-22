@@ -194,6 +194,7 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmPrevozUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrevozUpdate";
             this.Load += new System.EventHandler(this.frmPrevozUpdate_Load);
             this.ResumeLayout(false);

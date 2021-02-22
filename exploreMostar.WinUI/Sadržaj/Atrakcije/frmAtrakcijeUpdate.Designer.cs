@@ -288,6 +288,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Sadrzaj);
             this.Name = "frmAtrakcijeUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAtrakcijeUpdate";
             this.Load += new System.EventHandler(this.frmAtrakcijeUpdate_Load);
             this.ResumeLayout(false);

@@ -175,6 +175,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Drzave
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmDrzaveUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDrzaveUpdate";
             this.Load += new System.EventHandler(this.frmDrzaveUpdate_Load);
             this.ResumeLayout(false);

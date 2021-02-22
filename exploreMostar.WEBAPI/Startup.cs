@@ -64,6 +64,7 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<ICRUDService<Model.Nightclubs, ByNameSearchRequest, NightClubsUpsertRequest, NightClubsUpsertRequest>, NightClubsService>();
             services.AddScoped<ICRUDService<Model.Prevoz, ByNameSearchRequest, PrevozUpsertRequest, PrevozUpsertRequest>, PrevozService>();
             services.AddScoped<ICRUDService<Model.Restorani, ByNameSearchRequest, RestoraniUpsertRequest, RestoraniUpsertRequest>, RestoraniService>();
+            services.AddScoped<ICRUDService<Model.Kafici, ByNameSearchRequest, KaficiUpsertRequest, KaficiUpsertRequest>, KaficiService>();
 
             services.AddScoped<IService<Model.KorisnickaUloga, ByNameSearchRequest>, KorisnickaUlogaService>();
             services.AddScoped<IService<Model.VrstaAtrakcija, ByNameSearchRequest>, VrstaAtrakcijaService>();

@@ -34,7 +34,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSlikaInput = new System.Windows.Forms.TextBox();
-            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.label10 = new System.Windows.Forms.Label();
             this.lbObaveznoP = new System.Windows.Forms.Label();
             this.cmbGradovi = new System.Windows.Forms.ComboBox();
@@ -56,6 +55,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.label1 = new System.Windows.Forms.Label();
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.txtIme = new System.Windows.Forms.TextBox();
+            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.SuspendLayout();
             // 
             // cmbOdaberiKorisnika
@@ -78,7 +78,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(478, 416);
+            this.btnDodajSliku.Location = new System.Drawing.Point(413, 423);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(79, 26);
             this.btnDodajSliku.TabIndex = 83;
@@ -88,7 +88,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(152, 403);
+            this.label11.Location = new System.Drawing.Point(87, 410);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 82;
@@ -96,27 +96,16 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtSlikaInput
             // 
-            this.txtSlikaInput.Location = new System.Drawing.Point(152, 420);
+            this.txtSlikaInput.Location = new System.Drawing.Point(87, 427);
             this.txtSlikaInput.Name = "txtSlikaInput";
             this.txtSlikaInput.Size = new System.Drawing.Size(320, 20);
             this.txtSlikaInput.TabIndex = 81;
-            // 
-            // circleButton1
-            // 
-            this.circleButton1.BackColor = System.Drawing.Color.White;
-            this.circleButton1.FlatAppearance.BorderSize = 0;
-            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(577, 12);
-            this.circleButton1.Name = "circleButton1";
-            this.circleButton1.Size = new System.Drawing.Size(134, 130);
-            this.circleButton1.TabIndex = 80;
-            this.circleButton1.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(149, 351);
+            this.label10.Location = new System.Drawing.Point(84, 358);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 13);
             this.label10.TabIndex = 79;
@@ -127,7 +116,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoP.AutoSize = true;
             this.lbObaveznoP.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoP.Location = new System.Drawing.Point(152, 220);
+            this.lbObaveznoP.Location = new System.Drawing.Point(87, 227);
             this.lbObaveznoP.Name = "lbObaveznoP";
             this.lbObaveznoP.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoP.TabIndex = 78;
@@ -137,7 +126,7 @@ namespace exploreMostar.WinUI.Korisnici
             // cmbGradovi
             // 
             this.cmbGradovi.FormattingEnabled = true;
-            this.cmbGradovi.Location = new System.Drawing.Point(152, 288);
+            this.cmbGradovi.Location = new System.Drawing.Point(87, 295);
             this.cmbGradovi.Name = "cmbGradovi";
             this.cmbGradovi.Size = new System.Drawing.Size(320, 21);
             this.cmbGradovi.TabIndex = 77;
@@ -146,7 +135,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(152, 272);
+            this.label8.Location = new System.Drawing.Point(87, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 76;
@@ -156,7 +145,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoPrezime.AutoSize = true;
             this.lbObaveznoPrezime.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPrezime.Location = new System.Drawing.Point(155, 168);
+            this.lbObaveznoPrezime.Location = new System.Drawing.Point(90, 175);
             this.lbObaveznoPrezime.Name = "lbObaveznoPrezime";
             this.lbObaveznoPrezime.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoPrezime.TabIndex = 75;
@@ -167,7 +156,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoPolje.AutoSize = true;
             this.lbObaveznoPolje.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPolje.Location = new System.Drawing.Point(149, 116);
+            this.lbObaveznoPolje.Location = new System.Drawing.Point(84, 123);
             this.lbObaveznoPolje.Name = "lbObaveznoPolje";
             this.lbObaveznoPolje.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoPolje.TabIndex = 74;
@@ -176,7 +165,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnUkloni
             // 
-            this.btnUkloni.Location = new System.Drawing.Point(589, 473);
+            this.btnUkloni.Location = new System.Drawing.Point(459, 479);
             this.btnUkloni.Name = "btnUkloni";
             this.btnUkloni.Size = new System.Drawing.Size(112, 44);
             this.btnUkloni.TabIndex = 73;
@@ -187,7 +176,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(324, 364);
+            this.label7.Location = new System.Drawing.Point(259, 371);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 13);
             this.label7.TabIndex = 72;
@@ -195,7 +184,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPasswordConfrirm
             // 
-            this.txtPasswordConfrirm.Location = new System.Drawing.Point(327, 380);
+            this.txtPasswordConfrirm.Location = new System.Drawing.Point(262, 387);
             this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
             this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
             this.txtPasswordConfrirm.TabIndex = 71;
@@ -203,7 +192,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(149, 364);
+            this.label6.Location = new System.Drawing.Point(84, 371);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 70;
@@ -211,7 +200,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(152, 380);
+            this.txtPassword.Location = new System.Drawing.Point(87, 387);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 69;
@@ -219,7 +208,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(149, 312);
+            this.label5.Location = new System.Drawing.Point(84, 319);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 68;
@@ -227,7 +216,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtKorisnickoIme
             // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(152, 328);
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(87, 335);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
             this.txtKorisnickoIme.TabIndex = 67;
@@ -235,7 +224,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 233);
+            this.label4.Location = new System.Drawing.Point(84, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 66;
@@ -243,7 +232,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(152, 249);
+            this.txtTelefon.Location = new System.Drawing.Point(87, 256);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(320, 20);
             this.txtTelefon.TabIndex = 65;
@@ -251,7 +240,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(152, 181);
+            this.label3.Location = new System.Drawing.Point(87, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 64;
@@ -259,7 +248,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(152, 197);
+            this.txtEmail.Location = new System.Drawing.Point(87, 204);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(320, 20);
             this.txtEmail.TabIndex = 63;
@@ -267,7 +256,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 129);
+            this.label2.Location = new System.Drawing.Point(87, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 62;
@@ -276,7 +265,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 77);
+            this.label1.Location = new System.Drawing.Point(84, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 61;
@@ -284,23 +273,34 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(152, 145);
+            this.txtPrezime.Location = new System.Drawing.Point(87, 152);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(320, 20);
             this.txtPrezime.TabIndex = 60;
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(152, 93);
+            this.txtIme.Location = new System.Drawing.Point(87, 100);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(320, 20);
             this.txtIme.TabIndex = 59;
+            // 
+            // circleButton1
+            // 
+            this.circleButton1.BackColor = System.Drawing.Color.White;
+            this.circleButton1.FlatAppearance.BorderSize = 0;
+            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton1.Location = new System.Drawing.Point(459, 19);
+            this.circleButton1.Name = "circleButton1";
+            this.circleButton1.Size = new System.Drawing.Size(134, 130);
+            this.circleButton1.TabIndex = 80;
+            this.circleButton1.UseVisualStyleBackColor = false;
             // 
             // frmUklanjanjeKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 570);
+            this.ClientSize = new System.Drawing.Size(624, 540);
             this.Controls.Add(this.cmbOdaberiKorisnika);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDodajSliku);
@@ -329,6 +329,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Name = "frmUklanjanjeKorisnika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUklanjanjeKorisnika";
             this.Load += new System.EventHandler(this.frmUklanjanjeKorisnika_Load);
             this.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
-namespace exploreMostar.WinUI.Sadržaj.Ostalo.Drzave
+namespace exploreMostar.WinUI.Sadržaj.Kafići
 {
-    partial class frmDrzaveList
+    partial class frmListaKafica
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Drzave
         {
             this.SuspendLayout();
             // 
-            // frmDrzaveList
+            // frmListaKafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 546);
-            this.Name = "frmDrzaveList";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "frmListaKafica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDrzaveListcs";
+            this.Text = "frmListaKafica";
             this.ResumeLayout(false);
 
         }

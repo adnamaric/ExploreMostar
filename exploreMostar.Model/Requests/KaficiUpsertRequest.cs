@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace exploreMostar.Model
+namespace exploreMostar.Model.Requests
 {
-    public partial class Kafici
+    public partial class KaficiUpsertRequest
     {
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
-        public int KaficId { get; set; }
         public int KategorijaId { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }

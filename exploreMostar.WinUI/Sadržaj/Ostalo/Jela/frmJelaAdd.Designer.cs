@@ -194,6 +194,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmJelaAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmJelaAdd";
             this.Load += new System.EventHandler(this.frmJelaAdd_Load);
             this.ResumeLayout(false);

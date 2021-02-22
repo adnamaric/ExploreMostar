@@ -8,7 +8,6 @@ namespace exploreMostar.WebAPI.Database
         public string Naziv { get; set; }
         public string Lokacija { get; set; }
         public int KaficId { get; set; }
-        public int? PonudaId { get; set; }
         public int KategorijaId { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
@@ -17,6 +16,5 @@ namespace exploreMostar.WebAPI.Database
         public string PutanjaSlike { get; set; }
 
         public Kategorije Kategorija { get; set; }
-        public JeloMeni Ponuda { get; set; }
     }
 }
