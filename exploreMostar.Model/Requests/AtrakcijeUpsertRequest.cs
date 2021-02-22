@@ -18,6 +18,6 @@ namespace exploreMostar.Model.Requests
         public string Kategorija { get; set; }
         public double? Ocjena { get; set; }
 
-
+        public string PutanjaSlike { get; set; }
     }
 }

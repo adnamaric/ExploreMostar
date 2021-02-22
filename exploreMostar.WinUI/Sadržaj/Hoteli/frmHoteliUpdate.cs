@@ -90,12 +90,11 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                 if (odabrani.Slika.Length != 0)
                 {
 
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                        btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.Unicode.GetString(odabrani.Slika);
-                    }
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    btnSlika.Image = image;
 
 
                 }
@@ -247,7 +246,9 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                     AparatZaKafu = b6,
                     Ocjena = double.Parse(txtOcjena.Text)
                 };
-                //request.Slika = slika;
+           
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
 
                 if (_id != null || _id != 0)
                 {

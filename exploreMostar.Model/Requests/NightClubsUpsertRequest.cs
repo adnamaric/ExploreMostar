@@ -13,5 +13,6 @@ namespace exploreMostar.Model.Requests
         public double? Longitude { get; set; }
         public byte[] Slika { get; set; }
         public double? Ocjena { get; set; }
+        public string PutanjaSlike { get; set; }
     }
 }

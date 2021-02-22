@@ -23,5 +23,6 @@ namespace exploreMostar.Model.Requests
         public bool? AparatZaKafu { get; set; }
         public string Kategorija { get; set; }
         public double? Ocjena { get; set; }
+        public string PutanjaSlike { get; set; }
     }
 }

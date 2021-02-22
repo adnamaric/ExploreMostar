@@ -94,12 +94,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 if (odabrani.Slika.Length != 0)
                 {
 
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                        btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
-                    }
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    btnSlika.Image = image;
 
 
                 }
@@ -252,9 +251,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     AparatZaKafu = b6,
                     Ocjena = double.Parse(txtOcjena.Text)
                  };
-                    request.Slika = slika;
-                   
-                    if (_id!=null || _id!=0)
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
+
+                if (_id!=null || _id!=0)
                     {
                         await _apartmani.Update<Model.Apartmani>(_id, request);
                         MessageBox.Show("Operacija uspješna!");
@@ -282,6 +282,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
                 //circleButton1.Image.Height = 100;
             }
+            if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
             
         }
 

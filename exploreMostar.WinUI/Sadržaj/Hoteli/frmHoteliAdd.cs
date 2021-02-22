@@ -186,7 +186,8 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
                 Longitude = longitude,
-                KategorijaId = 5
+                KategorijaId = 5,
+                PutanjaSlike = openFileDialog1.FileName
 
             };
 

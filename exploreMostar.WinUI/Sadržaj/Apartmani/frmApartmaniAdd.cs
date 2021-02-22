@@ -192,7 +192,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
                 Longitude = longitude,
-                KategorijaId=5
+                KategorijaId=5,
+                PutanjaSlike = openFileDialog1.FileName
 
             };
             
@@ -253,7 +254,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 try
                 {
                     await _apartmani.Insert<Model.Apartmani>(request);
-                    MessageBox.Show("Uspješno ste dodali apartmani!");
+                    MessageBox.Show("Uspješno ste dodali apartman!");
                     Obrisi();
                 }
                 catch

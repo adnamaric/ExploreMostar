@@ -50,7 +50,8 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 Latitude = latitude,
                 Longitude = longitude,
                 Opis=txtOpis.Text,
-                KategorijaId = 3
+                KategorijaId = 3,
+                PutanjaSlike = openFileDialog1.FileName
             };
             request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
             request.Ocjena = double.Parse(txtOcjena.Text);

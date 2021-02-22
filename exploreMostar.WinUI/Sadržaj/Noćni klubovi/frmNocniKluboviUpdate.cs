@@ -53,17 +53,14 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
                 txtOcjena.Text = odabrani.Ocjena.ToString();
               
                 _id = odabrani.NightClubId;
-               
+
                 if (odabrani.Slika.Length != 0)
                 {
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
-
-                        btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
-                    }
-
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    btnSlika.Image = image;
 
                 }
             }
@@ -86,10 +83,9 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
                     KategorijaId = 3,
                     Ocjena = double.Parse(txtOcjena.Text)
                 };
-                if (slika != null)
-                {
-                    request.Slika = slika;
-                }
+              
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
                 if (_id != null || _id != 0)
                 {
                     await _nightclubs.Update<Model.Nightclubs>(_id, request);

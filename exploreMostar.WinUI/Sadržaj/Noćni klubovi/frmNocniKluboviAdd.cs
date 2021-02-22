@@ -36,7 +36,8 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
                 Lokacija = txtLok.Text,
                 Latitude = latitude,
                 Longitude = longitude,
-                KategorijaId = 7
+                KategorijaId = 7,
+                PutanjaSlike = openFileDialog1.FileName
 
             };
 

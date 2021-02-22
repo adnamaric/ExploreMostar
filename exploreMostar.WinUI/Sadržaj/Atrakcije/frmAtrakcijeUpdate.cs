@@ -62,12 +62,11 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 if (odabrani.Slika.Length != 0)
                 {
 
-                    using (MemoryStream ms = new MemoryStream(odabrani.Slika))
-                    {
+                    txtSlikaInput.Text = odabrani.PutanjaSlike;
+                    var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                        btnSlika.Image = Image.FromStream(ms);
-                        txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
-                    }
+                    Image image = Image.FromFile(txtSlikaInput.Text);
+                    btnSlika.Image = image;
 
 
                 }
@@ -100,12 +99,15 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                     Longitude = double.Parse(txtLong.Text),
                     KategorijaId = 3,
                     Ocjena = double.Parse(txtOcjena.Text),
-                    Opis = txtOpis.Text
+                    Opis = txtOpis.Text,
+                  
                 };
-                if (slika != null)
-                {
-                    request.Slika = slika;
-                }
+                //if (slika != null)
+                //{
+                //    request.Slika = slika;
+                //}
+                if (openFileDialog1.FileName.Length != 0)
+                    request.PutanjaSlike = txtSlikaInput.Text;
                 if (cmbVrsta.SelectedIndex != -1)
                 {
                     request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
