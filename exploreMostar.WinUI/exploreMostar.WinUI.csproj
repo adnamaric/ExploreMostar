@@ -387,6 +387,24 @@
     <Compile Include="Sadržaj\Prevoz\frmPrevozUpdate.Designer.cs">
       <DependentUpon>frmPrevozUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Restorani\frmListaRestorana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Restorani\frmListaRestorana.Designer.cs">
+      <DependentUpon>frmListaRestorana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Restorani\frmRestoraniAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Restorani\frmRestoraniAdd.Designer.cs">
+      <DependentUpon>frmRestoraniAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sadržaj\Restorani\frmRestoraniUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Restorani\frmRestoraniUpdate.Designer.cs">
+      <DependentUpon>frmRestoraniUpdate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -584,7 +602,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Kategorije\" />
-    <Folder Include="Sadržaj\Restorani\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Webp.net-resizeimage %2830%29.png" />

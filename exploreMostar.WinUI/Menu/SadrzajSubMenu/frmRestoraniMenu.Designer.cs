@@ -64,6 +64,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3.TabIndex = 15;
             this.button3.Text = "Modificiranje restorana";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -79,6 +80,7 @@ namespace exploreMostar.WinUI.Menu
             this.button2.TabIndex = 14;
             this.button2.Text = "Dodavanje restorana";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -95,6 +97,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.TabIndex = 13;
             this.button1.Text = "Lista restorana";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmRestoraniMenu
             // 
@@ -106,7 +109,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmRestoraniMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRestorani";
             this.ResumeLayout(false);
 

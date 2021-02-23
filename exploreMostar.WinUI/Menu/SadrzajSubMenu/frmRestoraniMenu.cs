@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Sadržaj.Restorani;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace exploreMostar.WinUI.Menu
         public frmRestoraniMenu()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmListaRestorana frm = new frmListaRestorana();
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmRestoraniAdd frm = new frmRestoraniAdd();
+            frm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmRestoraniUpdate frm = new frmRestoraniUpdate();
+            frm.Show();
         }
     }
 }
