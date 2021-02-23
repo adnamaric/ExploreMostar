@@ -7,7 +7,7 @@ namespace exploreMostar.WebAPI.Database
     {
         public Jela()
         {
-            JeloMeni = new HashSet<JeloMeni>();
+            Jelovnik = new HashSet<Jelovnik>();
         }
 
         public string Naziv { get; set; }
@@ -19,6 +19,6 @@ namespace exploreMostar.WebAPI.Database
         public string PutanjaSlike { get; set; }
 
         public KategorijaJela KategorijaJela { get; set; }
-        public ICollection<JeloMeni> JeloMeni { get; set; }
+        public ICollection<Jelovnik> Jelovnik { get; set; }
     }
 }

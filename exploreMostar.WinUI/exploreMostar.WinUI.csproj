@@ -351,6 +351,12 @@
     <Compile Include="Sadržaj\Ostalo\Gradovi\frmGradoviUpdate.Designer.cs">
       <DependentUpon>frmGradoviUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmGenerisanjeJelovnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sadržaj\Ostalo\Jela\frmGenerisanjeJelovnika.Designer.cs">
+      <DependentUpon>frmGenerisanjeJelovnika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Ostalo\Jela\frmJelaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -544,6 +550,9 @@
     <EmbeddedResource Include="Sadržaj\Ostalo\Gradovi\frmGradoviUpdate.resx">
       <DependentUpon>frmGradoviUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmGenerisanjeJelovnika.resx">
+      <DependentUpon>frmGenerisanjeJelovnika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Ostalo\Jela\frmJelaAdd.resx">
       <DependentUpon>frmJelaAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,6 +570,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Prevoz\frmPrevozUpdate.resx">
       <DependentUpon>frmPrevozUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Restorani\frmRestoraniAdd.resx">
+      <DependentUpon>frmRestoraniAdd.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
