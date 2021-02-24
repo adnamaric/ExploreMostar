@@ -102,7 +102,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmKategorijeMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKategorijeMenu";
             this.ResumeLayout(false);
 

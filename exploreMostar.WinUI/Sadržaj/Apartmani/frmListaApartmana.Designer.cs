@@ -37,6 +37,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvApartmani = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbFilterByYear = new System.Windows.Forms.ComboBox();
+            this.brojApar = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +49,6 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kategorija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dodatneopcije = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbFilterByYear = new System.Windows.Forms.ComboBox();
-            this.brojApar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -134,6 +136,49 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.dgvApartmani.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
             this.dgvApartmani.TabIndex = 0;
+            this.dgvApartmani.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvApartmani_CellContentClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Ukupno apartmana:";
+            // 
+            // cmbFilterByYear
+            // 
+            this.cmbFilterByYear.FormattingEnabled = true;
+            this.cmbFilterByYear.Location = new System.Drawing.Point(120, 76);
+            this.cmbFilterByYear.Name = "cmbFilterByYear";
+            this.cmbFilterByYear.Size = new System.Drawing.Size(203, 21);
+            this.cmbFilterByYear.TabIndex = 24;
+            // 
+            // brojApar
+            // 
+            this.brojApar.AutoSize = true;
+            this.brojApar.Location = new System.Drawing.Point(128, 9);
+            this.brojApar.Name = "brojApar";
+            this.brojApar.Size = new System.Drawing.Size(0, 13);
+            this.brojApar.TabIndex = 25;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(471, 79);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(204, 21);
+            this.comboBox1.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(371, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Sort";
             // 
             // RBr
             // 
@@ -167,6 +212,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             // 
             // Kategorija
             // 
+            this.Kategorija.DataPropertyName = "KategorijaApartmana";
             this.Kategorija.HeaderText = "Kategorija";
             this.Kategorija.Name = "Kategorija";
             // 
@@ -176,36 +222,13 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.Dodatneopcije.HeaderText = "Dodatne opcije";
             this.Dodatneopcije.Name = "Dodatneopcije";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Ukupno apartmana:";
-            // 
-            // cmbFilterByYear
-            // 
-            this.cmbFilterByYear.FormattingEnabled = true;
-            this.cmbFilterByYear.Location = new System.Drawing.Point(120, 76);
-            this.cmbFilterByYear.Name = "cmbFilterByYear";
-            this.cmbFilterByYear.Size = new System.Drawing.Size(203, 21);
-            this.cmbFilterByYear.TabIndex = 24;
-            // 
-            // brojApar
-            // 
-            this.brojApar.AutoSize = true;
-            this.brojApar.Location = new System.Drawing.Point(128, 9);
-            this.brojApar.Name = "brojApar";
-            this.brojApar.Size = new System.Drawing.Size(0, 13);
-            this.brojApar.TabIndex = 25;
-            // 
             // frmListaApartmana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 530);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.brojApar);
             this.Controls.Add(this.cmbFilterByYear);
             this.Controls.Add(this.label2);
@@ -240,6 +263,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbFilterByYear;
         private System.Windows.Forms.Label brojApar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lokacija;

@@ -209,6 +209,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodatne opcije";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // bb12
             // 

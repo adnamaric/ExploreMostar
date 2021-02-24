@@ -571,8 +571,14 @@
     <EmbeddedResource Include="Sadržaj\Prevoz\frmPrevozUpdate.resx">
       <DependentUpon>frmPrevozUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Restorani\frmListaRestorana.resx">
+      <DependentUpon>frmListaRestorana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sadržaj\Restorani\frmRestoraniAdd.resx">
       <DependentUpon>frmRestoraniAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sadržaj\Restorani\frmRestoraniUpdate.resx">
+      <DependentUpon>frmRestoraniUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

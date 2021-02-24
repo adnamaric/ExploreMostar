@@ -94,7 +94,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Name = "frmOstaloMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOstaloMenu";
             this.ResumeLayout(false);
 

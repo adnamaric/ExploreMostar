@@ -43,6 +43,11 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             cmbFilterByType.DisplayMember = "Naziv";
             cmbFilterByType.ValueMember = "VrstaAtrakcijeID";
             cmbFilterByType.DataSource = result1;
+            comboBox1.Items.Add("");
+            comboBox1.Items.Add("SortByName");
+            comboBox1.Items.Add("SortByGrade");
+            comboBox1.Items.Add("SortByType");
+
 
         }
 
@@ -109,8 +114,22 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
 
                 }
             }
+            if (comboBox1.SelectedIndex != -1)
+            {
+                if(comboBox1.SelectedItem.ToString()== "SortByName")
+                    result = result.OrderBy(y=>y.Naziv).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByGrade")
+                    result = result.Where(y=>y.Ocjena!=null).OrderByDescending(y => y.Ocjena).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByType")
+                    result = result.OrderBy(y => y.VrstaAtrakcijeId).ToList();
+            }
             dgvApartmani.AutoGenerateColumns = false;
             dgvApartmani.DataSource = result;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

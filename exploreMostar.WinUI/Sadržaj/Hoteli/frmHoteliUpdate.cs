@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Model.Requests;
+using GoogleMaps.LocationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -246,7 +247,8 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                     AparatZaKafu = b6,
                     Ocjena = double.Parse(txtOcjena.Text)
                 };
-           
+                if (cmbGodine.SelectedIndex != 0)
+                    request.GodinaIzgradnje = (int)cmbGodine.SelectedValue;
                 if (openFileDialog1.FileName.Length != 0)
                     request.PutanjaSlike = txtSlikaInput.Text;
 
@@ -386,6 +388,29 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             bb12.ForeColor = Color.White;
             bb12.BackColor = Color.Red;
             bb12.FlatAppearance.BorderColor = Color.Black;
+        }
+        public double latitude;
+        public double longitude;
+
+        private void txtLok_Leave(object sender, EventArgs e)
+        {
+            if (txtLok.Text != "")
+            {
+                var address = txtLok.Text;
+                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var point = locationService.GetLatLongFromAddress(address);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                this.latitude = latitude;
+                this.longitude = longitude;
+                txtLat.Text = latitude.ToString();
+                txtLong.Text = longitude.ToString();
+                txtLat.Enabled = false;
+                txtLong.Enabled = false;
+
+                //this.latitude = 0;
+                //this.longitude = 0;
+            }
         }
     }
 }

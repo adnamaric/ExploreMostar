@@ -361,5 +361,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 i++;
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

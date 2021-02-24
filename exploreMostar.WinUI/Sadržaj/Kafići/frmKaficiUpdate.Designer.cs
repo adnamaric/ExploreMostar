@@ -169,6 +169,7 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 77;
+            this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // label2
             // 

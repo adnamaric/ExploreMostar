@@ -17,13 +17,16 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
         public frmListaNightClubs()
         {
             InitializeComponent();
+            comboBox1.Items.Add("");
+            comboBox1.Items.Add("SortByName");
+            comboBox1.Items.Add("SortByGrade");
         }
 
         private async void frmListaNightClubs_Load(object sender, EventArgs e)
         {
             var result = await _nightclubs.Get<List<Model.Nightclubs>>(null);
             label4.Text = result.Count().ToString();
-            int start1 = 1;
+            int start1 = 0;
             int max1 = 5;
             while (start1 <= max1)
             {
@@ -68,12 +71,19 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             {
                 int? broj = int.Parse(cmbFilterByGrade.SelectedItem.ToString());
 
-                if (cmbFilterByGrade.SelectedIndex != -1)
+                if (cmbFilterByGrade.SelectedIndex != 0)
                 {
                     result = result.Where(y => Convert.ToInt32(y.Ocjena) == broj).ToList();
                 }
             }
+            if (comboBox1.SelectedIndex != -1)
+            {
+                if (comboBox1.SelectedItem.ToString() == "SortByName")
+                    result = result.OrderBy(y => y.Naziv).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByGrade")
+                    result = result.Where(y => y.Ocjena != null).OrderByDescending(y => y.Ocjena).ToList();
 
+            }
 
 
             dgvApartmani.AutoGenerateColumns = false;

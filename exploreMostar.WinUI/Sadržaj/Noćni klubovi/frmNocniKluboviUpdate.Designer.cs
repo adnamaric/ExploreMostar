@@ -179,6 +179,7 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 80;
+            this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // label2
             // 

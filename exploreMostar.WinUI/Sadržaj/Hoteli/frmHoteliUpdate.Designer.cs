@@ -447,6 +447,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 55;
+            this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // label2
             // 

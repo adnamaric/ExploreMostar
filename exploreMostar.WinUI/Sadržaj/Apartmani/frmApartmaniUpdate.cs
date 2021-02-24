@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Model.Requests;
+using GoogleMaps.LocationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             await LoadApartmani();
             
         }
+        public double latitude;
+        public double longitude;
         private async Task LoadApartmani()
         {
             var result = await _apartmani.Get<List<Model.Apartmani>>(null);
@@ -397,6 +400,27 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtLok_Leave(object sender, EventArgs e)
+        {
+            if (txtLok.Text != "")
+            {
+                var address = txtLok.Text;
+                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var point = locationService.GetLatLongFromAddress(address);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                this.latitude = latitude;
+                this.longitude = longitude;
+                txtLat.Text = latitude.ToString();
+                txtLong.Text = longitude.ToString();
+                txtLat.Enabled = false;
+                txtLong.Enabled = false;
+
+                //this.latitude = 0;
+                //this.longitude = 0;
+            }
         }
     }
         

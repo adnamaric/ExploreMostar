@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Model.Requests;
+using GoogleMaps.LocationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,8 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             InitializeComponent();
         }
 
-       
+        private int? _id = null;
+        public byte[] slika;
 
         private async void frmNocniKluboviUpdate_Load(object sender, EventArgs e)
         {
@@ -32,8 +34,7 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             cmbNightClubs.DisplayMember = "Naziv";
             cmbNightClubs.ValueMember = "NightClubId";
         }
-        private int? _id = null;
-        public byte[] slika;
+  
         private async void cmbNightClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (txtSlikaInput.Text.Length != 0)
@@ -116,6 +117,28 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
                 btnSlika.Image = image;
 
 
+            }
+        }
+        public double latitude;
+        public double longitude;
+        private void txtLok_Leave(object sender, EventArgs e)
+        {
+            if (txtLok.Text != "")
+            {
+                var address = txtLok.Text;
+                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var point = locationService.GetLatLongFromAddress(address);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                this.latitude = latitude;
+                this.longitude = longitude;
+                txtLat.Text = latitude.ToString();
+                txtLong.Text = longitude.ToString();
+                txtLat.Enabled = false;
+                txtLong.Enabled = false;
+
+                //this.latitude = 0;
+                //this.longitude = 0;
             }
         }
     }

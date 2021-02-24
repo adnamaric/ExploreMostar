@@ -19,6 +19,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         public frmListaApartmana()
         {
             InitializeComponent();
+            comboBox1.Items.Add("");
+            comboBox1.Items.Add("SortByName");
+            comboBox1.Items.Add("SortByGrade");
+            comboBox1.Items.Add("SortByYear");
+            comboBox1.Items.Add("SortByCategory");
 
         }
 
@@ -34,6 +39,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             {
                 cmbFilterByYear.Items.Add(start++.ToString());
             }
+            cmbFilterByYear.Items.Add("");
             int start1 = 1;
             int max1 = 5;
             while (start1 <= max1)
@@ -82,8 +88,18 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     result = result.Where(y => Convert.ToInt32(y.Ocjena) == broj).ToList();
                 }
             }
-           
-            foreach(var item in result)
+            if (comboBox1.SelectedIndex != -1)
+            {
+                if (comboBox1.SelectedItem.ToString() == "SortByName")
+                    result = result.OrderBy(y => y.Naziv).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByGrade")
+                    result = result.OrderByDescending(y => y.Ocjena).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByYear")
+                   result = result.OrderByDescending(y => y.GodinaIzgradnje).ToList();
+                if (comboBox1.SelectedItem.ToString() == "SortByCategory")
+                    result = result.Where(y=>y.KategorijaApartmana!=null).OrderBy(y => y.KategorijaApartmana).ToList();
+            }
+            foreach (var item in result)
             {
                 string dodatne = "";
                 if (item.Wifi != false)
@@ -122,6 +138,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvApartmani_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -396,6 +396,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtLok.Name = "txtLok";
             this.txtLok.Size = new System.Drawing.Size(239, 20);
             this.txtLok.TabIndex = 32;
+            this.txtLok.Leave += new System.EventHandler(this.txtLok_Leave);
             // 
             // label2
             // 
