@@ -38,14 +38,14 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvHoteli = new System.Windows.Forms.DataGridView();
-            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sortiraj = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sastojci = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vrsta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoteli)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 82);
+            this.label6.Location = new System.Drawing.Point(365, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 51;
@@ -62,15 +62,15 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // cmbFilterByGrade
             // 
             this.cmbFilterByGrade.FormattingEnabled = true;
-            this.cmbFilterByGrade.Location = new System.Drawing.Point(495, 32);
+            this.cmbFilterByGrade.Location = new System.Drawing.Point(122, 86);
             this.cmbFilterByGrade.Name = "cmbFilterByGrade";
-            this.cmbFilterByGrade.Size = new System.Drawing.Size(208, 21);
+            this.cmbFilterByGrade.Size = new System.Drawing.Size(203, 21);
             this.cmbFilterByGrade.TabIndex = 49;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(378, 36);
+            this.label4.Location = new System.Drawing.Point(13, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 48;
@@ -79,9 +79,9 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // cmbSort
             // 
             this.cmbSort.FormattingEnabled = true;
-            this.cmbSort.Location = new System.Drawing.Point(117, 82);
+            this.cmbSort.Location = new System.Drawing.Point(437, 35);
             this.cmbSort.Name = "cmbSort";
-            this.cmbSort.Size = new System.Drawing.Size(208, 21);
+            this.cmbSort.Size = new System.Drawing.Size(203, 21);
             this.cmbSort.TabIndex = 44;
             // 
             // label1
@@ -109,6 +109,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.btnPrikazi.TabIndex = 41;
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
@@ -120,6 +121,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jela";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dgvHoteli
             // 
@@ -129,45 +131,15 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.dgvHoteli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RBr,
             this.Naziv,
-            this.Lokacija,
-            this.GodinaIzgradnje,
-            this.Ocjena});
+            this.Ocjena,
+            this.Sastojci,
+            this.Vrsta});
             this.dgvHoteli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHoteli.Location = new System.Drawing.Point(3, 16);
             this.dgvHoteli.Name = "dgvHoteli";
             this.dgvHoteli.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoteli.Size = new System.Drawing.Size(838, 404);
             this.dgvHoteli.TabIndex = 0;
-            // 
-            // RBr
-            // 
-            this.RBr.DataPropertyName = "RBr";
-            this.RBr.HeaderText = "Redni Broj";
-            this.RBr.Name = "RBr";
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            // 
-            // Lokacija
-            // 
-            this.Lokacija.DataPropertyName = "Lokacija";
-            this.Lokacija.HeaderText = "Lokacija";
-            this.Lokacija.Name = "Lokacija";
-            // 
-            // GodinaIzgradnje
-            // 
-            this.GodinaIzgradnje.DataPropertyName = "GodinaIzgradnje";
-            this.GodinaIzgradnje.HeaderText = "Godina Izgradnje";
-            this.GodinaIzgradnje.Name = "GodinaIzgradnje";
-            // 
-            // Ocjena
-            // 
-            this.Ocjena.DataPropertyName = "Ocjena";
-            this.Ocjena.HeaderText = "Ocjena";
-            this.Ocjena.Name = "Ocjena";
             // 
             // Sortiraj
             // 
@@ -181,26 +153,56 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 9);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 52;
             this.label2.Text = "Ukupno:";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 53;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 53;
+            // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "Redni Broj";
+            this.RBr.Name = "RBr";
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            // 
+            // Ocjena
+            // 
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.Name = "Ocjena";
+            // 
+            // Sastojci
+            // 
+            this.Sastojci.DataPropertyName = "Sastojci";
+            this.Sastojci.HeaderText = "Sastojci";
+            this.Sastojci.Name = "Sastojci";
+            // 
+            // Vrsta
+            // 
+            this.Vrsta.DataPropertyName = "Vrsta";
+            this.Vrsta.HeaderText = "Vrsta";
+            this.Vrsta.Name = "Vrsta";
             // 
             // frmListaJela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 546);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbFilterByGrade);
@@ -213,6 +215,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.Name = "frmListaJela";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaJela";
+            this.Load += new System.EventHandler(this.frmListaJela_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoteli)).EndInit();
@@ -232,13 +235,13 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvHoteli;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lokacija;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GodinaIzgradnje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
         private System.Windows.Forms.Label Sortiraj;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sastojci;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vrsta;
     }
 }

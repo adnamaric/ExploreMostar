@@ -37,7 +37,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             //cmbSort.Items.Add("SortByName");
             //cmbSort.Items.Add("SortByLastName");
             //cmbSort.Items.Add("SortByUser");
-            var result = await _hoteli.Get<IList<Model.Hoteli>>(null);
+            var result = await _hoteli.Get<List<Model.Hoteli>>(null);
             label5.Text = result.Count().ToString();
 
         }
@@ -50,7 +50,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
 
             };
             int temp = 0;
-            var result = await _hoteli.Get<IList<Model.Hoteli>>(search);
+            var result = await _hoteli.Get<IList<Model.Hoteli>>(null);
             foreach (var hotel in result)
             {
                 hotel.Rbr = ++temp;
@@ -72,10 +72,11 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             {
                 result = result.Where(y => y.GodinaIzgradnje == int.Parse(cmbFilterYear.SelectedItem.ToString())).ToList();
             }
-            int? broj = int.Parse(cmbFilterByGrade.SelectedItem.ToString());
             if (cmbFilterByGrade.SelectedIndex != -1)
-            {   
-               result = result.Where(y => Convert.ToInt32(y.Ocjena) == broj).ToList();
+            {
+                int? broj = int.Parse(cmbFilterByGrade.SelectedItem.ToString());
+
+                result = result.Where(y => Convert.ToInt32(y.Ocjena) == broj).ToList();
             }
             dgvHoteli.AutoGenerateColumns = false;
             dgvHoteli.DataSource = result;

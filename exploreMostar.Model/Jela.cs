@@ -13,6 +13,7 @@ namespace exploreMostar.Model
         public string Sastojci { get; set; }
         public double? Ocjena { get; set; }
         public string PutanjaSlike { get; set; }
-
+        public int Rbr { get; set; }
+        public string Vrsta { get; set; }
     }
 }

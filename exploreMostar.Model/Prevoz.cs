@@ -12,6 +12,6 @@ namespace exploreMostar.Model
         public string Telefon { get; set; }
         public byte[] Slika { get; set; }
         public string PutanjaSlike { get; set; }
-
+        public int Rbr { get; set; }
     }
 }

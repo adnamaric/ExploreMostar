@@ -11,5 +11,6 @@ namespace exploreMostar.Model
         public string Oznaka { get; set; }
         public string PutanjaSlike { get; set; }
         public byte[] Slika { get; set; }
+        public int Rbr { get; set; }
     }
 }

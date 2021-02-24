@@ -29,20 +29,132 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Drzave
         /// </summary>
         private void InitializeComponent()
         {
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.btnPrikazi = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvApartmani = new System.Windows.Forms.DataGridView();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(70, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 61;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "Ukupno:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Pretraga po nazivu";
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(111, 42);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(203, 20);
+            this.txtPretraga.TabIndex = 54;
+            // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPrikazi.Location = new System.Drawing.Point(753, 12);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(112, 50);
+            this.btnPrikazi.TabIndex = 53;
+            this.btnPrikazi.Text = "Prikaži";
+            this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvApartmani);
+            this.groupBox1.Location = new System.Drawing.Point(12, 77);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(853, 449);
+            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Države";
+            // 
+            // dgvApartmani
+            // 
+            this.dgvApartmani.AllowDrop = true;
+            this.dgvApartmani.AllowUserToOrderColumns = true;
+            this.dgvApartmani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApartmani.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RBr,
+            this.Naziv});
+            this.dgvApartmani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvApartmani.Location = new System.Drawing.Point(3, 16);
+            this.dgvApartmani.Name = "dgvApartmani";
+            this.dgvApartmani.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvApartmani.Size = new System.Drawing.Size(847, 430);
+            this.dgvApartmani.TabIndex = 0;
+            // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "Redni Broj";
+            this.RBr.Name = "RBr";
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
             // 
             // frmDrzaveList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 546);
+            this.ClientSize = new System.Drawing.Size(883, 530);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPretraga);
+            this.Controls.Add(this.btnPrikazi);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmDrzaveList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDrzaveListcs";
+            this.Load += new System.EventHandler(this.frmDrzaveList_Load);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.Button btnPrikazi;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvApartmani;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RBr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
     }
 }
