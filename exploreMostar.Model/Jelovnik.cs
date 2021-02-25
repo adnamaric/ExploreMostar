@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace exploreMostar.WebAPI.Database
+namespace exploreMostar.Model
 {
     public partial class Jelovnik
     {
@@ -11,8 +12,7 @@ namespace exploreMostar.WebAPI.Database
         public int? RestoranId { get; set; }
         public DateTime? Datum { get; set; }
         public int? BrojJela { get; set; }
-        public string Naziv { get; set; }
-
+        public List<Jela> listaOdabranihJela { get; set; }
         public Jela Jelo { get; set; }
         public Restorani Restoran { get; set; }
     }

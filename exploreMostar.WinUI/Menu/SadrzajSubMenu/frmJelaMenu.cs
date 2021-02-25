@@ -35,5 +35,11 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             frmJelaUpdate frm = new frmJelaUpdate();
             frm.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frmGenerisanjeJelovnika frm = new frmGenerisanjeJelovnika();
+            frm.Show();
+        }
     }
 }

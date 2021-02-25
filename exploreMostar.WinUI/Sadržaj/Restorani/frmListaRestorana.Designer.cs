@@ -42,12 +42,12 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvApartmani = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lokacija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GodinaIzgradnje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,7 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             this.cmbFilterByGrade.Name = "cmbFilterByGrade";
             this.cmbFilterByGrade.Size = new System.Drawing.Size(204, 21);
             this.cmbFilterByGrade.TabIndex = 45;
+            this.cmbFilterByGrade.SelectedIndexChanged += new System.EventHandler(this.cmbFilterByGrade_SelectedIndexChanged);
             // 
             // Sortiraj
             // 
@@ -156,6 +157,7 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Apartmani";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dgvApartmani
             // 
@@ -174,14 +176,6 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             this.dgvApartmani.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvApartmani.Size = new System.Drawing.Size(838, 404);
             this.dgvApartmani.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
-            this.label4.TabIndex = 52;
             // 
             // RBr
             // 
@@ -212,6 +206,14 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             this.Ocjena.DataPropertyName = "Ocjena";
             this.Ocjena.HeaderText = "Ocjena";
             this.Ocjena.Name = "Ocjena";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(115, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 52;
             // 
             // frmListaRestorana
             // 

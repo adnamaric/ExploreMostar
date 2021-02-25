@@ -114,6 +114,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.button5.TabIndex = 25;
             this.button5.Text = "Generisanje jelovnika";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // frmJelaMenu
             // 

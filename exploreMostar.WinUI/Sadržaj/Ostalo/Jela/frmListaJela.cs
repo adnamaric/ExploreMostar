@@ -62,9 +62,10 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
                 {
                     if (item.Naziv.Contains(search.Naziv))
                     {
-                       // result = result.Where(y => y.JeloId == item.JeloId).FirstOrDefault();
+                       result = result.Where(y => y.JeloId == item.JeloId).ToList();
+                        break;
                     }
-
+                   
 
                 }
             }

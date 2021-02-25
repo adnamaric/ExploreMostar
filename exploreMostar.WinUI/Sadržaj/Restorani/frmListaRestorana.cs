@@ -99,5 +99,15 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             dgvApartmani.AutoGenerateColumns = false;
             dgvApartmani.DataSource = result;
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFilterByGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

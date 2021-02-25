@@ -204,6 +204,8 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.JeloId).HasColumnName("JeloID");
 
+                entity.Property(e => e.Naziv).HasMaxLength(50);
+
                 entity.Property(e => e.Opis).HasMaxLength(100);
 
                 entity.Property(e => e.RestoranId).HasColumnName("RestoranID");
