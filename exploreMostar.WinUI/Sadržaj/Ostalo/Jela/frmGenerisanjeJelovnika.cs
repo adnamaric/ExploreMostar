@@ -34,11 +34,12 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
             var result = await _jela.Get<List<Model.Jela>>(null);
             var result1 = await _restorani.Get<List<Model.Restorani>>(null);
+          
+            result1.Insert(0, new Model.Restorani() { Naziv = "Odaberite restoran", RestoranId = 0 });
             cmbRestorani.DataSource = result1;
             cmbRestorani.ValueMember = "RestoranId";
             cmbRestorani.DisplayMember = "Naziv";
-            result1.Insert(0, new Model.Restorani() { Naziv = "Odaberite restoran", RestoranId = 0 });
-           // result.Insert(0, new Model.Jela() { JeloId = 0 });
+            // result.Insert(0, new Model.Jela() { JeloId = 0 });
 
             listBox1.DataSource = result;
             listBox1.ValueMember = "JeloId";
@@ -102,20 +103,22 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
         private async void Sačuvaj_Click(object sender, EventArgs e)
         {
-            
-
-
-            foreach (var item in lista)
+            var request = new JelovnikUpsertRequest
             {
-         
-                    var request = new JelovnikUpsertRequest
-                    {
-                        Naziv = textBox1.Text,
+                Naziv = textBox1.Text,
 
-                    };
+            };
+            if (int.Parse(cmbRestorani.SelectedValue.ToString()) != 0)
+            {
+
+
+                foreach (var item in lista)
+                {
+
+                   
                     request.Datum = (DateTime)dateTimePicker1.Value;
                     request.JeloId = item.JeloId;
-                   if(reques)
+
                     request.RestoranId = int.Parse(cmbRestorani.SelectedValue.ToString());
 
                     if (request != null)
@@ -132,9 +135,15 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
                         }
                     }
-                   
+
                 }
-            
+            }
+            else
+            {
+                MessageBox.Show("Molimo odaberite validnu vrijednost za restoran!");
+
+            }
+
         }
 
         private void frmGenerisanjeJelovnika_BackColorChanged(object sender, EventArgs e)
