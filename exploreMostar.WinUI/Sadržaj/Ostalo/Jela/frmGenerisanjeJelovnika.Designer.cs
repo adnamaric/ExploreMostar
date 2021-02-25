@@ -40,6 +40,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.label5 = new System.Windows.Forms.Label();
             this.Sačuvaj = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.jela = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -143,6 +144,15 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
             this.listBox1.ForeColorChanged += new System.EventHandler(this.listBox1_ForeColorChanged);
             // 
+            // jela
+            // 
+            this.jela.Location = new System.Drawing.Point(407, 136);
+            this.jela.Name = "jela";
+            this.jela.Size = new System.Drawing.Size(136, 82);
+            this.jela.TabIndex = 13;
+            this.jela.Text = "";
+            this.jela.Visible = false;
+            // 
             // frmGenerisanjeJelovnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +160,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(555, 306);
+            this.Controls.Add(this.jela);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Sačuvaj);
             this.Controls.Add(this.label5);
@@ -184,5 +195,6 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Sačuvaj;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.RichTextBox jela;
     }
 }

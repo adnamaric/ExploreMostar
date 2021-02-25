@@ -67,12 +67,17 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
         private void cmbBrojJela_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            jela.Text = "Dodana jela su: ";
+
             if (cmbBrojJela.SelectedIndex != 0)
             {
                 brojJela = int.Parse(cmbBrojJela.SelectedItem.ToString());
                 listBox1.Enabled = true;
                 listBox1.FormattingEnabled = true;
                 listBox1.Focus();
+                jela.Visible = true;
+                
             }
         }
         public List<Model.Jela> lista = new List<Model.Jela>();
@@ -97,10 +102,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
         private async void Sačuvaj_Click(object sender, EventArgs e)
         {
-            foreach(var item in lista)
-            {
-
-            }
+            
 
 
             foreach (var item in lista)
@@ -113,8 +115,8 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
                     };
                     request.Datum = (DateTime)dateTimePicker1.Value;
                     request.JeloId = item.JeloId;
-                    if(cmbRestorani.SelectedIndex!=0)
-                        request.RestoranId = int.Parse(cmbRestorani.SelectedValue.ToString());
+                   if(reques)
+                    request.RestoranId = int.Parse(cmbRestorani.SelectedValue.ToString());
 
                     if (request != null)
                     {
@@ -160,6 +162,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
                 {
                     var temp=result.Where(y => y.JeloId == int.Parse(listBox1.SelectedValue.ToString())).FirstOrDefault();
                     lista.Add(temp);
+                    jela.Text += "\n"+ temp.Naziv +"" ;
                     listBox1.Enabled = false;
                 }
                 else
@@ -167,6 +170,7 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
                     var temp = result.Where(y => y.JeloId == int.Parse(listBox1.SelectedValue.ToString())).FirstOrDefault();
                     lista.Add(temp);
+                    jela.Text += "\n" + temp.Naziv + "";
                     //result.Remove(item);
                     //listBox1.DataSource = result;
                     //listBox1.ValueMember = "JeloId";
