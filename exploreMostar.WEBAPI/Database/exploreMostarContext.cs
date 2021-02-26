@@ -27,13 +27,14 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<KategorijaJela> KategorijaJela { get; set; }
         public virtual DbSet<Kategorije> Kategorije { get; set; }
         public virtual DbSet<Korisnici> Korisnici { get; set; }
-        public virtual DbSet<KorisnickaUloga> KorisnickaUloga { get; set; }
+        public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual DbSet<KorisnikKategorija> KorisnikKategorija { get; set; }
         public virtual DbSet<Markeri> Markeri { get; set; }
         public virtual DbSet<Nightclubs> Nightclubs { get; set; }
         public virtual DbSet<Objava> Objava { get; set; }
         public virtual DbSet<Prevoz> Prevoz { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
+        public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
         public virtual DbSet<VrstaRestorana> VrstaRestorana { get; set; }
 
@@ -282,8 +283,6 @@ namespace exploreMostar.WebAPI.Database
                     .IsRequired()
                     .HasMaxLength(30);
 
-                entity.Property(e => e.KorisnickaUlogaId).HasColumnName("KorisnickaUlogaID");
-
                 entity.Property(e => e.KorisnickoIme)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -304,20 +303,29 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Korisnici)
                     .HasForeignKey(d => d.GradId)
                     .HasConstraintName("FK__Korisnici__GradI__03F0984C");
-
-                entity.HasOne(d => d.KorisnickaUloga)
-                    .WithMany(p => p.Korisnici)
-                    .HasForeignKey(d => d.KorisnickaUlogaId)
-                    .HasConstraintName("FK__Korisnici__Koris__29221CFB");
             });
 
-            modelBuilder.Entity<KorisnickaUloga>(entity =>
+            modelBuilder.Entity<KorisniciUloge>(entity =>
             {
+                entity.HasKey(e => e.KorisnickaUlogaId);
+
                 entity.Property(e => e.KorisnickaUlogaId).HasColumnName("KorisnickaUlogaID");
 
-                entity.Property(e => e.Naziv)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.DatumIzmjene).HasColumnType("datetime");
+
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
+                entity.Property(e => e.UlogaId).HasColumnName("UlogaID");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.KorisniciUloge)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK__Korisnici__Koris__662B2B3B");
+
+                entity.HasOne(d => d.Uloga)
+                    .WithMany(p => p.KorisniciUloge)
+                    .HasForeignKey(d => d.UlogaId)
+                    .HasConstraintName("FK__Korisnici__Uloga__671F4F74");
             });
 
             modelBuilder.Entity<KorisnikKategorija>(entity =>
@@ -453,6 +461,15 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.VrstaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Restorani__Vrsta__1DB06A4F");
+            });
+
+            modelBuilder.Entity<Uloge>(entity =>
+            {
+                entity.HasKey(e => e.UlogaId);
+
+                entity.Property(e => e.Naziv).HasMaxLength(25);
+
+                entity.Property(e => e.Opis).HasMaxLength(100);
             });
 
             modelBuilder.Entity<VrstaAtrakcija>(entity =>

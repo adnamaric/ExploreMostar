@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Flurl.Http;
-using Flurl;
+
 using exploreMostar.Model;
+using System.Windows.Forms;
 
 namespace exploreMostar.WinUI
 {
@@ -13,6 +14,9 @@ namespace exploreMostar.WinUI
     public class APIService
     {
         private string _route = null;
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+
         public APIService(string route)
         {
             _route = route;
@@ -25,21 +29,33 @@ namespace exploreMostar.WinUI
 
             //var result = await $"{Properties.Settings.Default.APIUrl}/{_route}".GetJsonAsync<T>();
             var url =  $"{Properties.Settings.Default.APIUrl}/{_route}";
-            if (search != null)
-            {
-                url += "?";
-                url += search.ToQueryString();
+           try  {
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+
+                return await url.WithBasicAuth( Username, Password ).GetJsonAsync<T>();
             }
-            var result = await url.GetJsonAsync<T>();
-            return result;
+            catch (FlurlHttpException ex)
+            {
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Niste authentificirani");
+                }
+                throw;
+            }
+
+
         }
         public async Task<T> GetById<T>(object id)
         {
            
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
           
-            var result = await url.GetJsonAsync<T>();
-            return result;
+             return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            
         }
         public async Task<T> Insert<T>(object request)
         {
@@ -53,7 +69,7 @@ namespace exploreMostar.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            return await url.PutJsonAsync(request).ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
         }
 
         //public async Task<T> Delete<T>(object id)
@@ -69,7 +85,7 @@ namespace exploreMostar.WinUI
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
             var result = await url.GetJsonAsync<T>();
-            return await url.DeleteAsync().ReceiveJson<T>();
+            return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
         }
     }
 }

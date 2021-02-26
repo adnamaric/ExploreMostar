@@ -7,6 +7,7 @@ namespace exploreMostar.WebAPI.Database
     {
         public Korisnici()
         {
+            KorisniciUloge = new HashSet<KorisniciUloge>();
             KorisnikKategorija = new HashSet<KorisnikKategorija>();
         }
 
@@ -16,7 +17,6 @@ namespace exploreMostar.WebAPI.Database
         public string Telefon { get; set; }
         public int KorisnikId { get; set; }
         public int? GradId { get; set; }
-        public int? KorisnickaUlogaId { get; set; }
         public string KorisnickoIme { get; set; }
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
@@ -25,7 +25,7 @@ namespace exploreMostar.WebAPI.Database
         public string PutanjaSlike { get; set; }
 
         public Gradovi Grad { get; set; }
-        public KorisnickaUloga KorisnickaUloga { get; set; }
+        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public ICollection<KorisnikKategorija> KorisnikKategorija { get; set; }
     }
 }

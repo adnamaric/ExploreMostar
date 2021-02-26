@@ -25,7 +25,7 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Jela, JelaUpsertRequest>().ReverseMap();
             CreateMap<Database.Jela, Model.Jela>();
             CreateMap<Database.Gradovi, GradoviUpsertRequest>().ReverseMap();
-            CreateMap<Database.Gradovi, Model.Gradovi>().ReverseMap();
+            CreateMap<Database.Gradovi, Model.Gradovi>();
             CreateMap<Database.Drzave, DrzaveUpsertRequest>().ReverseMap();
             CreateMap<Database.Drzave, Model.Drzave>().ReverseMap();
             CreateMap<Database.Prevoz, Model.Prevoz>();

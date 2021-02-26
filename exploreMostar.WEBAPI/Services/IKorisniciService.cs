@@ -15,7 +15,7 @@ namespace exploreMostar.WebAPI.Services
         Model.Korisnici Insert(KorisniciInsertRequest request);
 
         Model.Korisnici Update(int id,KorisniciInsertRequest request);
-
+        Model.Korisnici Authenticiraj(string username, string pass);
        bool Delete(int id);
     }
 }
