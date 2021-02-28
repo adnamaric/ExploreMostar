@@ -142,5 +142,10 @@ namespace exploreMostar.WinUI.Korisnici
         {
 
         }
+
+        private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

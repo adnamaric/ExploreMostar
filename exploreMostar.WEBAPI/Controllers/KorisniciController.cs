@@ -17,7 +17,7 @@ namespace exploreMostar.WebAPI.Controllers
         private readonly IKorisniciService _service;
         public KorisniciController(IKorisniciService service)
         {
-            _service = service;
+             _service = service;
         }
         [HttpGet]
         public IList<Model.Korisnici> Get([FromQuery] KorisniciSearchRequest request)

@@ -32,6 +32,14 @@ namespace exploreMostar.WinUI.Korisnici
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKorisnici));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
+            this.KorisnikID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Slika = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.cmbGradovi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,14 +51,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.brojK = new System.Windows.Forms.Label();
-            this.KorisnikID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RBr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Slika = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +88,57 @@ namespace exploreMostar.WinUI.Korisnici
             this.dgvKorisnici.TabIndex = 0;
             this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
             this.dgvKorisnici.DoubleClick += new System.EventHandler(this.dgvKorisnici_DoubleClick);
+            // 
+            // KorisnikID
+            // 
+            this.KorisnikID.DataPropertyName = "KorisnikID";
+            this.KorisnikID.HeaderText = "KorisnikID";
+            this.KorisnikID.Name = "KorisnikID";
+            this.KorisnikID.Visible = false;
+            // 
+            // RBr
+            // 
+            this.RBr.DataPropertyName = "RBr";
+            this.RBr.HeaderText = "RedniBroj";
+            this.RBr.Name = "RBr";
+            // 
+            // Ime
+            // 
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            // 
+            // Prezime
+            // 
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "KorisnickoIme";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            // 
+            // Grad
+            // 
+            this.Grad.DataPropertyName = "Grad";
+            this.Grad.HeaderText = "Grad";
+            this.Grad.Name = "Grad";
+            // 
+            // Slika
+            // 
+            this.Slika.DataPropertyName = "Slika";
+            this.Slika.HeaderText = "Slika";
+            this.Slika.Name = "Slika";
+            this.Slika.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Slika.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // txtPretraga
             // 
@@ -140,6 +191,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.cmbSort.Name = "cmbSort";
             this.cmbSort.Size = new System.Drawing.Size(148, 21);
             this.cmbSort.TabIndex = 7;
+            this.cmbSort.SelectedIndexChanged += new System.EventHandler(this.cmbSort_SelectedIndexChanged);
             // 
             // txtPrezimePretraga
             // 
@@ -184,57 +236,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.brojK.Name = "brojK";
             this.brojK.Size = new System.Drawing.Size(0, 13);
             this.brojK.TabIndex = 11;
-            // 
-            // KorisnikID
-            // 
-            this.KorisnikID.DataPropertyName = "KorisnikID";
-            this.KorisnikID.HeaderText = "KorisnikID";
-            this.KorisnikID.Name = "KorisnikID";
-            this.KorisnikID.Visible = false;
-            // 
-            // RBr
-            // 
-            this.RBr.DataPropertyName = "RBr";
-            this.RBr.HeaderText = "RedniBroj";
-            this.RBr.Name = "RBr";
-            // 
-            // Ime
-            // 
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
-            this.Ime.Name = "Ime";
-            // 
-            // Prezime
-            // 
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.Name = "Prezime";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "KorisnickoIme";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            // 
-            // Grad
-            // 
-            this.Grad.DataPropertyName = "Grad";
-            this.Grad.HeaderText = "Grad";
-            this.Grad.Name = "Grad";
-            // 
-            // Slika
-            // 
-            this.Slika.DataPropertyName = "Slika";
-            this.Slika.HeaderText = "Slika";
-            this.Slika.Name = "Slika";
-            this.Slika.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Slika.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmKorisnici
             // 
