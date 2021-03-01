@@ -17,6 +17,7 @@ namespace exploreMostar.WinUI.Korisnici
     {
         private readonly APIService _service = new APIService("korisnici");
         private readonly APIService _gradovi = new APIService("gradovi");
+        private readonly APIService _uloge = new APIService("Uloge");
 
         private int? _id = null;
         public frmKorisniciDetalji(int? korisnikId = null)
@@ -32,6 +33,7 @@ namespace exploreMostar.WinUI.Korisnici
            
             if (this.ValidateChildren())
             {
+                var uloge = checkedListBox1.Items.Cast<Model.Uloge>().Select(y=>y.UlogaId).ToList();
                 var request = new KorisniciInsertRequest
                 {
                     Ime = txtIme.Text,
@@ -42,9 +44,10 @@ namespace exploreMostar.WinUI.Korisnici
                     PasswordConfirmation = txtPasswordConfrirm.Text,
                     KorisnickoIme = txtKorisnickoIme.Text,
                     GradId = cmbGradovi.SelectedIndex,
-                    PutanjaSlike = openFileDialog1.FileName
+                    PutanjaSlike = openFileDialog1.FileName,
+                    Uloge=uloge
                 };
-                
+             
                request.Slika = slika;
                // btnDodajSliku_Click();
                 if (_id.HasValue)
@@ -74,7 +77,17 @@ namespace exploreMostar.WinUI.Korisnici
             cmbGradovi.ValueMember = "GradId";
             
         }
-     
+        private async Task LoadUloge()
+        {
+            var result = await _uloge.Get<List<Model.Uloge>>(null);
+          
+
+
+            checkedListBox1.DataSource = result;
+            checkedListBox1.DisplayMember = "Naziv";
+            checkedListBox1.ValueMember = "UlogaId";
+
+        }
         private async void frmKorisniciDetalji_Load(object sender, EventArgs e)
         {
             cmbGradovi.Text = "Odaberite grad";
@@ -90,6 +103,7 @@ namespace exploreMostar.WinUI.Korisnici
             //    }
             await LoadGradovi();
             //}
+            await LoadUloge();
             if (_id.HasValue)
             {
                // lblImePrezime.Text = txtIme.Text + " " + txtPrezime.Text;
@@ -100,6 +114,10 @@ namespace exploreMostar.WinUI.Korisnici
                     txtPrezime.Text = korisnik.Prezime;
                     txtEmail.Text = korisnik.Email;
                     txtTelefon.Text = korisnik.Telefon;
+                    if(cmbGradovi.SelectedIndex!=0)
+                    {
+
+                    }
                    // txtSlikaInput.Text = korisnik.Slika.ToString();
                     if (korisnik.GradId != null)
                     {
@@ -125,84 +143,84 @@ namespace exploreMostar.WinUI.Korisnici
             }
         }
 
-        private void txtIme_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtIme.Text))
-            {
-                errorProvider.SetError(txtIme, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-                lbObaveznoPolje.Visible = true;
-            }
-            else
-            {
-                lbObaveznoPolje.Visible = false;
-                errorProvider.SetError(txtIme, null);
+        //private void txtIme_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtIme.Text))
+        //    {
+        //        errorProvider1.SetError(txtIme, Properties.Resources.Validation_RequiredField);
+        //        e.Cancel = true;
+        //        lbObaveznoPolje.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        lbObaveznoPolje.Visible = false;
+        //        errorProvider1.SetError(txtIme, null);
 
-            }
-            if (txtIme.Text != "")
-            {
-                lblImePrezime.Text = txtIme.Text+" ";
-            }
-        }
+        //    }
+        //    if (txtIme.Text != "")
+        //    {
+        //        lblImePrezime.Text = txtIme.Text+" ";
+        //    }
+        //}
 
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                errorProvider.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-                lbObaveznoP.Visible = true;
-            }
-            else
-            {
-                errorProvider.SetError(txtEmail, null);
-            }
-        }
-        private void txtTelefon_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
-            {
-                errorProvider.SetError(txtTelefon, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider.SetError(txtTelefon, null);
-            }
-        }
-        private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length <= 3)
-            {
-                errorProvider.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider.SetError(txtKorisnickoIme, null);
-            }
-        }
+        //private void txtEmail_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtEmail.Text))
+        //    {
+        //        errorProvider1.SetError(txtEmail, Properties.Resources.Validation_RequiredField);
+        //        e.Cancel = true;
+        //        lbObaveznoP.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(txtEmail, null);
+        //    }
+        //}
+        //private void txtTelefon_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+        //    {
+        //        errorProvider1.SetError(txtTelefon, Properties.Resources.Validation_RequiredField);
+        //        e.Cancel = true;
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(txtTelefon, null);
+        //    }
+        //}
+        //private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length <= 3)
+        //    {
+        //        errorProvider1.SetError(txtKorisnickoIme, Properties.Resources.Validation_RequiredField);
+        //        e.Cancel = true;
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(txtKorisnickoIme, null);
+        //    }
+        //}
 
 
-        private void txtPrezime_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPrezime.Text))
-            {
-                errorProvider.SetError(txtPrezime, Properties.Resources.Validation_RequiredField);
-                e.Cancel = true;
-                lbObaveznoPrezime.Visible = true;
-            }
-            else
-            {
-                lbObaveznoPrezime.Visible = false;
-                errorProvider.SetError(txtPrezime, null);
+        //private void txtPrezime_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(txtPrezime.Text))
+        //    {
+        //        errorProvider1.SetError(txtPrezime, Properties.Resources.Validation_RequiredField);
+        //        e.Cancel = true;
+        //        lbObaveznoPrezime.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        lbObaveznoPrezime.Visible = false;
+        //        errorProvider1.SetError(txtPrezime, null);
 
-            }
-            if (txtPrezime.Text != "")
-            {
-                lblImePrezime.Text += txtPrezime.Text;
-            }
-        }
+        //    }
+        //    if (txtPrezime.Text != "")
+        //    {
+        //        lblImePrezime.Text += txtPrezime.Text;
+        //    }
+        //}
         ////if (result..Length != 0)
         ////{
         ////    pictureBox.Image = BytesToImage(clanak.Slika);

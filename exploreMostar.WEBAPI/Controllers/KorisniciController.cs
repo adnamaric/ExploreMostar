@@ -1,6 +1,7 @@
 ﻿using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using exploreMostar.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class KorisniciController : ControllerBase
@@ -25,7 +27,7 @@ namespace exploreMostar.WebAPI.Controllers
             return _service.Get(request);
 
         }
-
+        //[Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.Korisnici Insert(KorisniciInsertRequest request)
         {

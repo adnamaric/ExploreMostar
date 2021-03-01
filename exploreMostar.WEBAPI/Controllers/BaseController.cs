@@ -21,11 +21,13 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
+        [AllowAnonymous]
         public List<T> Get([FromQuery] TSearch search)
         {
             return _service.Get(search);
         }
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public T GetById(int id)
         {
             return _service.GetById(id);

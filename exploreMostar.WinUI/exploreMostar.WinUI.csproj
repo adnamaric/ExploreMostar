@@ -93,6 +93,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\frmOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmOpen.Designer.cs">
+      <DependentUpon>frmOpen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\SadrzajSubMenu\frmDrzaveMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,18 +431,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmUklanjanjeKorisnika.resx">
       <DependentUpon>frmUklanjanjeKorisnika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmUrediKorisnika.resx">
       <DependentUpon>frmUrediKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmOpen.resx">
+      <DependentUpon>frmOpen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmApartmaniMenu.resx">
       <DependentUpon>frmApartmaniMenu.cs</DependentUpon>

@@ -73,6 +73,7 @@ namespace exploreMostar.WebAPI.Services
                 korisniciUloge.DatumIzmjene = DateTime.Now;
                 _context.KorisniciUloge.Add(korisniciUloge);
             }
+
             _context.SaveChanges();
             return _mapper.Map<Model.Korisnici>(entity);
         }

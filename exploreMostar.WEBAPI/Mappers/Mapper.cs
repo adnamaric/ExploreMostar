@@ -36,6 +36,7 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Restorani, Model.Restorani>();
             CreateMap<Database.Jelovnik, Model.Jelovnik>();
             CreateMap<Database.Jelovnik, JelovnikUpsertRequest>().ReverseMap();
+            CreateMap<Database.Uloge, Model.Uloge>();
 
 
         }

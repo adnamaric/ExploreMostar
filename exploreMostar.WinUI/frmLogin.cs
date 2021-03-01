@@ -46,14 +46,8 @@ namespace exploreMostar.WinUI
                
                
             }
-            if(pronadjen==false)
-            {
-                
-                MessageBox.Show( "Molimo vas unesite ispravno korisničko ime","Pokušajte ponovo",MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-            }
-            else if (pronadjen2 == true && pronadjen==true)
+          
+           if (pronadjen2 == true && pronadjen==true)
             {
                 try
                 {
@@ -64,7 +58,7 @@ namespace exploreMostar.WinUI
 
                     frmMenu frmMenu = new frmMenu();
                     frmMenu.Show();
-                    this.Hide();
+                    //this.Hide();
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +67,7 @@ namespace exploreMostar.WinUI
 
             }
             else {
-                MessageBox.Show( "Molimo vas unesite ispravnu lozinku","Pokušajte ponovo",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Molimo vas unesite ispravno korisničko ime i/ili lozinku", "Pokušajte ponovo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -117,6 +111,26 @@ namespace exploreMostar.WinUI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_3(object sender, EventArgs e)
         {
 
         }
