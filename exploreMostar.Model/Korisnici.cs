@@ -22,7 +22,7 @@ namespace exploreMostar.Model
         public string LozinkaSalt { get; set; }
         public string LozinkaHash { get; set; }
 
-        public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
+        public List<KorisniciUloge> KorisniciUloge { get; set; }
 
     }
 }

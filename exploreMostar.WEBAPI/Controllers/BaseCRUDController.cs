@@ -18,15 +18,15 @@ namespace exploreMostar.WebAPI.Controllers
         {
             _service = service;
         }
+        //[Authorize(Roles = "Administrator")]
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
 
         public T Insert(TInsert request)
         {
             return _service.Insert(request);
         }
-        [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
+        [HttpPut("{id}")]
 
         public T Update(int id, [FromBody] TUpdate request)
         {

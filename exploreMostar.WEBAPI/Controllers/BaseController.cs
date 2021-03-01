@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<T, TSearch> : ControllerBase
@@ -21,7 +21,6 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
-        [AllowAnonymous]
         public List<T> Get([FromQuery] TSearch search)
         {
             return _service.Get(search);

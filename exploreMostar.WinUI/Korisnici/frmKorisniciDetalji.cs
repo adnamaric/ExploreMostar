@@ -33,7 +33,7 @@ namespace exploreMostar.WinUI.Korisnici
            
             if (this.ValidateChildren())
             {
-                var uloge = checkedListBox1.Items.Cast<Model.Uloge>().Select(y=>y.UlogaId).ToList();
+                var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y=>y.UlogaId).ToList();
                 var request = new KorisniciInsertRequest
                 {
                     Ime = txtIme.Text,
@@ -143,25 +143,7 @@ namespace exploreMostar.WinUI.Korisnici
             }
         }
 
-        //private void txtIme_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtIme.Text))
-        //    {
-        //        errorProvider1.SetError(txtIme, Properties.Resources.Validation_RequiredField);
-        //        e.Cancel = true;
-        //        lbObaveznoPolje.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        lbObaveznoPolje.Visible = false;
-        //        errorProvider1.SetError(txtIme, null);
 
-        //    }
-        //    if (txtIme.Text != "")
-        //    {
-        //        lblImePrezime.Text = txtIme.Text+" ";
-        //    }
-        //}
 
         //private void txtEmail_Validating(object sender, CancelEventArgs e)
         //{
@@ -202,25 +184,7 @@ namespace exploreMostar.WinUI.Korisnici
         //}
 
 
-        //private void txtPrezime_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(txtPrezime.Text))
-        //    {
-        //        errorProvider1.SetError(txtPrezime, Properties.Resources.Validation_RequiredField);
-        //        e.Cancel = true;
-        //        lbObaveznoPrezime.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        lbObaveznoPrezime.Visible = false;
-        //        errorProvider1.SetError(txtPrezime, null);
 
-        //    }
-        //    if (txtPrezime.Text != "")
-        //    {
-        //        lblImePrezime.Text += txtPrezime.Text;
-        //    }
-        //}
         ////if (result..Length != 0)
         ////{
         ////    pictureBox.Image = BytesToImage(clanak.Slika);
@@ -231,11 +195,11 @@ namespace exploreMostar.WinUI.Korisnici
         ////}
 
         //dgvKorisnici.AutoGenerateColumns = false;
-            
+
         //    dgvKorisnici.DataSource = result;
-            
+
         //}
-    public Image BytesToImage(byte[] arr)
+        public Image BytesToImage(byte[] arr)
     {
         MemoryStream ms = new MemoryStream(arr);
         return Image.FromStream(ms);
@@ -303,6 +267,91 @@ namespace exploreMostar.WinUI.Korisnici
             lblImePrezime.Text = "";
             txtTelefon.Clear();
             cmbGradovi.SelectedIndex = 0;
+        }
+
+        private void txtIme_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtIme.Text))
+            {
+
+                e.Cancel = true;
+                lbObaveznoPolje.Visible = true;
+            }
+            else
+            {
+                lbObaveznoPolje.Visible = false;
+
+
+            }
+            if (txtIme.Text != "")
+            {
+                lblImePrezime.Text = txtIme.Text + " ";
+            }
+        }
+
+        private void txtPrezime_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPrezime.Text))
+            {
+                
+                e.Cancel = true;
+                lbObaveznoPrezime.Visible = true;
+            }
+            else
+            {
+                lbObaveznoPrezime.Visible = false;
+                
+
+            }
+            if (txtPrezime.Text != "")
+            {
+                lblImePrezime.Text += txtPrezime.Text;
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+               
+                e.Cancel = true;
+                lbObaveznoP.Visible = true;
+            }
+            else
+            {
+                lbObaveznoP.Visible = false;
+            }
+        }
+
+        private void txtTelefon_Validating(object sender, CancelEventArgs e)
+        {
+           
+            if (string.IsNullOrWhiteSpace(txtTelefon.Text))
+            {
+                lbl123.Visible = true;
+                e.Cancel = true;
+            }
+            else
+            {
+                lbl123.Visible = false;
+            }
+           
+            
+        }
+
+        private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text) || txtKorisnickoIme.Text.Length <= 3)
+            {
+                label10.Visible = true;
+
+                e.Cancel = true;
+            }
+            else
+            {
+                label10.Visible = false;
+            }
+         
         }
     }
 }

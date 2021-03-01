@@ -60,6 +60,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.lbl123 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtIme
@@ -68,7 +69,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(320, 20);
             this.txtIme.TabIndex = 0;
-//            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating_1);
             // 
             // txtPrezime
             // 
@@ -76,7 +77,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(320, 20);
             this.txtPrezime.TabIndex = 1;
- //           this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
+            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating_1);
             // 
             // label1
             // 
@@ -111,7 +112,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(320, 20);
             this.txtEmail.TabIndex = 5;
-            //this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label4
             // 
@@ -128,7 +129,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(320, 20);
             this.txtTelefon.TabIndex = 7;
-            //this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
+            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // label5
             // 
@@ -145,7 +146,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(320, 20);
             this.txtKorisnickoIme.TabIndex = 9;
-            //this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
+            this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
             // label6
             // 
@@ -204,7 +205,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.lbObaveznoPrezime.AutoSize = true;
             this.lbObaveznoPrezime.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPrezime.Location = new System.Drawing.Point(34, 153);
+            this.lbObaveznoPrezime.Location = new System.Drawing.Point(31, 153);
             this.lbObaveznoPrezime.Name = "lbObaveznoPrezime";
             this.lbObaveznoPrezime.Size = new System.Drawing.Size(81, 13);
             this.lbObaveznoPrezime.TabIndex = 18;
@@ -330,11 +331,23 @@ namespace exploreMostar.WinUI.Korisnici
             this.checkedListBox1.Size = new System.Drawing.Size(317, 94);
             this.checkedListBox1.TabIndex = 31;
             // 
+            // lbl123
+            // 
+            this.lbl123.AutoSize = true;
+            this.lbl123.ForeColor = System.Drawing.Color.Red;
+            this.lbl123.Location = new System.Drawing.Point(357, 237);
+            this.lbl123.Name = "lbl123";
+            this.lbl123.Size = new System.Drawing.Size(81, 13);
+            this.lbl123.TabIndex = 32;
+            this.lbl123.Text = "Obavezno polje";
+            this.lbl123.Visible = false;
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 574);
+            this.Controls.Add(this.lbl123);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
@@ -404,5 +417,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Label lbl123;
     }
 }

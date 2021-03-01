@@ -24,7 +24,7 @@ namespace exploreMostar.Model.Requests
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public string PutanjaSlike { get; set; }
-        public List<int> Uloge { get; set; } = new List<int>();
+        public List<int> Uloge { get; set; } 
 
     }
 }
