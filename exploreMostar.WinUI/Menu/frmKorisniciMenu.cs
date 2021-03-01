@@ -13,9 +13,14 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmKorisniciMenu : Form
     {
+        private readonly APIService _service = new APIService("korisnici");
+        private readonly APIService _korisniciuloge = new APIService("KorisniciUloge");
+        private readonly APIService _uloge = new APIService("Uloge");
+
         public frmKorisniciMenu()
         {
             InitializeComponent();
+             Provjera();
         }
 
         private void frmKorisniciMenu_Load(object sender, EventArgs e)
@@ -126,23 +131,80 @@ namespace exploreMostar.WinUI.Menu
             frmKorisnici frm = new frmKorisnici();
             frm.Show();
         }
-
+        bool admintf = false;
         private void button4_Click(object sender, EventArgs e)
         {
-            frmUklanjanjeKorisnika frm = new frmUklanjanjeKorisnika();
-            frm.Show();
+            Provjera();
+            if (admintf == true)
+            {
+                frmUklanjanjeKorisnika frm = new frmUklanjanjeKorisnika();
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private  void button3_Click(object sender, EventArgs e)
         {
-            frmUrediKorisnika frm = new frmUrediKorisnika();
-            frm.Show();
+           
+            if (admintf == true)
+            {
+                frmUrediKorisnika frm = new frmUrediKorisnika();
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+       
+        private async void Provjera()
         {
-            frmKorisniciDetalji frm = new frmKorisniciDetalji();
-            frm.Show();
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            var result1 = await _korisniciuloge.Get<List<Model.KorisniciUloge>>(null);
+            var result2 = await _uloge.Get<List<Model.Uloge>>(null);
+
+            var KorisnikId = 0;
+            //APIService.Username;
+            foreach (var item in result)
+            {
+                if (APIService.Username == item.KorisnickoIme)
+                {
+                    KorisnikId = item.KorisnikId;
+                }
+            }
+            var admin = 0;
+            foreach (var item in result2)
+            {
+                if (item.Naziv == "Administrator")
+                    admin = item.UlogaId;
+            }
+            
+            foreach (var item in result1)
+            {
+                if (item.KorisnikId == KorisnikId && item.UlogaId == admin)
+                {
+                    admintf = true;
+                }
+            }
+        }
+        private   void button2_Click(object sender, EventArgs e)
+        {
+          
+          
+            if (admintf == true)
+            {
+                frmKorisniciDetalji frm = new frmKorisniciDetalji();
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+          
         }
     }
 }

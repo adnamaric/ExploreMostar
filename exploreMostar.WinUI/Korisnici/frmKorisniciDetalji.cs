@@ -30,39 +30,42 @@ namespace exploreMostar.WinUI.Korisnici
         public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-           
-            if (this.ValidateChildren())
+            if (cmbGradovi.SelectedIndex == 0)
+                MessageBox.Show("Molimo vas odaberite grad!", "GradError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
             {
-                var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y=>y.UlogaId).ToList();
-                var request = new KorisniciInsertRequest
+                if (this.ValidateChildren())
                 {
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    Email = txtEmail.Text,
-                    Telefon = txtTelefon.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordConfrirm.Text,
-                    KorisnickoIme = txtKorisnickoIme.Text,
-                    GradId = cmbGradovi.SelectedIndex,
-                    PutanjaSlike = openFileDialog1.FileName,
-                    Uloge=uloge
-                };
-             
-               request.Slika = slika;
-               // btnDodajSliku_Click();
-                if (_id.HasValue)
-                {
-                    await _service.Update<Model.Korisnici>(_id, request);
-                }
-                else
-                {
-                    await _service.Insert<Model.Korisnici>(request);
+                    var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y => y.UlogaId).ToList();
+                    var request = new KorisniciInsertRequest
+                    {
+                        Ime = txtIme.Text,
+                        Prezime = txtPrezime.Text,
+                        Email = txtEmail.Text,
+                        Telefon = txtTelefon.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtPasswordConfrirm.Text,
+                        KorisnickoIme = txtKorisnickoIme.Text,
+                        GradId = cmbGradovi.SelectedIndex,
+                        PutanjaSlike = openFileDialog1.FileName,
+                        Uloge = uloge
+                    };
+
+                    request.Slika = slika;
+                    // btnDodajSliku_Click();
+                    if (_id.HasValue)
+                    {
+                        await _service.Update<Model.Korisnici>(_id, request);
+                    }
+                    else
+                    {
+                        await _service.Insert<Model.Korisnici>(request);
+
+                    }
+                    MessageBox.Show("Operacija uspješna!");
 
                 }
-                MessageBox.Show("Operacija uspješna!");
-               
             }
-            
 
         }
        
@@ -274,8 +277,9 @@ namespace exploreMostar.WinUI.Korisnici
             if (string.IsNullOrWhiteSpace(txtIme.Text))
             {
 
-                e.Cancel = true;
+                e.Cancel = false;
                 lbObaveznoPolje.Visible = true;
+                
             }
             else
             {
@@ -351,7 +355,46 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 label10.Visible = false;
             }
+            if (label12.Visible == true)
+            {
+                e.Cancel = true;
+            }
          
+        }
+
+        private async void txtKorisnickoIme_Leave(object sender, EventArgs e)
+        {
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            bool postoji = false;
+            foreach (var temp in result)
+            {
+                if (txtKorisnickoIme.Text == temp.KorisnickoIme)
+                {
+                    postoji = true;
+
+                }
+                if (postoji == true)
+                    break;
+            }
+            if (postoji == true)
+            {
+                label12.Visible = true;
+               
+            }
+            else
+            {
+                label12.Visible = false;
+            }
+
+        }
+
+        private void cmbGradovi_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbGradovi.SelectedIndex == 0)
+                label13.Visible = true;
+            else
+                label13.Visible = false;
+
         }
     }
 }
