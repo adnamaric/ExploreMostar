@@ -52,7 +52,7 @@ namespace exploreMostar.WinUI
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(421, 232);
+            this.panel2.Location = new System.Drawing.Point(64, 319);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 1);
             this.panel2.TabIndex = 8;
@@ -63,7 +63,7 @@ namespace exploreMostar.WinUI
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.Location = new System.Drawing.Point(421, 204);
+            this.txtUsername.Location = new System.Drawing.Point(64, 291);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(233, 29);
@@ -75,7 +75,7 @@ namespace exploreMostar.WinUI
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
-            this.txtPassword.Location = new System.Drawing.Point(421, 255);
+            this.txtPassword.Location = new System.Drawing.Point(64, 342);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -85,7 +85,7 @@ namespace exploreMostar.WinUI
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(378, 204);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 291);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -98,7 +98,7 @@ namespace exploreMostar.WinUI
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(378, 327);
+            this.btnLogin.Location = new System.Drawing.Point(12, 408);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(306, 42);
             this.btnLogin.TabIndex = 4;
@@ -109,7 +109,7 @@ namespace exploreMostar.WinUI
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(378, 255);
+            this.pictureBox2.Location = new System.Drawing.Point(21, 342);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 29);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +120,7 @@ namespace exploreMostar.WinUI
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(421, 283);
+            this.panel1.Location = new System.Drawing.Point(64, 370);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(236, 1);
             this.panel1.TabIndex = 9;
@@ -128,9 +128,9 @@ namespace exploreMostar.WinUI
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(37, 107);
+            this.pictureBox3.Location = new System.Drawing.Point(58, 48);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(283, 301);
+            this.pictureBox3.Size = new System.Drawing.Size(203, 187);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 15;
             this.pictureBox3.TabStop = false;
@@ -138,9 +138,9 @@ namespace exploreMostar.WinUI
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(123, 161);
+            this.pictureBox4.Location = new System.Drawing.Point(111, 70);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(113, 47);
+            this.pictureBox4.Size = new System.Drawing.Size(105, 40);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 16;
             this.pictureBox4.TabStop = false;
@@ -151,7 +151,7 @@ namespace exploreMostar.WinUI
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(93, 63);
+            this.label2.Location = new System.Drawing.Point(80, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 20);
             this.label2.TabIndex = 18;
@@ -166,7 +166,7 @@ namespace exploreMostar.WinUI
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(-3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(366, 605);
+            this.panel4.Size = new System.Drawing.Size(339, 240);
             this.panel4.TabIndex = 14;
             // 
             // frmLogin
@@ -174,7 +174,7 @@ namespace exploreMostar.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(702, 609);
+            this.ClientSize = new System.Drawing.Size(330, 482);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox2);
