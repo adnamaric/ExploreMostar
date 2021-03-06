@@ -19,6 +19,7 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
+        <Label HorizontalOptions="Center" Text="Ovo je nova labela"></Label>
     </StackLayout>
 
 </ContentPage>

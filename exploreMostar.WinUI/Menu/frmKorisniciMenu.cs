@@ -166,7 +166,7 @@ namespace exploreMostar.WinUI.Menu
             var result = await _service.Get<List<Model.Korisnici>>(null);
             var result1 = await _korisniciuloge.Get<List<Model.KorisniciUloge>>(null);
             var result2 = await _uloge.Get<List<Model.Uloge>>(null);
-
+             
             var KorisnikId = 0;
             //APIService.Username;
             foreach (var item in result)

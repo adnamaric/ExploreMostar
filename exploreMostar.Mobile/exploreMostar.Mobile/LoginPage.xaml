@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="exploreMostar.Mobile.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="Center">
+            <Entry Placeholder="Username"></Entry>
+            <Entry Placeholder="Password" IsPassword="True"></Entry>
+            <Button  TextColor="White" BackgroundColor="Blue" x:Name="btnLogin" Text="Log in" Clicked="btnLogin_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
