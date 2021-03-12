@@ -25,7 +25,7 @@ namespace exploreMostar.WebAPI.Security
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
-                return AuthenticateResult.Fail("Missing Authorization Header");
+                return  AuthenticateResult.Fail("Missing Authorization Header");
 
             Model.Korisnici user = null;
             try
@@ -59,7 +59,7 @@ namespace exploreMostar.WebAPI.Security
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return AuthenticateResult.Success(ticket);
+            return  AuthenticateResult.Success(ticket);
         }
     }
 }

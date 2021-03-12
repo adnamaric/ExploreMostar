@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -8,13 +9,8 @@ namespace exploreMostar.Mobile.ViewModels
 {
    public class LoginViewModel : BaseViewModel
     {
-        public LoginViewModel()
-        {
-            LoginCommand = new Command(() =>
-              {
-                  Username = "Iz komande 1";
-              });
-        }
+        private readonly APIService _service = new APIService("Korisnici");
+       
         string _username = string.Empty;
         public string Username
         {
@@ -28,5 +24,24 @@ namespace exploreMostar.Mobile.ViewModels
             set { SetProperty(ref _password, value); }
         }
         public ICommand LoginCommand { get; set; }
+        public LoginViewModel()
+        {
+            LoginCommand = new Command(async () => await Login());
+        }
+        async Task Login()
+        {
+            IsBusy = true;
+            APIService.Username = Username;
+            APIService.Password = Password;
+            try
+            {
+                await _service.Get<dynamic>(null);
+                Application.Current.MainPage = new MainPage();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

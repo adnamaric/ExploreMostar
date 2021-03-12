@@ -123,7 +123,7 @@ namespace exploreMostar.WEBAPI
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+          //  app.UseHttpsRedirection();
             app.UseMvc();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

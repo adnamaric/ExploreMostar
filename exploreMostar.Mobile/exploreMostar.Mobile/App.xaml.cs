@@ -10,7 +10,7 @@ namespace exploreMostar.Mobile
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new Page1();
         }
 
         protected override void OnStart()

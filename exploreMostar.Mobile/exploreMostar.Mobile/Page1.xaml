@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" x:DataType="viewmodels:LoginViewModel"
+             x:Class="exploreMostar.Mobile.Page1" 
+             
+             >
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+       
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="5" VerticalOptions="CenterAndExpand" >
+                <Entry Text="{Binding Username}" Placeholder="Username"></Entry>
+                <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
+                <Button Command="{Binding LoginCommand}" Text="Login"></Button>
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+                <!-- <Label TextColor="Black" Text="{Binding Username}"></Label>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

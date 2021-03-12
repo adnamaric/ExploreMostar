@@ -1,16 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             x:DataType="viewModels:LoginViewModel"
              x:Class="exploreMostar.Mobile.LoginPage">
     <ContentPage.BindingContext>
-        <viewModels:LoginViewModel/>
+        <viewModels:LoginViewModel></viewModels:LoginViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="5" VerticalOptions="CenterAndExpand" >
-            <Entry Text="{Binding Username}" Placeholder="Username"></Entry>
-            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"></Entry>
-            <Button Command="{Binding LoginCommand}" TextColor="White" BackgroundColor="Blue" x:Name="btnLogin" Text="Log in" Clicked="btnLogin_Clicked"></Button>
-            <Label TextColor="Black" Text="{Binding Username}"></Label>
+            <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username"></Entry>
+            <Entry  x:Name="Password" Text="{Binding Password}" Placeholder="Password"></Entry>
+            <!--<Button Command="{Binding LoginCommand}" TextColor="White" BackgroundColor="Blue" Text="Log in"></Button>-->
+            <Button x:Name="Komanda" Command="{Binding LoginCommand}" Text="Login" ></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+           <!-- <Label TextColor="Black" Text="{Binding Username}"></Label>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
