@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.Mobile.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.Mobile.iOS", "exploreMostar.Mobile\exploreMostar.Mobile.iOS\exploreMostar.Mobile.iOS.csproj", "{67482503-5F39-4900-A834-73CCA00AF127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exploreMostar.Mobile", "exploreMostar.Mobile\exploreMostar.Mobile\exploreMostar.Mobile.csproj", "{2740729D-7AFE-4B27-A2FB-64432596C62F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "exploreMostar.Mobile", "exploreMostar.Mobile\exploreMostar.Mobile\exploreMostar.Mobile.csproj", "{2740729D-7AFE-4B27-A2FB-64432596C62F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +108,8 @@ Global
 		{30C232AC-9B11-4430-9839-A47058C466F1}.Release|x86.ActiveCfg = Release|Any CPU
 		{30C232AC-9B11-4430-9839-A47058C466F1}.Release|x86.Build.0 = Release|Any CPU
 		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|Any CPU.Build.0 = Debug|x86
+		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|ARM.ActiveCfg = Debug|ARM
 		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|ARM.Build.0 = Debug|ARM
 		{03B7134C-1BB5-4F6D-8DC3-63CF0264E938}.Debug|ARM.Deploy.0 = Debug|ARM

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="exploreMostar.Mobile.OpeningPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <Label TextColor="Black" HorizontalOptions="FillAndExpand" Text="Explore Mostar - Mobile Verion"></Label>
+
+            <Image BackgroundColor="Black"  x:Name="opImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
+
+                <StackLayout Padding="5" VerticalOptions="CenterAndExpand" >
+                    <Entry Text="{Binding Username}" Placeholder="Username" PlaceholderColor="White" BackgroundColor="Black"></Entry>
+                <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="White" BackgroundColor="Black" IsPassword="True"></Entry>
+                <Button TextColor="White"  BackgroundColor="#FF064381"  Command="{Binding LoginCommand}" Text="Login"></Button>
+                <Button TextColor="White" BackgroundColor="DarkGreen" Command="{Binding LoginCommand}" Text="Registration"></Button>
+
+                <Label IsVisible="{Binding IsBusy}" Text="..."></Label>
+                    <!-- <Label TextColor="Black" Text="{Binding Username}"></Label>-->
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
