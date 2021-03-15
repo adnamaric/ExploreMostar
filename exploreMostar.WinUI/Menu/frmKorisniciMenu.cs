@@ -206,5 +206,12 @@ namespace exploreMostar.WinUI.Menu
             }
           
         }
+
+        private void frmKorisniciMenu_Leave(object sender, EventArgs e)
+        {
+            frmMenu frmMenu = new frmMenu();
+            frmMenu.Close();
+            frmMenu.Show();
+        }
     }
 }

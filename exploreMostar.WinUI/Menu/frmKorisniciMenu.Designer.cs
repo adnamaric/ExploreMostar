@@ -139,6 +139,7 @@ namespace exploreMostar.WinUI.Menu
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Explore Mostar - Korisnici Menu";
             this.Load += new System.EventHandler(this.frmKorisniciMenu_Load);
+            this.Leave += new System.EventHandler(this.frmKorisniciMenu_Leave);
             this.ResumeLayout(false);
 
         }

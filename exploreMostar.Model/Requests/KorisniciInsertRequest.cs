@@ -24,7 +24,8 @@ namespace exploreMostar.Model.Requests
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public string PutanjaSlike { get; set; }
-        public List<int> Uloge { get; set; } 
+        public List<int> Uloge { get; set; }
+        public DateTime? DatumRodjenja { get; set; }
 
     }
 }

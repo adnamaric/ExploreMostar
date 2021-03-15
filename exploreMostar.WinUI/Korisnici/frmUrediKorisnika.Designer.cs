@@ -57,6 +57,8 @@ namespace exploreMostar.WinUI.Korisnici
             this.cmbOdaberiKorisnika = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.circleButton1 = new exploreMostar.WinUI.CircleButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDodajSliku
@@ -169,6 +171,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.txtPasswordConfrirm.Location = new System.Drawing.Point(219, 379);
             this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
+            this.txtPasswordConfrirm.PasswordChar = '*';
             this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
             this.txtPasswordConfrirm.TabIndex = 41;
             // 
@@ -185,6 +188,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.txtPassword.Location = new System.Drawing.Point(44, 379);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 39;
             // 
@@ -301,11 +305,29 @@ namespace exploreMostar.WinUI.Korisnici
             this.circleButton1.TabIndex = 50;
             this.circleButton1.UseVisualStyleBackColor = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(47, 465);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(317, 20);
+            this.dateTimePicker1.TabIndex = 60;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 444);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 59;
+            this.label14.Text = "Datum rodjenja";
+            // 
             // frmUrediKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 524);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cmbOdaberiKorisnika);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDodajSliku);
@@ -371,5 +393,7 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbOdaberiKorisnika;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label14;
     }
 }

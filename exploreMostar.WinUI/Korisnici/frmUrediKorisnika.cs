@@ -28,6 +28,8 @@ namespace exploreMostar.WinUI.Korisnici
         {
             await LoadKorisnici();
             await LoadGradovi();
+            dateTimePicker1.MinDate = new DateTime(1930, 1, 1);
+            dateTimePicker1.MaxDate = new DateTime(2011, 1, 1);
         }
         private async Task LoadGradovi()
         {
@@ -86,7 +88,8 @@ namespace exploreMostar.WinUI.Korisnici
 
 
                 }
-
+                if (korid.DatumRodjenja != null)
+                    dateTimePicker1.Value = (DateTime)korid.DatumRodjenja;
 
             }
         }
@@ -152,6 +155,10 @@ namespace exploreMostar.WinUI.Korisnici
                 {
                     request.GradId = cmbGradovi.SelectedIndex;
                 }
+                var max = new DateTime(2011, 1, 1);
+
+                if (dateTimePicker1.Value != max)
+                    request.DatumRodjenja = dateTimePicker1.Value;
                 // btnDodajSliku_Click();
                 if (_id.HasValue)
                 {

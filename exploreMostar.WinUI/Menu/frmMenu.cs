@@ -18,11 +18,7 @@ namespace exploreMostar.WinUI.Menu
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private async Task LoadKorisnici ()
         {
             var result= await _korisnici.Get<List<Model.Korisnici>>(null);
@@ -39,14 +35,15 @@ namespace exploreMostar.WinUI.Menu
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
             frmKorisniciMenu frm = new frmKorisniciMenu();
             frm.Show();
-          
+            
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private  void button7_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -59,6 +56,22 @@ namespace exploreMostar.WinUI.Menu
         {
             frmKategorijeMenu frmKategorije = new frmKategorijeMenu();
             frmKategorije.Show();
+        }
+
+        private async void frmMenu_Enter(object sender, EventArgs e)
+        {
+            
+        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void frmMenu_Load_1(object sender, EventArgs e)
+        {
+            await LoadKorisnici();
         }
     }
 }

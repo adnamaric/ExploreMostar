@@ -56,13 +56,15 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.lblImePrezime = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.lbl123 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.SuspendLayout();
             // 
             // txtIme
@@ -164,6 +166,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.txtPassword.Location = new System.Drawing.Point(31, 365);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 11;
             // 
@@ -180,12 +183,13 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.txtPasswordConfrirm.Location = new System.Drawing.Point(206, 365);
             this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
+            this.txtPasswordConfrirm.PasswordChar = '*';
             this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
             this.txtPasswordConfrirm.TabIndex = 13;
             // 
             // btnSnimi
             // 
-            this.btnSnimi.Location = new System.Drawing.Point(470, 528);
+            this.btnSnimi.Location = new System.Drawing.Point(487, 573);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(112, 44);
             this.btnSnimi.TabIndex = 15;
@@ -295,23 +299,11 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // circleButton1
-            // 
-            this.circleButton1.BackColor = System.Drawing.Color.White;
-            this.circleButton1.FlatAppearance.BorderSize = 0;
-            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(418, 22);
-            this.circleButton1.Name = "circleButton1";
-            this.circleButton1.Size = new System.Drawing.Size(131, 130);
-            this.circleButton1.TabIndex = 23;
-            this.circleButton1.UseVisualStyleBackColor = false;
-            this.circleButton1.Click += new System.EventHandler(this.circleButton1_Click);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(404, 528);
+            this.button1.Location = new System.Drawing.Point(421, 573);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 44);
             this.button1.TabIndex = 28;
@@ -368,11 +360,41 @@ namespace exploreMostar.WinUI.Korisnici
             this.label13.Text = "Obavezno polje";
             this.label13.Visible = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(37, 552);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "Datum rodjenja";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(34, 573);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(317, 20);
+            this.dateTimePicker1.TabIndex = 36;
+            // 
+            // circleButton1
+            // 
+            this.circleButton1.BackColor = System.Drawing.Color.White;
+            this.circleButton1.FlatAppearance.BorderSize = 0;
+            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton1.Location = new System.Drawing.Point(418, 22);
+            this.circleButton1.Name = "circleButton1";
+            this.circleButton1.Size = new System.Drawing.Size(131, 130);
+            this.circleButton1.TabIndex = 23;
+            this.circleButton1.UseVisualStyleBackColor = false;
+            this.circleButton1.Click += new System.EventHandler(this.circleButton1_Click);
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 584);
+            this.ClientSize = new System.Drawing.Size(611, 629);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lbl123);
@@ -448,5 +470,7 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label lbl123;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

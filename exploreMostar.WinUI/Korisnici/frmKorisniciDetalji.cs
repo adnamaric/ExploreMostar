@@ -24,6 +24,10 @@ namespace exploreMostar.WinUI.Korisnici
         {
             InitializeComponent();
             _id = korisnikId;
+            //setovanje minimalnih vrijednosti i maksi
+            dateTimePicker1.MinDate = new DateTime(1930, 1, 1);
+
+            dateTimePicker1.MaxDate = new DateTime(2011, 1, 1);
 
         }
 
@@ -48,9 +52,14 @@ namespace exploreMostar.WinUI.Korisnici
                         KorisnickoIme = txtKorisnickoIme.Text,
                         GradId = cmbGradovi.SelectedIndex,
                         PutanjaSlike = openFileDialog1.FileName,
-                        Uloge = uloge
+                        Uloge = uloge,
+                        
                     };
+                    //defaultni datum
+                    var max = new DateTime(2011, 1, 1);
 
+                    if (dateTimePicker1.Value != max)
+                        request.DatumRodjenja = dateTimePicker1.Value;
                     request.Slika = slika;
                     // btnDodajSliku_Click();
                     if (_id.HasValue)
@@ -62,6 +71,7 @@ namespace exploreMostar.WinUI.Korisnici
                         await _service.Insert<Model.Korisnici>(request);
 
                     }
+                    
                     MessageBox.Show("Operacija uspješna!");
 
                 }

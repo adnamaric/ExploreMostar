@@ -21,7 +21,7 @@ namespace exploreMostar.Model
         public string PutanjaSlike { get; set; }
         public string LozinkaSalt { get; set; }
         public string LozinkaHash { get; set; }
-
+        public DateTime? DatumRodjenja { get; set; }
         public List<KorisniciUloge> KorisniciUloge { get; set; }
 
     }
