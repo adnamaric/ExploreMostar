@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -20,8 +21,14 @@ namespace exploreMostar.Mobile.UWP
         public MainPage()
         {
             this.InitializeComponent();
+          
+
+            //// if you want not to have any window smaller than this size...
+            //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(480, 800));
 
             LoadApplication(new exploreMostar.Mobile.App());
         }
+       
+
     }
 }
