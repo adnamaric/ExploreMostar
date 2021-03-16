@@ -6,13 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.78125in</Width>
+              <Width>0.98524in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.78125in</Width>
+              <Width>1.88107in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.54167in</Width>
+              <Width>1.51302in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.77412in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -75,6 +78,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Vrsta</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -195,6 +233,38 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="KategorijaApartmana">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Vrsta.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>KategorijaApartmana</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Ocjena">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -236,6 +306,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -248,11 +319,12 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>DataSet2</DataSetName>
         <Top>0.67583in</Top>
         <Left>0.28in</Left>
         <Height>0.90624in</Height>
-        <Width>9.10417in</Width>
+        <Width>6.15345in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -266,7 +338,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>                              Izvještaj o najbolje ocjenjenom sadržaju</Value>
+                <Value>          Izvještaj o najbolje ocijenjenom sadržaju</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -277,7 +349,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.04167in</Top>
+        <Top>0.06944in</Top>
         <Left>1.0272in</Left>
         <Height>0.5in</Height>
         <Width>8.13542in</Width>
@@ -296,10 +368,10 @@
     <Height>1.82292in</Height>
     <Style />
   </Body>
-  <Width>9.50232in</Width>
+  <Width>9.16262in</Width>
   <Page>
     <PageHeader>
-      <Height>1in</Height>
+      <Height>1.01041in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -307,8 +379,7 @@
           <Source>Embedded</Source>
           <Value>Untitleddesign2</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.02952in</Top>
-          <Left>8.2419in</Left>
+          <Left>5.38137in</Left>
           <Height>0.94097in</Height>
           <Width>1.26042in</Width>
           <Style>
@@ -336,7 +407,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.12674in</Top>
+          <Top>0.13715in</Top>
           <Height>0.25in</Height>
           <Width>1.94792in</Width>
           <ZIndex>1</ZIndex>
@@ -369,7 +440,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.44618in</Top>
+          <Top>0.45659in</Top>
           <Height>0.25in</Height>
           <Width>2.78125in</Width>
           <ZIndex>2</ZIndex>
@@ -415,45 +486,32 @@
       </ConnectionProperties>
       <rd:DataSourceID>e3a4cc6f-19f7-4bab-9f08-949f0dbe6828</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="exploreMostarModel1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>99c57288-92f2-4b5d-86b3-801a4ce95297</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DataSet2">
       <Query>
-        <DataSourceName>exploreMostarModel</DataSourceName>
+        <DataSourceName>exploreMostarModel1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="AparatZaKafu">
-          <DataField>AparatZaKafu</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="ApartmanId">
-          <DataField>ApartmanId</DataField>
+        <Field Name="AtrakcijaId">
+          <DataField>AtrakcijaId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Bazen">
-          <DataField>Bazen</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="DodatneOpcije">
-          <DataField>DodatneOpcije</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="GodinaIzgradnje">
-          <DataField>GodinaIzgradnje</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
-        </Field>
-        <Field Name="KategorijaApartmana">
-          <DataField>KategorijaApartmana</DataField>
+        <Field Name="Kategorija">
+          <DataField>Kategorija</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="KategorijaId">
           <DataField>KategorijaId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Klima">
-          <DataField>Klima</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
         <Field Name="Latitude">
           <DataField>Latitude</DataField>
@@ -475,9 +533,9 @@
           <DataField>Ocjena</DataField>
           <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
-        <Field Name="Parking">
-          <DataField>Parking</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        <Field Name="Opis">
+          <DataField>Opis</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="PutanjaSlike">
           <DataField>PutanjaSlike</DataField>
@@ -491,23 +549,23 @@
           <DataField>Slika</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
-        <Field Name="SlikaThumb">
-          <DataField>SlikaThumb</DataField>
+        <Field Name="SlikaThumn">
+          <DataField>SlikaThumn</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
-        <Field Name="Tv">
-          <DataField>Tv</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        <Field Name="Vrsta">
+          <DataField>Vrsta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Wifi">
-          <DataField>Wifi</DataField>
-          <rd:TypeName>System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        <Field Name="VrstaAtrakcijeId">
+          <DataField>VrstaAtrakcijeId</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>exploreMostar.Model</rd:DataSetName>
-        <rd:TableName>Apartmani</rd:TableName>
-        <rd:ObjectDataSourceType>exploreMostar.Model.Apartmani, exploreMostar.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>Atrakcije</rd:TableName>
+        <rd:ObjectDataSourceType>exploreMostar.Model.Atrakcije, exploreMostar.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,17 +42,19 @@ namespace exploreMostar.WinUI.Reports
                     var list = await _restorani.Get<List<Model.Restorani>>(null);
                     foreach (var item in list)
                     {
-                       
-                        temp.Add(new ReportClass() {  Naziv = item.Naziv, Ocjena = item.Ocjena });
-                        foreach(var item2 in temp)
-                        {
+                        string vrstaa = "";
+
+                        var tempna = list.Where(y => y.Naziv == item.Naziv).FirstOrDefault();
+                        
                             if (item.VrstaId == 1)
-                                item2.Vrsta = "Restoran";
+                                 vrstaa = "Restoran";
                             else if (item.VrstaId == 2)
-                                item2.Vrsta = "Fast Food";
+                                vrstaa = "Fast Food";
                             else
-                                item2.Vrsta = "N/A";
-                        }
+                                 vrstaa = "N/A";
+                        
+                        temp.Add(new ReportClass() {  Naziv = item.Naziv, Ocjena = item.Ocjena,Vrsta=vrstaa});
+                      
                     }
                     
                 }
@@ -60,19 +63,20 @@ namespace exploreMostar.WinUI.Reports
                     var list = await _atrakacije.Get<List<Model.Atrakcije>>(null);
                     foreach (var item in list)
                     {
-                       
-                        temp.Add(new ReportClass() {  Naziv = item.Naziv, Ocjena = item.Ocjena });
-                        foreach (var item2 in temp)
-                        {
-                            if (item.VrstaAtrakcijeId == 1)
-                                item2.Vrsta = "Prirodna atrakcija";
-                            else if (item.VrstaAtrakcijeId == 2)
-                                item2.Vrsta = "Historijska atrakcija";
-                            else if (item.VrstaAtrakcijeId == 3)
-                                item2.Vrsta = "Religijska atrakcija";
-                            else
-                                item2.Vrsta = "N/A";
-                        }
+                        string vrstaa="";
+                        var tempna = list.Where(y => y.Naziv == item.Naziv).FirstOrDefault();
+
+                        if (tempna.VrstaAtrakcijeId == 1)
+                            vrstaa = "Prirodna atrakcija";
+                        else if (tempna.VrstaAtrakcijeId == 2)
+                            vrstaa = "Historijska atrakcija";
+                        else if (tempna.VrstaAtrakcijeId == 3)
+                            vrstaa = "Religijska atrakcija";
+                        else
+                            vrstaa = "N/A";
+                        temp.Add(new ReportClass() {  Naziv = item.Naziv, Ocjena = item.Ocjena,Vrsta=vrstaa });
+
+                        
                     }
                 }
                 else if (cmbkategorija.SelectedItem.ToString() == "Coffee shops")
@@ -127,11 +131,26 @@ namespace exploreMostar.WinUI.Reports
                     }
                 }
             }
-            ReportDataSource rds = new ReportDataSource("DataSet1", temp);
+            ReportDataSource rds = new ReportDataSource("DataSet2", temp);
             this.reportViewer1.LocalReport.DataSources.Clear();
 
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.RefreshReport();
+            //Warning[] warnings;
+            //string[] streamids;
+            //string mimeType;
+            //string encoding;
+            //string filenameExtension;
+
+            //byte[] bytes = reportViewer1.LocalReport.Render(
+            //    "PDF", null, out mimeType, out encoding, out filenameExtension,
+            //    out streamids, out warnings);
+
+            //using (FileStream fs = new FileStream("output.pdf", FileMode.Create))
+            //{
+            //    fs.Write(bytes, 0, bytes.Length);
+            //}
+
         }
 
         private async void frmPregled_Load(object sender, EventArgs e)
