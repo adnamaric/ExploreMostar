@@ -101,6 +101,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -276,6 +277,12 @@
     </Compile>
     <Compile Include="Reports\frmPregled.Designer.cs">
       <DependentUpon>frmPregled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmPregledMogucihReporta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPregledMogucihReporta.Designer.cs">
+      <DependentUpon>frmPregledMogucihReporta.cs</DependentUpon>
     </Compile>
     <Compile Include="Sadržaj\Apartmani\frmApartmaniAdd.cs">
       <SubType>Form</SubType>
@@ -553,7 +560,11 @@
     <EmbeddedResource Include="Reports\frmPregled.resx">
       <DependentUpon>frmPregled.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPregledMogucihReporta.resx">
+      <DependentUpon>frmPregledMogucihReporta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Sadržaj\Apartmani\frmApartmaniAdd.resx">
       <DependentUpon>frmApartmaniAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -649,6 +660,49 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\exploreMostar.Model.Apartmani.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Atrakcije.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.DodatneOpcije.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Drzave.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Gradovi.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Hoteli.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Jela.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.JeloMeni.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Jelovnik.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Kafici.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Kategorije.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.KategorijeJela.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Korisnici.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.KorisniciUloge.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.KorisnickaUloga.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.KorisnikKategorija.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Markeri.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Menu.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Nightclubs.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.ObjectExtension.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Prevoz.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Proizvod.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.ApartmaniUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.AtrakcijeUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.ByNameSearchRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.DrzaveUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.GradoviUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.HoteliUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.JelaUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.JeloMeniUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.JelovnikUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.KaficiUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.KategorijeUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.KorisniciInsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.KorisniciSearchRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.KorisnikKategorijaUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.MenuUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.NightClubsUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.PrevozUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Requests.RestoraniUpsertRequest.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Restorani.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Uloge.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.VrstaAtrakcija.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.VrstaRestorana.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

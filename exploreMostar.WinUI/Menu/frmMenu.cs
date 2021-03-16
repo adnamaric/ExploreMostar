@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.WinUI.Reports;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +44,8 @@ namespace exploreMostar.WinUI.Menu
 
         private  void button7_Click(object sender, EventArgs e)
         {
-           
+            frmPregled nova = new frmPregled();
+            nova.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
