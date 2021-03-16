@@ -278,12 +278,6 @@
     <Compile Include="Reports\frmPregled.Designer.cs">
       <DependentUpon>frmPregled.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\frmPregledMogucihReporta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\frmPregledMogucihReporta.Designer.cs">
-      <DependentUpon>frmPregledMogucihReporta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sadržaj\Apartmani\frmApartmaniAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -560,10 +554,6 @@
     <EmbeddedResource Include="Reports\frmPregled.resx">
       <DependentUpon>frmPregled.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\frmPregledMogucihReporta.resx">
-      <DependentUpon>frmPregledMogucihReporta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="Sadržaj\Apartmani\frmApartmaniAdd.resx">
       <DependentUpon>frmApartmaniAdd.cs</DependentUpon>
