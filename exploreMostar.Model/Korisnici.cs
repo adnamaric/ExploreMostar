@@ -23,6 +23,6 @@ namespace exploreMostar.Model
         public string LozinkaHash { get; set; }
         public DateTime? DatumRodjenja { get; set; }
         public List<KorisniciUloge> KorisniciUloge { get; set; }
-
+        public bool isUser { get; set; }
     }
 }

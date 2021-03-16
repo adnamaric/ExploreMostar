@@ -2,42 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" x:DataType="viewmodels:RegistrationViewModel"
              x:Class="exploreMostar.Mobile.Views.RegistationPage">
+    <ContentPage.BindingContext>
+        <viewmodels:RegistrationViewModel></viewmodels:RegistrationViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
       
         <ScrollView>
-        <StackLayout x:Name="s2" Padding="6" BackgroundColor="Black" >
+            <StackLayout x:Name="s2" Padding="6" BackgroundColor=" #252526" >
                 <Label Padding="0,0,0,20"></Label> 
                 <Label TextColor="White" Text="User name"></Label>
-                <Entry TextColor="White" Placeholder="Enter your username" PlaceholderColor="white" BackgroundColor="black" Text="{Binding KorisnickoIme}"></Entry>
+                <Entry TextColor="White" Placeholder="Enter your username" PlaceholderColor="white" BackgroundColor="#252526" Text="{Binding KorisnickoIme}"></Entry>
 
                 <Label TextColor="White" Text="Email"></Label>
-                <Entry TextColor="White" Placeholder="Enter your email" PlaceholderColor="white" BackgroundColor="black" Text="{Binding Email}"></Entry>
+                <Entry TextColor="White" Placeholder="Enter your email" PlaceholderColor="white" BackgroundColor="#252526" Text="{Binding Email}"></Entry>
 
                 <Label TextColor="White" Text="First name"></Label>
-                <Entry  TextColor="White" Placeholder="Enter your first name" Text="{Binding Ime}" PlaceholderColor="white" BackgroundColor="black"></Entry>
+                <Entry  TextColor="White" Placeholder="Enter your first name" Text="{Binding Ime}" PlaceholderColor="white" BackgroundColor=" #252526"></Entry>
 
                 <Label TextColor="White" Text="Last name"></Label>
-                <Entry TextColor="White" Placeholder="Enter your last name" Text="{Binding Prezime}" PlaceholderColor="white" BackgroundColor="black"></Entry>
+                <Entry TextColor="White" Placeholder="Enter your last name" Text="{Binding Prezime}" PlaceholderColor="white" BackgroundColor=" #252526"></Entry>
 
                 <Label TextColor="White"  Text="Password"></Label>
-                <Entry TextColor="White" Placeholder="Enter your password" Text="{Binding Password}" IsPassword="True" PlaceholderColor="white" BackgroundColor="black"></Entry>
+                <Entry TextColor="White" Placeholder="Enter your password" Text="{Binding Password}" IsPassword="True" PlaceholderColor="white" BackgroundColor=" #252526"></Entry>
 
                 <Label TextColor="White" Text="Confirm Password"></Label>
-                <Entry TextColor="White" Placeholder="Confirm your password" Text="{Binding ConfirmPassword}" IsPassword="True" PlaceholderColor="white" BackgroundColor="black"></Entry>
+                <Entry TextColor="White" Placeholder="Confirm your password" Text="{Binding ConfirmPassword}" IsPassword="True" PlaceholderColor="white" BackgroundColor=" #252526"></Entry>
 
-                <!--<Label TextColor="White" Text="Birth date"></Label>
-                <DatePicker Date="{Binding BirthDate}"  BackgroundColor="black"></DatePicker>-->
+                <Label TextColor="White" Text="Birth date"></Label>
+                <DatePicker Date="{Binding DatumRodjenja}"  BackgroundColor="#252526"></DatePicker>
 
                 <Label TextColor="White" Text="Mobile number"></Label>
-                <Entry TextColor="White" Placeholder="Enter your mobile number" Text="{Binding Telefon}" PlaceholderColor="white" BackgroundColor="black"></Entry>
+                <Entry TextColor="White" Placeholder="Enter your mobile number" Text="{Binding Telefon}" PlaceholderColor="white" BackgroundColor=" #252526"></Entry>
 
-                <!--<Label TextColor="White" Text="Mobile number"></Label>
-                <Entry TextColor="White" Placeholder="Choose a city" Text="{Binding Grad}" PlaceholderColor="white" BackgroundColor="black"></Entry>-->
-                <ListView>
-                    <ListView.ItemTemplate>
-                        <DataTemplate></DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <Label Text="Choose a city" TextColor="White"></Label>
+                <Picker ItemsSource="{Binding GradList}" ItemDisplayBinding="{Binding Naziv}" SelectedItem="{Binding SelectedGrad}" x:Name="GradPicker"></Picker>
+
                 <Label Padding="0,0,0,5"></Label>
 
 

@@ -12,10 +12,14 @@
 
   <ItemGroup>
     <None Remove="Resources\Explore Mostar %286%29.png" />
+    <None Remove="Resources\Explore Mostar %288%29.png" />
+    <None Remove="Resources\Explore Mostar %289%29.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Explore Mostar (6).png" />
+    <EmbeddedResource Include="Resources\Explore Mostar (8).png" />
+    <EmbeddedResource Include="Resources\Explore Mostar (9).png" />
   </ItemGroup>
 
   <ItemGroup>

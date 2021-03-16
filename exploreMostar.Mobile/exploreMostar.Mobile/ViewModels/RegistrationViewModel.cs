@@ -6,18 +6,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace exploreMostar.Mobile.ViewModels
 {
-  public  class RegistrationViewModel :BaseViewModel
+    public class RegistrationViewModel : BaseViewModel
     {
         private APIService korisnici = new APIService("Korisnici");
+        private readonly APIService _aPIService = new APIService("Gradovi");
 
-        public RegistrationViewModel()
+        public  RegistrationViewModel()
         {
-           Submit = new Command(async () => await Registracija());
+            Submit = new Command(async () => await Registracija());
+            UcitajGradove();
         }
-
+        public List<Model.Gradovi> GradList { get; set; } = new List<Model.Gradovi>();
+        public void UcitajGradove()
+        {
+            Task<List<Model.Gradovi>> task = Task.Run<List<Model.Gradovi>>(async () => await _aPIService.Get<List<Model.Gradovi>>(null));
+            GradList.Clear();
+            GradList.AddRange(task.Result);
+        }
+        Gradovi _selectedGrad = null;
+        public Gradovi SelectedGrad
+        {
+            get { return _selectedGrad; }
+            set
+            {
+                SetProperty(ref _selectedGrad, value);
+                if (value != null)
+                {
+                    
+                }
+            }
+        }
         string _username = string.Empty;
         public string KorisnickoIme
         {
@@ -75,37 +98,110 @@ namespace exploreMostar.Mobile.ViewModels
             set { SetProperty(ref _mobile, value); }
         }
 
+        int _gradId = 0;
+        public int Grad
+        {
+            get { return _gradId; }
+            set { SetProperty(ref _gradId, value); }
+        }
       
+        //List<Model.Gradovi> lista = new List<Model.Gradovi>( async=>await Function());
+
+        //public async Task Function()
+        //{
+        //       lista = await _aPIService.Get<List<Model.Gradovi>>(null);
+
+        //}
+        string _naziv = string.Empty;
+        public string Naziv
+        {
+            get { return _naziv; }
+            set { SetProperty(ref _naziv, value); }
+        }
         public ICommand Submit { get; set; }
         async Task Registracija()
         {
+          
+            var temp = _selectedGrad;
             try
             {
                 if (ConfirmPassword != Password)
                 {
                     throw new Exception("Passwords do not match.");
                 }
-
-                IsBusy = true;
-                await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                if (_selectedGrad == null)
                 {
-                   Ime= _firstname,
-                   Prezime=_lastname,
-                   Telefon=_mobile,
-                   KorisnickoIme=_username,
-                   Password=Password,
-                   PasswordConfirmation= _confirmPassword,
-                   Email=_email
-                });
-               
+                    throw new Exception("Please choose a city.");
 
-                Application.Current.MainPage = new LoginPage();
+                }
+
+                List<KorisniciUloge> n = new List<KorisniciUloge>();
+
+                List<int> novaLista = new List<int>();
+                novaLista.Add(2);
+                IsBusy = true;
+                var incase = 1;
+                if (temp != null)
+                {
+                    await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                    {
+                        Ime = _firstname,
+                        Prezime = _lastname,
+                        Telefon = _mobile,
+                        KorisnickoIme = _username,
+                        Password = Password,
+                        PasswordConfirmation = _confirmPassword,
+                        Email = _email,
+                        GradId = temp.GradId,
+                        DatumRodjenja = _birthdate,
+                        Uloge = novaLista
+                    });
+                }
+                else
+                {
+                    await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                    {
+                        Ime = _firstname,
+                        Prezime = _lastname,
+                        Telefon = _mobile,
+                        KorisnickoIme = _username,
+                        Password = Password,
+                        PasswordConfirmation = _confirmPassword,
+                        Email = _email,
+                        GradId = incase,
+                        DatumRodjenja = _birthdate,
+                        Uloge = novaLista
+                    });
+                }
+
+                Application.Current.MainPage = new OpeningPage();
             }
             catch
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Invalid information passed", "OK");
+                if(_selectedGrad==null && _firstname!="" && _lastname!="")
+                    await Application.Current.MainPage.DisplayAlert("Error", "You haven't selected a city!", "OK");
+                else if (ConfirmPassword != Password)
+                    await Application.Current.MainPage.DisplayAlert("Error", "Passwords do not match!", "OK");
+                else
+                     await Application.Current.MainPage.DisplayAlert("Error", "Invalid information passed", "OK");
             }
         }
+
+        //private bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        //{
+        //    if (!Equals(field, newValue))
+        //    {
+        //        field = newValue;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //        return true;
+        //    }
+
+        //    return false;
+        //}
+
+        //private string naziv;
+
+        //public string Naziv { get => naziv; set => SetProperty(ref naziv, value); }
     }
 }
 

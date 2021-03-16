@@ -65,6 +65,11 @@ namespace exploreMostar.WebAPI.Services
             entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
             _context.Korisnici.Add(entity);
             _context.SaveChanges();
+            if (request.Uloge == null)
+            {
+              
+
+            }
             foreach (var uloga in request.Uloge)
             {
                 Database.KorisniciUloge korisniciUloge = new Database.KorisniciUloge();

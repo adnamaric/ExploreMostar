@@ -6,11 +6,11 @@
         <viewmodels:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout FlexLayout.AlignSelf="Auto" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
-            <Label TextColor="Black" HorizontalOptions="FillAndExpand" Text="Explore Mostar - Mobile Verion"></Label>
-            <Image BackgroundColor="Black"  x:Name="opImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
-             <Entry Text="{Binding Username}" Placeholder="Username" PlaceholderColor="White" BackgroundColor="Black" TextColor="White"></Entry>
-                <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="White" BackgroundColor="Black" TextColor="White" IsPassword="True"></Entry>
+        <StackLayout FlexLayout.AlignSelf="Auto" BackgroundColor="#252526" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <Label TextColor="#252526" HorizontalOptions="FillAndExpand" Text="Explore Mostar - Mobile Verion"></Label>
+            <Image BackgroundColor=" #252526"  x:Name="opImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
+            <Entry Text="{Binding Username}" Placeholder="Username" PlaceholderColor="White" BackgroundColor=" #252526" TextColor="White"></Entry>
+            <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="White" BackgroundColor="#252526" TextColor="White" IsPassword="True"></Entry>
                 <Button TextColor="White"  BackgroundColor="#FF064381"  Command="{Binding LoginCommand}" Text="Login"></Button>
                 <Button TextColor="White" BackgroundColor="DarkGreen" Command="{Binding RegistrationCommand}" Text="Registration" Clicked="Button_Clicked"></Button>
 

@@ -26,6 +26,7 @@ namespace exploreMostar.Model.Requests
         public string PutanjaSlike { get; set; }
         public List<int> Uloge { get; set; }
         public DateTime? DatumRodjenja { get; set; }
+        
 
     }
 }
