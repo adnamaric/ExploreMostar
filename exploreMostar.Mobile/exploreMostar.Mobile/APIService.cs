@@ -13,6 +13,16 @@ namespace exploreMostar.Mobile
         private readonly string _route;
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static bool Food { get; set; }
+        public static bool Atraction { get; set; }
+        public static bool Apartments { get; set; }
+        public static bool Hotels { get; set; }
+        public static bool Transport { get; set; }
+        public static bool Coffeeshops { get; set; }
+        public static bool Other { get; set; }
+        public static bool Nightclubs { get; set; }
+
+
 #if DEBUG
         string _apiUrl = "http://localhost:64741/api/";
 #endif

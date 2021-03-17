@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-
 namespace exploreMostar.Mobile.ViewModels
 {
    public class LoginViewModel : BaseViewModel
@@ -27,7 +26,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ICommand LoginCommand { get; set; }
         public ICommand RegistrationCommand { get; set; }
 
-
+        
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
@@ -49,10 +48,19 @@ namespace exploreMostar.Mobile.ViewModels
             IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            Model.Korisnici korisnik = null;
+            foreach(var item in result)
+            {
+                if (item.KorisnickoIme == Username)
+                    korisnik = item;
+            }
             try
             {
                 await _service.Get<dynamic>(null);
-                Application.Current.MainPage = new MainPage();
+               
+                
+                Application.Current.MainPage = new UserPreferenceContentPage();
             }
             catch (Exception ex)
             {

@@ -24,5 +24,6 @@ namespace exploreMostar.Model
         public DateTime? DatumRodjenja { get; set; }
         public List<KorisniciUloge> KorisniciUloge { get; set; }
         public bool isUser { get; set; }
+        public int BrojP { get; set; }
     }
 }

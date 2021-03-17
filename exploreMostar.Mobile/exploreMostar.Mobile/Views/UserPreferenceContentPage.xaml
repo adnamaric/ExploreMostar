@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" 
+             x:Class="exploreMostar.Mobile.Views.UserPreferenceContentPage">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#252526">
+            <Label Padding="0,0,0,20"></Label>
+            <Label Text="I'm interested in finding..." HorizontalTextAlignment="Center" TextColor="White" Padding="0,20,0,10"></Label>
+            <Label Padding="0,0,0,20"></Label>
+            <StackLayout  Orientation="Horizontal"   HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn1"  BackgroundColor="White" Clicked="Button_Clicked" HeightRequest="75" Text="#Food">
+                    
+                    </Button>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="50"  HorizontalOptions="FillAndExpand">
+                    <Button    x:Name="btn2" Clicked="Button2_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Atractions"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"   HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"   WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn3" Clicked="Button3_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Hotels"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn4" Clicked="Button4_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Apartmants"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn5" Clicked="Button5_Cliked" BackgroundColor="White"  HeightRequest="75" Text="#Transport"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="50"  HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn6" Clicked="Button6_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Coffeshops"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button  x:Name="btn7" Clicked="Button7_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Nightclubs"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
+                    <Button  x:Name="btn8" Clicked="Button8_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Other">
+                       
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+            <Label Padding="0,0,0,40"></Label>
+
+            <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkGreen" TextColor="White"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
