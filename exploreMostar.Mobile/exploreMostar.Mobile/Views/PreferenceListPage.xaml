@@ -1,16 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" x:DataType="viewmodels:PreferenceListModel"
              x:Class="exploreMostar.Mobile.Views.PreferenceListPage">
+    <ContentPage.BindingContext>
+        <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Nek" Clicked="Button_Clicked"></Button>
-        </StackLayout>
 
-       
-      
+           
+            <CollectionView ItemsSource="{Binding RestoraniLista}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="2" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate></DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+        
+
     </ContentPage.Content>
 </ContentPage>
