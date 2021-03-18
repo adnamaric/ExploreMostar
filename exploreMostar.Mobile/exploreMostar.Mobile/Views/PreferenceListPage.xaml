@@ -1,11 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" xmlns:local="clr-namespace:exploreMostar.Mobile.Controls"
+             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" 
+             xmlns:local="clr-namespace:exploreMostar.Mobile.Controls" 
+             xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters"
              x:Class="exploreMostar.Mobile.Views.PreferenceListPage">
     <ContentPage.BindingContext>
         <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content >
         <StackLayout BackgroundColor="#252526">
 
@@ -28,12 +35,12 @@
                                 <ContentView  Rotation="90" BackgroundColor="Transparent">
                                     <StackLayout HeightRequest="100"
 												 WidthRequest="100">
-                                        <Image Source="{Binding Slika}"/>
+                                            <Image  Source="{Binding Slika, Converter={StaticResource imgConv}}"/>
 
                                         <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                        <Button BackgroundColor="DarkGreen" Text="Select"></Button>
+                                          
                                     </StackLayout>
                                 </ContentView>
                             </ViewCell>
@@ -147,6 +154,30 @@
                 </ListView>
             </RelativeLayout>
             </StackLayout>
+            <ListView ItemsSource="{Binding restoranis}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Naziv}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding Lokacija}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

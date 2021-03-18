@@ -29,7 +29,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ICommand InitCommand { get; set; }
         public PreferenceListModel()
         {
-            Setuj();
+            //Setuj();
             InitCommand = new Command(async () => await Init());
         }
       public async Task Init()
@@ -47,13 +47,19 @@ namespace exploreMostar.Mobile.ViewModels
             {
 
                 var list = await _restorani.Get<IEnumerable<Model.Restorani>>(null);
+                
                 restoranis.Clear();
                 temp.Clear();
                 foreach (var item in list)
                 {
+                    if(item.PutanjaSlike!=null)
+                        APIService.PutanjaSlike = item.PutanjaSlike;
+
                     restoranis.Add(item);
                     temp.Add(new Model.ReportClass {Naziv=item.Naziv, Ocjena=item.Ocjena });
+                    
                 }
+                
             }
             if (Atrakcije == true)
             {
@@ -128,6 +134,8 @@ namespace exploreMostar.Mobile.ViewModels
                 }
             }
         }
+        public string OcjenaGlobal { get; set; }
+
         public bool Atrakcije = false;
         public bool Apartmani = false;
         public bool Hoteli = false;
@@ -140,19 +148,19 @@ namespace exploreMostar.Mobile.ViewModels
         {
          
          
-                UcitajAtrakcije();
-            if (Apartmani == true)
-                UcitajApartmane();
-            if (Hoteli == true)
-                UcitajHotele();
+            //    UcitajAtrakcije();
+            //if (Apartmani == true)
+            //    UcitajApartmane();
+            //if (Hoteli == true)
+            //    UcitajHotele();
           
-              //  UcitajRestorane();
-            if (Prevoz == true)
-                UcitajPrevoz();
-            if (NocniKlubovi == true)
-                UcitajNocneKlubove();
-            if (Kafici == true)
-                UcitajKafice();
+            //  //  UcitajRestorane();
+            //if (Prevoz == true)
+            //    UcitajPrevoz();
+            //if (NocniKlubovi == true)
+            //    UcitajNocneKlubove();
+            //if (Kafici == true)
+            //    UcitajKafice();
            // HoteliLista = IEnumerable<Model.Hoteli>();
         }
         private IEnumerable<Model.Hoteli> _hotelis;

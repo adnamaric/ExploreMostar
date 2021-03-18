@@ -17,7 +17,7 @@ namespace exploreMostar.Mobile
         {
             InitializeComponent();
             //  var assemly = typeof(OpeningPage);
-            opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Explore Mostar (9).png");
+            opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Explore Mostar (6).png");
            // opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.1.png");
 
 

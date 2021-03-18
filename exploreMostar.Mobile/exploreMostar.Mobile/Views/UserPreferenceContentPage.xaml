@@ -46,7 +46,7 @@
             </StackLayout>
             <Label Padding="0,0,0,40"></Label>
 
-            <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkGreen" TextColor="White"></Button>
+            <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkRed" TextColor="White"></Button>
 
 
         </StackLayout>

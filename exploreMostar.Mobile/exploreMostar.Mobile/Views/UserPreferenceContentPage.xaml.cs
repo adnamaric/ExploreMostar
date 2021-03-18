@@ -22,7 +22,7 @@ namespace exploreMostar.Mobile.Views
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
         {
-            btn1.BackgroundColor = Color.DarkGreen;
+            btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
             m._food = true;
             m.Hrana = true;
@@ -30,7 +30,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button2_Cliked(object sender, EventArgs e)
         {
-            btn2.BackgroundColor = Color.DarkGreen;
+            btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
             m._atraction = true;
             m.Atrakcija = true;
@@ -38,7 +38,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button3_Cliked(object sender, EventArgs e)
         {
-            btn3.BackgroundColor = Color.DarkGreen;
+            btn3.BackgroundColor = Color.DarkRed;
             btn3.TextColor = Color.White;
             m._hotel = true;
             m.Hotel = true;
@@ -47,7 +47,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button4_Cliked(object sender, EventArgs e)
         {
-            btn4.BackgroundColor = Color.DarkGreen;
+            btn4.BackgroundColor = Color.DarkRed;
             btn4.TextColor = Color.White;
             m.Apartman = true;
             m._apartment = true;
@@ -56,7 +56,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button5_Cliked(object sender, EventArgs e)
         {
-            btn5.BackgroundColor = Color.DarkGreen;
+            btn5.BackgroundColor = Color.DarkRed;
             btn5.TextColor = Color.White;
             m._transport = true;
             m.Prevoz = true;
@@ -65,7 +65,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button6_Cliked(object sender, EventArgs e)
         {
-            btn6.BackgroundColor = Color.DarkGreen;
+            btn6.BackgroundColor = Color.DarkRed;
             btn6.TextColor = Color.White;
             m._coffeeshops = true;
             m.Kafic = true;
@@ -74,7 +74,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button7_Cliked(object sender, EventArgs e)
         {
-            btn7.BackgroundColor = Color.DarkGreen;
+            btn7.BackgroundColor = Color.DarkRed;
             btn7.TextColor = Color.White;
             m._nightclubs = true;
             m.NK = true;
@@ -82,7 +82,7 @@ namespace exploreMostar.Mobile.Views
 
         private void Button8_Cliked(object sender, EventArgs e)
         {
-            btn8.BackgroundColor = Color.DarkGreen;
+            btn8.BackgroundColor = Color.DarkRed;
             btn8.TextColor = Color.White;
             m._other = true;
             m.Other = true;
