@@ -28,19 +28,20 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                              CachingStrategy="RecycleElement">
+                              CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ContentView  Rotation="90" BackgroundColor="Transparent">
                                     <StackLayout HeightRequest="100"
-												 WidthRequest="100">
-                                            <Image  Source="{Binding Slika, Converter={StaticResource imgConv}}"/>
-
-                                        <Label TextColor="White" Text="{Binding Naziv}"
+												 WidthRequest="200">
+                                            <Image  Source="C:\Users\User\source\repos\ExploreMostarN\exploreMostar.Mobile\exploreMostar.Mobile\Resources\Explore Mostar (9).png"/>
+                                                                           
+                                        <Label x:Name="{Binding Naziv}" TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                          
+                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"></Label>
+                                            <Button BackgroundColor="DarkRed" TextColor="White"  Text="Select"></Button>
                                     </StackLayout>
                                 </ContentView>
                             </ViewCell>
@@ -71,12 +72,13 @@
 												 WidthRequest="100">
                                         <Image Source="{Binding Slika}"/>
 
-                                        <Label Text="{Binding Naziv}"
+                                            <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
                                         <Button BackgroundColor="DarkGreen" Text="Select"></Button>
-
-                                    </StackLayout>
+                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                            <Button BackgroundColor="DarkRed" TextColor="White" Text="Select"></Button>
+                                        </StackLayout>
                                 </ContentView>
                             </ViewCell>
                         </DataTemplate>
@@ -105,11 +107,11 @@
 												 WidthRequest="100">
                                         <Image Source="{Binding Slika}"/>
 
-                                        <Label Text="{Binding Naziv}"
+                                            <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                        <Label Text="{Binding Ocjena}"/>
-                                        <Button BackgroundColor="DarkGreen" TextColor="White" Text="Select"></Button>
+                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                            <Button BackgroundColor="DarkRed" TextColor="White" Text="Select"></Button>
 
                                     </StackLayout>
                                 </ContentView>
@@ -140,11 +142,11 @@
 												 WidthRequest="100">
                                         <Image Source="{Binding Slika}"/>
 
-                                        <Label Text="{Binding Naziv}"
+                                            <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                        <Label Text="{Binding Ocjena}"/>
-                                        <Button BackgroundColor="DarkGreen" TextColor="White" Text="Select"></Button>
+                                            <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
+                                            <Button BackgroundColor="DarkRed" TextColor="White" Text="Select"></Button>
 
                                     </StackLayout>
                                 </ContentView>
@@ -154,30 +156,7 @@
                 </ListView>
             </RelativeLayout>
             </StackLayout>
-            <ListView ItemsSource="{Binding restoranis}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
-                                <StackLayout>
-                                    <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
-                                </StackLayout>
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Naziv}" 
-                                           LineBreakMode="NoWrap" 
-                                           Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
-                                    <Label Text="{Binding Lokacija}" 
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="13" />
-                                </StackLayout>
-
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

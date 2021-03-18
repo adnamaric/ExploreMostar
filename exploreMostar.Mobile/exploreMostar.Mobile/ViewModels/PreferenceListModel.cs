@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -25,6 +26,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.ReportClass> temp2 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.ReportClass> temp3 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.ReportClass> temp4 { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.Kafici> kafici { get; set; } = new ObservableCollection<Model.Kafici>();
 
         public ICommand InitCommand { get; set; }
         public PreferenceListModel()
@@ -46,8 +48,8 @@ namespace exploreMostar.Mobile.ViewModels
             if (Food == true)
             {
 
-                var list = await _restorani.Get<IEnumerable<Model.Restorani>>(null);
-                
+                var list = await _restorani.Get<IList<Model.Restorani>>(null);
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
                 restoranis.Clear();
                 temp.Clear();
                 foreach (var item in list)
@@ -64,6 +66,7 @@ namespace exploreMostar.Mobile.ViewModels
             if (Atrakcije == true)
             {
                 var list = await _atrakcije.Get<IEnumerable<Model.Atrakcije>>(null);
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
                 atrakcije.Clear();
                 temp1.Clear();
                 foreach (var item in list)
@@ -76,7 +79,8 @@ namespace exploreMostar.Mobile.ViewModels
             if (Apartmani == true)
             {
                 var list = await _apartmani.Get<IEnumerable<Model.Apartmani>>(null);
-             
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
+
                 temp2.Clear();
                 foreach (var item in list)
                 {
@@ -88,7 +92,8 @@ namespace exploreMostar.Mobile.ViewModels
             if (Hoteli == true)
             {
                 var list = await _hoteli.Get<IEnumerable<Model.Hoteli>>(null);
-             
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
+
                 temp3.Clear();
                 foreach (var item in list)
                 {
@@ -100,11 +105,12 @@ namespace exploreMostar.Mobile.ViewModels
             if (Kafici == true)
             {
                 var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
-              
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
+                kafici.Clear();
                 temp3.Clear();
                 foreach (var item in list)
                 {
-                  
+                    kafici.Add(item);
                     temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
 
                 }
@@ -112,6 +118,7 @@ namespace exploreMostar.Mobile.ViewModels
             if (Prevoz == true)
             {
                 var list = await _prevoz.Get<IEnumerable<Model.Prevoz>>(null);
+                
 
                 temp4.Clear();
                 foreach (var item in list)
@@ -124,7 +131,7 @@ namespace exploreMostar.Mobile.ViewModels
             if (Prevoz == true)
             {
                 var list = await _nocniklubovi.Get<IEnumerable<Model.Nightclubs>>(null);
-
+                list = list.OrderByDescending(y => y.Ocjena).ToList();
                 temp4.Clear();
                 foreach (var item in list)
                 {

@@ -2,13 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters"
              x:Class="exploreMostar.Mobile.Views.ListViewPage1">
     <ContentPage.BindingContext>
         <viewmodels:TempModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Restorani}"
-          
+             ItemSelected="MyListView_ItemSelected"
             CachingStrategy="RecycleElement">
     <!--Built in Cells-->
    
@@ -18,13 +24,16 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Naziv}" 
+                    <StackLayout>
+                        <Label Text="{Binding Naziv}" 
                    Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Lokacija}" 
+                        <Label Text="{Binding Lokacija}" 
                    Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
+                        <StackLayout>
+                            <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
     

@@ -99,5 +99,16 @@ namespace exploreMostar.Mobile.Views
                 MyStackLayout3.HeightRequest = 0; //
             }
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as Model.Restorani;
+            Application.Current.MainPage = new ListViewPage1();
+
+        }
     }
 }

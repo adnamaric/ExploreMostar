@@ -16,17 +16,22 @@ namespace exploreMostar.Mobile.Converters
             if (APIService.PutanjaSlike == null)
                 return null;
 
+            //byte[] bytes = value as byte[];
+            // var file = File.ReadAllBytes(APIService.PutanjaSlike);
+
+            //bytes = Encoding.ASCII.GetBytes(APIService.PutanjaSlike);
+
+            ////var request = file;
+
+
+            //Func <Stream> myFunc = () => new MemoryStream(bytes);
+
+            //return ImageSource.FromUri(new Uri(APIService.PutanjaSlike)); 
             byte[] bytes = value as byte[];
-           // var file = File.ReadAllBytes(APIService.PutanjaSlike);
-           
-            bytes = Encoding.ASCII.GetBytes(APIService.PutanjaSlike);
 
-            //var request = file;
+            Func<Stream> myFunc = () => new MemoryStream(bytes);
 
-            
-            Func <Stream> myFunc = () => new MemoryStream(bytes);
-
-            return ImageSource.FromUri(new Uri(APIService.PutanjaSlike)); 
+            return ImageSource.FromStream(myFunc);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

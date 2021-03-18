@@ -19,7 +19,6 @@ namespace exploreMostar.Mobile.Views
         {
             InitializeComponent();
             BindingContext = model = new TempModel();
-
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -36,6 +35,12 @@ namespace exploreMostar.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
+           
+        }
+
+        private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as Model.Restorani;
         }
     }
 }

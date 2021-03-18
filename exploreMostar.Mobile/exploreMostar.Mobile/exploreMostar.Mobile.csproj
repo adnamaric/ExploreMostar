@@ -19,7 +19,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Explore Mostar (6).png" />
     <EmbeddedResource Include="Resources\Explore Mostar (8).png" />
-    <EmbeddedResource Include="Resources\Explore Mostar (9).png" />
+    <EmbeddedResource Include="Resources\Explore Mostar (9).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +36,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListViewPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OpeningPage.xaml">

@@ -22,7 +22,7 @@ namespace exploreMostar.Mobile
         public static bool Other { get; set; }
         public static bool Nightclubs { get; set; }
         public static string PutanjaSlike { get; set; }
-
+        public static string Naziv { get; set; }
 
 #if DEBUG
         string _apiUrl = "http://localhost:64741/api/";
