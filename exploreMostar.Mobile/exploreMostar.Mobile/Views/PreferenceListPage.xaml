@@ -1,29 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" x:DataType="viewmodels:PreferenceListModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" xmlns:local="clr-namespace:exploreMostar.Mobile.Controls"
              x:Class="exploreMostar.Mobile.Views.PreferenceListPage">
     <ContentPage.BindingContext>
         <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Nek" Clicked="Button_Clicked"></Button>
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#252526">
 
-           
-            <CollectionView ItemsSource="{Binding RestoraniLista}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="2" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate></DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <Label Padding="0,20,0,0"></Label>
 
+            <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
+                <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Chose a restaurant:" FontAttributes="Bold"></Label>
+                <RelativeLayout  IsEnabled="{Binding Food}" IsVisible="{Binding Food}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding restoranis}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                    <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                        <Image Source="{Binding Slika}"/>
+
+                                        <Label TextColor="White" Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                        <Button BackgroundColor="DarkGreen" Text="Select"></Button>
+                                    </StackLayout>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativeLayout  >
+                
+            </StackLayout>
+            <StackLayout x:Name="MyStackLayout1" SizeChanged="MyStackLayout1_SizeChanged" IsVisible="{Binding Atrakcije}">
+            <Label  IsEnabled="{Binding Atrakcije}" IsVisible="{Binding Atrakcije}" TextColor="White" FontAttributes="Bold"  Text="Choose atraction:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+            <RelativeLayout IsVisible="{Binding Atrakcije}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding atrakcije}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                    <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                        <Image Source="{Binding Slika}"/>
+
+                                        <Label Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                        <Button BackgroundColor="DarkGreen" Text="Select"></Button>
+
+                                    </StackLayout>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativeLayout>
+            </StackLayout>
+            <StackLayout  x:Name="MyStackLayout2" SizeChanged="MyStackLayout2_SizeChanged" IsVisible="{Binding Apartmani}">
+            <Label  IsVisible="{Binding Apartmani}" TextColor="White" FontAttributes="Bold"  Text="Choose apartment:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+            <RelativeLayout IsVisible="{Binding Apartmani}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp2}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                    <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                        <Image Source="{Binding Slika}"/>
+
+                                        <Label Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                        <Label Text="{Binding Ocjena}"/>
+                                        <Button BackgroundColor="DarkGreen" TextColor="White" Text="Select"></Button>
+
+                                    </StackLayout>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativeLayout>
+            </StackLayout>
+            <StackLayout  x:Name="MyStackLayout3" SizeChanged="MyStackLayout3_SizeChanged" IsVisible="{Binding Kafici}">
+            <Label  IsVisible="{Binding Kafici}" TextColor="White" FontAttributes="Bold"  Text="Choose coffee shops:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+            <RelativeLayout IsVisible="{Binding Kafici}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                    <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                        <Image Source="{Binding Slika}"/>
+
+                                        <Label Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                        <Label Text="{Binding Ocjena}"/>
+                                        <Button BackgroundColor="DarkGreen" TextColor="White" Text="Select"></Button>
+
+                                    </StackLayout>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RelativeLayout>
+            </StackLayout>
         </StackLayout>
-        
-
     </ContentPage.Content>
 </ContentPage>

@@ -79,6 +79,7 @@ namespace exploreMostar.Mobile.ViewModels
             APIService.Nightclubs = _nightclubs;
             APIService.Transport = _transport;
            
+            if(_food==false)
              await Application.Current.MainPage.DisplayAlert("Alert", "Preferences successfully added!", "OK");
             Application.Current.MainPage = new PreferenceListPage();
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace exploreMostar.Model
 {
-    public partial class Restorani
+    public  partial class Restorani
     {
         public string Naziv { get; set; }
         public string Lokacija { get; set; }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace exploreMostar.Mobile.ViewModels
 {
@@ -15,11 +18,115 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _kafici = new APIService("Kafici");
         private readonly APIService _nocniklubovi = new APIService("Nightclubs");
         private readonly APIService _prevoz = new APIService("Prevoz");
+        public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
+        public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();
+        public ObservableCollection<Model.ReportClass> temp { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.ReportClass> temp1 { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.ReportClass> temp2 { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.ReportClass> temp3 { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.ReportClass> temp4 { get; set; } = new ObservableCollection<Model.ReportClass>();
 
+        public ICommand InitCommand { get; set; }
         public PreferenceListModel()
         {
             Setuj();
-          
+            InitCommand = new Command(async () => await Init());
+        }
+      public async Task Init()
+        {
+            await _service.Get<dynamic>(null);
+            Atrakcije = APIService.Atraction;
+            Apartmani = APIService.Apartments;
+            Hoteli = APIService.Hotels;
+            Food = APIService.Food;
+            Other = APIService.Other;
+            Prevoz = APIService.Transport;
+            NocniKlubovi = APIService.Nightclubs;
+            Kafici = APIService.Coffeeshops;
+            if (Food == true)
+            {
+
+                var list = await _restorani.Get<IEnumerable<Model.Restorani>>(null);
+                restoranis.Clear();
+                temp.Clear();
+                foreach (var item in list)
+                {
+                    restoranis.Add(item);
+                    temp.Add(new Model.ReportClass {Naziv=item.Naziv, Ocjena=item.Ocjena });
+                }
+            }
+            if (Atrakcije == true)
+            {
+                var list = await _atrakcije.Get<IEnumerable<Model.Atrakcije>>(null);
+                atrakcije.Clear();
+                temp1.Clear();
+                foreach (var item in list)
+                {
+                    atrakcije.Add(item);
+                    temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+            }
+            if (Apartmani == true)
+            {
+                var list = await _apartmani.Get<IEnumerable<Model.Apartmani>>(null);
+             
+                temp2.Clear();
+                foreach (var item in list)
+                {
+                    
+                    temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+            }
+            if (Hoteli == true)
+            {
+                var list = await _hoteli.Get<IEnumerable<Model.Hoteli>>(null);
+             
+                temp3.Clear();
+                foreach (var item in list)
+                {
+                   
+                    temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+            }
+            if (Kafici == true)
+            {
+                var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
+              
+                temp3.Clear();
+                foreach (var item in list)
+                {
+                  
+                    temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+            }
+            if (Prevoz == true)
+            {
+                var list = await _prevoz.Get<IEnumerable<Model.Prevoz>>(null);
+
+                temp4.Clear();
+                foreach (var item in list)
+                {
+
+                    temp4.Add(new Model.ReportClass { Naziv = item.Naziv });
+
+                }
+            }
+            if (Prevoz == true)
+            {
+                var list = await _nocniklubovi.Get<IEnumerable<Model.Nightclubs>>(null);
+
+                temp4.Clear();
+                foreach (var item in list)
+                {
+
+                    temp4.Add(new Model.ReportClass { Naziv = item.Naziv,Ocjena=item.Ocjena });
+
+                }
+            }
         }
         public bool Atrakcije = false;
         public bool Apartmani = false;
@@ -31,31 +138,55 @@ namespace exploreMostar.Mobile.ViewModels
         public bool Food = false;
         public async void Setuj()
         {
-            await _service.Get<dynamic>(null);
-            Atrakcije = APIService.Atraction;
-            Apartmani = APIService.Apartments;
-            Hoteli = APIService.Hotels;
-            Food = APIService.Food;
-            Other = APIService.Other;
-            Prevoz = APIService.Transport;
-            NocniKlubovi = APIService.Nightclubs;
-            Kafici = APIService.Coffeeshops;
-            if (Atrakcije == true)
+         
+         
                 UcitajAtrakcije();
             if (Apartmani == true)
                 UcitajApartmane();
             if (Hoteli == true)
                 UcitajHotele();
-            if (Food == true)
-                UcitajRestorane();
+          
+              //  UcitajRestorane();
             if (Prevoz == true)
                 UcitajPrevoz();
             if (NocniKlubovi == true)
                 UcitajNocneKlubove();
             if (Kafici == true)
                 UcitajKafice();
-
+           // HoteliLista = IEnumerable<Model.Hoteli>();
         }
+        private IEnumerable<Model.Hoteli> _hotelis;
+
+        public IEnumerable<Model.Hoteli> Hotelis
+        {
+            get { return _hotelis; }
+            set
+            {
+                _hotelis = value;
+               
+            }
+        }
+        //  public PreferenceListModel(INavigationService navigationService, IMonkeyService monkeyService)
+        //: base(navigationService)
+        //  {
+        //      Title = "Monkeys Horizontal List";
+
+        //      _monkeyService = monkeyService;
+        //  }
+        //public MainPageViewModel(INavigationService navigationService, IMonkeyService monkeyService)
+        //     : base(navigationService)
+        //{
+        //    Title = "Monkeys Horizontal List";
+
+        //    _monkeyService = monkeyService;
+        //}
+
+        //public async override void OnNavigatingTo(NavigationParameters parameters)
+        //{
+        //    base.OnNavigatingTo(parameters);
+        //    Monkeys = await _monkeyService.GetMonkey();
+        //}
+
         public List<Model.Apartmani> ApartmaniLista { get; set; } = new List<Model.Apartmani>();
         public void UcitajApartmane()
         {
@@ -76,6 +207,7 @@ namespace exploreMostar.Mobile.ViewModels
             Task<List<Model.Hoteli>> task = Task.Run<List<Model.Hoteli>>(async () => await _hoteli.Get<List<Model.Hoteli>>(null));
             HoteliLista.Clear();
             HoteliLista.AddRange(task.Result);
+
         }
         public List<Model.Restorani> RestoraniLista { get; set; } = new List<Model.Restorani>();
         public void UcitajRestorane()
