@@ -7,18 +7,11 @@
         <viewmodels:PreferenceListModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-       
+        
         <StackLayout>
-            <maps:Map x:Name="map"
-                  ItemsSource="{Binding restoranis}">
-                <maps:Map.ItemTemplate>
-                    <DataTemplate>
-                        <maps:Pin Address="{Binding Lokacija}"
-                              Label="{Binding Naziv}" />
-                    </DataTemplate>
-                </maps:Map.ItemTemplate>
-            </maps:Map>
+        <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" IsShowingUser="True" x:Name="Map" >
+                
+        </maps:Map>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

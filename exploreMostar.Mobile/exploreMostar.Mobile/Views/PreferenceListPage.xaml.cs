@@ -57,6 +57,8 @@ namespace exploreMostar.Mobile.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await korisnici.Get<dynamic>(null);
+            if (model.GetSelectedOne.CanExecute(null))
+                model.GetSelectedOne.Execute(null);
         }
         protected async override void OnAppearing()
         {
@@ -107,9 +109,10 @@ namespace exploreMostar.Mobile.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Model.Restorani;
+            APIService.Naziv = item.Naziv;
             try
             {
-                Application.Current.MainPage = new MapPage();
+                Application.Current.MainPage = new MapPage(item);
 
             }
             catch (Exception ex)
@@ -121,7 +124,12 @@ namespace exploreMostar.Mobile.Views
 
         private void Button_Clicked_2(object sender, EventArgs e)
         {
+            var nesto = 123;
+        }
 
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -29,10 +29,17 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.Kafici> kafici { get; set; } = new ObservableCollection<Model.Kafici>();
 
         public ICommand InitCommand { get; set; }
+        public ICommand GetSelectedOne { get; set; }
+        public string parametar;
         public PreferenceListModel()
         {
             //Setuj();
             InitCommand = new Command(async () => await Init());
+            GetSelectedOne = new Command(async () => await GetT());
+        }
+        public async Task GetT()
+        {
+            
         }
       public async Task Init()
         {

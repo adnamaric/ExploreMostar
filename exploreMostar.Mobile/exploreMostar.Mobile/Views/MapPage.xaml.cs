@@ -16,11 +16,13 @@ namespace exploreMostar.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
-        public MapPage()
+        public Model.Restorani selected=new Model.Restorani();
+        public MapPage(Model.Restorani model)
         {
             InitializeComponent();
+            selected = model;
             Get();
-            
+          
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
@@ -29,24 +31,11 @@ namespace exploreMostar.Mobile.Views
         {
 
 
-            //try
-            //{
-            //    var task = Geolocation.GetLocationAsync();
-            //    task.ContinueWith(x =>
-            //    {
-            //        var location = x.Result;
-            //        if (location != null)
-            //            DisplayAlert("Localização", $"latitude:{location.Latitude}, logintude:{location.Longitude}", "OK");
+                //Position position = new Position((double)selected.Longitude, (double)selected.Longitude);
+         //   Location restoran = new Location((double)selected.Longitude, (double)selected.Longitude);
 
-            //    }, TaskScheduler.FromCurrentSynchronizationContext());
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
             try
             {
-                Position position = new Position(36.9628066, -122.0194722);
                 
                 //var lat = 47.673988;
                 //var lon = -122.121513;
@@ -98,6 +87,23 @@ namespace exploreMostar.Mobile.Views
                     await Application.Current.MainPage.DisplayAlert("Your location", $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}", "OK");
                     //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
+
+                Location boston = new Location((double)selected.Longitude,(double)selected.Latitude);
+               
+                double kilometers = Location.CalculateDistance(boston, location, DistanceUnits.Kilometers);
+                double meters = kilometers * 1000;
+                meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                Pin pin = new Pin
+                {
+                    Label = selected.Naziv,
+                    Address =selected.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selected.Latitude, (double)selected.Longitude)
+                };
+                Map.Pins.Add(pin);
+              
+
             }
             catch (FeatureNotSupportedException fnsEx)
             {
