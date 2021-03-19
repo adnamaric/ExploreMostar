@@ -7,9 +7,28 @@
         <viewmodels:PreferenceListModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <StackLayout BackgroundColor="#252526">
+            <Label Padding="0,10,0,0"></Label>
+           
+            <Label   VerticalTextAlignment="Start" x:Name="label" TextColor="DarkRed"  FontSize="Medium" ></Label>
+            <Label  VerticalTextAlignment="Start" x:Name="ocjena"  TextColor="DarkRed"  FontSize="Medium" ></Label>
         
-        <StackLayout>
-        <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" IsShowingUser="True" x:Name="Map" >
+            <StackLayout   Orientation="Horizontal"   HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"  WidthRequest="25" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn1"   BackgroundColor="DarkRed" TextColor="White"  HeightRequest="75" Text="Menu">
+
+                    </Button>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                    <Button    x:Name="btn2"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="75" Text="Location"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                    <Button    x:Name="btn3"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="75" Text="Contact"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" IsShowingUser="True" x:Name="Map" >
                 
         </maps:Map>
         </StackLayout>

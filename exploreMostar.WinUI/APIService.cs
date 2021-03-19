@@ -91,20 +91,19 @@ namespace exploreMostar.WinUI
             }
         }
 
-        //public async Task<T> Delete<T>(object id)
-        //{
-        //    var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
-
-        //    var result = await url.GetJsonAsync<T>();
-        //    return await url.PutJsonAsync(request).ReceiveJson<T>();;
-        //}
-        public async Task<T> Delete<T>(object id)
+       
+        public async Task<bool> Delete(int id)
         {
-
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            var result = await url.GetJsonAsync<T>();
-            return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
+          
+
+            return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<bool>();
         }
+
+
+
+
     }
 }
+

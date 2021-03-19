@@ -2,6 +2,7 @@
 using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Database;
 using exploreMostar.WebAPI.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace exploreMostar.WebAPI.Services
     {
         private readonly exploreMostarContext _context;
         private readonly IMapper _mapper;
+     
 
         public KorisniciService(exploreMostarContext context,IMapper mapper)
         {
@@ -104,23 +106,41 @@ namespace exploreMostar.WebAPI.Services
             return _mapper.Map<Model.Korisnici>(entity);
 
         }
-        public bool  Delete(int id)
+       
+        public bool Delete(int id)
         {
+
             if (id != 0)
             {
-               var kor= _context.Korisnici.Find(id);
+                var kor = _context.Korisnici.Find(id);
+                var korisniciUloge = _context.KorisniciUloge.ToList();
+                List<KorisniciUloge> n = new List<KorisniciUloge>();
+                foreach(var item in korisniciUloge)
+                {
+                    if (kor.KorisnikId == item.KorisnikId)
+                        n.Add(item);
+                    
+                }
+                foreach(var item in n)
+                {
+                    if (item.KorisnikId == kor.KorisnikId)
+                        korisniciUloge.Remove(item);
+                }
+                
                 if (kor != null)
                 {
                     _context.Korisnici.Remove(kor);
                     _context.SaveChanges();
                     return true;
                 }
+                
             }
             return false;
 
-
-
         }
+
+
+
         public static string GenerateSalt()
         {
             var buf = new byte[16];

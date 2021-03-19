@@ -15,6 +15,7 @@ namespace exploreMostar.WinUI.Korisnici
     {
         private readonly APIService _korisnici = new APIService("korisnici");
         private readonly APIService _gradovi = new APIService("gradovi");
+        
         private int? _id = null;
         public frmUklanjanjeKorisnika(int? korisnikId = null)
         {
@@ -122,7 +123,7 @@ namespace exploreMostar.WinUI.Korisnici
                 }
             }
         }
-
+        
         private async void frmUklanjanjeKorisnika_Load(object sender, EventArgs e)
         {
             await LoadKorisnici();
@@ -142,19 +143,23 @@ namespace exploreMostar.WinUI.Korisnici
             cmbOdaberiKorisnika.ValueMember = "KorisnikID";
 
         }
+       
 
         private async void btnUkloni_Click(object sender, EventArgs e)
         {
             var result = await _korisnici.Get<List<Model.Korisnici>>(null);
             var odabrani = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
             
+            
             if (odabrani.KorisnikId != 0)
             {
-                await _korisnici.Delete<Model.Korisnici>(odabrani.KorisnikId);
+                await _korisnici.Delete(odabrani.KorisnikId);
+                  
 
-           
+
             }
             await LoadKorisnici();
         }
+
     }
 }

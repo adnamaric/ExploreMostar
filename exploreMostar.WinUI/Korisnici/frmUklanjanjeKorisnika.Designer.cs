@@ -29,6 +29,7 @@ namespace exploreMostar.WinUI.Korisnici
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbOdaberiKorisnika = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnDodajSliku = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.circleButton1 = new exploreMostar.WinUI.CircleButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // cmbOdaberiKorisnika
@@ -296,6 +298,12 @@ namespace exploreMostar.WinUI.Korisnici
             this.circleButton1.TabIndex = 80;
             this.circleButton1.UseVisualStyleBackColor = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // frmUklanjanjeKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,5 +374,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

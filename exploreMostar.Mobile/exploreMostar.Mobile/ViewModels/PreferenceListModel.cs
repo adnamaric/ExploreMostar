@@ -35,12 +35,9 @@ namespace exploreMostar.Mobile.ViewModels
         {
             //Setuj();
             InitCommand = new Command(async () => await Init());
-            GetSelectedOne = new Command(async () => await GetT());
+            //GetSelectedOne = new Command(async () => await GetT());
         }
-        public async Task GetT()
-        {
-            
-        }
+       
       public async Task Init()
         {
             await _service.Get<dynamic>(null);

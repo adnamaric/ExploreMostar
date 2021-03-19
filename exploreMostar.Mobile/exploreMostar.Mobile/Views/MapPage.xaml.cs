@@ -22,7 +22,8 @@ namespace exploreMostar.Mobile.Views
             InitializeComponent();
             selected = model;
             Get();
-          
+            label.Text = "Name: "+selected.Naziv;
+            ocjena.Text ="Rate: "+ selected.Ocjena.ToString();
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;

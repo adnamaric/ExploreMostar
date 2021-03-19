@@ -44,10 +44,12 @@ namespace exploreMostar.WebAPI.Controllers
         {
             return _service.Update(id,request);
         }
+
         [HttpDelete("{id}")]
         public bool Delete(int id)
         {
-            return true;
+            return _service.Delete(id);
+            
         }
     }
 }
