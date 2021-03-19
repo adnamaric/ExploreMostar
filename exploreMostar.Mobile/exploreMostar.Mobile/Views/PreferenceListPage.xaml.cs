@@ -109,7 +109,7 @@ namespace exploreMostar.Mobile.Views
             var item = e.SelectedItem as Model.Restorani;
             try
             {
-                Application.Current.MainPage = new CarouselView();
+                Application.Current.MainPage = new MapPage();
 
             }
             catch (Exception ex)

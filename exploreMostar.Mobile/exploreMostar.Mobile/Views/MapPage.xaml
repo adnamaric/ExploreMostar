@@ -1,9 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" 
              x:Class="exploreMostar.Mobile.Views.MapPage">
+    <ContentPage.BindingContext>
+        <viewmodels:PreferenceListModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <maps:Map></maps:Map>
+       
+        <StackLayout>
+            <maps:Map x:Name="map"
+                  ItemsSource="{Binding restoranis}">
+                <maps:Map.ItemTemplate>
+                    <DataTemplate>
+                        <maps:Pin Address="{Binding Lokacija}"
+                              Label="{Binding Naziv}" />
+                    </DataTemplate>
+                </maps:Map.ItemTemplate>
+            </maps:Map>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>
