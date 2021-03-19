@@ -107,7 +107,20 @@ namespace exploreMostar.Mobile.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Model.Restorani;
-            Application.Current.MainPage = new ListViewPage1();
+            try
+            {
+                Application.Current.MainPage = new CarouselView();
+
+            }
+            catch (Exception ex)
+            {
+               
+            }
+
+        }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
 
         }
     }

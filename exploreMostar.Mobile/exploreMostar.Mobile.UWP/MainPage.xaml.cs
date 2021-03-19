@@ -21,10 +21,11 @@ namespace exploreMostar.Mobile.UWP
         public MainPage()
         {
             this.InitializeComponent();
-          
+
 
             //// if you want not to have any window smaller than this size...
             //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(480, 800));
+            Xamarin.FormsMaps.Init("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
 
             LoadApplication(new exploreMostar.Mobile.App());
         }
