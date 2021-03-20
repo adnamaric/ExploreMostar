@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace exploreMostar.WebAPI.Database
+namespace exploreMostar.Model.Requests
 {
-    public partial class Objava
+    public partial class ObjavaUpsertRequest
     {
-        public int ObjavaId { get; set; }
+      
         public string Naziv { get; set; }
         public string Sadrzaj { get; set; }
         public byte[] Slika { get; set; }
@@ -14,6 +15,5 @@ namespace exploreMostar.WebAPI.Database
         public string Autor { get; set; }
         public DateTime? Datum { get; set; }
 
-        public Korisnici Korisnik { get; set; }
     }
 }

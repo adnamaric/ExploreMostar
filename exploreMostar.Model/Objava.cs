@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace exploreMostar.WebAPI.Database
+namespace exploreMostar.Model
 {
     public partial class Objava
     {
@@ -12,8 +13,9 @@ namespace exploreMostar.WebAPI.Database
         public string PutanjaSlike { get; set; }
         public int? KorisnikId { get; set; }
         public string Autor { get; set; }
-        public DateTime? Datum { get; set; }
+        public DateTime Datum { get; set; }
 
-        public Korisnici Korisnik { get; set; }
+        public int Rbr { get; set; }
+
     }
 }

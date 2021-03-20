@@ -68,7 +68,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmObjavaMenu n = new frmObjavaMenu();
+            n.Show();
         }
 
         private async void frmMenu_Load_1(object sender, EventArgs e)

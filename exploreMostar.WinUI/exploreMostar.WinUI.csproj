@@ -128,6 +128,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\frmObjavaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\frmObjavaMenu.Designer.cs">
+      <DependentUpon>frmObjavaMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\frmOpen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,18 @@
     </Compile>
     <Compile Include="Menu\try.Designer.cs">
       <DependentUpon>try.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objava\frmListaObjava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objava\frmListaObjava.Designer.cs">
+      <DependentUpon>frmListaObjava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objava\frmObjavaAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objava\frmObjavaAdd.Designer.cs">
+      <DependentUpon>frmObjavaAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -490,6 +508,9 @@
     <EmbeddedResource Include="Korisnici\frmUrediKorisnika.resx">
       <DependentUpon>frmUrediKorisnika.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\frmObjavaMenu.resx">
+      <DependentUpon>frmObjavaMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmOpen.resx">
       <DependentUpon>frmOpen.cs</DependentUpon>
     </EmbeddedResource>
@@ -540,6 +561,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\try.resx">
       <DependentUpon>try.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objava\frmListaObjava.resx">
+      <DependentUpon>frmListaObjava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objava\frmObjavaAdd.resx">
+      <DependentUpon>frmObjavaAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -403,11 +403,22 @@ namespace exploreMostar.WebAPI.Database
 
             modelBuilder.Entity<Objava>(entity =>
             {
+                entity.Property(e => e.Autor).HasMaxLength(40);
+
+                entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
                 entity.Property(e => e.Naziv).HasMaxLength(50);
 
                 entity.Property(e => e.Sadrzaj).HasMaxLength(250);
 
                 entity.Property(e => e.Slika).HasMaxLength(1);
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.Objava)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK__Objava__Korisnik__73852659");
             });
 
             modelBuilder.Entity<Prevoz>(entity =>

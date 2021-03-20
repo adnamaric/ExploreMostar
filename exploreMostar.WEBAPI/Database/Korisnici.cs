@@ -9,6 +9,7 @@ namespace exploreMostar.WebAPI.Database
         {
             KorisniciUloge = new HashSet<KorisniciUloge>();
             KorisnikKategorija = new HashSet<KorisnikKategorija>();
+            Objava = new HashSet<Objava>();
         }
 
         public string Ime { get; set; }
@@ -29,5 +30,6 @@ namespace exploreMostar.WebAPI.Database
         public Gradovi Grad { get; set; }
         public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public ICollection<KorisnikKategorija> KorisnikKategorija { get; set; }
+        public ICollection<Objava> Objava { get; set; }
     }
 }

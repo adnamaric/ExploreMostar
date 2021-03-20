@@ -38,6 +38,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Jelovnik, JelovnikUpsertRequest>().ReverseMap();
             CreateMap<Database.Uloge, Model.Uloge>();
             CreateMap<Database.KorisniciUloge, Model.KorisniciUloge>();
+            CreateMap<Database.Objava, Model.Objava>();
+            CreateMap<Database.Objava, ObjavaUpsertRequest>().ReverseMap();
 
 
         }
