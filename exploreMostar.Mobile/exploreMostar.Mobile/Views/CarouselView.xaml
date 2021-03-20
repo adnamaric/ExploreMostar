@@ -10,7 +10,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <CarouselView ItemsSource="{Binding restoranis}">
+
+
+            <CarouselView ItemsSource="{Binding jelas}">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
@@ -22,6 +24,7 @@
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand">
                                 <StackLayout>
+                                    <Label Text="{Binding Rbr}" ></Label>
                                     <Label Text="{Binding Naziv}"
                                FontAttributes="Bold"
                                FontSize="Large"
@@ -32,9 +35,9 @@
                                HeightRequest="150"
                                WidthRequest="150"
                                HorizontalOptions="Center" />
-                                    <Label Text="{Binding Lokacija}"
+                                    <Label Text="{Binding Sastojci}"
                                HorizontalOptions="Center" />
-                                    <Label Text="{Binding Rbr}"
+                                    <Label Text="{Binding Sastojci}"
                                FontAttributes="Italic"
                                HorizontalOptions="Center"
                                MaxLines="5"
@@ -45,6 +48,7 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

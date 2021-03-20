@@ -14,10 +14,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content >
+        <ScrollView>
         <StackLayout BackgroundColor="#252526">
 
-            <Label Padding="0,20,0,0"></Label>
-
+          
+                <StackLayout>
+                    <Button  Text="Best rated content" TextColor="White" BackgroundColor="DarkRed" FontAttributes="Bold" VerticalOptions="Center" HeightRequest="40"></Button>
+                 
+                </StackLayout>
             <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
                 <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Chose a restaurant:" FontAttributes="Bold"></Label>
                 <RelativeLayout  IsEnabled="{Binding Food}" IsVisible="{Binding Food}" Grid.Row="1" 
@@ -40,9 +44,10 @@
                                         <Label x:Name="{Binding Naziv}" TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"></Label>
-                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"> </Label>
-                                    </StackLayout>
+                                                <Label  LineBreakMode="MiddleTruncation" TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label  TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"></Label>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+                                            </StackLayout>
                                 </ContentView>
                             </ViewCell>
                         </DataTemplate>
@@ -75,11 +80,10 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                        <Button BackgroundColor="DarkGreen" Text="Select"></Button>
-                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
-                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
-
-                                        </StackLayout>
+                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="DarkRed" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+                                            </StackLayout>
                                 </ContentView>
                             </ViewCell>
                         </DataTemplate>
@@ -111,11 +115,12 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                            <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
-                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 
-                                        </StackLayout>
+                                            </StackLayout>
                                 </ContentView>
                             </ViewCell>
                         </DataTemplate>
@@ -147,7 +152,8 @@
                                             <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                            <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
                                             <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 
@@ -159,7 +165,81 @@
                 </ListView>
             </RelativeLayout>
             </StackLayout>
-            
-        </StackLayout>
+            <StackLayout  x:Name="MyStackLayout4" SizeChanged="MyStackLayout4_SizeChanged" IsVisible="{Binding Hoteli}">
+                <Label  IsVisible="{Binding Hoteli}" TextColor="White" FontAttributes="Bold"  Text="Choose hotel:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+                <RelativeLayout IsVisible="{Binding Hoteli}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                    <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                        <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                            <Image Source="{Binding Slika}"/>
+
+                                            <Label  TextColor="White" Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
+                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+
+
+                                        </StackLayout>
+                                    </ContentView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RelativeLayout>
+            </StackLayout>
+                <StackLayout  x:Name="MyStackLayout5" SizeChanged="MyStackLayout5_SizeChanged" IsVisible="{Binding NocniKlubovi}">
+                    <Label  IsVisible="{Binding NocniKlubovi}" TextColor="White" FontAttributes="Bold"  Text="Choose hotel:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+                    <RelativeLayout IsVisible="{Binding NocniKlubovi}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                        <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                            <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                                <Image Source="{Binding Slika}"/>
+
+                                                <Label  TextColor="White" Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+
+
+                                            </StackLayout>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RelativeLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

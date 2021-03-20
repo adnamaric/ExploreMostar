@@ -11,13 +11,15 @@ using Xamarin.Forms.Xaml;
 namespace exploreMostar.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CarouselView : ContentPage
+    public partial class MapPage2 : ContentPage
     {
-        private PreferenceListModel model = null;
-        public CarouselView()
+        public Model.Restorani selected = new Model.Restorani();
+        private TempModel model = null;
+        public MapPage2(Model.Restorani restorani)
         {
             InitializeComponent();
-            BindingContext = model = new PreferenceListModel();
+            selected = restorani;
+            BindingContext = model = new TempModel();
         }
         protected async override void OnAppearing()
         {

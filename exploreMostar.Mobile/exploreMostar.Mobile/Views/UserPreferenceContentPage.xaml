@@ -28,25 +28,17 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
-                    <Button x:Name="btn5" Clicked="Button5_Cliked" BackgroundColor="White"  HeightRequest="75" Text="#Transport"/>
+                    <Button  x:Name="btn7" Clicked="Button7_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Nightclubs"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical" WidthRequest="50"  HorizontalOptions="FillAndExpand">
                     <Button x:Name="btn6" Clicked="Button6_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Coffeshops"/>
                 </StackLayout>
             </StackLayout>
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
-                    <Button  x:Name="btn7" Clicked="Button7_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Nightclubs"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
-                    <Button  x:Name="btn8" Clicked="Button8_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Other">
-                       
-                    </Button>
-                </StackLayout>
-            </StackLayout>
-            <Label Padding="0,0,0,40"></Label>
+           
+                
+            <Label Padding="0,35,0,50"></Label>
 
-            <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkRed" TextColor="White"></Button>
+            <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkRed" HeightRequest="50"  TextColor="White"></Button>
 
 
         </StackLayout>

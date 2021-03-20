@@ -10,6 +10,7 @@ using Windows.Devices.Geolocation;
 using System.Threading;
 using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
+using exploreMostar.Mobile.ViewModels;
 
 namespace exploreMostar.Mobile.Views
 {
@@ -17,17 +18,24 @@ namespace exploreMostar.Mobile.Views
     public partial class MapPage : ContentPage
     {
         public Model.Restorani selected=new Model.Restorani();
-        public MapPage(Model.Restorani model)
+        private PreferenceListModel model = null;
+        public MapPage(Model.Restorani model1)
         {
             InitializeComponent();
-            selected = model;
-            Get();
-            label.Text = "Name: "+selected.Naziv;
-            ocjena.Text ="Rate: "+ selected.Ocjena.ToString();
+            selected = model1;
+            BindingContext = model = new PreferenceListModel ();
+            //Get();
+            //label.Text = "Name: "+selected.Naziv;
+            //ocjena.Text ="Rate: "+ selected.Ocjena.ToString();
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await model.Init();
 
+        }
         async Task GetCurrentLocation()
         {
 
@@ -103,7 +111,7 @@ namespace exploreMostar.Mobile.Views
                     Type = PinType.Place,
                     Position = new Position((double)selected.Latitude, (double)selected.Longitude)
                 };
-                Map.Pins.Add(pin);
+                //Map.Pins.Add(pin);
               
 
             }
@@ -175,6 +183,55 @@ namespace exploreMostar.Mobile.Views
                 var results = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 
             }
+        }
+
+        private void btn2_Clicked(object sender, EventArgs e)
+        {
+            Stack2.IsVisible = true;
+
+            Stack2.HeightRequest = 500;
+            Map.IsVisible = true;
+            Stacky1.IsVisible = false;
+            btn2.TextColor = Color.DarkRed;
+            btn2.FontAttributes = FontAttributes.Bold;
+            btn2.BackgroundColor = Color.White;
+            btn3.BackgroundColor = Color.DarkRed;
+            btn3.TextColor = Color.White;
+            btn1.BackgroundColor = Color.DarkRed;
+            btn1.TextColor = Color.White;
+           
+        }
+
+        private void btn3_Clicked(object sender, EventArgs e)
+        {
+           Map.IsVisible = false;
+            btn3.TextColor = Color.DarkRed;
+            btn3.BackgroundColor = Color.White;
+            btn3.FontAttributes = FontAttributes.Bold;
+         //   Stack2.IsVisible = false;
+            
+            btn1.BackgroundColor = Color.DarkRed;
+            btn1.TextColor = Color.White;
+            btn2.BackgroundColor = Color.DarkRed;
+            btn2.TextColor = Color.White;
+            Application.Current.MainPage = new CarouselPage();
+        }
+
+        private void btn1_Clicked(object sender, EventArgs e)
+        {
+             Map.IsVisible = false;
+            Stack2.IsVisible = false;
+            Stack2.HeightRequest = 0;
+            // Stack2.IsVisible = true;
+            Stacky1.IsVisible = true;
+            btn1.TextColor = Color.DarkRed;
+            btn1.BackgroundColor = Color.White;
+            btn1.FontAttributes = FontAttributes.Bold;
+            btn2.BackgroundColor = Color.DarkRed;
+            btn2.TextColor = Color.White;
+            btn3.BackgroundColor = Color.DarkRed;
+            btn3.TextColor = Color.White;
+            
         }
     }
    

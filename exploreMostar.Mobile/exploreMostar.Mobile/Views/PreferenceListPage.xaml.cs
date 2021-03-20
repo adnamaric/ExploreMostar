@@ -131,5 +131,23 @@ namespace exploreMostar.Mobile.Views
         {
             
         }
+
+        private void MyStackLayout4_SizeChanged(object sender, EventArgs e)
+        {
+            if (APIService.Hotels == false)
+            {
+                MyStackLayout4.IsVisible = false;
+                MyStackLayout4.HeightRequest = 0; //
+            }
+        }
+
+        private void MyStackLayout5_SizeChanged(object sender, EventArgs e)
+        {
+            if (APIService.Nightclubs == false)
+            {
+                MyStackLayout5.IsVisible = false;
+                MyStackLayout5.HeightRequest = 0; //
+            }
+        }
     }
 }

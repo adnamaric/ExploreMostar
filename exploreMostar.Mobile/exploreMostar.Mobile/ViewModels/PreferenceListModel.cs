@@ -19,6 +19,9 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _kafici = new APIService("Kafici");
         private readonly APIService _nocniklubovi = new APIService("Nightclubs");
         private readonly APIService _prevoz = new APIService("Prevoz");
+        private readonly APIService _jelovnik = new APIService("Jelovnik");
+        private readonly APIService _jela = new APIService("Jela");
+
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
         public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();
         public ObservableCollection<Model.ReportClass> temp { get; set; } = new ObservableCollection<Model.ReportClass>();
@@ -27,7 +30,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.ReportClass> temp3 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.ReportClass> temp4 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.Kafici> kafici { get; set; } = new ObservableCollection<Model.Kafici>();
-
+        public ObservableCollection<Model.Jela> jelas { get; set; } = new ObservableCollection<Model.Jela>();
         public ICommand InitCommand { get; set; }
         public ICommand GetSelectedOne { get; set; }
         public string parametar;
@@ -56,6 +59,7 @@ namespace exploreMostar.Mobile.ViewModels
                 list = list.OrderByDescending(y => y.Ocjena).ToList();
                 restoranis.Clear();
                 temp.Clear();
+                jelas.Clear();
                 foreach (var item in list)
                 {
                     if(item.PutanjaSlike!=null)
@@ -65,7 +69,18 @@ namespace exploreMostar.Mobile.ViewModels
                     temp.Add(new Model.ReportClass {Naziv=item.Naziv, Ocjena=item.Ocjena });
                     
                 }
-                
+
+                var list1 = await _jela.Get<IList<Model.Jela>>(null);
+                list1 = list1.OrderByDescending(y => y.Ocjena).ToList();
+                foreach(var item in list1)
+                {
+                    jelas.Add(item);
+                }
+                var broj = 0;
+                foreach(var item in jelas)
+                {
+                    item.Rbr = ++broj;
+                }
             }
             if (Atrakcije == true)
             {
@@ -256,5 +271,18 @@ namespace exploreMostar.Mobile.ViewModels
             PrevozLista.Clear();
             PrevozLista.AddRange(task.Result);
         }
+        public List<Model.Jela> Jela { get; set; } = new List<Model.Jela>();
+        public async void UcitajJela()
+        {
+            //jelovnik naknadno?
+            if (Food == true)
+            {
+
+                Task<List<Model.Jela>> task = Task.Run<List<Model.Jela>>(async () => await _jela.Get<List<Model.Jela>>(null));
+                Jela.Clear();
+                Jela.AddRange(task.Result);
+            }
+        }
+
     }
 }

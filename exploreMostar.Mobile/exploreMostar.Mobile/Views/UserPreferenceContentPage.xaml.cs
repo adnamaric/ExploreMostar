@@ -56,8 +56,8 @@ namespace exploreMostar.Mobile.Views
 
         private void Button5_Cliked(object sender, EventArgs e)
         {
-            btn5.BackgroundColor = Color.DarkRed;
-            btn5.TextColor = Color.White;
+            //btn5.BackgroundColor = Color.DarkRed;
+            //btn5.TextColor = Color.White;
             m._transport = true;
             m.Prevoz = true;
            
@@ -82,8 +82,8 @@ namespace exploreMostar.Mobile.Views
 
         private void Button8_Cliked(object sender, EventArgs e)
         {
-            btn8.BackgroundColor = Color.DarkRed;
-            btn8.TextColor = Color.White;
+            //btn8.BackgroundColor = Color.DarkRed;
+            //btn8.TextColor = Color.White;
             m._other = true;
             m.Other = true;
         }
