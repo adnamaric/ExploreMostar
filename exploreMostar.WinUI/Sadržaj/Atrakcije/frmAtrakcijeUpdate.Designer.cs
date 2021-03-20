@@ -107,6 +107,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 73;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnSnimi
             // 

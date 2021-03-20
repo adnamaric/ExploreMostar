@@ -80,20 +80,21 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             // 
             this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(434, 313);
+            this.button5.Location = new System.Drawing.Point(472, 313);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 91;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnSnimi
             // 
             this.btnSnimi.BackColor = System.Drawing.Color.DarkGreen;
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(506, 313);
+            this.btnSnimi.Location = new System.Drawing.Point(544, 313);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(132, 43);
+            this.btnSnimi.Size = new System.Drawing.Size(149, 43);
             this.btnSnimi.TabIndex = 90;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;

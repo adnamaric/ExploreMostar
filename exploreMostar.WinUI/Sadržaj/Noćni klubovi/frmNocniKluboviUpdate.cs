@@ -33,8 +33,24 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             cmbNightClubs.DataSource = result;
             cmbNightClubs.DisplayMember = "Naziv";
             cmbNightClubs.ValueMember = "NightClubId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
         }
-  
+        public async void UcitajNK()
+        {
+            var result = await _nightclubs.Get<List<Model.Nightclubs>>(null);
+
+            result.Insert(0, new Model.Nightclubs() { NightClubId = 0 });
+            cmbNightClubs.DataSource = result;
+            cmbNightClubs.DisplayMember = "Naziv";
+            cmbNightClubs.ValueMember = "NightClubId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
+        }
         private async void cmbNightClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (txtSlikaInput.Text.Length != 0)
@@ -57,12 +73,14 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
 
                 if (odabrani.Slika.Length != 0)
                 {
-                    txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    btnSlika.Image = image;
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
+                    }
                 }
             }
         }
@@ -73,27 +91,60 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
-
-                var request = new NightClubsUpsertRequest
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                //   if(txtOcjena.Text.ToString())
+                double number = 0;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(), out number);
+                if (dialog == false)
                 {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                    KategorijaId = 3,
-                    Ocjena = double.Parse(txtOcjena.Text)
-                };
-              
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
-                if (_id != null || _id != 0)
-                {
-                    await _nightclubs.Update<Model.Nightclubs>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
+                    {
 
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
                 }
+                else
+                {
 
+                    var request = new NightClubsUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+                        KategorijaId = 3,
+                        Ocjena = double.Parse(txtOcjena.Text)
+                    };
+
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _nightclubs.Update<Model.Nightclubs>(_id, request);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _nightclubs.Delete((int)_id);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        FreeUp();
+                        UcitajNK();
+                    }
+                }
 
             }
         }
@@ -140,6 +191,21 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FreeUp();
+
+        }
+        public void FreeUp()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            txtOcjena.Clear();
+
         }
     }
 }

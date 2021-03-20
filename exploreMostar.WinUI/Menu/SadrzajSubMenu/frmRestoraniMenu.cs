@@ -13,6 +13,7 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmRestoraniMenu : Form
     {
+        private readonly APIService _apartmani = new APIService("apartmani");
         public frmRestoraniMenu()
         {
             InitializeComponent();
@@ -32,6 +33,16 @@ namespace exploreMostar.WinUI.Menu
 
         private void button3_Click(object sender, EventArgs e)
         {
+            APIService.isUpdate = true;
+            APIService.isDelete = false;
+            frmRestoraniUpdate frm = new frmRestoraniUpdate();
+            frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            APIService.isUpdate = false;
+            APIService.isDelete = true;
             frmRestoraniUpdate frm = new frmRestoraniUpdate();
             frm.Show();
         }

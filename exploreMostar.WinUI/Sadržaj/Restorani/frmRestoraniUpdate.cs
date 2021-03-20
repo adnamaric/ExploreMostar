@@ -46,6 +46,10 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             comboBox1.DataSource = result1;
             comboBox1.DisplayMember = "Naziv";
             comboBox1.ValueMember = "VrstaId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)
@@ -93,37 +97,68 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                //   if(txtOcjena.Text.ToString())
+                double number = 0;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(), out number);
+                if (dialog == false)
+                {
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
+                    {
 
-                var request = new RestoraniUpsertRequest
-                {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                    KategorijaId = 5,
-                    Ocjena = double.Parse(txtOcjena.Text)
-                };
-                if ((int)comboBox1.SelectedValue != 0)
-                    request.VrstaId = (int)comboBox1.SelectedValue;
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
-                if (cmbGodine.SelectedIndex != 0)
-                    request.GodinaIzgradnje = int.Parse(cmbGodine.SelectedItem.ToString());
-                if (comboBox1.SelectedIndex !=0)
-                {
-                    request.VrstaId = int.Parse(comboBox1.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
                 }
                 else
-                    request.VrstaId = 3;
-                if (_id != null || _id != 0)
                 {
-                    await _restorani.Update<Model.Restorani>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
+                    var request = new RestoraniUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+                        KategorijaId = 5,
+                        Ocjena = double.Parse(txtOcjena.Text)
+                    };
+                    if ((int)comboBox1.SelectedValue != 0)
+                        request.VrstaId = (int)comboBox1.SelectedValue;
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
+                    if (cmbGodine.SelectedIndex != 0)
+                        request.GodinaIzgradnje = int.Parse(cmbGodine.SelectedItem.ToString());
+                    if (comboBox1.SelectedIndex != 0)
+                    {
+                        request.VrstaId = int.Parse(comboBox1.SelectedValue.ToString());
+                    }
+                    else
+                        request.VrstaId = 3;
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _restorani.Update<Model.Restorani>(_id, request);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _restorani.Delete((int)_id);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+
+                    }
 
                 }
-
-
             }
         }
 
@@ -157,13 +192,14 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
                
                 if (odabrani.Slika.Length != 0)
                 {
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
-
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    btnSlika.Image = image;
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
+                    }
 
                 }
             }

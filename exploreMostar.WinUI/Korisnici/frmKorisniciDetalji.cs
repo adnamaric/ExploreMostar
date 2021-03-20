@@ -47,8 +47,6 @@ namespace exploreMostar.WinUI.Korisnici
                         Prezime = txtPrezime.Text,
                         Email = txtEmail.Text,
                         Telefon = txtTelefon.Text,
-                        Password = txtPassword.Text,
-                        PasswordConfirmation = txtPasswordConfrirm.Text,
                         KorisnickoIme = txtKorisnickoIme.Text,
                         GradId = cmbGradovi.SelectedIndex,
                         PutanjaSlike = openFileDialog1.FileName,
@@ -274,8 +272,6 @@ namespace exploreMostar.WinUI.Korisnici
             txtPrezime.Clear();
             txtEmail.Clear();
             txtKorisnickoIme.Clear();
-            txtPassword.Clear();
-            txtPasswordConfrirm.Clear();
             txtSlikaInput.Clear();
             lblImePrezime.Text = "";
             txtTelefon.Clear();

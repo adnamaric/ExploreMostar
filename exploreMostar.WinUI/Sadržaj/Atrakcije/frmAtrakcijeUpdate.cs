@@ -24,7 +24,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
 
         private int? _id = null;
 
-        private async void frmAtrakcijeUpdate_Load(object sender, EventArgs e)
+        private async void LOadAtrakcije(object sender, EventArgs e)
         {
             var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
 
@@ -32,8 +32,11 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             cmbAtrakcije.DataSource = result;
             cmbAtrakcije.DisplayMember = "Naziv";
             cmbAtrakcije.ValueMember = "AtrakcijaId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
 
-        
         }
         public double latitude;
         public double longitude;
@@ -91,37 +94,74 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                double number;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(), out number);
+                if (dialog == false)
+                {
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
+                    {
 
-                var request = new AtrakcijeUpsertRequest
-                {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                    KategorijaId = 3,
-                    Ocjena = double.Parse(txtOcjena.Text),
-                    Opis = txtOpis.Text,
-                  
-                };
-                //if (slika != null)
-                //{
-                //    request.Slika = slika;
-                //}
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
-                if (cmbVrsta.SelectedIndex != -1)
-                {
-                    request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
                 }
-                if (_id != null || _id != 0)
+                else
                 {
-                    await _atrakcije.Update<Model.Atrakcije>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
+                    var request = new AtrakcijeUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+                        KategorijaId = 3,
+                        Ocjena = double.Parse(txtOcjena.Text),
+                        Opis = txtOpis.Text,
+
+                    };
+
+                    //if (slika != null)
+                    //{
+                    //    request.Slika = slika;
+                    //}
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
+                    if (cmbVrsta.SelectedIndex != -1)
+                    {
+                        request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
+
+                    }
+                    if (request.VrstaAtrakcijeId == -1)
+                    {
+                        request.VrstaAtrakcijeId = 4;
+                    }
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _atrakcije.Update<Model.Atrakcije>(_id, request);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _atrakcije.Delete((int)_id);
+                            MessageBox.Show("Uspješno ste obrisali atrakciju!");
+                        }
+                        FreeUp();
+                        await LoadAtrakcije();
+                    }
 
                 }
-
-
             }
         }
         public byte[] slika;
@@ -166,6 +206,49 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FreeUp();
+        }
+        public void FreeUp()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            txtOcjena.Text = "";
+            txtOpis.Text = "";
+           
+        }
+
+        private async Task LoadAtrakcije()
+        {
+            var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+
+            result.Insert(0, new Model.Atrakcije() { AtrakcijaId = 0 });
+            cmbAtrakcije.DataSource = result;
+            cmbAtrakcije.DisplayMember = "Naziv";
+            cmbAtrakcije.ValueMember = "AtrakcijaId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
+        }
+
+        private async void frmAtrakcijeUpdate_Load(object sender, EventArgs e)
+        {
+            var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+
+            result.Insert(0, new Model.Atrakcije() { AtrakcijaId = 0 });
+            cmbAtrakcije.DataSource = result;
+            cmbAtrakcije.DisplayMember = "Naziv";
+            cmbAtrakcije.ValueMember = "AtrakcijaId";
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
         }
     }
 }

@@ -13,6 +13,7 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmKaficiMenu : Form
     {
+        private readonly APIService _apartmani = new APIService("apartmani");
         public frmKaficiMenu()
         {
             InitializeComponent();
@@ -20,6 +21,9 @@ namespace exploreMostar.WinUI.Menu
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            APIService.isUpdate = true;
+            APIService.isDelete = false;
             frmKaficiUpdate frm = new frmKaficiUpdate();
             frm.Show();
         }
@@ -33,6 +37,15 @@ namespace exploreMostar.WinUI.Menu
         private void button1_Click(object sender, EventArgs e)
         {
             frmListaKafica frm = new frmListaKafica();
+            frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            APIService.isUpdate = false;
+            APIService.isDelete = true;
+            frmKaficiUpdate frm = new frmKaficiUpdate();
             frm.Show();
         }
     }

@@ -20,6 +20,7 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
         public frmKaficiUpdate()
         {
             InitializeComponent();
+           
         }
 
         private async void frmKaficiUpdate_Load(object sender, EventArgs e)
@@ -53,13 +54,14 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             
                 if (odabrani.Slika.Length != 0)
                 {
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
-
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    btnSlika.Image = image;
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
+                    }
 
                 }
             }
@@ -76,8 +78,11 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             cmbOdabirApartmana.DataSource = result;
             cmbOdabirApartmana.DisplayMember = "Naziv";
             cmbOdabirApartmana.ValueMember = "KaficId";
-           
-          
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
+
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)
@@ -103,29 +108,63 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
-                var request = new KaficiUpsertRequest
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                //   if(txtOcjena.Text.ToString())
+                double number = 0;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(),out number);
+                if (dialog == false)
                 {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                 
-                    KategorijaId = 4,
-                    Ocjena = double.Parse(txtOcjena.Text)
-                };
-
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
-
-                if (_id != null || _id != 0)
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
+                    {
+                        
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
+                }
+                else
                 {
-                    await _kafici.Update<Model.Kafici>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
+                    var request = new KaficiUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+
+                        KategorijaId = 4,
+                        Ocjena = double.Parse(txtOcjena.Text)
+                    };
+
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
+
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _kafici.Update<Model.Kafici>(_id, request);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _kafici.Delete((int)_id);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        FreeUp();
+                        await LoadKafici();
+
+                    }
 
                 }
-
-
             }
         }
 
@@ -148,6 +187,21 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FreeUp();
+
+        }
+        public void FreeUp()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            txtOcjena.Clear();
+          
         }
     }
 }

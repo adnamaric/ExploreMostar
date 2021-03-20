@@ -40,10 +40,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPasswordConfrirm = new System.Windows.Forms.TextBox();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.lbObaveznoPolje = new System.Windows.Forms.Label();
             this.lbObaveznoPrezime = new System.Windows.Forms.Label();
@@ -153,40 +149,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtKorisnickoIme.Leave += new System.EventHandler(this.txtKorisnickoIme_Leave);
             this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 349);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Password";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(31, 365);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(143, 20);
-            this.txtPassword.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(203, 349);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Password Confrimation";
-            // 
-            // txtPasswordConfrirm
-            // 
-            this.txtPasswordConfrirm.Location = new System.Drawing.Point(206, 365);
-            this.txtPasswordConfrirm.Name = "txtPasswordConfrirm";
-            this.txtPasswordConfrirm.PasswordChar = '*';
-            this.txtPasswordConfrirm.Size = new System.Drawing.Size(135, 20);
-            this.txtPasswordConfrirm.TabIndex = 13;
-            // 
             // btnSnimi
             // 
             this.btnSnimi.Location = new System.Drawing.Point(487, 573);
@@ -263,7 +225,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // txtSlikaInput
             // 
-            this.txtSlikaInput.Location = new System.Drawing.Point(31, 405);
+            this.txtSlikaInput.Location = new System.Drawing.Point(33, 370);
             this.txtSlikaInput.Name = "txtSlikaInput";
             this.txtSlikaInput.Size = new System.Drawing.Size(320, 20);
             this.txtSlikaInput.TabIndex = 24;
@@ -271,7 +233,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 388);
+            this.label11.Location = new System.Drawing.Point(33, 353);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 25;
@@ -279,7 +241,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnDodajSliku
             // 
-            this.btnDodajSliku.Location = new System.Drawing.Point(367, 404);
+            this.btnDodajSliku.Location = new System.Drawing.Point(369, 369);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(59, 20);
             this.btnDodajSliku.TabIndex = 26;
@@ -322,7 +284,7 @@ namespace exploreMostar.WinUI.Korisnici
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(34, 445);
+            this.checkedListBox1.Location = new System.Drawing.Point(34, 407);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(317, 94);
             this.checkedListBox1.TabIndex = 31;
@@ -363,7 +325,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(37, 552);
+            this.label14.Location = new System.Drawing.Point(31, 513);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 35;
@@ -371,7 +333,7 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(34, 573);
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 529);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(317, 20);
             this.dateTimePicker1.TabIndex = 36;
@@ -413,10 +375,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.lbObaveznoPrezime);
             this.Controls.Add(this.lbObaveznoPolje);
             this.Controls.Add(this.btnSnimi);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtPasswordConfrirm);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKorisnickoIme);
             this.Controls.Add(this.label4);
@@ -447,10 +405,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKorisnickoIme;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPasswordConfrirm;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Label lbObaveznoPolje;
         private System.Windows.Forms.Label lbObaveznoPrezime;

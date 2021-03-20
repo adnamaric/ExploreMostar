@@ -77,7 +77,8 @@ namespace exploreMostar.Mobile.Views
             }
             try
             {
-
+                btn2.BackgroundColor = Color.White;
+                btn2.TextColor = Color.DarkRed;
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 tcs = new TaskCompletionSource<PermissionStatus>();

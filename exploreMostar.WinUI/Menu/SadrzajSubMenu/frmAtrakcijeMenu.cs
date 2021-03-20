@@ -13,6 +13,7 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmAtrakcijeMenu : Form
     {
+        private readonly APIService _apartmani = new APIService("apartmani");
         public frmAtrakcijeMenu()
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button3_Click(object sender, EventArgs e)
         {
+            APIService.isUpdate = true;
+            APIService.isDelete = false;
             frmAtrakcijeUpdate frm = new frmAtrakcijeUpdate();
             frm.Show();
         }
@@ -38,6 +41,14 @@ namespace exploreMostar.WinUI.Menu
         private void button1_Click(object sender, EventArgs e)
         {
             frmListaAtrakcija frm = new frmListaAtrakcija();
+            frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            APIService.isDelete = true;
+            APIService.isUpdate = false;
+            frmAtrakcijeUpdate frm = new frmAtrakcijeUpdate();
             frm.Show();
         }
     }

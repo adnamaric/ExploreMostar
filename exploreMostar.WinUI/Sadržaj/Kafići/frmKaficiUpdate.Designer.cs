@@ -60,6 +60,7 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             this.button5.Size = new System.Drawing.Size(66, 44);
             this.button5.TabIndex = 90;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnSnimi
             // 
@@ -68,7 +69,7 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
             this.btnSnimi.Location = new System.Drawing.Point(563, 341);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(132, 43);
+            this.btnSnimi.Size = new System.Drawing.Size(158, 43);
             this.btnSnimi.TabIndex = 89;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
@@ -92,9 +93,9 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
             // 
             // btnSlika
             // 
-            this.btnSlika.Location = new System.Drawing.Point(424, 88);
+            this.btnSlika.Location = new System.Drawing.Point(428, 39);
             this.btnSlika.Name = "btnSlika";
-            this.btnSlika.Size = new System.Drawing.Size(271, 190);
+            this.btnSlika.Size = new System.Drawing.Size(293, 228);
             this.btnSlika.TabIndex = 86;
             this.btnSlika.UseVisualStyleBackColor = true;
             // 

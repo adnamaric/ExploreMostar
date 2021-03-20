@@ -58,6 +58,10 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             {
                 cmbGodine.Items.Add(start++.ToString());
             }
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if(APIService.isUpdate==true)
+                btnSnimi.Text = "Sačuvaj";
         }
 
         private async void cmbOdabirApartmana_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,14 +100,15 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 Check(niz);
                 if (odabrani.Slika.Length != 0)
                 {
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
 
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    btnSlika.Image = image;
-
-
+                    }
                 }
             }
 
@@ -237,34 +242,70 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                     byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
                 Check2();
-                var request = new ApartmaniUpsertRequest
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                double number = 0;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(), out number);
+                if (dialog == false)
                 {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                    KategorijaApartmana = cmbKat.SelectedItem.ToString(),
-                    KategorijaId = 5,
-                    Wifi = b1,
-                    Bazen = b2,
-                    Parking = b3,
-                    Tv = b4,
-                    Klima = b5,
-                    AparatZaKafu = b6,
-                    Ocjena = double.Parse(txtOcjena.Text)
-                 };
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
-
-                if (_id!=null || _id!=0)
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
                     {
-                        await _apartmani.Update<Model.Apartmani>(_id, request);
-                        MessageBox.Show("Operacija uspješna!");
 
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
                 }
+                else
+                {
+                    var request = new ApartmaniUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+                        KategorijaApartmana = cmbKat.SelectedItem.ToString(),
+                        KategorijaId = 5,
+                        Wifi = b1,
+                        Bazen = b2,
+                        Parking = b3,
+                        Tv = b4,
+                        Klima = b5,
+                        AparatZaKafu = b6,
+                        Ocjena = double.Parse(txtOcjena.Text)
 
+                    };
+                    if (cmbGodine.SelectedItem != null)
+                    {
+                        request.GodinaIzgradnje = int.Parse(cmbGodine.SelectedItem.ToString());
+                    }
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
 
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _apartmani.Update<Model.Apartmani>(_id, request);
+                            MessageBox.Show("Uspješno ste modificirali atribute apartmana!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _apartmani.Delete((int)_id);
+                            MessageBox.Show("Uspješno ste obrisali apartman!");
+                        }
+                    }
+                    FreeUp();
+                    await LoadApartmani();
+                }
             }
             
         }
@@ -421,6 +462,45 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
+        }
+        public void FreeUp()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            cmbKat.SelectedItem = -1;
+            cmbGodine.SelectedItem = null;
+            cmbKat.SelectedItem = null;
+            txtOcjena.Clear();
+            button1.BackColor = Color.Transparent;
+            button1.Text = "";
+            button2.BackColor = Color.Transparent;
+            button2.Text = "";
+            bb3.BackColor = Color.Transparent;
+            bb3.Text = "";
+            bb4.BackColor = Color.Transparent;
+            bb4.Text = "";
+            bb5.BackColor = Color.Transparent;
+            bb5.Text = "";
+            bb6.BackColor = Color.Transparent;
+            bb6.Text = "";
+            bb7.BackColor = Color.Transparent;
+            bb7.Text = "";
+            bb8.BackColor = Color.Transparent;
+            bb8.Text = "";
+            bb9.BackColor = Color.Transparent;
+            bb9.Text = "";
+            bb10.BackColor = Color.Transparent;
+            bb10.Text = "";
+            bb11.BackColor = Color.Transparent;
+            bb11.Text = "";
+            bb12.BackColor = Color.Transparent;
+            bb12.Text = "";
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FreeUp();
         }
     }
         

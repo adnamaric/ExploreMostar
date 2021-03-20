@@ -52,6 +52,10 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             {
                 cmbGodine.Items.Add(start++.ToString());
             }
+            if (APIService.isDelete == true)
+                btnSnimi.Text = "Obriši";
+            if (APIService.isUpdate == true)
+                btnSnimi.Text = "Sačuvaj";
         }
 
         private async void cmbOdabirApartmana_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,13 +94,14 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                 Check(niz);
                 if (odabrani.Slika.Length != 0)
                 {
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
-
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    btnSlika.Image = image;
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
+                    }
 
                 }
             }
@@ -222,7 +227,42 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             }
         }
         public byte[] slika;
-
+        public void FreeUp()
+        {
+            txtNazivA.Clear();
+            txtLok.Clear();
+            txtLat.Clear();
+            txtLong.Clear();
+            txtOcjena.Clear();
+            cmbKat.SelectedItem = -1;
+            cmbGodine.SelectedItem = null;
+            cmbKat.SelectedItem = null;
+            txtOcjena.Clear();
+            button1.BackColor = Color.Transparent;
+            button1.Text = "";
+            button2.BackColor = Color.Transparent;
+            button2.Text = "";
+            bb3.BackColor = Color.Transparent;
+            bb3.Text = "";
+            bb4.BackColor = Color.Transparent;
+            bb4.Text = "";
+            bb5.BackColor = Color.Transparent;
+            bb5.Text = "";
+            bb6.BackColor = Color.Transparent;
+            bb6.Text = "";
+            bb7.BackColor = Color.Transparent;
+            bb7.Text = "";
+            bb8.BackColor = Color.Transparent;
+            bb8.Text = "";
+            bb9.BackColor = Color.Transparent;
+            bb9.Text = "";
+            bb10.BackColor = Color.Transparent;
+            bb10.Text = "";
+            bb11.BackColor = Color.Transparent;
+            bb11.Text = "";
+            bb12.BackColor = Color.Transparent;
+            bb12.Text = "";
+        }
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
@@ -230,36 +270,68 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
                 Check2();
-                var request = new HoteliUpsertRequest
+                if (txtOcjena.Text == "")
+                    txtOcjena.Text = "0";
+                if (txtLat.Text == "")
+                    txtLat.Text = "0";
+                if (txtLong.Text == "")
+                    txtLong.Text = "0";
+                double number;
+                bool dialog = double.TryParse(txtOcjena.Text.ToString(), out number);
+                if (dialog == false)
                 {
-                    Naziv = txtNazivA.Text,
-                    Lokacija = txtLok.Text,
-                    Latitude = double.Parse(txtLat.Text),
-                    Slika = bytes,
-                    Longitude = double.Parse(txtLong.Text),
-                    Kategorija = cmbKat.SelectedItem.ToString(),
-                    KategorijaId = 5,
-                    Wifi = b1,
-                    Bazen = b2,
-                    Parking = b3,
-                    Tv = b4,
-                    Klima = b5,
-                    AparatZaKafu = b6,
-                    Ocjena = double.Parse(txtOcjena.Text)
-                };
-                if (cmbGodine.SelectedIndex != 0)
-                    request.GodinaIzgradnje = (int)cmbGodine.SelectedValue;
-                if (openFileDialog1.FileName.Length != 0)
-                    request.PutanjaSlike = txtSlikaInput.Text;
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult dialog1 = MessageBox.Show("Molimo ponovo unesite ocjenu", "Abort operation", buttons);
+                    if (dialog1 == DialogResult.Yes)
+                    {
 
-                if (_id != null || _id != 0)
+                    }
+                    else
+                    {
+                        // Do something  
+                    }
+                }
+                else
                 {
-                    await _hoteli.Update<Model.Hoteli>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
+                    var request = new HoteliUpsertRequest
+                    {
+                        Naziv = txtNazivA.Text,
+                        Lokacija = txtLok.Text,
+                        Latitude = double.Parse(txtLat.Text),
+                        Slika = bytes,
+                        Longitude = double.Parse(txtLong.Text),
+                        Kategorija = cmbKat.SelectedItem.ToString(),
+                        KategorijaId = 5,
+                        Wifi = b1,
+                        Bazen = b2,
+                        Parking = b3,
+                        Tv = b4,
+                        Klima = b5,
+                        AparatZaKafu = b6,
+                        Ocjena = double.Parse(txtOcjena.Text)
+                    };
+                    if (cmbGodine.SelectedIndex != -1)
+                        request.GodinaIzgradnje = int.Parse(cmbGodine.SelectedItem.ToString());
+                    if (openFileDialog1.FileName.Length != 0)
+                        request.PutanjaSlike = txtSlikaInput.Text;
+
+                    if (_id != null || _id != 0)
+                    {
+                        if (APIService.isUpdate == true && APIService.isDelete == false)
+                        {
+                            await _hoteli.Update<Model.Hoteli>(_id, request);
+                            MessageBox.Show("Operacija uspješna!");
+                        }
+                        else if (APIService.isUpdate == false && APIService.isDelete == true)
+                        {
+                            await _hoteli.Delete((int)_id);
+                            MessageBox.Show("Uspješno ste obrisali hotel!");
+                        }
+                        FreeUp();
+                        await LoadHoteli();
+                    }
 
                 }
-
-
             }
         }
 
@@ -411,6 +483,11 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
                 //this.latitude = 0;
                 //this.longitude = 0;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FreeUp();
         }
     }
 }

@@ -16,6 +16,8 @@ namespace exploreMostar.WinUI
         private string _route = null;
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static bool isUpdate { get; set; }
+        public static bool isDelete { get; set; }
 
         public APIService(string route)
         {
