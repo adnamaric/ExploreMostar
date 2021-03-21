@@ -98,6 +98,7 @@ namespace exploreMostar.WinUI.Objava
             this.txtOpis.Size = new System.Drawing.Size(572, 168);
             this.txtOpis.TabIndex = 58;
             this.txtOpis.Text = "";
+            this.txtOpis.TextChanged += new System.EventHandler(this.txtOpis_TextChanged);
             // 
             // label5
             // 
@@ -141,6 +142,7 @@ namespace exploreMostar.WinUI.Objava
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmObjavaAdd";
             this.Text = "frmObjavaAdd";
+            this.Load += new System.EventHandler(this.frmObjavaAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -80,6 +80,15 @@ namespace exploreMostar.WinUI.Objava
 
             }
         }
-    
+
+        private void frmObjavaAdd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOpis_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

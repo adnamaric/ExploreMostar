@@ -288,6 +288,12 @@
     <Compile Include="Objava\frmObjavaAdd.Designer.cs">
       <DependentUpon>frmObjavaAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Poruke\frmInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Poruke\frmInbox.Designer.cs">
+      <DependentUpon>frmInbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\frmPregled.cs">
@@ -567,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Objava\frmObjavaAdd.resx">
       <DependentUpon>frmObjavaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poruke\frmInbox.resx">
+      <DependentUpon>frmInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

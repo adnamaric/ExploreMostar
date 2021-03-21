@@ -1,4 +1,5 @@
-﻿using exploreMostar.WinUI.Reports;
+﻿using exploreMostar.WinUI.Poruke;
+using exploreMostar.WinUI.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,6 +76,12 @@ namespace exploreMostar.WinUI.Menu
         private async void frmMenu_Load_1(object sender, EventArgs e)
         {
             await LoadKorisnici();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmInbox n = new frmInbox();
+            n.Show();
         }
     }
 }

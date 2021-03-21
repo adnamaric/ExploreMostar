@@ -45,5 +45,10 @@ namespace exploreMostar.WinUI.Objava
             dgvKorisnici.AutoGenerateColumns = false;
             dgvKorisnici.DataSource = result;
         }
+
+        private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

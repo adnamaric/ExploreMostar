@@ -65,6 +65,7 @@ namespace exploreMostar.WEBAPI
             });
             // statički konekšn string
             var connection = @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
+            //var connection = Configuration.GetConnectionString("exploreMostar");
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
            
             services.AddScoped<IKorisniciService, KorisniciService>();

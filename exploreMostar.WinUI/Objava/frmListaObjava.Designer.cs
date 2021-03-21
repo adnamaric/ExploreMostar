@@ -118,6 +118,7 @@ namespace exploreMostar.WinUI.Objava
             this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKorisnici.Size = new System.Drawing.Size(856, 428);
             this.dgvKorisnici.TabIndex = 0;
+            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
             // 
             // KorisnikID
             // 
