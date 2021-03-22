@@ -40,6 +40,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.KorisniciUloge, Model.KorisniciUloge>();
             CreateMap<Database.Objava, Model.Objava>();
             CreateMap<Database.Objava, ObjavaUpsertRequest>().ReverseMap();
+            CreateMap<Database.Poruke, Model.Poruke>();
+            CreateMap<Database.Poruke, PorukeUpsertRequest>().ReverseMap();
 
 
         }

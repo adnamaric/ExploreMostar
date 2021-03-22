@@ -32,6 +32,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Markeri> Markeri { get; set; }
         public virtual DbSet<Nightclubs> Nightclubs { get; set; }
         public virtual DbSet<Objava> Objava { get; set; }
+        public virtual DbSet<Poruke> Poruke { get; set; }
         public virtual DbSet<Prevoz> Prevoz { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
@@ -419,6 +420,33 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Objava)
                     .HasForeignKey(d => d.KorisnikId)
                     .HasConstraintName("FK__Objava__Korisnik__73852659");
+            });
+
+            modelBuilder.Entity<Poruke>(entity =>
+            {
+                entity.HasKey(e => e.PorukaId);
+
+                entity.Property(e => e.PorukaId).HasColumnName("PorukaID");
+
+                entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.Property(e => e.Posiljalac).HasMaxLength(50);
+
+                entity.Property(e => e.PosiljalacId).HasColumnName("PosiljalacID");
+
+                entity.Property(e => e.Primalac).HasMaxLength(50);
+
+                entity.Property(e => e.PrimalacId).HasColumnName("PrimalacID");
+
+                entity.HasOne(d => d.PosiljalacNavigation)
+                    .WithMany(p => p.PorukePosiljalacNavigation)
+                    .HasForeignKey(d => d.PosiljalacId)
+                    .HasConstraintName("FK__Poruke__Posiljal__0880433F");
+
+                entity.HasOne(d => d.PrimalacNavigation)
+                    .WithMany(p => p.PorukePrimalacNavigation)
+                    .HasForeignKey(d => d.PrimalacId)
+                    .HasConstraintName("FK__Poruke__Primalac__09746778");
             });
 
             modelBuilder.Entity<Prevoz>(entity =>
