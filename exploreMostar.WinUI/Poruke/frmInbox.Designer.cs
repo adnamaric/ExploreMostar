@@ -45,6 +45,7 @@ namespace exploreMostar.WinUI.Poruke
             this.circleButton3 = new exploreMostar.WinUI.CircleButton();
             this.circleButton2 = new exploreMostar.WinUI.CircleButton();
             this.circleButton1 = new exploreMostar.WinUI.CircleButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@ namespace exploreMostar.WinUI.Poruke
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.circleButton4);
             this.groupBox3.Controls.Add(this.button4);
@@ -244,6 +246,16 @@ namespace exploreMostar.WinUI.Poruke
             this.circleButton1.Text = "circleButton1";
             this.circleButton1.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(272, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "label2";
+            // 
             // frmInbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,5 +290,6 @@ namespace exploreMostar.WinUI.Poruke
         private CircleButton circleButton3;
         private System.Windows.Forms.Button button5;
         private CircleButton circleButton4;
+        private System.Windows.Forms.Label label2;
     }
 }

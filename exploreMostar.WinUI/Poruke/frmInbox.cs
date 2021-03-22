@@ -29,6 +29,7 @@ namespace exploreMostar.WinUI.Poruke
             button3.Visible = false;
             button4.Visible = false;
             GetPoruke();
+            label2.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace exploreMostar.WinUI.Poruke
             listBox1.DataSource = await _korisnici.Get<List<Model.Korisnici>>(null);
             listBox1.DisplayMember = "Ime";
             listBox1.ValueMember = "KorisnikId";
+          
 
         }
 
@@ -56,15 +58,11 @@ namespace exploreMostar.WinUI.Poruke
            
         }
 
-       
+        public int brojP = 0;
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            button2.Visible = true;
-            
-            circleButton1.Visible = true;
-            label1.Visible = true;
-            var korisnici= await _korisnici.Get<List<Model.Korisnici>>(null);
+            var korisnici = await _korisnici.Get<List<Model.Korisnici>>(null);
             Model.Korisnici primalac = new Model.Korisnici();
             Model.Korisnici posiljalac = new Model.Korisnici();
             //primalac
@@ -81,17 +79,38 @@ namespace exploreMostar.WinUI.Poruke
             }
             var posiljalacInicija = posiljalac.Ime.ToCharArray().GetValue(0);
             var posiljalacInicija2 = posiljalac.Prezime.ToCharArray().GetValue(0);
-            var imeP=posiljalacInicija+". "+posiljalacInicija2+".";
-            var imeprezime = primalac.Ime+" "+ primalac.Prezime;
+            var imeP = posiljalacInicija + ". " + posiljalacInicija2 + ".";
+            var imeprezime = primalac.Ime + " " + primalac.Prezime;
             var imeprezime1 = posiljalac.Ime + " " + posiljalac.Prezime;
             var prvo = primalac.Ime.ToCharArray();
-             var prvoslovo=prvo.GetValue(0);
+            var prvoslovo = prvo.GetValue(0);
             var drugo = primalac.Prezime.ToCharArray();
             var drugoslovo = drugo.GetValue(0);
-            var initials = prvoslovo + "." +" " + drugoslovo+".";
-             circleButton1.Text= imeprezime1.ToUpper();
-            button2.Text = richTextBox1.Text;
-            label1.Text = DateTime.Now.ToShortDateString();
+            var initials = prvoslovo + "." + " " + drugoslovo + ".";
+            if (brojP != 0)
+            {
+                button2.Visible = true;
+
+                circleButton1.Visible = true;
+                label1.Visible = true;
+               
+                circleButton1.Text = initials.ToUpper();
+                button2.Text = richTextBox1.Text;
+                label1.Text = DateTime.Now.ToShortDateString();
+                label2.Visible = true;
+                label2.Text = DateTime.Now.ToString();
+            }
+            else
+            {
+                button5.Visible = true;
+
+                circleButton4.Visible = true;
+                label1.Visible = true;
+
+                circleButton4.Text = initials.ToUpper();
+                button5.Text = richTextBox1.Text;
+                label1.Text = DateTime.Now.ToShortDateString();
+            }
             var request = new PorukeUpsertRequest
             {
                Sadrzaj= richTextBox1.Text,
@@ -143,7 +162,7 @@ namespace exploreMostar.WinUI.Poruke
             var korisnici = await _korisnici.Get<List<Model.Korisnici>>(null);
             Model.Korisnici primalac = new Model.Korisnici();
             Model.Korisnici posiljalac = new Model.Korisnici();
-
+            
             foreach (var item in korisnici)
             {
                 if (item.KorisnikId == int.Parse(listBox1.SelectedValue.ToString()))
@@ -165,7 +184,8 @@ namespace exploreMostar.WinUI.Poruke
                     porukeP.Add(item);
                 }
             }
-            if (porukeP.Count != 0)
+            brojP = porukeP.Count();
+            if (porukeP.Count !=0 )
             {
                 var posiljalacInicija = posiljalac.Ime.ToCharArray().GetValue(0);
                 var posiljalacInicija2 = posiljalac.Prezime.ToCharArray().GetValue(0);
@@ -177,7 +197,7 @@ namespace exploreMostar.WinUI.Poruke
                 var drugoslovo = drugo.GetValue(0);
                 var initials = prvoslovo + "." + " " + drugoslovo + ".";
                 //taking two
-                porukeP = porukeP.OrderByDescending(y => y.Datum).ToList();
+                porukeP = porukeP.OrderBy(y => y.Datum).ToList();
                 if (porukeP.Count !=1)
                 {
                     porukeP = porukeP.Take(2).ToList();
@@ -202,26 +222,29 @@ namespace exploreMostar.WinUI.Poruke
                     circleButton4.Location = new Point(20, 36);
                     label1.Text = porukeP[0].Datum.ToString();
                 }
-                if (porukeP.Count != 1)
+                if (porukeP.Count > 1)
                 {
                     if (porukeP[1].Posiljalac == imeprezime1 && porukeP[1].Primalac == imeprezime)
                     {
                         button2.Visible = true;
-                        button2.Text = porukeP[0].Sadrzaj;
-                        button2.Location = new Point(142, 162);
+                        button2.Text = porukeP[1].Sadrzaj;
+                        label2.Visible = true;
+                        label2.Text = porukeP[1].Datum.ToString();
                         circleButton1.Visible = true;
                         circleButton1.Text = imeP.ToUpper();
-                        circleButton1.Location = new Point(20, 151);
-
+                        circleButton1.Location = new Point(617, 173);
+                        button2.Location = new Point(333, 184);
                     }
                     else
                     {
+                        button2.Location = new Point(142, 162);
+                        circleButton1.Location = new Point(20, 151);
                         button2.Visible = true;
-                        button2.Text = porukeP[0].Sadrzaj;
-                        button2.Location = new Point(333, 184);
+                        button2.Text = porukeP[1].Sadrzaj;
+                        
                         circleButton1.Visible = true;
                         circleButton1.Text = imeP.ToUpper();
-                        circleButton1.Location = new Point(116, 109);
+                        
                     }
                 }
             }
@@ -230,6 +253,8 @@ namespace exploreMostar.WinUI.Poruke
                 button5.Visible = false;
                 circleButton4.Visible = false;
                 label1.Visible = false;
+                button2.Visible = false;
+                circleButton1.Visible = false;
             }
            
         }
