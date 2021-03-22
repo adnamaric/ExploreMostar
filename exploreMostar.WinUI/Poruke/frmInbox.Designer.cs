@@ -40,11 +40,11 @@ namespace exploreMostar.WinUI.Poruke
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.circleButton4 = new exploreMostar.WinUI.CircleButton();
             this.circleButton3 = new exploreMostar.WinUI.CircleButton();
             this.circleButton2 = new exploreMostar.WinUI.CircleButton();
             this.circleButton1 = new exploreMostar.WinUI.CircleButton();
-            this.button5 = new System.Windows.Forms.Button();
-            this.circleButton4 = new exploreMostar.WinUI.CircleButton();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +120,7 @@ namespace exploreMostar.WinUI.Poruke
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(142, 263);
+            this.button3.Location = new System.Drawing.Point(128, 324);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(269, 87);
             this.button3.TabIndex = 12;
@@ -144,7 +144,7 @@ namespace exploreMostar.WinUI.Poruke
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(142, 162);
+            this.button2.Location = new System.Drawing.Point(333, 184);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(269, 87);
             this.button2.TabIndex = 9;
@@ -181,43 +181,6 @@ namespace exploreMostar.WinUI.Poruke
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // circleButton3
-            // 
-            this.circleButton3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.circleButton3.FlatAppearance.BorderSize = 0;
-            this.circleButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton3.Location = new System.Drawing.Point(617, 370);
-            this.circleButton3.Name = "circleButton3";
-            this.circleButton3.Size = new System.Drawing.Size(116, 109);
-            this.circleButton3.TabIndex = 13;
-            this.circleButton3.Text = "circleButton3";
-            this.circleButton3.UseVisualStyleBackColor = false;
-            this.circleButton3.Click += new System.EventHandler(this.circleButton3_Click);
-            // 
-            // circleButton2
-            // 
-            this.circleButton2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.circleButton2.FlatAppearance.BorderSize = 0;
-            this.circleButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton2.Location = new System.Drawing.Point(20, 241);
-            this.circleButton2.Name = "circleButton2";
-            this.circleButton2.Size = new System.Drawing.Size(116, 109);
-            this.circleButton2.TabIndex = 11;
-            this.circleButton2.Text = "circleButton2";
-            this.circleButton2.UseVisualStyleBackColor = false;
-            // 
-            // circleButton1
-            // 
-            this.circleButton1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.circleButton1.FlatAppearance.BorderSize = 0;
-            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(20, 151);
-            this.circleButton1.Name = "circleButton1";
-            this.circleButton1.Size = new System.Drawing.Size(116, 109);
-            this.circleButton1.TabIndex = 1;
-            this.circleButton1.Text = "circleButton1";
-            this.circleButton1.UseVisualStyleBackColor = false;
-            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -243,6 +206,43 @@ namespace exploreMostar.WinUI.Poruke
             this.circleButton4.TabIndex = 15;
             this.circleButton4.Text = "circleButton4";
             this.circleButton4.UseVisualStyleBackColor = false;
+            // 
+            // circleButton3
+            // 
+            this.circleButton3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.circleButton3.FlatAppearance.BorderSize = 0;
+            this.circleButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton3.Location = new System.Drawing.Point(617, 370);
+            this.circleButton3.Name = "circleButton3";
+            this.circleButton3.Size = new System.Drawing.Size(116, 109);
+            this.circleButton3.TabIndex = 13;
+            this.circleButton3.Text = "circleButton3";
+            this.circleButton3.UseVisualStyleBackColor = false;
+            this.circleButton3.Click += new System.EventHandler(this.circleButton3_Click);
+            // 
+            // circleButton2
+            // 
+            this.circleButton2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.circleButton2.FlatAppearance.BorderSize = 0;
+            this.circleButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton2.Location = new System.Drawing.Point(6, 313);
+            this.circleButton2.Name = "circleButton2";
+            this.circleButton2.Size = new System.Drawing.Size(116, 109);
+            this.circleButton2.TabIndex = 11;
+            this.circleButton2.Text = "circleButton2";
+            this.circleButton2.UseVisualStyleBackColor = false;
+            // 
+            // circleButton1
+            // 
+            this.circleButton1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.circleButton1.FlatAppearance.BorderSize = 0;
+            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton1.Location = new System.Drawing.Point(617, 173);
+            this.circleButton1.Name = "circleButton1";
+            this.circleButton1.Size = new System.Drawing.Size(116, 109);
+            this.circleButton1.TabIndex = 1;
+            this.circleButton1.Text = "circleButton1";
+            this.circleButton1.UseVisualStyleBackColor = false;
             // 
             // frmInbox
             // 

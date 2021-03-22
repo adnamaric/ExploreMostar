@@ -28,7 +28,7 @@ namespace exploreMostar.WinUI.Poruke
             button5.Visible = false;
             button3.Visible = false;
             button4.Visible = false;
-           
+            GetPoruke();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -165,39 +165,75 @@ namespace exploreMostar.WinUI.Poruke
                     porukeP.Add(item);
                 }
             }
-            var posiljalacInicija = posiljalac.Ime.ToCharArray().GetValue(0);
-            var posiljalacInicija2 = posiljalac.Prezime.ToCharArray().GetValue(0);
-            var imeP = posiljalacInicija + ". " + posiljalacInicija2 + ".";
-
-            var prvo = primalac.Ime.ToCharArray();
-            var prvoslovo = prvo.GetValue(0);
-            var drugo = primalac.Prezime.ToCharArray();
-            var drugoslovo = drugo.GetValue(0);
-            var initials = prvoslovo + "." + " " + drugoslovo + ".";
-            //taking two
-            porukeP = porukeP.OrderByDescending(y => y.Datum).ToList();
-            // porukeP = porukeP.Take(1).ToList();
-            if (porukeP[0].Posiljalac == imeprezime1 && porukeP[0].Primalac == imeprezime)
+            if (porukeP.Count != 0)
             {
-                button5.Visible = true;
-                button5.Text = porukeP[0].Sadrzaj;
-                button5.Location = new Point(333, 58);
-                circleButton4.Visible = true;
-                circleButton4.Text = imeP.ToUpper();
-                circleButton4.Location = new Point(617, 36);
-                label1.Text = porukeP[0].Datum.ToString();
-                label1.Visible = true;
+                var posiljalacInicija = posiljalac.Ime.ToCharArray().GetValue(0);
+                var posiljalacInicija2 = posiljalac.Prezime.ToCharArray().GetValue(0);
+                var imeP = posiljalacInicija + ". " + posiljalacInicija2 + ".";
+
+                var prvo = primalac.Ime.ToCharArray();
+                var prvoslovo = prvo.GetValue(0);
+                var drugo = primalac.Prezime.ToCharArray();
+                var drugoslovo = drugo.GetValue(0);
+                var initials = prvoslovo + "." + " " + drugoslovo + ".";
+                //taking two
+                porukeP = porukeP.OrderByDescending(y => y.Datum).ToList();
+                if (porukeP.Count !=1)
+                {
+                    porukeP = porukeP.Take(2).ToList();
+                    poruke = porukeP.OrderBy(y => y.Datum).ToList();
+                }
+                if (porukeP[0].Posiljalac == imeprezime1 && porukeP[0].Primalac == imeprezime)
+                {
+                    button5.Visible = true;
+                    button5.Text = porukeP[0].Sadrzaj;
+                    button5.Location = new Point(333, 58);
+                    circleButton4.Visible = true;
+                    circleButton4.Text = imeP.ToUpper();
+                    circleButton4.Location = new Point(617, 36);
+                    label1.Text = porukeP[0].Datum.ToString();
+                    label1.Visible = true;
+                }
+                else
+                {
+                    button5.Visible = true;
+                    button5.Text = porukeP[0].Sadrzaj;
+                    button5.Location = new Point(142, 47);
+                    circleButton4.Location = new Point(20, 36);
+                    label1.Text = porukeP[0].Datum.ToString();
+                }
+                if (porukeP.Count != 1)
+                {
+                    if (porukeP[1].Posiljalac == imeprezime1 && porukeP[1].Primalac == imeprezime)
+                    {
+                        button2.Visible = true;
+                        button2.Text = porukeP[0].Sadrzaj;
+                        button2.Location = new Point(142, 162);
+                        circleButton1.Visible = true;
+                        circleButton1.Text = imeP.ToUpper();
+                        circleButton1.Location = new Point(20, 151);
+
+                    }
+                    else
+                    {
+                        button2.Visible = true;
+                        button2.Text = porukeP[0].Sadrzaj;
+                        button2.Location = new Point(333, 184);
+                        circleButton1.Visible = true;
+                        circleButton1.Text = imeP.ToUpper();
+                        circleButton1.Location = new Point(116, 109);
+                    }
+                }
             }
             else
             {
-                button5.Visible = true;
-                button5.Text = porukeP[0].Sadrzaj;
-                button5.Location = new Point(142, 47);
-                circleButton4.Location = new Point(20, 36);
-                label1.Text = porukeP[0].Datum.ToString();
+                button5.Visible = false;
+                circleButton4.Visible = false;
+                label1.Visible = false;
             }
+           
         }
         //TODO
-        //Kada prvi pot dodaje, kada?
+        //Kada prvi pot du
     }
 }
