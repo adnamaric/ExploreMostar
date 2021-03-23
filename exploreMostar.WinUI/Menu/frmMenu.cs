@@ -76,6 +76,7 @@ namespace exploreMostar.WinUI.Menu
         private async void frmMenu_Load_1(object sender, EventArgs e)
         {
             await LoadKorisnici();
+          
         }
 
         private void button3_Click(object sender, EventArgs e)

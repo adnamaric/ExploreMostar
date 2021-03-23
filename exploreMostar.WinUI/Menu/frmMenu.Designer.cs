@@ -29,6 +29,7 @@ namespace exploreMostar.WinUI.Menu
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.button4 = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.AtrakcijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -51,6 +53,7 @@ namespace exploreMostar.WinUI.Menu
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AtrakcijeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // vScrollBar1
@@ -172,6 +175,10 @@ namespace exploreMostar.WinUI.Menu
             this.pictureBox3.TabIndex = 38;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.WaitOnLoad = true;
+            // 
+            // AtrakcijeBindingSource
+            // 
+            this.AtrakcijeBindingSource.DataSource = typeof(exploreMostar.Model.Atrakcije);
             // 
             // hScrollBar1
             // 
@@ -297,6 +304,7 @@ namespace exploreMostar.WinUI.Menu
             this.Enter += new System.EventHandler(this.frmMenu_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AtrakcijeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,6 +319,7 @@ namespace exploreMostar.WinUI.Menu
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.BindingSource AtrakcijeBindingSource;
         private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
