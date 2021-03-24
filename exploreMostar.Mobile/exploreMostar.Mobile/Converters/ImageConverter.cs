@@ -9,34 +9,25 @@ namespace exploreMostar.Mobile.Converters
 {
   public  class ImageConverter : IValueConverter
     {
-        private readonly APIService _service = new APIService("Korisnici");
+        
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (APIService.PutanjaSlike == null)
-                return null;
+      
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value == null)
+                    return null;
 
-            //byte[] bytes = value as byte[];
-            // var file = File.ReadAllBytes(APIService.PutanjaSlike);
+                byte[] bytes = value as byte[];
 
-            //bytes = Encoding.ASCII.GetBytes(APIService.PutanjaSlike);
+                Func<Stream> myFunc = () => new MemoryStream(bytes);
 
-            ////var request = file;
+                return ImageSource.FromStream(myFunc);
+            }
 
-
-            //Func <Stream> myFunc = () => new MemoryStream(bytes);
-
-            //return ImageSource.FromUri(new Uri(APIService.PutanjaSlike)); 
-            byte[] bytes = value as byte[];
-
-            Func<Stream> myFunc = () => new MemoryStream(bytes);
-
-            return ImageSource.FromStream(myFunc);
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
         }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    
 }

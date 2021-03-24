@@ -34,15 +34,17 @@ namespace exploreMostar.Mobile.ViewModels
         public ICommand InitCommand { get; set; }
         public ICommand GetSelectedOne { get; set; }
         public string parametar;
+        public Model.Restorani model = new Model.Restorani();
+
         public PreferenceListModel()
         {
             //Setuj();
             InitCommand = new Command(async () => await Init());
-            //GetSelectedOne = new Command(async () => await GetT());
+            GetSelectedOne = new Command(async () => await GetT(model));
         }
-       
       public async Task Init()
         {
+           
             await _service.Get<dynamic>(null);
             Atrakcije = APIService.Atraction;
             Apartmani = APIService.Apartments;
@@ -75,7 +77,9 @@ namespace exploreMostar.Mobile.ViewModels
                 foreach(var item in list1)
                 {
                     jelas.Add(item);
+                    
                 }
+              
                 var broj = 0;
                 foreach(var item in jelas)
                 {
@@ -160,6 +164,17 @@ namespace exploreMostar.Mobile.ViewModels
                 }
             }
         }
+        public async Task GetT(Model.Restorani model)
+        {
+            this.model = model;
+            _naziv = model.Naziv;
+        }
+        string _naziv = string.Empty;
+        public string Naziv
+        {
+            get { return _naziv; }
+            set { SetProperty(ref _naziv, value); }
+        }
         public string OcjenaGlobal { get; set; }
 
         public bool Atrakcije = false;
@@ -174,20 +189,6 @@ namespace exploreMostar.Mobile.ViewModels
         {
          
          
-            //    UcitajAtrakcije();
-            //if (Apartmani == true)
-            //    UcitajApartmane();
-            //if (Hoteli == true)
-            //    UcitajHotele();
-          
-            //  //  UcitajRestorane();
-            //if (Prevoz == true)
-            //    UcitajPrevoz();
-            //if (NocniKlubovi == true)
-            //    UcitajNocneKlubove();
-            //if (Kafici == true)
-            //    UcitajKafice();
-           // HoteliLista = IEnumerable<Model.Hoteli>();
         }
         private IEnumerable<Model.Hoteli> _hotelis;
 
@@ -200,89 +201,9 @@ namespace exploreMostar.Mobile.ViewModels
                
             }
         }
-        //  public PreferenceListModel(INavigationService navigationService, IMonkeyService monkeyService)
-        //: base(navigationService)
-        //  {
-        //      Title = "Monkeys Horizontal List";
+      
 
-        //      _monkeyService = monkeyService;
-        //  }
-        //public MainPageViewModel(INavigationService navigationService, IMonkeyService monkeyService)
-        //     : base(navigationService)
-        //{
-        //    Title = "Monkeys Horizontal List";
-
-        //    _monkeyService = monkeyService;
-        //}
-
-        //public async override void OnNavigatingTo(NavigationParameters parameters)
-        //{
-        //    base.OnNavigatingTo(parameters);
-        //    Monkeys = await _monkeyService.GetMonkey();
-        //}
-
-        public List<Model.Apartmani> ApartmaniLista { get; set; } = new List<Model.Apartmani>();
-        public void UcitajApartmane()
-        {
-            Task<List<Model.Apartmani>> task = Task.Run<List<Model.Apartmani>>(async () => await _apartmani.Get<List<Model.Apartmani>>(null));
-            ApartmaniLista.Clear();
-            ApartmaniLista.AddRange(task.Result);
-        }
-        public List<Model.Atrakcije> AtrakcijeLista { get; set; } = new List<Model.Atrakcije>();
-        public void UcitajAtrakcije()
-        {
-            Task<List<Model.Atrakcije>> task = Task.Run<List<Model.Atrakcije>>(async () => await _atrakcije.Get<List<Model.Atrakcije>>(null));
-            AtrakcijeLista.Clear();
-            AtrakcijeLista.AddRange(task.Result);
-        }
-        public List<Model.Hoteli> HoteliLista { get; set; } = new List<Model.Hoteli>();
-        public void UcitajHotele()
-        {
-            Task<List<Model.Hoteli>> task = Task.Run<List<Model.Hoteli>>(async () => await _hoteli.Get<List<Model.Hoteli>>(null));
-            HoteliLista.Clear();
-            HoteliLista.AddRange(task.Result);
-
-        }
-        public List<Model.Restorani> RestoraniLista { get; set; } = new List<Model.Restorani>();
-        public void UcitajRestorane()
-        {
-            Task<List<Model.Restorani>> task = Task.Run<List<Model.Restorani>>(async () => await _restorani.Get<List<Model.Restorani>>(null));
-            RestoraniLista.Clear();
-            RestoraniLista.AddRange(task.Result);
-        }
-        public List<Model.Kafici> KaficiLista { get; set; } = new List<Model.Kafici>();
-        public void UcitajKafice()
-        {
-            Task<List<Model.Kafici>> task = Task.Run<List<Model.Kafici>>(async () => await _kafici.Get<List<Model.Kafici>>(null));
-            KaficiLista.Clear();
-            KaficiLista.AddRange(task.Result);
-        }
-        public List<Model.Nightclubs> NightclubsLista { get; set; } = new List<Model.Nightclubs>();
-        public void UcitajNocneKlubove()
-        {
-            Task<List<Model.Nightclubs>> task = Task.Run<List<Model.Nightclubs>>(async () => await _nocniklubovi.Get<List<Model.Nightclubs>>(null));
-            NightclubsLista.Clear();
-            NightclubsLista.AddRange(task.Result);
-        }
-        public List<Model.Prevoz> PrevozLista { get; set; } = new List<Model.Prevoz>();
-        public void UcitajPrevoz()
-        {
-            Task<List<Model.Prevoz>> task = Task.Run<List<Model.Prevoz>>(async () => await _prevoz.Get<List<Model.Prevoz>>(null));
-            PrevozLista.Clear();
-            PrevozLista.AddRange(task.Result);
-        }
-        public List<Model.Jela> Jela { get; set; } = new List<Model.Jela>();
-        public async void UcitajJela()
-        {
-            //jelovnik naknadno?
-            if (Food == true)
-            {
-
-                Task<List<Model.Jela>> task = Task.Run<List<Model.Jela>>(async () => await _jela.Get<List<Model.Jela>>(null));
-                Jela.Clear();
-                Jela.AddRange(task.Result);
-            }
-        }
+   
 
     }
 }

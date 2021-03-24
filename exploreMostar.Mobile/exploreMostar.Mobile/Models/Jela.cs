@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.UI.Xaml.Media;
 
-
-namespace exploreMostar.Model
+namespace exploreMostar.Mobile.Models
 {
     public partial class Jela
     {
@@ -14,20 +14,10 @@ namespace exploreMostar.Model
         public string Sastojci { get; set; }
         public double? Ocjena { get; set; }
         public string PutanjaSlike { get; set; }
-       
+        public ImageSource ImgSrc { get; set; }
+
+
         public int Rbr { get; set; }
         public string Vrsta { get; set; }
-
-        //public Xamarin.Forms.ImageSource imgSrc;
-
-        //public Xamarin.Forms.ImageSource GetImgSrc()
-        //{
-        //    return imgSrc;
-        //}
-
-        //public void SetImgSrc(Xamarin.Forms.ImageSource value)
-        //{
-        //    imgSrc = value;
-        //}
     }
 }

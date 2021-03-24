@@ -34,7 +34,8 @@ namespace exploreMostar.Mobile.Views
         {
             base.OnAppearing();
             await model.Init();
-
+            await model.GetT(selected);
+            
         }
         async Task GetCurrentLocation()
         {
@@ -185,7 +186,7 @@ namespace exploreMostar.Mobile.Views
             }
         }
 
-        private void btn2_Clicked(object sender, EventArgs e)
+        private  void btn2_Clicked(object sender, EventArgs e)
         {
             Stack2.IsVisible = true;
 
@@ -199,22 +200,41 @@ namespace exploreMostar.Mobile.Views
             btn3.TextColor = Color.White;
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
-           
+            info.IsVisible = false;
         }
 
-        private void btn3_Clicked(object sender, EventArgs e)
+        private async void btn3_Clicked(object sender, EventArgs e)
         {
-           Map.IsVisible = false;
+            
+            Map.IsVisible = false;
+            Stacky1.IsVisible = false;
+            Stack2.IsVisible = false;
+            Stack2.HeightRequest = 0;
+            info.IsVisible = true;
             btn3.TextColor = Color.DarkRed;
             btn3.BackgroundColor = Color.White;
             btn3.FontAttributes = FontAttributes.Bold;
-         //   Stack2.IsVisible = false;
-            
+            //   Stack2.IsVisible = false;
+            info.IsVisible = true;
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
             btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
-            Application.Current.MainPage = new CarouselPage();
+            if (selected.Naziv== "Megamarkt")
+                respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.png");
+            if(selected.Naziv == "restoran 1")
+                respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.jpg");
+         
+            Naziv.Text = selected.Naziv;
+            Lokacija.Text = selected.Lokacija;
+            Godina.Text = selected.GodinaIzgradnje.ToString();
+            Rating.Text = selected.Ocjena.ToString();
+            if (selected.VrstaId == 1)
+                Type.Text = "Restaurant";
+            if (selected.VrstaId ==2)
+                Type.Text = "Fast Food";
+            if (selected.VrstaId == 3)
+                Type.Text = "N/A";
         }
 
         private void btn1_Clicked(object sender, EventArgs e)
@@ -222,6 +242,7 @@ namespace exploreMostar.Mobile.Views
              Map.IsVisible = false;
             Stack2.IsVisible = false;
             Stack2.HeightRequest = 0;
+            info.IsVisible = false;
             // Stack2.IsVisible = true;
             Stacky1.IsVisible = true;
             btn1.TextColor = Color.DarkRed;

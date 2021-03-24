@@ -18,12 +18,27 @@ namespace exploreMostar.Mobile.Views
         {
             InitializeComponent();
             BindingContext = model = new PreferenceListModel();
+            
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
+            SetterI();
 
+        }
+        public void SetterI()
+        {
+          
+            foreach (var item in model.jelas)
+            {
+             
+                if ((item.PutanjaSlike != null) && (item.PutanjaSlike != "openFileDialog1"))
+                {
+                //    item.SetImgSrc(ImageSource.FromUri(new Uri(item.PutanjaSlike)));
+                }
+
+            }
         }
     }
 }

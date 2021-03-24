@@ -46,7 +46,7 @@
                                     <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
                                         
                                     </Label>
-                                    <Image Source="{Binding Slika}"></Image>
+                                    
                                     <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
                                         <Label.FormattedText>
@@ -81,12 +81,58 @@
                         </ViewCell>
                     </DataTemplate>
                     
+                    
                 </ListView.ItemTemplate>
             </ListView>
           
             </StackLayout>
+            <ScrollView>
+                <StackLayout x:Name="info" IsVisible="False">
             
-
+                <Image BackgroundColor="Transparent"  HeightRequest="400" WidthRequest="100" x:Name="respicture" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
+                <Label TextColor="White" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Name: " />
+                                <Span x:Name="Naziv"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="White" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Location: " />
+                            <Span x:Name="Lokacija"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Year: " />
+                            <Span x:Name="Godina"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label >
+                <Label TextColor="White">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Type: " />
+                            <Span x:Name="Type"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="White">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Rating: " />
+                            <Span x:Name="Rating"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+               
+            </StackLayout>
+            </ScrollView>
 
         </StackLayout>
     </ContentPage.Content>

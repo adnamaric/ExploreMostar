@@ -3,51 +3,83 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             
 
-             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters"
              x:Class="exploreMostar.Mobile.Views.CarouselView">
     <ContentPage.BindingContext>
         <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
+
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
 
+       
 
-            <CarouselView ItemsSource="{Binding jelas}">
-                <CarouselView.ItemTemplate>
+            <ListView x:Name="MyListView"
+            ItemsSource="{Binding restoranis}"
+            BackgroundColor="Black"
+            CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
+                <!--Built in Cells-->
+
+
+                <!--Custom View Cells-->
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Frame HasShadow="True"
-                       BorderColor="DarkGray"
-                       CornerRadius="5"
-                       Margin="20"
-                       HeightRequest="300"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand">
-                                <StackLayout>
-                                    <Label Text="{Binding Rbr}" ></Label>
-                                    <Label Text="{Binding Naziv}"
-                               FontAttributes="Bold"
-                               FontSize="Large"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                                    <Image Source="{Binding PutanjaSlike}"
-                               Aspect="AspectFill"
-                               HeightRequest="150"
-                               WidthRequest="150"
-                               HorizontalOptions="Center" />
-                                    <Label Text="{Binding Sastojci}"
-                               HorizontalOptions="Center" />
-                                    <Label Text="{Binding Sastojci}"
-                               FontAttributes="Italic"
-                               HorizontalOptions="Center"
-                               MaxLines="5"
-                               LineBreakMode="TailTruncation" />
-                                </StackLayout>
-                            </Frame>
-                        </StackLayout>
+                        <ViewCell >
+                            <StackLayout>
+                                <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
+
+                                </Label>
+                                <Frame CornerRadius="2" OutlineColor="Black" Padding="2" Margin="2" HasShadow="True">
+                                    <Image HeightRequest="95" WidthRequest="95" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding Slika, Converter={StaticResource imgConv}}" Aspect="AspectFit">
+                                        
+                                    </Image>
+                                </Frame>
+                              
+                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Name: " />
+                                            <Span Text="{Binding Naziv}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Ingridients: " />
+                                            <Span Text="{Binding Lokacija}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Rating: " />
+                                            <Span Text="{Binding Ocjena}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+
+                                </Label>
+                                <Label Padding="0,10,0,0"></Label>
+                            </StackLayout>
+                        </ViewCell>
+
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+
+
+                </ListView.ItemTemplate>
+            </ListView>
+
+
 
         </StackLayout>
     </ContentPage.Content>
