@@ -18,13 +18,67 @@ namespace exploreMostar.Mobile.Views
     public partial class MapPage : ContentPage
     {
         public Model.Restorani selected=new Model.Restorani();
+        public Model.Atrakcije selecteda = new Model.Atrakcije();
+        public Model.Apartmani selectedap = new Model.Apartmani();
+        public Model.Nightclubs selectedn = new Model.Nightclubs();
+        public Model.Kafici selectedk = new Model.Kafici();
+        public Model.Hoteli selectedh = new Model.Hoteli();
+        public bool isRestoran;
+        public bool isApartman;
+        public bool isAtrakcija;
+        public bool isNightClub;
+        public bool isKafic;
+        public bool isHotel;
+
         private PreferenceListModel model = null;
-        public MapPage(Model.Restorani model1)
+        public MapPage(object model1)
         {
             InitializeComponent();
-            selected = model1;
-            BindingContext = model = new PreferenceListModel ();
-            //Get();
+            var item = model1 as Model.Restorani;
+            var item1 = model1 as Model.Atrakcije;
+            var item2 = model1 as Model.Apartmani;
+            var item3 = model1 as Model.Hoteli;
+            var item4 = model1 as Model.Kafici;
+            var item5 = model1 as Model.Nightclubs;
+             isRestoran = (item == null) ? false : true;
+             isAtrakcija = (item1 == null) ? false : true;
+             isApartman = (item2 == null) ? false : true;
+             isNightClub = (item3 == null) ? false : true;
+             isKafic = (item4 == null) ? false : true;
+             isHotel = (item5 == null) ? false : true;
+            //selected =  model1;
+            if (isRestoran == true)
+            {
+                selected = item;
+              
+            }
+            else if (isApartman == true)
+            {
+                selectedap = item2;
+                
+            }
+            else if (isAtrakcija == true)
+            {
+                selecteda = item1;
+                
+
+            }
+            else if (isNightClub == true)
+            {
+                selectedn = item5;
+
+            }
+            else if(isKafic== true)
+            {
+                selectedk = item4;
+            }
+            else if(isHotel == true)
+            {
+                selectedh = item3;
+            }
+            BindingContext = model = new PreferenceListModel();
+
+            Get();
             //label.Text = "Name: "+selected.Naziv;
             //ocjena.Text ="Rate: "+ selected.Ocjena.ToString();
         }
@@ -95,25 +149,111 @@ namespace exploreMostar.Mobile.Views
                 
                 if (location != null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Your location", $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}", "OK");
+                  //  await Application.Current.MainPage.DisplayAlert("Your location", $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}", "OK");
                     //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
-
-                Location boston = new Location((double)selected.Longitude,(double)selected.Latitude);
-               
-                double kilometers = Location.CalculateDistance(boston, location, DistanceUnits.Kilometers);
-                double meters = kilometers * 1000;
-                meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                Pin pin = new Pin
+                if (isRestoran == true)
                 {
-                    Label = selected.Naziv,
-                    Address =selected.Lokacija,
-                    Type = PinType.Place,
-                    Position = new Position((double)selected.Latitude, (double)selected.Longitude)
-                };
-                //Map.Pins.Add(pin);
-              
+                    Location resto = new Location((double)selected.Longitude, (double)selected.Latitude);
+
+                    double kilometers = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selected.Naziv,
+                        Address = selected.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selected.Latitude, (double)selected.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
+                if (isApartman == true)
+                {
+                    Location aparto = new Location((double)selectedap.Longitude, (double)selectedap.Latitude);
+
+                    double kilometers = Location.CalculateDistance(aparto, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selectedap.Naziv,
+                        Address = selectedap.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
+                if (isAtrakcija == true)
+                {
+                    Location atraction = new Location((double)selecteda.Longitude, (double)selecteda.Latitude);
+
+                    double kilometers = Location.CalculateDistance(atraction, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selecteda.Naziv,
+                        Address = selecteda.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selecteda.Latitude, (double)selecteda.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
+                if (isHotel == true)
+                {
+                    Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
+
+                    double kilometers = Location.CalculateDistance(hotel, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selectedh.Naziv,
+                        Address = selectedh.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
+                if (isKafic == true)
+                {
+                    Location kafic = new Location((double)selectedk.Longitude, (double)selectedk.Latitude);
+
+                    double kilometers = Location.CalculateDistance(kafic, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selectedk.Naziv,
+                        Address = selectedk.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selectedk.Latitude, (double)selectedk.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
+                if (isHotel == true)
+                {
+                    Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
+
+                    double kilometers = Location.CalculateDistance(hotel, location, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                    Pin pin = new Pin
+                    {
+                        Label = selectedh.Naziv,
+                        Address = selectedh.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
+                    };
+                    Map.Pins.Add(pin);
+                }
 
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -201,6 +341,7 @@ namespace exploreMostar.Mobile.Views
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
             info.IsVisible = false;
+            
         }
 
         private void btn3_Clicked(object sender, EventArgs e)
@@ -222,21 +363,47 @@ namespace exploreMostar.Mobile.Views
             btn1.TextColor = Color.White;
             btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
-            if (selected.Naziv== "Megamarkt")
-                respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.png");
-            if(selected.Naziv == "restoran 1")
-                respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.jpg");
-         
-            Naziv.Text = selected.Naziv;
-            Lokacija.Text = selected.Lokacija;
-            Godina.Text = selected.GodinaIzgradnje.ToString();
-            Rating.Text = selected.Ocjena.ToString();
-            if (selected.VrstaId == 1)
-                Type.Text = "Restaurant";
-            if (selected.VrstaId ==2)
-                Type.Text = "Fast Food";
-            if (selected.VrstaId == 3)
-                Type.Text = "N/A";
+            if (isRestoran == true)
+            {
+                if (selected.Naziv == "Megamarkt")
+                    respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.png");
+                if (selected.Naziv == "restoran 1")
+                    respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.jpg");
+
+                Naziv.Text = selected.Naziv;
+                Lokacija.Text = selected.Lokacija;
+                Godina.Text = selected.GodinaIzgradnje.ToString();
+                Rating.Text = selected.Ocjena.ToString();
+                if (selected.VrstaId == 1)
+                    Type.Text = "Restaurant";
+                if (selected.VrstaId == 2)
+                    Type.Text = "Fast Food";
+                if (selected.VrstaId == 3)
+                    Type.Text = "N/A";
+            }
+            if(isApartman== true)
+            {
+                Naziv.Text = selectedap.Naziv;
+                Lokacija.Text = selectedap.Lokacija;
+                Godina.Text = selectedap.GodinaIzgradnje.ToString();
+                Rating.Text = selectedap.Ocjena.ToString();
+            }
+            if (isAtrakcija == true)
+            {
+                Naziv.Text = selecteda.Naziv;
+                Lokacija.Text = selecteda.Lokacija;
+                Rating.Text = selecteda.Ocjena.ToString();
+                if (selected.VrstaId == 1)
+                    Type.Text = "Natural atraction";
+                if (selected.VrstaId == 2)
+                    Type.Text = "Historical atraction";
+                if (selected.VrstaId == 3)
+                    Type.Text = "Religion atraction";
+                if (selected.VrstaId == 4)
+                {
+                    Type.Text = "N/A";
+                }
+            }
         }
 
         private void btn1_Clicked(object sender, EventArgs e)

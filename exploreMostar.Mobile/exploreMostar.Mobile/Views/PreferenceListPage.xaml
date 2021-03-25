@@ -80,7 +80,7 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
                                                 <Label TextColor="DarkRed" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
                                             </StackLayout>
@@ -98,7 +98,7 @@
             <RelativeLayout IsVisible="{Binding Apartmani}" Grid.Row="1" 
 							HeightRequest="100"
 							VerticalOptions="Start">
-                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp2}" RowHeight="100" SeparatorVisibility="None"
+                        <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding apartmanis}" RowHeight="100" SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
@@ -115,7 +115,7 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
                                                 <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
@@ -135,7 +135,7 @@
             <RelativeLayout IsVisible="{Binding Kafici}" Grid.Row="1" 
 							HeightRequest="100"
 							VerticalOptions="Start">
-                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding kafici}" RowHeight="100" SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
@@ -152,7 +152,7 @@
                                             <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
                                             <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
@@ -172,7 +172,7 @@
                 <RelativeLayout IsVisible="{Binding Hoteli}" Grid.Row="1" 
 							HeightRequest="100"
 							VerticalOptions="Start">
-                    <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                    <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding hotelis}" RowHeight="100" SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
@@ -189,7 +189,7 @@
                                             <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
                                             <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
@@ -209,7 +209,7 @@
                     <RelativeLayout IsVisible="{Binding NocniKlubovi}" Grid.Row="1" 
 							HeightRequest="100"
 							VerticalOptions="Start">
-                        <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding temp3}" RowHeight="100" SeparatorVisibility="None"
+                        <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding nightclubs}" RowHeight="100" SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
@@ -226,7 +226,7 @@
                                                 <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 

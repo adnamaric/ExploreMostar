@@ -174,23 +174,72 @@ namespace exploreMostar.Mobile.Views
             }
             else if (isApartman == true)
             {
+                APIService.Naziv = apartman.Naziv;
+                try
+                {
+                    Application.Current.MainPage = new MapPage(apartman);
 
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else  if (isAtrakcija == true)
             {
+                APIService.Naziv = atrakcija.Naziv;
+                try
+                {
+                    // Application.Current.MainPage = new MapPage(restoran);
+                    Application.Current.MainPage = new MapPage(atrakcija);
 
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else if (isNightClub == true)
             {
+                APIService.Naziv = nocniklub.Naziv;
+                try
+                {
+                    // Application.Current.MainPage = new MapPage(restoran);
+                    Application.Current.MainPage = new MapPage(nocniklub);
 
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else if (isKafic == true) {
-            
-            
+                APIService.Naziv = kafic.Naziv;
+                try
+                {
+                    // Application.Current.MainPage = new MapPage(restoran);
+                    Application.Current.MainPage = new MapPage(kafic);
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+
             }
             else if (isHotel == true)
             {
+                APIService.Naziv = hotel.Naziv;
+                try
+                {
+                    // Application.Current.MainPage = new MapPage(restoran);
+                    Application.Current.MainPage = new MapPage(hotel);
 
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
            
         }

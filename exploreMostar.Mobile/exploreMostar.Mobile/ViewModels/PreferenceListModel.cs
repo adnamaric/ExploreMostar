@@ -31,6 +31,10 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.ReportClass> temp4 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.Kafici> kafici { get; set; } = new ObservableCollection<Model.Kafici>();
         public ObservableCollection<Model.Jela> jelas { get; set; } = new ObservableCollection<Model.Jela>();
+        public ObservableCollection<Model.Apartmani> apartmanis { get; set; } = new ObservableCollection<Model.Apartmani>();
+        public ObservableCollection<Model.Hoteli> hotelis { get; set; } = new ObservableCollection<Model.Hoteli>();
+        public ObservableCollection<Model.Nightclubs> nightclubs { get; set; } = new ObservableCollection<Model.Nightclubs>();
+
         public ICommand InitCommand { get; set; }
         public ICommand GetSelectedOne { get; set; }
         public string parametar;
@@ -40,7 +44,7 @@ namespace exploreMostar.Mobile.ViewModels
         {
             //Setuj();
             InitCommand = new Command(async () => await Init());
-            GetSelectedOne = new Command(async () => await GetT(model));
+            //GetSelectedOne = new Command(async () => await GetT());
         }
       public async Task Init()
         {
@@ -95,7 +99,7 @@ namespace exploreMostar.Mobile.ViewModels
                 foreach (var item in list)
                 {
                     atrakcije.Add(item);
-                    temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                   // temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
 
                 }
             }
@@ -103,12 +107,12 @@ namespace exploreMostar.Mobile.ViewModels
             {
                 var list = await _apartmani.Get<IEnumerable<Model.Apartmani>>(null);
                 list = list.OrderByDescending(y => y.Ocjena).ToList();
-
+                apartmanis.Clear();
                 temp2.Clear();
                 foreach (var item in list)
                 {
-                    
-                    temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                    apartmanis.Add(item);
+                   // temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
 
                 }
             }
@@ -116,12 +120,12 @@ namespace exploreMostar.Mobile.ViewModels
             {
                 var list = await _hoteli.Get<IEnumerable<Model.Hoteli>>(null);
                 list = list.OrderByDescending(y => y.Ocjena).ToList();
-
+                hotelis.Clear();
                 temp3.Clear();
                 foreach (var item in list)
                 {
-                   
-                    temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                    hotelis.Add(item);
+                    //temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
 
                 }
             }
@@ -131,11 +135,12 @@ namespace exploreMostar.Mobile.ViewModels
                 list = list.OrderByDescending(y => y.Ocjena).ToList();
                 kafici.Clear();
                 temp3.Clear();
+                
                 foreach (var item in list)
                 {
                     kafici.Add(item);
                     temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
-
+                    
                 }
             }
             if (Prevoz == true)
@@ -151,16 +156,17 @@ namespace exploreMostar.Mobile.ViewModels
 
                 }
             }
-            if (Prevoz == true)
+            if (NocniKlubovi == true)
             {
                 var list = await _nocniklubovi.Get<IEnumerable<Model.Nightclubs>>(null);
                 list = list.OrderByDescending(y => y.Ocjena).ToList();
                 temp4.Clear();
+                nightclubs.Clear();
                 foreach (var item in list)
                 {
 
-                    temp4.Add(new Model.ReportClass { Naziv = item.Naziv,Ocjena=item.Ocjena });
-
+                    //temp4.Add(new Model.ReportClass { Naziv = item.Naziv,Ocjena=item.Ocjena });
+                    nightclubs.Add(item);
                 }
             }
         }
