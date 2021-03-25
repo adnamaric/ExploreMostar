@@ -32,7 +32,7 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                              CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected">
+                              CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected_1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -68,7 +68,7 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                              CachingStrategy="RecycleElement">
+                              CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected_1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -103,7 +103,7 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                              CachingStrategy="RecycleElement">
+                              CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected_1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

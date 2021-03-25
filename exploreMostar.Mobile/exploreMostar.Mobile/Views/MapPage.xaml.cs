@@ -203,19 +203,21 @@ namespace exploreMostar.Mobile.Views
             info.IsVisible = false;
         }
 
-        private async void btn3_Clicked(object sender, EventArgs e)
+        private void btn3_Clicked(object sender, EventArgs e)
         {
-            
+            info.IsVisible = true;
+
+            info.HeightRequest = 500;
             Map.IsVisible = false;
             Stacky1.IsVisible = false;
             Stack2.IsVisible = false;
             Stack2.HeightRequest = 0;
-            info.IsVisible = true;
+            
             btn3.TextColor = Color.DarkRed;
             btn3.BackgroundColor = Color.White;
             btn3.FontAttributes = FontAttributes.Bold;
             //   Stack2.IsVisible = false;
-            info.IsVisible = true;
+          
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
             btn2.BackgroundColor = Color.DarkRed;
@@ -243,6 +245,7 @@ namespace exploreMostar.Mobile.Views
             Stack2.IsVisible = false;
             Stack2.HeightRequest = 0;
             info.IsVisible = false;
+            info.HeightRequest = 0;
             // Stack2.IsVisible = true;
             Stacky1.IsVisible = true;
             btn1.TextColor = Color.DarkRed;

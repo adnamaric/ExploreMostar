@@ -109,16 +109,7 @@ namespace exploreMostar.Mobile.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Model.Restorani;
-            APIService.Naziv = item.Naziv;
-            try
-            {
-                Application.Current.MainPage = new MapPage(item);
-
-            }
-            catch (Exception ex)
-            {
-               
-            }
+           
 
         }
 
@@ -148,6 +139,60 @@ namespace exploreMostar.Mobile.Views
                 MyStackLayout5.IsVisible = false;
                 MyStackLayout5.HeightRequest = 0; //
             }
+        }
+
+        private void ListView_ItemSelected_1(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem;
+            var restoran = e.SelectedItem as Model.Restorani;
+            var apartman = e.SelectedItem as Model.Apartmani;
+            var atrakcija= e.SelectedItem as Model.Atrakcije;
+            var nocniklub = e.SelectedItem as Model.Nightclubs;
+            var kafic = e.SelectedItem as Model.Kafici;
+            var hotel = e.SelectedItem as Model.Hoteli;
+
+            bool isRestoran =( restoran == null)? false:true;
+            bool isApartman = (apartman == null) ? false : true;
+            bool isAtrakcija = (atrakcija == null) ? false : true;
+            bool isNightClub = (nocniklub == null) ? false : true;
+            bool isKafic = (kafic == null) ? false : true;
+            bool isHotel = (hotel == null) ? false : true;
+
+            if (isRestoran==true)
+            {
+               
+                APIService.Naziv = restoran.Naziv;
+                try
+                {
+                    Application.Current.MainPage = new MapPage(restoran);
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else if (isApartman == true)
+            {
+
+            }
+            else  if (isAtrakcija == true)
+            {
+
+            }
+            else if (isNightClub == true)
+            {
+
+            }
+            else if (isKafic == true) {
+            
+            
+            }
+            else if (isHotel == true)
+            {
+
+            }
+           
         }
     }
 }
