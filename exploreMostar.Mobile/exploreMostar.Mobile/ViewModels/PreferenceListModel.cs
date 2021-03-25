@@ -21,6 +21,7 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _prevoz = new APIService("Prevoz");
         private readonly APIService _jelovnik = new APIService("Jelovnik");
         private readonly APIService _jela = new APIService("Jela");
+     
 
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
         public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();

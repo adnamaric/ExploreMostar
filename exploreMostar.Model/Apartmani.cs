@@ -4,7 +4,7 @@ using System.Text;
 
 namespace exploreMostar.Model
 {
-   
+
     public partial class Apartmani
     {
         public string Naziv { get; set; }
@@ -28,6 +28,8 @@ namespace exploreMostar.Model
         public string DodatneOpcije { get; set; }
         public string PutanjaSlike { get; set; }
         public string Vrsta { get; set; }
+
+        
 
     }
 }

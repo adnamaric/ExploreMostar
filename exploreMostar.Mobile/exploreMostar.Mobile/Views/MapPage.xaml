@@ -23,12 +23,13 @@
                     <Button   Clicked="btn3_Clicked" x:Name="btn3"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Info"/>
                 </StackLayout>
             </StackLayout>
-
+            <Button  x:Name="btn4" Clicked="btn4_Clicked" BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Enable user location"/>
             <StackLayout x:Name="Stack2" HeightRequest="500">
-                <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" IsShowingUser="True" x:Name="Map" >
+                <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite"  x:Name="Map" >
                 </maps:Map>
             </StackLayout>
-            
+        
+                
             <StackLayout x:Name="Stacky1" IsVisible="False">
             <ListView x:Name="MyListView"
             ItemsSource="{Binding jelas}"

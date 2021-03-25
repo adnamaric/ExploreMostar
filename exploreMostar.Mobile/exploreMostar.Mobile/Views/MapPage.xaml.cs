@@ -133,6 +133,7 @@ namespace exploreMostar.Mobile.Views
                 // Handle exception that may have occurred in geocoding
             }
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            Location location1=null;
             if (status.ToString() == "Denied")
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location!", "OK");
@@ -146,114 +147,14 @@ namespace exploreMostar.Mobile.Views
                 cts = new CancellationTokenSource();
                 tcs = new TaskCompletionSource<PermissionStatus>();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-                
+                location1 = location;
                 if (location != null)
                 {
+                    Map.IsShowingUser = true;
                   //  await Application.Current.MainPage.DisplayAlert("Your location", $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}", "OK");
                     //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
-                if (isRestoran == true)
-                {
-                    Location resto = new Location((double)selected.Longitude, (double)selected.Latitude);
-
-                    double kilometers = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selected.Naziv,
-                        Address = selected.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selected.Latitude, (double)selected.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
-                if (isApartman == true)
-                {
-                    Location aparto = new Location((double)selectedap.Longitude, (double)selectedap.Latitude);
-
-                    double kilometers = Location.CalculateDistance(aparto, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selectedap.Naziv,
-                        Address = selectedap.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
-                if (isAtrakcija == true)
-                {
-                    Location atraction = new Location((double)selecteda.Longitude, (double)selecteda.Latitude);
-
-                    double kilometers = Location.CalculateDistance(atraction, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selecteda.Naziv,
-                        Address = selecteda.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selecteda.Latitude, (double)selecteda.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
-                if (isHotel == true)
-                {
-                    Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
-
-                    double kilometers = Location.CalculateDistance(hotel, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selectedh.Naziv,
-                        Address = selectedh.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
-                if (isKafic == true)
-                {
-                    Location kafic = new Location((double)selectedk.Longitude, (double)selectedk.Latitude);
-
-                    double kilometers = Location.CalculateDistance(kafic, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selectedk.Naziv,
-                        Address = selectedk.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selectedk.Latitude, (double)selectedk.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
-                if (isHotel == true)
-                {
-                    Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
-
-                    double kilometers = Location.CalculateDistance(hotel, location, DistanceUnits.Kilometers);
-                    double meters = kilometers * 1000;
-                    meters = Math.Round(meters);
-                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
-                    Pin pin = new Pin
-                    {
-                        Label = selectedh.Naziv,
-                        Address = selectedh.Lokacija,
-                        Type = PinType.Place,
-                        Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
-                    };
-                    Map.Pins.Add(pin);
-                }
+               
 
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -271,6 +172,120 @@ namespace exploreMostar.Mobile.Views
             catch (Exception ex)
             {
                 // Unable to get location
+            }
+            if (isRestoran == true)
+            {
+                Location resto = new Location((double)selected.Longitude, (double)selected.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(resto, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selected.Naziv,
+                    Address = selected.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selected.Latitude, (double)selected.Longitude)
+                };
+                Map.Pins.Add(pin);
+            }
+            if (isApartman == true)
+            {
+                Location aparto = new Location((double)selectedap.Longitude, (double)selectedap.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(aparto, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selectedap.Naziv,
+                    Address = selectedap.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
+                };
+                Map.Pins.Add(pin);
+            }
+            if (isAtrakcija == true)
+            {
+                Location atraction = new Location((double)selecteda.Longitude, (double)selecteda.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(atraction, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selecteda.Naziv,
+                    Address = selecteda.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selecteda.Latitude, (double)selecteda.Longitude)
+                };
+                Map.Pins.Add(pin);
+            }
+            if (isHotel == true)
+            {
+                Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(hotel, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selectedh.Naziv,
+                    Address = selectedh.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
+                };
+                Map.Pins.Add(pin);
+            }
+            if (isKafic == true)
+            {
+                Location kafic = new Location((double)selectedk.Longitude, (double)selectedk.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(kafic, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selectedk.Naziv,
+                    Address = selectedk.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selectedk.Latitude, (double)selectedk.Longitude)
+                };
+                Map.Pins.Add(pin);
+            }
+            if (isHotel == true)
+            {
+                Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
+                if (location1 != null)
+                {
+                    double kilometers = Location.CalculateDistance(hotel, location1, DistanceUnits.Kilometers);
+                    double meters = kilometers * 1000;
+                    meters = Math.Round(meters);
+                    await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
+                }
+                Pin pin = new Pin
+                {
+                    Label = selectedh.Naziv,
+                    Address = selectedh.Lokacija,
+                    Type = PinType.Place,
+                    Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
+                };
+                Map.Pins.Add(pin);
             }
         }
         Task<Xamarin.Essentials.Location> GetLocationFromPhone()
@@ -423,6 +438,27 @@ namespace exploreMostar.Mobile.Views
             btn3.BackgroundColor = Color.DarkRed;
             btn3.TextColor = Color.White;
             
+        }
+
+        private async void btn4_Clicked(object sender, EventArgs e)
+        {
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status.ToString() == "Denied")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location! {Search -> LocationPrivacy -> Turn on ", "OK");
+
+                
+            }
+            Uri n = new Uri("ms-settings:privacy-location");
+           try
+            {
+                await Browser.OpenAsync(n, BrowserLaunchMode.SystemPreferred);
+            }
+            catch
+            {
+
+            }
+
         }
     }
    
