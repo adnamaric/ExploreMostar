@@ -93,6 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ContentDialog1.xaml.cs">
+      <DependentUpon>ContentDialog1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ContentDialog1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\exploreMostar.Mobile\exploreMostar.Mobile.csproj">
-      <Project>{3EDEDD9F-0285-43D7-B2D0-92E9E63F520A}</Project>
+      <Project>{2740729d-7afe-4b27-a2fb-64432596c62f}</Project>
       <Name>exploreMostar.Mobile</Name>
     </ProjectReference>
   </ItemGroup>

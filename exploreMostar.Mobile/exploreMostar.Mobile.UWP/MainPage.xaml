@@ -7,6 +7,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <!--Set Visibility to Visible when access to location is denied -->
+       
     </Grid>
 </forms:WindowsPage>

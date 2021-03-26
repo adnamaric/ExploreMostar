@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Windows.Devices.Geolocation;
+
 using System.Threading;
 using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
 using exploreMostar.Mobile.ViewModels;
+using exploreMostar.Mobile.Models;
+using System.Diagnostics;
+using Xamarin.Forms.PlatformConfiguration;
+using System.IO;
 
 namespace exploreMostar.Mobile.Views
 {
@@ -437,11 +441,12 @@ namespace exploreMostar.Mobile.Views
             btn2.TextColor = Color.White;
             btn3.BackgroundColor = Color.DarkRed;
             btn3.TextColor = Color.White;
-            
         }
 
         private async void btn4_Clicked(object sender, EventArgs e)
         {
+          //  await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-calendar"));
+
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             if (status.ToString() == "Denied")
             {
@@ -449,14 +454,15 @@ namespace exploreMostar.Mobile.Views
 
                 
             }
-            Uri n = new Uri("ms-settings:privacy-location");
+         
            try
             {
-                await Browser.OpenAsync(n, BrowserLaunchMode.SystemPreferred);
-            }
-            catch
-            {
+                //GetLocationPermission()
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
 
         }

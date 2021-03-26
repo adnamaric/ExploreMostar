@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Windows.UI.Xaml.Media;
+using Xamarin.Forms;
 
 namespace exploreMostar.Mobile.Models
 {

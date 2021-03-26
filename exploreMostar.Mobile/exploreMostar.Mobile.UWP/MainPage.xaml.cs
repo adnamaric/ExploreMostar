@@ -9,6 +9,7 @@ using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Services.Maps;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -32,42 +33,25 @@ namespace exploreMostar.Mobile.UWP
             //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(480, 800));
             Xamarin.FormsMaps.Init("AuRdBkvQJxfJOPvHr03c8Ne058fyLkaf74i3odVWKA3QdaBk-uAJLP2oOussl89E");
             LoadApplication(new exploreMostar.Mobile.App());
+            GetLocationPermission();
         }
-        //CancellationTokenSource cts;
+        public async void GetLocationPermission()
+        {
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status.ToString() == "Denied")
+            {
+                var messageDialog = new MessageDialog("Please enable your location!");
+
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
 
 
-        //async Task GetCurrentLocation()
-        //{
-        //    try
-        //    {
-        //        var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-        //        cts = new CancellationTokenSource();
-        //        var location = await Geolocation.GetLocationAsync(request, cts.Token);
+            }
 
-        //        if (location != null)
-        //        {
-        //            Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-        //        }
-        //    }
-        //    catch (FeatureNotSupportedException fnsEx)
-        //    {
-        //        // Handle not supported on device exception
-        //    }
-        //    catch (FeatureNotEnabledException fneEx)
-        //    {
-        //        // Handle not enabled on device exception
-        //    }
-        //    catch (PermissionException pEx)
-        //    {
-        //        // Handle permission exception
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Unable to get location
-        //    }
-        //}
 
-        
+        }
+       
+
+
 
     }
 }
