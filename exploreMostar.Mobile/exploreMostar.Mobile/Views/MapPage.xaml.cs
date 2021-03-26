@@ -399,6 +399,10 @@ namespace exploreMostar.Mobile.Views
                     Type.Text = "Fast Food";
                 if (selected.VrstaId == 3)
                     Type.Text = "N/A";
+                
+
+
+
             }
             if(isApartman== true)
             {
@@ -423,6 +427,9 @@ namespace exploreMostar.Mobile.Views
                     Type.Text = "N/A";
                 }
             }
+            //if (model.GetRecenzije.CanExecute(null))
+            // model.GetRecenzije.Execute(null);
+           Recenzije.IsVisible = true;
         }
 
         private void btn1_Clicked(object sender, EventArgs e)

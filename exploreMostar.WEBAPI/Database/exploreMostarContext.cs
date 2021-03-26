@@ -34,6 +34,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Objava> Objava { get; set; }
         public virtual DbSet<Poruke> Poruke { get; set; }
         public virtual DbSet<Prevoz> Prevoz { get; set; }
+        public virtual DbSet<Recenzije> Recenzije { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
@@ -471,6 +472,22 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Prevoz)
                     .HasForeignKey(d => d.KategorijaId)
                     .HasConstraintName("FK__Prevoz__Kategori__5EBF139D");
+            });
+
+            modelBuilder.Entity<Recenzije>(entity =>
+            {
+                entity.HasKey(e => e.RecenzijaId);
+
+                entity.Property(e => e.RecenzijaId).HasColumnName("RecenzijaID");
+
+                entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.Recenzije)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK__Recenzije__Koris__1B9317B3");
             });
 
             modelBuilder.Entity<Restorani>(entity =>

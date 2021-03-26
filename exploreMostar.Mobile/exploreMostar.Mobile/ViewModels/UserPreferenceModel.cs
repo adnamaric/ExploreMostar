@@ -78,10 +78,13 @@ namespace exploreMostar.Mobile.ViewModels
             APIService.Other = _other;
             APIService.Nightclubs = _nightclubs;
             APIService.Transport = _transport;
-           
-            if(_food==false)
-             await Application.Current.MainPage.DisplayAlert("Alert", "Preferences successfully added!", "OK");
-            Application.Current.MainPage = new PreferenceListPage();
+
+            if (_food == false && _apartment == false && _coffeeshops == false && _hotel == false && _transport == false && _nightclubs == false)
+                await Application.Current.MainPage.DisplayAlert("Error", "Please select at least one item", "OK");
+            else
+            {
+                Application.Current.MainPage = new PreferenceListPage();
+            }
 
         }
     }

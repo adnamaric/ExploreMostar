@@ -21,7 +21,8 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _prevoz = new APIService("Prevoz");
         private readonly APIService _jelovnik = new APIService("Jelovnik");
         private readonly APIService _jela = new APIService("Jela");
-     
+        private readonly APIService _recenzije = new APIService("Recenzije");
+
 
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
         public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();
@@ -35,6 +36,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.Apartmani> apartmanis { get; set; } = new ObservableCollection<Model.Apartmani>();
         public ObservableCollection<Model.Hoteli> hotelis { get; set; } = new ObservableCollection<Model.Hoteli>();
         public ObservableCollection<Model.Nightclubs> nightclubs { get; set; } = new ObservableCollection<Model.Nightclubs>();
+        public ObservableCollection<Model.Recenzije> recenzijes { get; set; } = new ObservableCollection<Model.Recenzije>();
 
         public ICommand InitCommand { get; set; }
         public ICommand GetSelectedOne { get; set; }
@@ -46,6 +48,7 @@ namespace exploreMostar.Mobile.ViewModels
             //Setuj();
             InitCommand = new Command(async () => await Init());
             //GetSelectedOne = new Command(async () => await GetT());
+           // GetRecenzije = new Command(async () => await GetRecenzijeFunction());
         }
       public async Task Init()
         {
@@ -59,6 +62,7 @@ namespace exploreMostar.Mobile.ViewModels
             Prevoz = APIService.Transport;
             NocniKlubovi = APIService.Nightclubs;
             Kafici = APIService.Coffeeshops;
+            Recenzije = APIService.Recenzije;
             if (Food == true)
             {
 
@@ -103,6 +107,7 @@ namespace exploreMostar.Mobile.ViewModels
                    // temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
 
                 }
+
             }
             if (Apartmani == true)
             {
@@ -170,7 +175,30 @@ namespace exploreMostar.Mobile.ViewModels
                     nightclubs.Add(item);
                 }
             }
+            if (APIService.Naziv != null)
+            {
+                recenzijes.Clear();
+                var list = await _recenzije.Get<IList<Model.Recenzije>>(null);
+                if (list.Count() != 0)
+                {
+                    list = list.Where(y => y.Objekat == APIService.Naziv).ToList();
+                    foreach (var item in list)
+                    {
+                        recenzijes.Add(item);
+                    }
+                }
+
+            }
+            if (recenzijes.Count() != 0)
+                Recenzije = true;
+
         }
+        //public ICommand GetRecenzije { get; set; }
+        //public async Task GetRecenzijeFunction()
+        //{
+        //    await _service.Get<dynamic>(null);
+          
+        //}
         public async Task GetT(Model.Restorani model)
         {
             this.model = model;
@@ -192,6 +220,7 @@ namespace exploreMostar.Mobile.ViewModels
         public bool NocniKlubovi = false;
         public bool Kafici = false;
         public bool Food = false;
+        public bool Recenzije = false;
         public async void Setuj()
         {
          
