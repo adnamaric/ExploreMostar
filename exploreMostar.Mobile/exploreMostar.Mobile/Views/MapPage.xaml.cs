@@ -499,7 +499,7 @@ namespace exploreMostar.Mobile.Views
         private void btnRecenzije_Clicked(object sender, EventArgs e)
         {
             Recenzije.IsVisible = true;
-
+            Recenzije.HeightRequest = 500;
             Map.IsVisible = false;
             Stack2.IsVisible = false;
             Stack2.HeightRequest = 0;
@@ -507,8 +507,16 @@ namespace exploreMostar.Mobile.Views
             info.HeightRequest = 0;
             // Stack2.IsVisible = true;
             Stacky1.IsVisible = false;
-            btnRecenzije.BackgroundColor = Color.White ;
+         
             btnRecenzije.TextColor = Color.DarkRed;
+            btnRecenzije.BackgroundColor = Color.White;
+            btnRecenzije.FontAttributes = FontAttributes.Bold;
+            btn2.BackgroundColor = Color.DarkRed;
+            btn2.TextColor = Color.White;
+            btn3.BackgroundColor = Color.DarkRed;
+            btn3.TextColor = Color.White;
+            btn1.BackgroundColor = Color.DarkRed;
+            btn1.TextColor = Color.White;
         }
     }
    

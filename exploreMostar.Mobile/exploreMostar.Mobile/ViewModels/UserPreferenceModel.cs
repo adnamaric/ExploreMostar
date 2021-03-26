@@ -79,7 +79,7 @@ namespace exploreMostar.Mobile.ViewModels
             APIService.Nightclubs = _nightclubs;
             APIService.Transport = _transport;
 
-            if (_food == false && _apartment == false && _coffeeshops == false && _hotel == false && _transport == false && _nightclubs == false)
+            if ( _atraction==false && _food == false && _apartment == false &&  _coffeeshops == false && _hotel == false && _transport == false && _nightclubs == false)
                 await Application.Current.MainPage.DisplayAlert("Error", "Please select at least one item", "OK");
             else
             {

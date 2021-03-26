@@ -14,6 +14,7 @@ namespace exploreMostar.Model
         public int? KorisnikId { get; set; }
         public string ImePrezime { get; set; }
         public DateTime? Datum { get; set; }
+        public int Rbr { get; set; }
 
     }
 }

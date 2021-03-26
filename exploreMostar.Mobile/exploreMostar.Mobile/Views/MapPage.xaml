@@ -155,8 +155,15 @@
                                             <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
 
                                             </Label>
-
-                                            <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                                        <Label   Padding="440,0,0,0" FontSize="Medium"  TextColor="Red" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                            <Label.FormattedText >
+                                                <FormattedString >
+                                                    <Span FontAttributes="Bold"  Text="{Binding Ocjena}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
@@ -174,16 +181,8 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
-                   Style="{DynamicResource ListItemDetailTextStyle}">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="Ingridients: " />
-                                                        <Span Text="{Binding Ocjena}"/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
+                                          
+                                            <Label Padding="0,5,0,0"  VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"   
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                                 <Label.FormattedText>
                                                     <FormattedString>

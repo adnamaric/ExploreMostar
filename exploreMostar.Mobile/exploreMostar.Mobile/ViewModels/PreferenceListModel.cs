@@ -186,8 +186,13 @@ namespace exploreMostar.Mobile.ViewModels
                     {
                         recenzijes.Add(item);
                     }
-                }
 
+                }
+                var broj = 0;
+                foreach (var item in recenzijes)
+                {
+                    item.Rbr = ++broj;
+                }
             }
             if (recenzijes.Count() != 0)
                 Recenzije = true;
