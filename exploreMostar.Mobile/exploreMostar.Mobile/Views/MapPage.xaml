@@ -11,19 +11,22 @@
         <StackLayout BackgroundColor="#252526">
 
             <Label Padding="0,10,0,0"></Label>
-            <StackLayout x:Name="Stack1"  Orientation="Horizontal"   HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Vertical"  WidthRequest="25" HorizontalOptions="FillAndExpand">
-                    <Button x:Name="btn1"  Clicked="btn1_Clicked" BackgroundColor="DarkRed" TextColor="White"  HeightRequest="50" Text="Menu">
+            <StackLayout x:Name="Stack1"  Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout IsVisible="false" x:Name="btn1Stack" Orientation="Vertical"  WidthRequest="25" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btn1" IsVisible="true" Clicked="btn1_Clicked" BackgroundColor="DarkRed" TextColor="White"  HeightRequest="50" Text="Menu">
 
                     </Button>
                 </StackLayout>
-                <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                        <Button   Clicked="btn3_Clicked" x:Name="btn3"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Info"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
                     <Button Clicked="btn2_Clicked"   x:Name="btn2"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Location"/>
                 </StackLayout>
-                <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
-                    <Button   Clicked="btn3_Clicked" x:Name="btn3"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Info"/>
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                        <Button Clicked="btnRecenzije_Clicked"   x:Name="btnRecenzije"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Reviews"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
             
             <StackLayout x:Name="Stack2" HeightRequest="500">
                 <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite"  x:Name="Map" >
@@ -134,72 +137,75 @@
                     </Label>
                     <Label Padding="10,0,0,0" TextColor="White" />
                 </StackLayout>
-           
-            <StackLayout x:Name="Recenzije" IsVisible="false">
-                <ListView x:Name="MyRecenzijeView"
+            
+                    <StackLayout x:Name="Recenzije" IsVisible="false">
+                        <ListView x:Name="MyRecenzijeView"
             ItemsSource="{Binding recenzijes}"
             BackgroundColor="Transparent"
             CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
-                    <!--Built in Cells-->
+                            <!--Built in Cells-->
 
 
-                    <!--Custom View Cells-->
+                            <!--Custom View Cells-->
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell >
-                                <StackLayout>
-                                    <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <StackLayout>
+                                            <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
 
-                                    </Label>
-                                    
-                                        <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                                            </Label>
+
+                                            <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Name: " />
-                                                <Span Text="{Binding ImePrezime}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                        <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Name: " />
+                                                        <Span Text="{Binding ImePrezime}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Name: " />
-                                                    <Span Text="{Binding Datum}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Name: " />
+                                                        <Span Text="{Binding Datum}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemDetailTextStyle}">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Ingridients: " />
-                                                <Span Text="{Binding Ocjena}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Ingridients: " />
+                                                        <Span Text="{Binding Ocjena}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
                    Style="{DynamicResource ListItemDetailTextStyle}">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Rating: " />
-                                                <Span Text="{Binding Sadrzaj}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Rating: " />
+                                                        <Span Text="{Binding Sadrzaj}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
 
-                                    </Label>
-                                    <Label Padding="0,10,0,0"></Label>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
+                                            </Label>
+                                            <Label Padding="0,10,0,0"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
 
 
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    
+
+                </StackLayout>
+
             </StackLayout>
-        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
