@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -42,13 +43,14 @@ namespace exploreMostar.Mobile.ViewModels
         public ICommand GetSelectedOne { get; set; }
         public string parametar;
         public Model.Restorani model = new Model.Restorani();
-
+        public ICommand AddReviewCommand { get; set; }
         public PreferenceListModel()
         {
             //Setuj();
             InitCommand = new Command(async () => await Init());
             //GetSelectedOne = new Command(async () => await GetT());
-           // GetRecenzije = new Command(async () => await GetRecenzijeFunction());
+            // GetRecenzije = new Command(async () => await GetRecenzijeFunction());
+          
         }
       public async Task Init()
         {
@@ -196,7 +198,7 @@ namespace exploreMostar.Mobile.ViewModels
             }
             if (recenzijes.Count() != 0)
                 Recenzije = true;
-
+            AddOcjene();
         }
         //public ICommand GetRecenzije { get; set; }
         //public async Task GetRecenzijeFunction()
@@ -242,9 +244,67 @@ namespace exploreMostar.Mobile.ViewModels
                
             }
         }
-      
 
-   
+        public List<int> Ocjene { get; set; } = new List<int>();
+        public void AddOcjene()
+        {
+            Ocjene.Clear();
+          
+            for (int i = 0; i <= 5; i++)
+            {
+                Ocjene.Add(++i);
+            }
+        }
+        int ocjena = 0;
+        public int SelectedOcjena
+        {
+            get { return ocjena; }
+            set
+            {
+                SetProperty(ref ocjena, value);
+                if (value != null)
+                {
 
+                }
+            }
+        }
+        string sadrzaj = string.Empty;
+        public string Sadrzaj
+        {
+            get { return sadrzaj; }
+            set
+            {
+                SetProperty(ref sadrzaj, value);
+              
+            }
+        }
+        public async void AddReview()
+        {
+            var list = await _service.Get<IList<Model.Korisnici>>(null);
+            Model.Korisnici korisnik = new Model.Korisnici();
+            foreach(var item in list)
+            {
+                if (item.KorisnickoIme == APIService.Username)
+                {
+                    korisnik = item;
+                    break;
+                }
+            }
+            
+             
+            if (korisnik != null)
+            {
+                await _recenzije.Insert<Model.Recenzije>(new RecenzijeUpsertRequest()
+                {
+                    Ocjena = ocjena,
+                    Sadrzaj = sadrzaj,
+                    Datum = DateTime.Now,
+                    KorisnikId = korisnik.KorisnikId,
+                    ImePrezime = korisnik.Ime + " " + korisnik.Prezime,
+                    Objekat = APIService.Naziv,
+                    Vrsta = APIService.Vrsta
+                }) ;
+            }
+        }
     }
 }

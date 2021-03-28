@@ -56,8 +56,8 @@ namespace exploreMostar.Mobile.Views
                 selected = item;
                 btn1Stack.IsVisible = true;
                 btn1.IsVisible = true;
-
-            }
+                APIService.Vrsta = "Restoran";
+    }
             else if (isApartman == true)
             {
                 selectedap = item2;
@@ -65,6 +65,7 @@ namespace exploreMostar.Mobile.Views
                 btn1Stack.HeightRequest = 0;
                 btn1Stack.WidthRequest = 0;
                 btn1.IsVisible = false;
+                APIService.Vrsta = "Apartman";
             }
             else if (isAtrakcija == true)
             {
@@ -73,6 +74,7 @@ namespace exploreMostar.Mobile.Views
                 btn1Stack.HeightRequest = 0;
                 btn1Stack.WidthRequest = 0;
                 btn1.IsVisible = false;
+                APIService.Vrsta = "Atrakcija";
             }
             else if (isNightClub == true)
             {
@@ -81,6 +83,7 @@ namespace exploreMostar.Mobile.Views
                 btn1Stack.HeightRequest = 0;
                 btn1Stack.WidthRequest = 0;
                 btn1.IsVisible = false;
+                APIService.Vrsta = "Nocni klub";
             }
             else if(isKafic== true)
             {
@@ -89,6 +92,7 @@ namespace exploreMostar.Mobile.Views
                 btn1Stack.HeightRequest = 0;
                 btn1Stack.WidthRequest = 0;
                 btn1.IsVisible = false;
+                APIService.Vrsta = "Kafic";
             }
             else if(isHotel == true)
             {
@@ -97,6 +101,7 @@ namespace exploreMostar.Mobile.Views
                 btn1Stack.HeightRequest = 0;
                 btn1Stack.WidthRequest = 0;
                 btn1.IsVisible = false;
+                APIService.Vrsta = "Hotel";
             }
             BindingContext = model = new PreferenceListModel();
 
@@ -383,6 +388,8 @@ namespace exploreMostar.Mobile.Views
             info.IsVisible = false;
             Recenzije.IsVisible = false;
             Recenzije.HeightRequest = 0;
+            btnRecenzije.TextColor = Color.White;
+            btnRecenzije.BackgroundColor = Color.DarkRed;
         }
 
         private void btn3_Clicked(object sender, EventArgs e)
@@ -453,6 +460,8 @@ namespace exploreMostar.Mobile.Views
             // model.GetRecenzije.Execute(null);
             Recenzije.IsVisible = false;
             Recenzije.HeightRequest = 0;
+            btnRecenzije.TextColor = Color.White;
+            btnRecenzije.BackgroundColor = Color.DarkRed;
         }
 
         private void btn1_Clicked(object sender, EventArgs e)
@@ -473,6 +482,9 @@ namespace exploreMostar.Mobile.Views
             btn3.TextColor = Color.White;
             Recenzije.IsVisible = false;
             Recenzije.HeightRequest = 0;
+
+            btnRecenzije.TextColor = Color.White;
+            btnRecenzije.BackgroundColor = Color.DarkRed;
         }
 
         private async void btn4_Clicked(object sender, EventArgs e)
@@ -520,6 +532,11 @@ namespace exploreMostar.Mobile.Views
             btn3.TextColor = Color.White;
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
+        }
+
+        private void postButton_Clicked(object sender, EventArgs e)
+        {
+            model.AddReview();
         }
     }
    

@@ -91,54 +91,75 @@
             </ListView>
           
             </StackLayout>
-      
-                <StackLayout x:Name="info" IsVisible="False">
 
-                    <Image BackgroundColor="Transparent"  HeightRequest="400" WidthRequest="100" x:Name="respicture" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
-                    <Label TextColor="White" >
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Name: " />
-                                <Span x:Name="Naziv"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label TextColor="White" >
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Location: " />
-                                <Span x:Name="Lokacija"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Year: " />
-                                <Span x:Name="Godina"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label >
-                    <Label TextColor="White">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Type: " />
-                                <Span x:Name="Type"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label TextColor="White">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Rating: " />
-                                <Span x:Name="Rating"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label Padding="10,0,0,0" TextColor="White" />
-                </StackLayout>
-            
-                    <StackLayout x:Name="Recenzije" IsVisible="false">
+                <ScrollView>
+                    <StackLayout x:Name="info" IsVisible="False">
+
+                        <Image BackgroundColor="Transparent"  HeightRequest="100" WidthRequest="100" x:Name="respicture" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
+                        <Label TextColor="White" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Name: " />
+                                    <Span x:Name="Naziv"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="White" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Location: " />
+                                    <Span x:Name="Lokacija"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Year: " />
+                                    <Span x:Name="Godina"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label >
+                        <Label TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Type: " />
+                                    <Span x:Name="Type"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Rating: " />
+                                    <Span x:Name="Rating"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Rate this place:" TextColor="White"></Label>
+                        <Picker  TextColor="White"  SelectedItem="{Binding SelectedOcjena}" x:Name="OcjenaPicker">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:Int32}">
+                                    <x:Int32>1</x:Int32>
+                                    <x:Int32>2</x:Int32>
+                                    <x:Int32>3</x:Int32>
+                                    <x:Int32>4</x:Int32>
+                                    <x:Int32>5</x:Int32>
+                                  
+                                </x:Array>
+                            </Picker.ItemsSource>
+
+                        </Picker>
+                        <Line BackgroundColor="Red"></Line>
+                        <Label Text="Write a review:" TextColor="White"></Label>
+                        <Entry Text="{Binding Sadrzaj}" Placeholder="Share your own experience at this place" BackgroundColor="Transparent" PlaceholderColor="White" ></Entry>
+                        <Button BackgroundColor="DarkRed" TextColor="White" Text="Post" Clicked="postButton_Clicked" x:Name="postButton"></Button>
+                        <Label Padding="10,0,0,0" TextColor="White" />
+
+                    </StackLayout>
+                </ScrollView>
+
+                <StackLayout x:Name="Recenzije" IsVisible="false">
                         <ListView x:Name="MyRecenzijeView"
             ItemsSource="{Binding recenzijes}"
             BackgroundColor="Transparent"
@@ -203,7 +224,7 @@
                     
 
                 </StackLayout>
-
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

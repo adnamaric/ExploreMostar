@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace exploreMostar.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class AddReviewPage : ContentPage
     {
-        public Page1()
+        public AddReviewPage()
         {
             InitializeComponent();
         }
