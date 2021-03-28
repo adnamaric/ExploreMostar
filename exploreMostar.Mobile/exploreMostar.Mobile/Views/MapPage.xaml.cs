@@ -308,6 +308,7 @@ namespace exploreMostar.Mobile.Views
                     Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
                 };
                 Map.Pins.Add(pin);
+                
             }
         }
         Task<Xamarin.Essentials.Location> GetLocationFromPhone()
@@ -369,6 +370,8 @@ namespace exploreMostar.Mobile.Views
 
             Stack2.HeightRequest = 500;
             Map.IsVisible = true;
+            Map.HasZoomEnabled = true;
+            
             Stacky1.IsVisible = false;
             btn2.TextColor = Color.DarkRed;
             btn2.FontAttributes = FontAttributes.Bold;
