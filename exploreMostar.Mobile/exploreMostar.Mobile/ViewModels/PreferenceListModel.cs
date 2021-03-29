@@ -274,7 +274,8 @@ namespace exploreMostar.Mobile.ViewModels
              
             if (korisnik != null)
             {
-                await _recenzije.Insert<Model.Recenzije>(new RecenzijeUpsertRequest()
+                await _recenzije.Insert<Model.Recenzije>
+                    (new RecenzijeUpsertRequest()
                 {
                     Ocjena = ocjena,
                     Sadrzaj = sadrzaj,

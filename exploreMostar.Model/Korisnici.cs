@@ -14,6 +14,8 @@ namespace exploreMostar.Model
         public string KorisnickoIme { get; set; }
         public int? GradId { get; set; }
         public string Grad { get; set; }
+        public string Drzava { get; set; }
+
         public int Rbr { get; set; }
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }

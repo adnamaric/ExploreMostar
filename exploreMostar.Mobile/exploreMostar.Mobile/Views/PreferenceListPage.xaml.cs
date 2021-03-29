@@ -243,5 +243,10 @@ namespace exploreMostar.Mobile.Views
             }
            
         }
+
+        private void Button_Clicked_4(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new InboxPage();
+        }
     }
 }

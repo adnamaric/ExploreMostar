@@ -17,7 +17,9 @@
         <ScrollView>
         <StackLayout BackgroundColor="#252526">
 
-          
+                <StackLayout>
+                    <Button Text="Inbox" BackgroundColor="DarkRed" Clicked="Button_Clicked_4" />
+                </StackLayout>
                 <StackLayout>
                     <Button  Text="Best rated content" TextColor="White" BackgroundColor="DarkRed" FontAttributes="Bold" VerticalOptions="Center" HeightRequest="40"></Button>
                  
