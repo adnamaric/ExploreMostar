@@ -177,27 +177,7 @@ namespace exploreMostar.Mobile.ViewModels
                     nightclubs.Add(item);
                 }
             }
-            if (APIService.Naziv != null)
-            {
-                recenzijes.Clear();
-                var list = await _recenzije.Get<IList<Model.Recenzije>>(null);
-                if (list.Count() != 0)
-                {
-                    list = list.Where(y => y.Objekat == APIService.Naziv).ToList();
-                    foreach (var item in list)
-                    {
-                        recenzijes.Add(item);
-                    }
-
-                }
-                var broj = 0;
-                foreach (var item in recenzijes)
-                {
-                    item.Rbr = ++broj;
-                }
-            }
-            if (recenzijes.Count() != 0)
-                Recenzije = true;
+         
             AddOcjene();
         }
         //public ICommand GetRecenzije { get; set; }
@@ -304,7 +284,35 @@ namespace exploreMostar.Mobile.ViewModels
                     Objekat = APIService.Naziv,
                     Vrsta = APIService.Vrsta
                 }) ;
+               await Application.Current.MainPage.DisplayAlert("Success", "Successfully Added Review", "OK");
+
+               
             }
+            
+        }
+        public async void GetReviews()
+        {
+            if (APIService.Naziv != null)
+            {
+                recenzijes.Clear();
+                var list = await _recenzije.Get<IList<Model.Recenzije>>(null);
+                if (list.Count() != 0)
+                {
+                    list = list.Where(y => y.Objekat == APIService.Naziv).ToList();
+                    foreach (var item in list)
+                    {
+                        recenzijes.Add(item);
+                    }
+
+                }
+                var broj = 0;
+                foreach (var item in recenzijes)
+                {
+                    item.Rbr = ++broj;
+                }
+            }
+            if (recenzijes.Count() != 0)
+                Recenzije = true;
         }
     }
 }

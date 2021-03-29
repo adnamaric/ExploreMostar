@@ -152,7 +152,7 @@
                         </Picker>
                         <Line BackgroundColor="Red"></Line>
                         <Label Text="Write a review:" TextColor="White"></Label>
-                        <Entry Text="{Binding Sadrzaj}" Placeholder="Share your own experience at this place" BackgroundColor="Transparent" PlaceholderColor="White" ></Entry>
+                        <Entry x:Name="entry" Text="{Binding Sadrzaj}" Placeholder="Share your own experience at this place" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="White" ></Entry>
                         <Button BackgroundColor="DarkRed" TextColor="White" Text="Post" Clicked="postButton_Clicked" x:Name="postButton"></Button>
                         <Label Padding="10,0,0,0" TextColor="White" />
 
