@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -37,7 +38,7 @@ namespace exploreMostar.Mobile.ViewModels
                 if (item.KorisnickoIme == APIService.Username)
                 {
                     korisnik = item;
-                  
+
                 }
                 item.ImePrezime = item.Ime + " " + item.Prezime;
                 item.Rbr = ++temp;
@@ -49,21 +50,37 @@ namespace exploreMostar.Mobile.ViewModels
                         {
                             item.Grad = item1.Naziv;
 
-                           
+
                         }
                     }
                 }
                 korisnici.Add(item);
             }
-            poruke.Clear();
-            foreach (var item in list)
-            {
-                if (item.PosiljalacId == korisnik.KorisnikId || item.PrimalacId == korisnik.KorisnikId)
-                {
-                    poruke.Add(item);
-                }
-            }
+            //poruke.Clear();
+            //foreach (var item in list)
+            //{
+            //    if (item.PosiljalacId == korisnik.KorisnikId || item.PrimalacId == korisnik.KorisnikId)
+            //    {
+            //        poruke.Add(item);
+            //    }
+            //}
 
+        }
+        public async void AddNewMessage(object n)
+        {
+            if (n is Model.Poruke temp)
+            {
+                await _poruke.Insert<Model.Poruke>(new PorukeUpsertRequest()
+                {
+                    Sadrzaj = temp.Sadrzaj,
+                    Posiljalac = temp.Posiljalac,
+                    PosiljalacId = temp.PosiljalacId,
+                    PrimalacId = temp.PrimalacId,
+                    Primalac = temp.Primalac,
+                    Datum = DateTime.Now
+
+                });
+            }
         }
 
     }

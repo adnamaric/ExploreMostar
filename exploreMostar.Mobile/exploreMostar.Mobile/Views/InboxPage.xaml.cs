@@ -24,91 +24,89 @@ namespace exploreMostar.Mobile.Views
 
             BindingContext = model = new InboxModel();
             ListaStack.IsVisible = true;
-           // Set();
+            // Set();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-           
+
 
         }
         public async void Set()
         {
+
+            //ListaStack.IsVisible = false;
+            //ListaStack.HeightRequest = 0;
+            //InboxStack.IsVisible = true;
             var list = await _poruke.Get<IList<Model.Poruke>>(null);
-            var listKorisnika = await _service.Get<IList<Model.Korisnici>>(null);
-            Model.Korisnici korisnik = new Model.Korisnici();
-            foreach (var item in listKorisnika)
-            {
-                if (item.KorisnickoIme == APIService.Username)
-                {
-                    korisnik = item;
-                    
-                }
-            }
-            poruke.Clear();
-            foreach (var item in list)
-            {
-                if (item.PosiljalacId == korisnik.KorisnikId || item.PrimalacId == korisnik.KorisnikId)
-                {
-                    poruke.Add(item);
-                }
-            }
-            
-            foreach (var item in poruke)
+            var zadnja = list.OrderByDescending(y => y.Datum).ToList().Take(1);
+            foreach (var item in zadnja)
             {
                 StackLayout n = new StackLayout();
-               
-                
+
+
                 n.BackgroundColor = Color.LightBlue;
                 Label texty2 = new Label();
 
+                if (item.PosiljalacId == thisone.KorisnikId)
+                {
+                    n.BackgroundColor = Color.LightBlue;
+                    n.HorizontalOptions = LayoutOptions.End;
+                    n.WidthRequest = 200;
+                }
+                else
+                {
+                    n.BackgroundColor = Color.LightBlue;
+                    n.HorizontalOptions = LayoutOptions.Start;
+                    n.WidthRequest = 200;
+
+                }
 
 
-              
-                
                 Label texty1 = new Label();
                 texty1.Text = item.Datum.ToString();
-              
+
                 texty2.Text = item.Posiljalac;
-            
+
                 Label texty = new Label();
                 texty.Text = item.Sadrzaj;
-               
-                
+
+
                 n.Children.Add(texty1);
                 n.Children.Add(texty2);
 
                 n.Children.Add(texty);
 
-               
-                
+                InboxStack.Children.Add(n);
+
 
                 //n.Text = item.Sadrzaj;
                 //listaPoruka.Add(n);
-              //  MyStackLayout.Children.Add(n);
-
+                //  MyStackLayout.Children.Add(n);
 
             }
-            Entry entry = new Entry();
-            entry.Placeholder = "Type new message";
-            
-            //ImageButton n = new ImageButton();
-            
-            //MyStackLayout.Children.Add(entry);
+            //entry.Placeholder = "Type new message";
+            //entry.PlaceholderColor = Color.LightBlue;
+            //entry.BackgroundColor = Color.Transparent;
+            //entry.TextColor = Color.White;
+            ////entry.TextChanged += OnEntryTextChanged;
+            //entry.Completed += OnEnterPressed;
+           // InboxStack.Children.Add(entry);
         }
-
+          public Model.Korisnici thisone = new Model.Korisnici();
+        public Model.Korisnici primalac = new Model.Korisnici();
+       public Entry entry = new Entry();
         private async void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ListaStack.IsVisible = false;
             ListaStack.HeightRequest = 0;
             InboxStack.IsVisible = true;
-            var korisnik = e.SelectedItem as Model.Korisnici;
+            primalac = e.SelectedItem as Model.Korisnici;
             var listKorisnika = await _service.Get<IList<Model.Korisnici>>(null);
 
             var list = await _poruke.Get<IList<Model.Poruke>>(null);
             poruke.Clear();
-            Model.Korisnici thisone = new Model.Korisnici();
             foreach (var item in listKorisnika)
             {
                 if (item.KorisnickoIme == APIService.Username)
@@ -119,7 +117,7 @@ namespace exploreMostar.Mobile.Views
             }
             foreach (var item in list)
             {
-                if ((item.PosiljalacId == thisone.KorisnikId && item.PrimalacId==korisnik.KorisnikId) ||( item.PosiljalacId==korisnik.KorisnikId &&  item.PrimalacId == thisone.KorisnikId))
+                if ((item.PosiljalacId == thisone.KorisnikId && item.PrimalacId == primalac.KorisnikId) || (item.PosiljalacId == primalac.KorisnikId && item.PrimalacId == thisone.KorisnikId))
                 {
                     poruke.Add(item);
                 }
@@ -135,11 +133,15 @@ namespace exploreMostar.Mobile.Views
                 if (item.PosiljalacId == thisone.KorisnikId)
                 {
                     n.BackgroundColor = Color.LightBlue;
+                    n.HorizontalOptions = LayoutOptions.End;
+                    n.WidthRequest = 200;
                 }
                 else
                 {
-                    n.BackgroundColor = Color.DarkBlue;
-                    
+                    n.BackgroundColor = Color.LightBlue;
+                    n.HorizontalOptions = LayoutOptions.Start;
+                    n.WidthRequest = 200;
+
                 }
 
 
@@ -166,9 +168,38 @@ namespace exploreMostar.Mobile.Views
                 InboxStack.Children.Add(n);
 
             }
-            Entry entry = new Entry();
+            
             entry.Placeholder = "Type new message";
+            entry.PlaceholderColor = Color.LightBlue;
+            entry.BackgroundColor = Color.Transparent;
+            entry.TextColor = Color.White;
+            //entry.TextChanged += OnEntryTextChanged;
+            entry.Completed += OnEnterPressed;
             InboxStack.Children.Add(entry);
+
+            //Called on enter key press
         }
+        public void OnEnterPressed(object sender, EventArgs e)
+        {
+            // ObjectCommandIsOn.LoginCommand.Invoke();
+            // OR
+            // Login Command Logic Can go here, but use a ViewModel like a normal Person at least.
+          
+            Model.Poruke n = new Model.Poruke();
+           // string sadrzaj = entry.Text ;
+            n.Sadrzaj = entry.Text;
+            n.PosiljalacId = thisone.KorisnikId;
+            n.Posiljalac = thisone.Ime + " " + thisone.Prezime;
+            n.Primalac = primalac.Ime+" "+primalac.Prezime;
+            n.PrimalacId = primalac.KorisnikId;
+
+
+            model.AddNewMessage(n);
+         
+            Set();
+        }
+
     }
+   
+
 }
