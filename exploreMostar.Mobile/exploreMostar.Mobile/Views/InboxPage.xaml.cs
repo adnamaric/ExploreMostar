@@ -35,21 +35,20 @@ namespace exploreMostar.Mobile.Views
         }
         public async void Set()
         {
+            InboxStack.Children.Remove(entry);
 
             //ListaStack.IsVisible = false;
             //ListaStack.HeightRequest = 0;
             //InboxStack.IsVisible = true;
-            var list = await _poruke.Get<IList<Model.Poruke>>(null);
-            var zadnja = list.OrderByDescending(y => y.Datum).ToList().Take(1);
-            foreach (var item in zadnja)
-            {
-                StackLayout n = new StackLayout();
+
+
+            StackLayout n = new StackLayout();
 
 
                 n.BackgroundColor = Color.LightBlue;
                 Label texty2 = new Label();
 
-                if (item.PosiljalacId == thisone.KorisnikId)
+                if (zadnjaPoruka.PosiljalacId == thisone.KorisnikId)
                 {
                     n.BackgroundColor = Color.LightBlue;
                     n.HorizontalOptions = LayoutOptions.End;
@@ -65,37 +64,31 @@ namespace exploreMostar.Mobile.Views
 
 
                 Label texty1 = new Label();
-                texty1.Text = item.Datum.ToString();
+                texty1.Text = zadnjaPoruka.Datum.ToString();
 
-                texty2.Text = item.Posiljalac;
+                texty2.Text = zadnjaPoruka.Posiljalac;
 
                 Label texty = new Label();
-                texty.Text = item.Sadrzaj;
+                texty.Text = zadnjaPoruka.Sadrzaj;
 
-
+               
                 n.Children.Add(texty1);
                 n.Children.Add(texty2);
 
                 n.Children.Add(texty);
 
                 InboxStack.Children.Add(n);
+            entry.Placeholder = "Type new message";
+            entry.PlaceholderColor = Color.LightBlue;
+            entry.BackgroundColor = Color.Transparent;
+            entry.TextColor = Color.White;
+            //entry.TextChanged += OnEntryTextChanged;
+            InboxStack.Children.Add(entry);
 
-
-                //n.Text = item.Sadrzaj;
-                //listaPoruka.Add(n);
-                //  MyStackLayout.Children.Add(n);
-
-            }
-            //entry.Placeholder = "Type new message";
-            //entry.PlaceholderColor = Color.LightBlue;
-            //entry.BackgroundColor = Color.Transparent;
-            //entry.TextColor = Color.White;
-            ////entry.TextChanged += OnEntryTextChanged;
-            //entry.Completed += OnEnterPressed;
-           // InboxStack.Children.Add(entry);
         }
           public Model.Korisnici thisone = new Model.Korisnici();
         public Model.Korisnici primalac = new Model.Korisnici();
+        public Model.Poruke zadnjaPoruka = new Model.Poruke();
        public Entry entry = new Entry();
         private async void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -192,11 +185,13 @@ namespace exploreMostar.Mobile.Views
             n.Posiljalac = thisone.Ime + " " + thisone.Prezime;
             n.Primalac = primalac.Ime+" "+primalac.Prezime;
             n.PrimalacId = primalac.KorisnikId;
-
+            n.Datum = DateTime.Now;
 
             model.AddNewMessage(n);
-         
+            zadnjaPoruka = n;
             Set();
+           
+
         }
 
     }

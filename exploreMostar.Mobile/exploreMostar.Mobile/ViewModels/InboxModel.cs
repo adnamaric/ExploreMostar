@@ -77,7 +77,7 @@ namespace exploreMostar.Mobile.ViewModels
                     PosiljalacId = temp.PosiljalacId,
                     PrimalacId = temp.PrimalacId,
                     Primalac = temp.Primalac,
-                    Datum = DateTime.Now
+                    Datum = temp.Datum
 
                 });
             }
