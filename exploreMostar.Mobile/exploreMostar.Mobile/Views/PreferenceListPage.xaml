@@ -20,11 +20,16 @@
                 <StackLayout>
                     <Button Text="Inbox" BackgroundColor="DarkRed" Clicked="Button_Clicked_4" />
                 </StackLayout>
-                <StackLayout>
-                    <Button  Text="Best rated content" TextColor="White" BackgroundColor="DarkRed" FontAttributes="Bold" VerticalOptions="Center" HeightRequest="40"></Button>
-                 
+                <StackLayout x:Name="Stack1"  Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                   
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                        <Button  Clicked="btn3_Clicked" x:Name="btn3"  BackgroundColor="White" TextColor="DarkRed" HeightRequest="50" Text="Best rated"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                        <Button Clicked="btn2_Clicked" x:Name="btn2"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Near me"/>
+                    </StackLayout>
                 </StackLayout>
-            <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
+                <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
                 <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Chose a restaurant:" FontAttributes="Bold"></Label>
                 <RelativeLayout  IsEnabled="{Binding Food}" IsVisible="{Binding Food}" Grid.Row="1" 
 							HeightRequest="100"
@@ -46,8 +51,16 @@
                                         <Label x:Name="{Binding Naziv}" TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label  LineBreakMode="MiddleTruncation" TextColor="White" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                
                                                 <Label  TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"></Label>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
                                             </StackLayout>
                                 </ContentView>
@@ -82,8 +95,16 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                               
                                                 <Label TextColor="DarkRed" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
                                             </StackLayout>
                                 </ContentView>
@@ -117,8 +138,16 @@
                                             <Label TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                               
                                                 <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 
@@ -154,9 +183,17 @@
                                             <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                                
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
-                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 
                                         </StackLayout>
@@ -191,9 +228,17 @@
                                             <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+      
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
-                                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 
                                         </StackLayout>
@@ -228,8 +273,16 @@
                                                 <Label  TextColor="White" Text="{Binding Naziv}"
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
-                                                <Label TextColor="White" LineBreakMode="MiddleTruncation" VerticalTextAlignment="Center" Text="{Binding Lokacija}"/>
+                                               
                                                 <Label TextColor="Red" VerticalTextAlignment="End" Text="{Binding Ocjena}"/>
+                                                <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Udaljenost}" />
+                                                            <Span Text="km away"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
                                                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="DarkRed" Text="SELECT" TextColor="White"></Label>
 
 

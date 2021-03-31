@@ -21,6 +21,7 @@ namespace exploreMostar.WebAPI.Database
         public byte[] Slika { get; set; }
         public double? Ocjena { get; set; }
         public string PutanjaSlike { get; set; }
+        public double? Udaljenost { get; set; }
 
         public Kategorije Kategorija { get; set; }
         public VrstaRestorana Vrsta { get; set; }

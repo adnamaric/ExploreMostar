@@ -24,6 +24,7 @@ namespace exploreMostar.WebAPI.Database
         public string KategorijaApartmana { get; set; }
         public double? Ocjena { get; set; }
         public string PutanjaSlike { get; set; }
+        public double? Udaljenost { get; set; }
 
         public Kategorije Kategorija { get; set; }
     }

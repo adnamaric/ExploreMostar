@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace exploreMostar.Mobile.ViewModels
@@ -54,131 +56,194 @@ namespace exploreMostar.Mobile.ViewModels
         }
       public async Task Init()
         {
-           
-            await _service.Get<dynamic>(null);
-            Atrakcije = APIService.Atraction;
-            Apartmani = APIService.Apartments;
-            Hoteli = APIService.Hotels;
-            Food = APIService.Food;
-            Other = APIService.Other;
-            Prevoz = APIService.Transport;
-            NocniKlubovi = APIService.Nightclubs;
-            Kafici = APIService.Coffeeshops;
-            Recenzije = APIService.Recenzije;
-            if (Food == true)
+            if (APIService.NearOn == false)
             {
+                await _service.Get<dynamic>(null);
+                Atrakcije = APIService.Atraction;
+                Apartmani = APIService.Apartments;
+                Hoteli = APIService.Hotels;
+                Food = APIService.Food;
+                Other = APIService.Other;
+                Prevoz = APIService.Transport;
+                NocniKlubovi = APIService.Nightclubs;
+                Kafici = APIService.Coffeeshops;
+                Recenzije = APIService.Recenzije;
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+                CancellationTokenSource cts = new CancellationTokenSource();
+                // tcs = new TaskCompletionSource<PermissionStatus>();
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
 
-                var list = await _restorani.Get<IList<Model.Restorani>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                restoranis.Clear();
-                temp.Clear();
-                jelas.Clear();
-                foreach (var item in list)
+
+                if (Food == true)
                 {
-                    if(item.PutanjaSlike!=null)
-                        APIService.PutanjaSlike = item.PutanjaSlike;
 
-                    restoranis.Add(item);
-                    temp.Add(new Model.ReportClass {Naziv=item.Naziv, Ocjena=item.Ocjena });
-                    
+                    var list = await _restorani.Get<IList<Model.Restorani>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    restoranis.Clear();
+                    temp.Clear();
+                    jelas.Clear();
+                    foreach (var item in list)
+                    {
+                        if (item.PutanjaSlike != null)
+                            APIService.PutanjaSlike = item.PutanjaSlike;
+
+                        restoranis.Add(item);
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+
+                    }
+
+                    var list1 = await _jela.Get<IList<Model.Jela>>(null);
+                    list1 = list1.OrderByDescending(y => y.Ocjena).ToList();
+                    foreach (var item in list1)
+                    {
+                        jelas.Add(item);
+
+                    }
+
+                    var broj = 0;
+                    foreach (var item in jelas)
+                    {
+                        item.Rbr = ++broj;
+                    }
                 }
+                if (Atrakcije == true)
+                {
+                    var list = await _atrakcije.Get<IEnumerable<Model.Atrakcije>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    atrakcije.Clear();
+                    temp1.Clear();
+                    foreach (var item in list)
+                    {
+                        atrakcije.Add(item);
+                        // temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+                    }
 
-                var list1 = await _jela.Get<IList<Model.Jela>>(null);
-                list1 = list1.OrderByDescending(y => y.Ocjena).ToList();
-                foreach(var item in list1)
-                {
-                    jelas.Add(item);
-                    
+
                 }
-              
-                var broj = 0;
-                foreach(var item in jelas)
+                if (Apartmani == true)
                 {
-                    item.Rbr = ++broj;
+                    var list = await _apartmani.Get<IEnumerable<Model.Apartmani>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    apartmanis.Clear();
+                    temp2.Clear();
+                    foreach (var item in list)
+                    {
+                        apartmanis.Add(item);
+                        // temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+                    }
+                }
+                if (Hoteli == true)
+                {
+                    var list = await _hoteli.Get<IEnumerable<Model.Hoteli>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    hotelis.Clear();
+                    temp3.Clear();
+                    foreach (var item in list)
+                    {
+                        hotelis.Add(item);
+                        //temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+                    }
+                }
+                if (Kafici == true)
+                {
+                    var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    kafici.Clear();
+                    temp3.Clear();
+
+                    foreach (var item in list)
+                    {
+                        kafici.Add(item);
+                        temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+                    }
+                }
+                if (Prevoz == true)
+                {
+                    var list = await _prevoz.Get<IEnumerable<Model.Prevoz>>(null);
+
+
+                    temp4.Clear();
+                    foreach (var item in list)
+                    {
+
+                        temp4.Add(new Model.ReportClass { Naziv = item.Naziv });
+
+                    }
+                }
+                if (NocniKlubovi == true)
+                {
+                    var list = await _nocniklubovi.Get<IEnumerable<Model.Nightclubs>>(null);
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    temp4.Clear();
+                    nightclubs.Clear();
+                    foreach (var item in list)
+                    {
+
+                        //temp4.Add(new Model.ReportClass { Naziv = item.Naziv,Ocjena=item.Ocjena });
+                        nightclubs.Add(item);
+                        if (location != null)
+                        {
+                            if (item.Latitude != null && item.Longitude != null)
+                            {
+                                Location resto = new Location((double)item.Latitude, (double)item.Longitude);
+                                item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
+                                item.Udaljenost = Math.Round((double)item.Udaljenost, 2);
+                            }
+                        }
+                    }
                 }
             }
-            if (Atrakcije == true)
+            else
             {
-                var list = await _atrakcije.Get<IEnumerable<Model.Atrakcije>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                atrakcije.Clear();
-                temp1.Clear();
-                foreach (var item in list)
-                {
-                    atrakcije.Add(item);
-                   // temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
-
-                }
-
+             
             }
-            if (Apartmani == true)
-            {
-                var list = await _apartmani.Get<IEnumerable<Model.Apartmani>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                apartmanis.Clear();
-                temp2.Clear();
-                foreach (var item in list)
-                {
-                    apartmanis.Add(item);
-                   // temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
-
-                }
-            }
-            if (Hoteli == true)
-            {
-                var list = await _hoteli.Get<IEnumerable<Model.Hoteli>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                hotelis.Clear();
-                temp3.Clear();
-                foreach (var item in list)
-                {
-                    hotelis.Add(item);
-                    //temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
-
-                }
-            }
-            if (Kafici == true)
-            {
-                var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                kafici.Clear();
-                temp3.Clear();
-                
-                foreach (var item in list)
-                {
-                    kafici.Add(item);
-                    temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
-                    
-                }
-            }
-            if (Prevoz == true)
-            {
-                var list = await _prevoz.Get<IEnumerable<Model.Prevoz>>(null);
-                
-
-                temp4.Clear();
-                foreach (var item in list)
-                {
-
-                    temp4.Add(new Model.ReportClass { Naziv = item.Naziv });
-
-                }
-            }
-            if (NocniKlubovi == true)
-            {
-                var list = await _nocniklubovi.Get<IEnumerable<Model.Nightclubs>>(null);
-                list = list.OrderByDescending(y => y.Ocjena).ToList();
-                temp4.Clear();
-                nightclubs.Clear();
-                foreach (var item in list)
-                {
-
-                    //temp4.Add(new Model.ReportClass { Naziv = item.Naziv,Ocjena=item.Ocjena });
-                    nightclubs.Add(item);
-                }
-            }
-         
             AddOcjene();
+
         }
         //public ICommand GetRecenzije { get; set; }
         //public async Task GetRecenzijeFunction()
@@ -314,6 +379,42 @@ namespace exploreMostar.Mobile.ViewModels
             }
             if (recenzijes.Count() != 0)
                 Recenzije = true;
+        }
+        public void NearMe()
+        {
+            if (Food == true)
+            {
+
+                restoranis = (ObservableCollection<Model.Restorani>) restoranis.OrderBy(y => y.Udaljenost);
+
+            }
+
+
+            if (Atrakcije == true)
+            {
+                atrakcije=(ObservableCollection<Model.Atrakcije>)atrakcije.OrderBy(y => y.Udaljenost);
+
+            }
+            if (Apartmani == true)
+            {
+                apartmanis= (ObservableCollection<Model.Apartmani>)apartmanis.OrderBy(y => y.Udaljenost);
+
+            }
+            if (Hoteli == true)
+            {
+                hotelis= (ObservableCollection<Model.Hoteli>)hotelis.OrderBy(y => y.Udaljenost);
+            }
+            if (Kafici == true)
+            {
+                kafici= (ObservableCollection<Model.Kafici>)kafici.OrderBy(y => y.Udaljenost);
+            }
+
+            if (NocniKlubovi == true)
+            {
+
+                nightclubs= (ObservableCollection<Model.Nightclubs>)nightclubs.OrderBy(y => y.Udaljenost);
+
+            }
         }
     }
 }

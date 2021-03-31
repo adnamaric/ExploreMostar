@@ -248,5 +248,34 @@ namespace exploreMostar.Mobile.Views
         {
             Application.Current.MainPage = new InboxPage();
         }
+
+        private async void btn2_Clicked(object sender, EventArgs e)
+        {
+            model.NearMe();
+            //APIService.NearOn = true;
+            //await model.Init();
+            btn2.TextColor = Color.DarkRed;
+            btn2.BackgroundColor = Color.White;
+            btn2.FontAttributes = FontAttributes.Bold;
+            //   Stack2.IsVisible = false;
+
+            btn3.BackgroundColor = Color.DarkRed;
+            btn3.TextColor = Color.White;
+       
+
+        }
+
+        private  async void btn3_Clicked(object sender, EventArgs e)
+        {
+            APIService.NearOn = false;
+            await model.Init();
+            btn3.TextColor = Color.DarkRed;
+            btn3.BackgroundColor = Color.White;
+            btn3.FontAttributes = FontAttributes.Bold;
+            //   Stack2.IsVisible = false;
+
+            btn2.BackgroundColor = Color.DarkRed;
+            btn2.TextColor = Color.White;
+        }
     }
 }

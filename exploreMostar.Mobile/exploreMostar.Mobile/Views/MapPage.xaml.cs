@@ -170,7 +170,7 @@ namespace exploreMostar.Mobile.Views
             {
                 btn2.BackgroundColor = Color.White;
                 btn2.TextColor = Color.DarkRed;
-                var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 tcs = new TaskCompletionSource<PermissionStatus>();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);

@@ -21,5 +21,6 @@ namespace exploreMostar.Model
         public double? Ocjena { get; set; }
         public string Vrsta { get; set; }
         public string PutanjaSlike { get; set; }
+        public double? Udaljenost { get; set; }
     }
 }

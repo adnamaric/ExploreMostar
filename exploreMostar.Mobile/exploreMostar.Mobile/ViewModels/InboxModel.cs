@@ -14,6 +14,7 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _service = new APIService("Korisnici");
         private readonly APIService _poruke = new APIService("Poruke");
         private readonly APIService _gradovi = new APIService("Gradovi");
+        private readonly APIService _drzave = new APIService("Drzave");
 
         public ObservableCollection<Model.Poruke> poruke { get; set; } = new ObservableCollection<Model.Poruke>();
         public ObservableCollection<Model.Korisnici> korisnici { get; set; } = new ObservableCollection<Model.Korisnici>();
@@ -28,6 +29,7 @@ namespace exploreMostar.Mobile.ViewModels
             var list = await _poruke.Get<IList<Model.Poruke>>(null);
             var listKorisnika = await _service.Get<IList<Model.Korisnici>>(null);
             var listaGradova = await _gradovi.Get<IList<Model.Gradovi>>(null);
+            var listaDrzava = await _drzave.Get<IList<Model.Drzave>>(null);
 
             Model.Korisnici korisnik = new Model.Korisnici();
             korisnici.Clear();
@@ -52,7 +54,13 @@ namespace exploreMostar.Mobile.ViewModels
 
 
                         }
+                        foreach (var item2 in listaDrzava)
+                        {
+                            if (item1.DrzavaId == item2.DrzavaId)
+                                item.Drzava = item2.Naziv;
                     }
+                    }
+                    
                 }
                 korisnici.Add(item);
             }
