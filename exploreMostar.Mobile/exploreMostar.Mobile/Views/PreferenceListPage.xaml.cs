@@ -251,9 +251,9 @@ namespace exploreMostar.Mobile.Views
 
         private async void btn2_Clicked(object sender, EventArgs e)
         {
-            model.NearMe();
-            //APIService.NearOn = true;
-            //await model.Init();
+  
+            APIService.NearOn = true;
+            await model.Init();
             btn2.TextColor = Color.DarkRed;
             btn2.BackgroundColor = Color.White;
             btn2.FontAttributes = FontAttributes.Bold;

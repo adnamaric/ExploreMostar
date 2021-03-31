@@ -20,7 +20,7 @@
                 <StackLayout>
                     <Button Text="Inbox" BackgroundColor="DarkRed" Clicked="Button_Clicked_4" />
                 </StackLayout>
-                <StackLayout x:Name="Stack1"  Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="Stack1"  Orientation="Horizontal" >
                    
                     <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
                         <Button  Clicked="btn3_Clicked" x:Name="btn3"  BackgroundColor="White" TextColor="DarkRed" HeightRequest="50" Text="Best rated"/>
