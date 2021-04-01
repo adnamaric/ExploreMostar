@@ -23,7 +23,7 @@ namespace exploreMostar.Mobile.Views
             messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
 
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
-
+            newsBox.ImageSource= ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
         }
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
@@ -143,14 +143,18 @@ namespace exploreMostar.Mobile.Views
 
         }
 
-        private void recenzije_Clicked(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void recenzije_Clicked_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void logout_Clicked(object sender, EventArgs e)
+        {
+            APIService.Username = null;
+            APIService.Password = null;
+            Application.Current.MainPage = new OpeningPage();
         }
     }
 }
