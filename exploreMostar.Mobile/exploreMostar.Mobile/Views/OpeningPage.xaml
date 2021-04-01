@@ -6,6 +6,7 @@
         <viewmodels:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        
         <StackLayout FlexLayout.AlignSelf="Auto" BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
             <Label TextColor="Black" HorizontalOptions="FillAndExpand" Text="Explore Mostar - Mobile Verion"></Label>
             <Image BackgroundColor="Black"  x:Name="opImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>

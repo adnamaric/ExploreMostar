@@ -4,7 +4,33 @@
              x:Class="exploreMostar.Mobile.Views.UserPreferenceContentPage">
 
     <ContentPage.Content>
+      
         <StackLayout BackgroundColor="#252526">
+            <StackLayout x:Name="NavigationBar" Margin="10,10,12,10">
+           
+                <ImageButton Clicked="opImage_Clicked" BackgroundColor="#252526"  x:Name="opImage"  HorizontalOptions="StartAndExpand"></ImageButton>
+                
+            </StackLayout>
+            <StackLayout  x:Name="NavigationPane" IsVisible="false">
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Welcome, " />
+                            <Span x:Name="spanUser" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Vertical">
+                  
+                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="INBOX" x:Name="messageBox"> 
+                        
+                    </Button>
+                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="LOGOUT" x:Name="logout">
+
+                    </Button>
+                </StackLayout>
+            </StackLayout>
             <Label Padding="0,0,0,20"></Label>
             <Label Text="I'm interested in finding..." HorizontalTextAlignment="Center" TextColor="White" Padding="0,20,0,10"></Label>
             <Label Padding="0,0,0,20"></Label>

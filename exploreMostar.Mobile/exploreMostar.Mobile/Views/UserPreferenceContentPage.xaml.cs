@@ -13,11 +13,17 @@ namespace exploreMostar.Mobile.Views
     public partial class UserPreferenceContentPage : ContentPage
     {
         private APIService korisnici = new APIService("Korisnici");
-
+        private bool isClicked = false;
         public UserPreferenceContentPage()
         {
             InitializeComponent();
-            
+            opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Row-52.png");
+            opImage.WidthRequest = 20;
+            opImage.HeightRequest = 20;
+            messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
+
+            logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
+
         }
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
@@ -103,6 +109,47 @@ namespace exploreMostar.Mobile.Views
 
             if (m.Submit.CanExecute(null))
                 m.Submit.Execute(null);
+
+        }
+
+        private async void opImage_Clicked(object sender, EventArgs e)
+        {
+            if (NavigationPane.IsVisible == true)
+            {
+                NavigationPane.IsVisible = false;
+                await opImage.RotateTo(180, 200);
+                
+
+            }
+            else
+            {
+                NavigationPane.IsVisible = true;
+                await opImage.RotateTo(90, 200);
+                var lista = await korisnici.Get<IList<Model.Korisnici>>(null);
+                Model.Korisnici korisnik = new Model.Korisnici();
+                foreach (var item in lista)
+                {
+                    if (item.KorisnickoIme == APIService.Username)
+                    {
+                        korisnik = item;
+                    }
+                }
+                spanUser.Text = korisnik.Ime + " " + korisnik.Prezime;
+            }
+        }
+
+        private void messageBox_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recenzije_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recenzije_Clicked_1(object sender, EventArgs e)
+        {
 
         }
     }

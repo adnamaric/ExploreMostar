@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="exploreMostar.Mobile.Views.AddReviewPage">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#252526">
+        <StackLayout  BackgroundColor="#252526">
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
