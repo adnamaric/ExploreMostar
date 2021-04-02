@@ -41,7 +41,7 @@ namespace exploreMostar.Mobile.UWP
             if (status.ToString() == "Denied")
             {
                 var messageDialog = new MessageDialog("Please enable your location!");
-
+           
                 await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
 
 

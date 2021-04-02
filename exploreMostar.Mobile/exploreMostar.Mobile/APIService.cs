@@ -26,6 +26,11 @@ namespace exploreMostar.Mobile
         public static string Naziv { get; set; }
         public static string Vrsta { get; set; }
         public static bool NearOn{ get; set; }
+        public static bool UPContentPage { get; set; }
+        public static bool PreferenceListPage { get; set; }
+        public static bool InboxLista { get; set; }
+        public static double VelicinaListe { get; set; }
+        public static double VelicinaInboxa { get; set; }
 
 #if DEBUG
         string _apiUrl = "http://localhost:64741/api/";

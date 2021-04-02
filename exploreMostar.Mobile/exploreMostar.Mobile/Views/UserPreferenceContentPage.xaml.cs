@@ -24,6 +24,9 @@ namespace exploreMostar.Mobile.Views
 
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource= ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
         }
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
@@ -160,6 +163,23 @@ namespace exploreMostar.Mobile.Views
         private void newsBox_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new CheckPosts();
+        }
+
+        private void messageBox_Clicked_1(object sender, EventArgs e)
+        {
+            APIService.UPContentPage = true;
+            APIService.PreferenceListPage = false;
+          
+            Application.Current.MainPage = new InboxPage();
+        }
+
+        private void goBack_Clicked(object sender, EventArgs e)
+        {
+
+            APIService.Username = null;
+            APIService.Password = null;
+           
+            Application.Current.MainPage = new OpeningPage();
         }
     }
 }

@@ -6,35 +6,39 @@
     <ContentPage.Content>
       
         <StackLayout BackgroundColor="#252526">
-            <StackLayout x:Name="NavigationBar" Margin="10,10,12,10">
-           
-                <ImageButton Clicked="opImage_Clicked" BackgroundColor="#252526"  x:Name="opImage"  HorizontalOptions="StartAndExpand"></ImageButton>
+            <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                <ImageButton Clicked="goBack_Clicked" BackgroundColor="#252526"  x:Name="goBack"  HorizontalOptions="StartAndExpand"></ImageButton>
+
+                <ImageButton Clicked="opImage_Clicked" BackgroundColor="#252526" HorizontalOptions="EndAndExpand" x:Name="opImage"  ></ImageButton>
                 
             </StackLayout>
-            <StackLayout  x:Name="NavigationPane" IsVisible="false">
-                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+            
+                <StackLayout  x:Name="NavigationPane" IsVisible="false">
+                    <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Welcome, " />
-                            <Span x:Name="spanUser" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <StackLayout Orientation="Vertical">
-                  
-                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="INBOX" x:Name="messageBox"> 
-                        
-                    </Button>
-                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox" Clicked="newsBox_Clicked">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Welcome, " />
+                                <Span x:Name="spanUser" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout Orientation="Vertical">
 
-                    </Button>
-                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="LOGOUT" x:Name="logout" Clicked="logout_Clicked">
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="INBOX" x:Name="messageBox" Clicked="messageBox_Clicked_1">
 
-                    </Button>
+                        </Button>
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox" Clicked="newsBox_Clicked">
+
+                        </Button>
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="LOGOUT" x:Name="logout" Clicked="logout_Clicked">
+
+                        </Button>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-            <Label Padding="0,0,0,20"></Label>
+            
+            <StackLayout>
+                <Label Padding="0,0,0,20"></Label>
             <Label Text="I'm interested in finding..." HorizontalTextAlignment="Center" TextColor="White" Padding="0,20,0,10"></Label>
             <Label Padding="0,0,0,20"></Label>
             <StackLayout  Orientation="Horizontal"   HorizontalOptions="FillAndExpand">
@@ -64,12 +68,14 @@
                 </StackLayout>
             </StackLayout>
            
-                
+
             <Label Padding="0,35,0,50"></Label>
 
             <Button  Text="Submit" Clicked="Button_Clicked_2" BackgroundColor="DarkRed" HeightRequest="50"  TextColor="White"></Button>
 
-
+            </StackLayout>
+          
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

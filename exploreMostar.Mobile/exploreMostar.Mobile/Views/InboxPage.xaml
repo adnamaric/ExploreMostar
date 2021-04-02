@@ -8,8 +8,14 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout x:Name="Main" BackgroundColor="#252526">
-            <ScrollView>
+          
+               
+                <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                    <ImageButton Clicked="goBack_Clicked" BackgroundColor="#252526"  x:Name="goBack"  HorizontalOptions="StartAndExpand"></ImageButton>
 
+   
+                    </StackLayout>
+            <ScrollView>
                 <StackLayout BackgroundColor="#252526" x:Name="ListaStack">
                     <ListView x:Name="MyListView"
             ItemsSource="{Binding korisnici}"

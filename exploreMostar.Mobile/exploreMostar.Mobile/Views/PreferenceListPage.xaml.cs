@@ -20,6 +20,15 @@ namespace exploreMostar.Mobile.Views
             InitializeComponent();
             //Set();
             BindingContext = model = new PreferenceListModel();
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
+            navmenu.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Row-52.png");
+            navmenu.WidthRequest = 20;
+            navmenu.HeightRequest = 20;
+            messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
+            logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
+            newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
         }
         public void Set()
         {
@@ -276,6 +285,59 @@ namespace exploreMostar.Mobile.Views
 
             btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
+        }
+
+      
+
+        private void goBack_Clicked_1(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new UserPreferenceContentPage();
+        }
+
+        private async void navmenu_Clicked(object sender, EventArgs e)
+        {
+            if (NavigationPane.IsVisible == true)
+            {
+                NavigationPane.IsVisible = false;
+                await navmenu.RotateTo(180, 200);
+
+
+            }
+            else
+            {
+                NavigationPane.IsVisible = true;
+                await navmenu.RotateTo(90, 200);
+                var lista = await korisnici.Get<IList<Model.Korisnici>>(null);
+                Model.Korisnici korisnik = new Model.Korisnici();
+                foreach (var item in lista)
+                {
+                    if (item.KorisnickoIme == APIService.Username)
+                    {
+                        korisnik = item;
+                    }
+                }
+                spanUser.Text = korisnik.Ime + " " + korisnik.Prezime;
+            }
+        }
+
+        private void messageBox_Clicked(object sender, EventArgs e)
+        {
+            APIService.PreferenceListPage = true;
+            APIService.UPContentPage = false;
+            APIService.InboxLista = false;
+            Application.Current.MainPage = new InboxPage();
+        }
+
+        private void newsBox_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new CheckPosts();
+        }
+
+        private void logout_Clicked(object sender, EventArgs e)
+        {
+            APIService.Username = null;
+            APIService.Password = null;
+            Application.Current.MainPage = new OpeningPage();
         }
     }
 }

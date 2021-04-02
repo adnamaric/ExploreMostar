@@ -25,13 +25,16 @@ namespace exploreMostar.Mobile.Views
             BindingContext = model = new InboxModel();
             ListaStack.IsVisible = true;
             // Set();
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
-
-
+            APIService.VelicinaListe = ListaStack.Height;
+           
         }
         public async void Set()
         {
@@ -92,9 +95,18 @@ namespace exploreMostar.Mobile.Views
        public Entry entry = new Entry();
         private async void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            APIService.InboxLista = true;
             ListaStack.IsVisible = false;
             ListaStack.HeightRequest = 0;
             InboxStack.IsVisible = true;
+            
+
+
+
+
+
+          
+       
             primalac = e.SelectedItem as Model.Korisnici;
             var listKorisnika = await _service.Get<IList<Model.Korisnici>>(null);
 
@@ -136,7 +148,7 @@ namespace exploreMostar.Mobile.Views
                     n.WidthRequest = 200;
 
                 }
-
+                
 
                 Label texty1 = new Label();
                 texty1.Text = item.Datum.ToString();
@@ -159,7 +171,7 @@ namespace exploreMostar.Mobile.Views
                 //listaPoruka.Add(n);
                 //  MyStackLayout.Children.Add(n);
                 InboxStack.Children.Add(n);
-
+               
             }
             
             entry.Placeholder = "Type new message";
@@ -169,7 +181,7 @@ namespace exploreMostar.Mobile.Views
             //entry.TextChanged += OnEntryTextChanged;
             entry.Completed += OnEnterPressed;
             InboxStack.Children.Add(entry);
-
+            
             //Called on enter key press
         }
         public void OnEnterPressed(object sender, EventArgs e)
@@ -194,6 +206,26 @@ namespace exploreMostar.Mobile.Views
 
         }
 
+        private  void goBack_Clicked(object sender, EventArgs e)
+        {
+            if(APIService.PreferenceListPage && APIService.InboxLista!=true)
+            Application.Current.MainPage = new PreferenceListPage();
+            else if(APIService.InboxLista)
+            {
+                //ListaStack.HeightRequest = APIService.VelicinaListe;
+                //ListaStack.IsVisible = true;
+                //APIService.VelicinaInboxa = InboxStack.HeightRequest;
+                //InboxStack.IsVisible = false;
+                //InboxStack.HeightRequest = 0;
+                APIService.InboxLista = false;
+                Application.Current.MainPage = new InboxPage();
+               
+            }
+            else if (APIService.UPContentPage)
+            {
+                Application.Current.MainPage = new UserPreferenceContentPage();
+            }
+        }
     }
    
 

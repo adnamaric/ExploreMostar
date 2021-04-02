@@ -16,6 +16,7 @@
     <None Remove="Resources\Explore Mostar %286%29.png" />
     <None Remove="Resources\Explore Mostar %288%29.png" />
     <None Remove="Resources\Explore Mostar %289%29.png" />
+    <None Remove="Resources\Left-Arrow-84.png" />
     <None Remove="Resources\Logout-82.png" />
     <None Remove="Resources\Newspaper-80.png" />
     <None Remove="Resources\Power-Button-98.png" />
@@ -32,6 +33,7 @@
     <EmbeddedResource Include="Resources\Explore Mostar (9).png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Left-Arrow-84.png" />
     <EmbeddedResource Include="Resources\Logout-82.png" />
     <EmbeddedResource Include="Resources\Newspaper-80.png" />
     <EmbeddedResource Include="Resources\Power-Button-98.png" />
