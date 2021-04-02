@@ -26,7 +26,7 @@
                     <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="INBOX" x:Name="messageBox"> 
                         
                     </Button>
-                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox">
+                    <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox" Clicked="newsBox_Clicked">
 
                     </Button>
                     <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="LOGOUT" x:Name="logout" Clicked="logout_Clicked">

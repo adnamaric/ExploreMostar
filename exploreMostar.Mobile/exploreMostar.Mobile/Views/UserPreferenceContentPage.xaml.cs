@@ -156,5 +156,10 @@ namespace exploreMostar.Mobile.Views
             APIService.Password = null;
             Application.Current.MainPage = new OpeningPage();
         }
+
+        private void newsBox_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new CheckPosts();
+        }
     }
 }

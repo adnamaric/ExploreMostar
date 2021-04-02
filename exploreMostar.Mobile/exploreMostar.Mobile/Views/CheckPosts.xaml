@@ -1,32 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-            
-
-             xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters"
-             x:Class="exploreMostar.Mobile.Views.CarouselView">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             x:Class="exploreMostar.Mobile.Views.CheckPosts">
     <ContentPage.BindingContext>
-        <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
-
+        <viewmodels:CheckNewPostsModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-
-       
-
-            <ListView x:Name="MyListView"
-            ItemsSource="{Binding }"
-            BackgroundColor="Black"
+        <StackLayout BackgroundColor="#252526">
+            <ListView x:Name="MyRecenzijeView"
+            ItemsSource="{Binding objave}"
+            BackgroundColor="Transparent"
             CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
                 <!--Built in Cells-->
 
 
                 <!--Custom View Cells-->
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
@@ -34,37 +23,39 @@
                                 <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
 
                                 </Label>
-                                <Frame CornerRadius="2" OutlineColor="Black" Padding="2" Margin="2" HasShadow="True">
-                                    <Image HeightRequest="95" WidthRequest="95" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding Slika, Converter={StaticResource imgConv}}" Aspect="AspectFit">
-                                        
-                                    </Image>
-                                </Frame>
-                              
+                                <Label   Padding="440,0,0,0" FontSize="Medium"  TextColor="Red" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                    <Label.FormattedText >
+                                        <FormattedString >
+                                            <Span FontAttributes="Bold"  Text="{Binding Naziv}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                                 <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Name: " />
-                                            <Span Text="{Binding Naziv}"/>
+                                            <Span Text="{Binding Sadrzaj}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Name: " />
+                                            <Span Text="{Binding Datum}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
 
-                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
-                   Style="{DynamicResource ListItemDetailTextStyle}">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Ingridients: " />
-                                            <Span Text="{Binding Lokacija}"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
+                                <Label Padding="0,5,0,0"  VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"   
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Rating: " />
-                                            <Span Text="{Binding Ocjena}"/>
+                                            <Span Text="{Binding Autor}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
 
@@ -72,17 +63,11 @@
                                 <Label Padding="0,10,0,0"></Label>
                             </StackLayout>
                         </ViewCell>
-
                     </DataTemplate>
 
 
                 </ListView.ItemTemplate>
             </ListView>
-
-            <Grid>
-              
-            </Grid>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
