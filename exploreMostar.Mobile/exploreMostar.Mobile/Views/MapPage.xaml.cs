@@ -33,11 +33,12 @@ namespace exploreMostar.Mobile.Views
         public bool isNightClub;
         public bool isKafic;
         public bool isHotel;
-
+        private readonly APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
         public MapPage(object model1)
         {
             InitializeComponent();
+            var backSelected = APIService.modelTemp;
             var item = model1 as Model.Restorani;
             var item1 = model1 as Model.Atrakcije;
             var item2 = model1 as Model.Apartmani;
@@ -53,61 +54,124 @@ namespace exploreMostar.Mobile.Views
             //selected =  model1;
             if (isRestoran == true)
             {
-                selected = item;
-                btn1Stack.IsVisible = true;
-                btn1.IsVisible = true;
-                APIService.Vrsta = "Restoran";
+                if (APIService.modelTemp == null)
+                {
+                    selected = item;
+                    btn1Stack.IsVisible = true;
+                    btn1.IsVisible = true;
+                    APIService.Vrsta = "Restoran";
+                    APIService.modelTemp = selected;
+                }
+                else
+                {
+                    selected = backSelected as Model.Restorani;
+                }
     }
             else if (isApartman == true)
             {
-                selectedap = item2;
-                btn1Stack.IsVisible = false;
-                btn1Stack.HeightRequest = 0;
-                btn1Stack.WidthRequest = 0;
-                btn1.IsVisible = false;
-                APIService.Vrsta = "Apartman";
+                if (APIService.modelTemp == null)
+                {
+                    selectedap = item2;
+                    btn1Stack.IsVisible = false;
+                    btn1Stack.HeightRequest = 0;
+                    btn1Stack.WidthRequest = 0;
+                    btn1.IsVisible = false;
+                    APIService.Vrsta = "Apartman";
+                    APIService.modelTemp = selectedap;
+                }
+                else
+                {
+                    selectedap = backSelected as Model.Apartmani;
+                }
             }
             else if (isAtrakcija == true)
             {
-                selecteda = item1;
-                btn1Stack.IsVisible = false;
-                btn1Stack.HeightRequest = 0;
-                btn1Stack.WidthRequest = 0;
-                btn1.IsVisible = false;
-                APIService.Vrsta = "Atrakcija";
+                if (APIService.modelTemp == null)
+                {
+                    selecteda = item1;
+                    btn1Stack.IsVisible = false;
+                    btn1Stack.HeightRequest = 0;
+                    btn1Stack.WidthRequest = 0;
+                    btn1.IsVisible = false;
+                    APIService.Vrsta = "Atrakcija";
+                    APIService.modelTemp = selecteda;
+                }
+                else
+                {
+                    selecteda = backSelected as Model.Atrakcije;
+                }
             }
             else if (isNightClub == true)
             {
-                selectedn = item5;
-                btn1Stack.IsVisible = false;
-                btn1Stack.HeightRequest = 0;
-                btn1Stack.WidthRequest = 0;
-                btn1.IsVisible = false;
-                APIService.Vrsta = "Nocni klub";
+                if (APIService.modelTemp == null)
+                {
+                    selectedn = item5;
+                    btn1Stack.IsVisible = false;
+                    btn1Stack.HeightRequest = 0;
+                    btn1Stack.WidthRequest = 0;
+                    btn1.IsVisible = false;
+                    APIService.Vrsta = "Nocni klub";
+                    APIService.modelTemp = selectedn;
+                }
+                else
+                {
+                    selectedn = backSelected as Model.Nightclubs;
+                }
             }
             else if(isKafic== true)
             {
-                selectedk = item4;
-                btn1Stack.IsVisible = false;
-                btn1Stack.HeightRequest = 0;
-                btn1Stack.WidthRequest = 0;
-                btn1.IsVisible = false;
-                APIService.Vrsta = "Kafic";
+                if (APIService.modelTemp == null)
+                {
+                    selectedk = item4;
+                    btn1Stack.IsVisible = false;
+                    btn1Stack.HeightRequest = 0;
+                    btn1Stack.WidthRequest = 0;
+                    btn1.IsVisible = false;
+                    APIService.Vrsta = "Kafic";
+                    APIService.modelTemp = selectedk;
+                }
+                else
+                {
+                    selectedk = backSelected as Model.Kafici;
+                }
             }
             else if(isHotel == true)
             {
-                selectedh = item3;
-                btn1Stack.IsVisible = false;
-                btn1Stack.HeightRequest = 0;
-                btn1Stack.WidthRequest = 0;
-                btn1.IsVisible = false;
-                APIService.Vrsta = "Hotel";
+                if (APIService.modelTemp == null)
+                {
+                    selectedh = item3;
+                    btn1Stack.IsVisible = false;
+                    btn1Stack.HeightRequest = 0;
+                    btn1Stack.WidthRequest = 0;
+                    btn1.IsVisible = false;
+                    APIService.Vrsta = "Hotel";
+                    APIService.modelTemp = selectedh;
+                }
+                else
+                {
+                    selectedh = backSelected as Model.Hoteli;
+                }
             }
+           
             BindingContext = model = new PreferenceListModel();
-
+         
             Get();
+            navmenu.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Row-52.png");
+            navmenu.WidthRequest = 20;
+            navmenu.HeightRequest = 20;
+            messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
+
+            logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
+            newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
             //label.Text = "Name: "+selected.Naziv;
             //ocjena.Text ="Rate: "+ selected.Ocjena.ToString();
+            APIService.InboxLista = false;
+            APIService.UPContentPage = false;
+            APIService.PreferenceListPage = false;
+            APIService.MapPage = true;
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
@@ -566,6 +630,60 @@ namespace exploreMostar.Mobile.Views
             btn1.BackgroundColor = Color.DarkRed;
             btn1.TextColor = Color.White;
             model.GetReviews();
+            APIService.PreferenceListPage = false;
+            APIService.UPContentPage = false;
+            APIService.InboxLista = false;
+            APIService.MapPage = true;
+        }
+
+        private void goBack_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new PreferenceListPage();
+        }
+
+        private async void navmenu_Clicked(object sender, EventArgs e)
+        {
+            if (NavigationPane.IsVisible == true)
+            {
+                NavigationPane.IsVisible = false;
+                await navmenu.RotateTo(180, 200);
+
+
+            }
+            else
+            {
+                NavigationPane.IsVisible = true;
+                await navmenu.RotateTo(90, 200);
+                var lista = await korisnici.Get<IList<Model.Korisnici>>(null);
+                Model.Korisnici korisnik = new Model.Korisnici();
+                foreach (var item in lista)
+                {
+                    if (item.KorisnickoIme == APIService.Username)
+                    {
+                        korisnik = item;
+                    }
+                }
+                spanUser.Text = korisnik.Ime + " " + korisnik.Prezime;
+            }
+        }
+
+        private void messageBox_Clicked(object sender, EventArgs e)
+        {
+        
+            Application.Current.MainPage = new InboxPage();
+        }
+
+        private void newsBox_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new CheckPosts();
+        }
+
+        private void logout_Clicked(object sender, EventArgs e)
+        {
+            APIService.Username = null;
+            APIService.Password = null;
+
+            Application.Current.MainPage = new OpeningPage();
         }
     }
    

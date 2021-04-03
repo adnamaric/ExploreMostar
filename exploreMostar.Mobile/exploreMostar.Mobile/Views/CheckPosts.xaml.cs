@@ -18,12 +18,29 @@ namespace exploreMostar.Mobile.Views
         {
             InitializeComponent();
             BindingContext = model = new CheckNewPostsModel();
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
 
+
+        }
+
+        private void goBack_Clicked(object sender, EventArgs e)
+        {
+            if (APIService.PreferenceListPage )
+                Application.Current.MainPage = new PreferenceListPage();
+            
+            else if (APIService.UPContentPage)
+            {
+                Application.Current.MainPage = new UserPreferenceContentPage();
+            }
+            else if(APIService.MapPage)
+                Application.Current.MainPage = new MapPage(APIService.modelTemp);
 
         }
     }

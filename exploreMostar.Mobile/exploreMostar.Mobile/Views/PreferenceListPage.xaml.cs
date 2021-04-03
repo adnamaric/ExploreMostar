@@ -29,6 +29,9 @@ namespace exploreMostar.Mobile.Views
             messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
+            APIService.PreferenceListPage = true;
+            APIService.UPContentPage = false;
+
         }
         public void Set()
         {

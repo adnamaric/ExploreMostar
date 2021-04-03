@@ -27,6 +27,8 @@ namespace exploreMostar.Mobile.Views
             goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
             goBack.WidthRequest = 20;
             goBack.HeightRequest = 20;
+            APIService.UPContentPage = true;
+            APIService.PreferenceListPage = false;
         }
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)

@@ -208,9 +208,9 @@ namespace exploreMostar.Mobile.Views
 
         private  void goBack_Clicked(object sender, EventArgs e)
         {
-            if(APIService.PreferenceListPage && APIService.InboxLista!=true)
-            Application.Current.MainPage = new PreferenceListPage();
-            else if(APIService.InboxLista)
+            if (APIService.PreferenceListPage && APIService.InboxLista != true)
+                Application.Current.MainPage = new PreferenceListPage();
+            else if (APIService.InboxLista)
             {
                 //ListaStack.HeightRequest = APIService.VelicinaListe;
                 //ListaStack.IsVisible = true;
@@ -219,12 +219,18 @@ namespace exploreMostar.Mobile.Views
                 //InboxStack.HeightRequest = 0;
                 APIService.InboxLista = false;
                 Application.Current.MainPage = new InboxPage();
-               
+
             }
             else if (APIService.UPContentPage)
             {
                 Application.Current.MainPage = new UserPreferenceContentPage();
             }
+            else if (APIService.MapPage)
+            {
+                Application.Current.MainPage = new MapPage(APIService.modelTemp);
+
+            }
+
         }
     }
    

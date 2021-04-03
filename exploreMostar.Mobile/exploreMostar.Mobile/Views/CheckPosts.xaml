@@ -7,6 +7,10 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout BackgroundColor="#252526">
+            <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                <ImageButton x:Name="goBack" Clicked="goBack_Clicked" HorizontalOptions="StartAndExpand"></ImageButton>
+                
+            </StackLayout>
             <ListView x:Name="MyRecenzijeView"
             ItemsSource="{Binding objave}"
             BackgroundColor="Transparent"

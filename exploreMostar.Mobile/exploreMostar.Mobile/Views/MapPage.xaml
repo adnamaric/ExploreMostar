@@ -9,8 +9,33 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout BackgroundColor="#252526">
+                <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                    <ImageButton x:Name="goBack" Clicked="goBack_Clicked" HorizontalOptions="StartAndExpand"></ImageButton>
+                    <ImageButton x:Name="navmenu" Clicked="navmenu_Clicked" HorizontalOptions="EndAndExpand"></ImageButton>
+                </StackLayout>
+                <StackLayout x:Name="NavigationPane"  IsVisible="false">
+                    <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Welcome, " />
+                                <Span x:Name="spanUser" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout Orientation="Vertical">
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="INBOX" x:Name="messageBox" Clicked="messageBox_Clicked">
 
-            <Label Padding="0,10,0,0"></Label>
+                        </Button>
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox" Clicked="newsBox_Clicked">
+
+                        </Button>
+                        <Button  BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="LOGOUT" x:Name="logout" Clicked="logout_Clicked">
+
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+                <Label Padding="0,10,0,0"></Label>
             <StackLayout x:Name="Stack1"  Orientation="Horizontal"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <StackLayout IsVisible="false" x:Name="btn1Stack" Orientation="Vertical"  WidthRequest="25" HorizontalOptions="FillAndExpand">
                     <Button x:Name="btn1" IsVisible="true" Clicked="btn1_Clicked" BackgroundColor="DarkRed" TextColor="White"  HeightRequest="50" Text="Menu">
