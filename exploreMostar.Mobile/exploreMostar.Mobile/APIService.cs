@@ -149,5 +149,6 @@ namespace exploreMostar.Mobile
             var result = await url.GetJsonAsync<T>();
             return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
         }
+      
     }
 }

@@ -25,6 +25,7 @@ namespace exploreMostar.Mobile.Views
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource= ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
             goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Rating-52.png");
             goBack.WidthRequest = 20;
             goBack.HeightRequest = 20;
             APIService.UPContentPage = true;
@@ -182,6 +183,11 @@ namespace exploreMostar.Mobile.Views
             APIService.Password = null;
            
             Application.Current.MainPage = new OpeningPage();
+        }
+
+        private void reviews_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MyReviewsPage();
         }
     }
 }

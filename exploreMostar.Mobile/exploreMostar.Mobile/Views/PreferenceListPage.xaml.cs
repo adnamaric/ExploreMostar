@@ -27,6 +27,7 @@ namespace exploreMostar.Mobile.Views
             navmenu.WidthRequest = 20;
             navmenu.HeightRequest = 20;
             messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
+            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Rating-52.png");
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
             APIService.PreferenceListPage = true;
@@ -341,6 +342,11 @@ namespace exploreMostar.Mobile.Views
             APIService.Username = null;
             APIService.Password = null;
             Application.Current.MainPage = new OpeningPage();
+        }
+
+        private void reviews_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MyReviewsPage();
         }
     }
 }

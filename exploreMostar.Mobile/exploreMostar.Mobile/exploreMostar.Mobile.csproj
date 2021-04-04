@@ -21,6 +21,7 @@
     <None Remove="Resources\Newspaper-80.png" />
     <None Remove="Resources\Power-Button-98.png" />
     <None Remove="Resources\random.jpg" />
+    <None Remove="Resources\Rating-52.png" />
     <None Remove="Resources\restoran1.jpg" />
     <None Remove="Resources\Row-52.png" />
   </ItemGroup>
@@ -38,6 +39,7 @@
     <EmbeddedResource Include="Resources\Newspaper-80.png" />
     <EmbeddedResource Include="Resources\Power-Button-98.png" />
     <EmbeddedResource Include="Resources\random.jpg" />
+    <EmbeddedResource Include="Resources\Rating-52.png" />
     <EmbeddedResource Include="Resources\restoran1.jpg" />
     <EmbeddedResource Include="Resources\Row-52.png" />
   </ItemGroup>
@@ -76,6 +78,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MapPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MyReviewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OpeningPage.xaml">

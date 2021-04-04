@@ -214,12 +214,12 @@ namespace exploreMostar.Mobile.ViewModels
                 if (Kafici == true)
                 {
                     var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
-                if (APIService.NearOn == true)
-                    list = list.Where(y => y.Udaljenost != null).OrderBy(y => y.Udaljenost).ToList();
-                else
-                    list = list.OrderByDescending(y => y.Ocjena).ToList();
-                kafici.Clear();
-                    temp3.Clear();
+                    if (APIService.NearOn == true)
+                        list = list.Where(y => y.Udaljenost != null).OrderBy(y => y.Udaljenost).ToList();
+                    else
+                        list = list.OrderByDescending(y => y.Ocjena).ToList();
+                    kafici.Clear();
+                        temp3.Clear();
 
                     foreach (var item in list)
                     {
