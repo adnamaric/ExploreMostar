@@ -31,7 +31,6 @@ namespace exploreMostar.WinUI.Menu
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@ namespace exploreMostar.WinUI.Menu
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AtrakcijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -55,13 +53,6 @@ namespace exploreMostar.WinUI.Menu
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AtrakcijeBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(1101, 9);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 540);
-            this.vScrollBar1.TabIndex = 6;
             // 
             // button4
             // 
@@ -180,13 +171,6 @@ namespace exploreMostar.WinUI.Menu
             // 
             this.AtrakcijeBindingSource.DataSource = typeof(exploreMostar.Model.Atrakcije);
             // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.Location = new System.Drawing.Point(-1, 538);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(1080, 30);
-            this.hScrollBar1.TabIndex = 5;
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
@@ -274,7 +258,7 @@ namespace exploreMostar.WinUI.Menu
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(972, 629);
+            this.ClientSize = new System.Drawing.Size(975, 629);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox8);
@@ -291,8 +275,6 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.button4);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.HelpButton = true;
@@ -311,7 +293,6 @@ namespace exploreMostar.WinUI.Menu
         }
 
         #endregion
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -321,7 +302,6 @@ namespace exploreMostar.WinUI.Menu
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.BindingSource AtrakcijeBindingSource;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

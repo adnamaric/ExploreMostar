@@ -356,7 +356,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Name = "frmUrediKorisnika";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUrediKorisnika";
             this.Load += new System.EventHandler(this.frmUrediKorisnika_Load);
             this.ResumeLayout(false);

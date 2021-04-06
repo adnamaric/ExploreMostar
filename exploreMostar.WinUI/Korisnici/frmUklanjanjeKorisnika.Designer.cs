@@ -337,7 +337,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Name = "frmUklanjanjeKorisnika";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUklanjanjeKorisnika";
             this.Load += new System.EventHandler(this.frmUklanjanjeKorisnika_Load);
             this.ResumeLayout(false);

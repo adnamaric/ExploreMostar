@@ -30,10 +30,14 @@ namespace exploreMostar.Mobile.ViewModels
                     korisnik = item;
             }
             recenzije.Clear();
+            var temp = 0;
             foreach(var item in list)
             {
                 if (item.KorisnikId == korisnik.KorisnikId)
-                    recenzije.Add(item);
+                {
+                    item.Rbr = ++temp;
+                    recenzije.Add(item); 
+                }
             }
         }
     }
