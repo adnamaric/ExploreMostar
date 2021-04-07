@@ -44,7 +44,9 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Poruke, PorukeUpsertRequest>().ReverseMap();
             CreateMap<Database.Recenzije, Model.Recenzije>();
             CreateMap<Database.Recenzije, RecenzijeUpsertRequest>().ReverseMap();
+            CreateMap<Database.Kategorije, Model.Kategorije>().ReverseMap();
 
+            CreateMap<Database.Kategorije, KategorijeUpsertRequest>().ReverseMap();
 
         }
     }

@@ -128,6 +128,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kategorije\frmKategorijeAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeAdd.Designer.cs">
+      <DependentUpon>frmKategorijeAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijePregled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijePregled.Designer.cs">
+      <DependentUpon>frmKategorijePregled.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\frmObjavaMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,10 +240,10 @@
     <Compile Include="Menu\SadrzajSubMenu\frmKaficiMenu.Designer.cs">
       <DependentUpon>frmKaficiMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\SadrzajSubMenu\frmKategorijeMenu.cs">
+    <Compile Include="Menu\frmKategorijeMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\SadrzajSubMenu\frmKategorijeMenu.Designer.cs">
+    <Compile Include="Menu\frmKategorijeMenu.Designer.cs">
       <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\frmKorisniciMenu.cs">
@@ -501,6 +513,12 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeAdd.resx">
+      <DependentUpon>frmKategorijeAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijePregled.resx">
+      <DependentUpon>frmKategorijePregled.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
     </EmbeddedResource>
@@ -541,7 +559,7 @@
     <EmbeddedResource Include="Menu\SadrzajSubMenu\frmKaficiMenu.resx">
       <DependentUpon>frmKaficiMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\SadrzajSubMenu\frmKategorijeMenu.resx">
+    <EmbeddedResource Include="Menu\frmKategorijeMenu.resx">
       <DependentUpon>frmKategorijeMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmKorisniciMenu.resx">
@@ -766,9 +784,7 @@
   <ItemGroup>
     <None Include="Resources\User-Group-256.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Kategorije\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Webp.net-resizeimage %2830%29.png" />
   </ItemGroup>
