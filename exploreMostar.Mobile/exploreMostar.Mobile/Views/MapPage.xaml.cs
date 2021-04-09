@@ -72,6 +72,8 @@ namespace exploreMostar.Mobile.Views
                     selected = backSelected as Model.Restorani;
                     btn1Stack.IsVisible = true;
                     btn1.IsVisible = true;
+                    APIService.Vrsta = "Restoran";
+                    APIService.ObjekatID = selected.RestoranId;
                 }
     }
             else if (isApartman == true)
@@ -90,6 +92,9 @@ namespace exploreMostar.Mobile.Views
                 else
                 {
                     selectedap = backSelected as Model.Apartmani;
+                    APIService.Vrsta = "Apartman";
+                 
+                    APIService.ObjekatID = selectedap.ApartmanId;
                 }
             }
             else if (isAtrakcija == true)
@@ -108,6 +113,8 @@ namespace exploreMostar.Mobile.Views
                 else
                 {
                     selecteda = backSelected as Model.Atrakcije;
+                    APIService.Vrsta = "Atrakcija";
+                    APIService.ObjekatID = selecteda.AtrakcijaId;
                 }
             }
             else if (isNightClub == true)
@@ -126,6 +133,8 @@ namespace exploreMostar.Mobile.Views
                 else
                 {
                     selectedn = backSelected as Model.Nightclubs;
+                    APIService.Vrsta = "Nocni klub";
+                    APIService.ObjekatID = selectedn.NightClubId;
                 }
             }
             else if(isKafic== true)
@@ -144,6 +153,8 @@ namespace exploreMostar.Mobile.Views
                 else
                 {
                     selectedk = backSelected as Model.Kafici;
+                    APIService.Vrsta = "Kafic";
+                    APIService.ObjekatID = selectedk.KaficId;
                 }
             }
             else if(isHotel == true)
@@ -162,6 +173,8 @@ namespace exploreMostar.Mobile.Views
                 else
                 {
                     selectedh = backSelected as Model.Hoteli;
+                    APIService.Vrsta = "Hotel";
+                    APIService.ObjekatID = selectedh.HotelId;
                 }
             }
            
@@ -177,8 +190,9 @@ namespace exploreMostar.Mobile.Views
 
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
-            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Rating-52.png");
-           
+            // reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Rating-52.png");
+            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.showfavourites.png");
+            favs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.heart.png");
             goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
             goBack.WidthRequest = 20;
             goBack.HeightRequest = 20;
@@ -748,12 +762,17 @@ namespace exploreMostar.Mobile.Views
 
         private void MyFavs_Clicked(object sender, EventArgs e)
         {
-            if (!APIService.postojiFavorit)
-            {
+           
                 MyFavs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.addedheart.png");
                 MyFavs.Text = "";
+                
                 model.AddFavourite();
-            }
+            
+        }
+
+        private void favs_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MyFavouritesPage();
         }
     }
    

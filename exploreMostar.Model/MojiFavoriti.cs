@@ -11,5 +11,6 @@ namespace exploreMostar.Model
         public string Vrsta { get; set; }
         public string Naziv { get; set; }
         public int? KorisnikId { get; set; }
+        public int Rbr { get; set; }
     }
 }

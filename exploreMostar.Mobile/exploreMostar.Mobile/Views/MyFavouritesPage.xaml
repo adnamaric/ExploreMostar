@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             x:Class="exploreMostar.Mobile.Views.MyFavouritesPage">
+    <ContentPage.BindingContext>
+        <viewmodels:MyFavouritesModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="#252526">
+            <StackLayout x:Name="Favoriti" IsVisible="true">
+                <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                    <ImageButton Clicked="goBack_Clicked" BackgroundColor="#252526"  x:Name="goBack"  HorizontalOptions="StartAndExpand"></ImageButton>
+
+
+                </StackLayout>
+                <Label Padding="0,5,0,5" Text="My favourites:" FontAttributes="Bold" TextColor="White"></Label>
+                <ListView x:Name="MyFavouritesView"
+            ItemsSource="{Binding favoriti}"
+            BackgroundColor="Transparent"
+            CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed" ItemSelected="MyFavouritesView_ItemSelected">
+                    <!--Built in Cells-->
+
+
+                    <!--Custom View Cells-->
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <StackLayout>
+                                    <Label  TextColor="White" Text="{Binding Rbr}">
+
+                                    </Label>
+                                    <Label  VerticalTextAlignment="Center" HorizontalOptions="Center"  FontSize="Medium"  TextColor="White" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                        <Label.FormattedText >
+                                            <FormattedString >
+                                                <Span FontAttributes="Bold"  Text="{Binding Naziv}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Type: " />
+                                                <Span Text="{Binding Vrsta}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Padding="0,10,0,0"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+
+
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

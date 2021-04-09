@@ -27,7 +27,8 @@ namespace exploreMostar.Mobile.Views
             navmenu.WidthRequest = 20;
             navmenu.HeightRequest = 20;
             messageBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Chat-88.png");
-            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Rating-52.png");
+            reviews.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.showfavourites.png");
+            favs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.heart.png");
             logout.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Logout-82.png");
             newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
             APIService.PreferenceListPage = true;
@@ -347,6 +348,11 @@ namespace exploreMostar.Mobile.Views
         private void reviews_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new MyReviewsPage();
+        }
+
+        private void favs_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MyFavouritesPage();
         }
     }
 }

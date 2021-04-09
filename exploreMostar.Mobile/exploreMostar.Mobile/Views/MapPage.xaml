@@ -31,6 +31,9 @@
                         <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="NEWS" x:Name="newsBox" Clicked="newsBox_Clicked">
 
                         </Button>
+                        <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="FAVORITES" x:Name="favs" Clicked="favs_Clicked">
+
+                        </Button>
                         <Button BackgroundColor="Transparent" TextColor="White" BorderColor="White" FontAttributes="Bold" Text="REVIEWS" x:Name="reviews" Clicked="reviews_Clicked">
 
                         </Button>
