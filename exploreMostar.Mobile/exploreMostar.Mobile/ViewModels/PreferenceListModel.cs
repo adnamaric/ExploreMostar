@@ -25,6 +25,7 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _jelovnik = new APIService("Jelovnik");
         private readonly APIService _jela = new APIService("Jela");
         private readonly APIService _recenzije = new APIService("Recenzije");
+        private readonly APIService _favoriti = new APIService("MojiFavoriti");
 
 
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
@@ -414,6 +415,60 @@ namespace exploreMostar.Mobile.ViewModels
             if (recenzijes.Count() != 0)
                 Recenzije = true;
         }
+        public Model.Korisnici korisnik = new Model.Korisnici();
+        public async void AddFavourite()
+        {
+
+            var list = await _service.Get<IList<Model.Korisnici>>(null);
+
+            foreach (var item in list)
+            {
+                if (item.KorisnickoIme == APIService.Username)
+                {
+                    korisnik = item;
+
+                    break;
+                }
+            }
+            var listaFavorita = await _favoriti.Get<IList<Model.MojiFavoriti>>(null);
+
+            foreach (var item in listaFavorita)
+            {
+                if (item.Naziv == APIService.Naziv && item.KorisnikId == korisnik.KorisnikId)
+                {
+                    APIService.postojiFavorit = true;
+
+
+                }
+            }
+            if (!APIService.postojiFavorit)
+            {
+                if (APIService.Naziv != null && APIService.ObjekatID != 0 && APIService.Vrsta != null && korisnik!=null)
+                {
+                    
+                        await _favoriti.Insert<Model.MojiFavoriti>
+                            (new MojiFavoritiUpsertRequest()
+                            {
+
+                                KorisnikId = korisnik.KorisnikId,
+                                ObjekatId = APIService.ObjekatID,
+                                Naziv = APIService.Naziv,
+                                Vrsta = APIService.Vrsta
+                            });
+
+                }
+            }
+        }
+        public async void Postoji()
+        {
+            
+            
+        }
+        public void CallPostoji()
+        {
+            Postoji();
+        }
+      
         public void NearMe()
         {
             //if (Food == true)

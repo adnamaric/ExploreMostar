@@ -11,6 +11,7 @@
         <StackLayout BackgroundColor="#252526">
                 <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
                     <ImageButton x:Name="goBack" Clicked="goBack_Clicked" HorizontalOptions="StartAndExpand"></ImageButton>
+                   
                     <ImageButton x:Name="navmenu" Clicked="navmenu_Clicked" HorizontalOptions="EndAndExpand"></ImageButton>
                 </StackLayout>
                 <StackLayout x:Name="NavigationPane"  IsVisible="false">
@@ -55,14 +56,14 @@
                         <Button Clicked="btnRecenzije_Clicked"   x:Name="btnRecenzije"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Reviews"/>
                     </StackLayout>
                 </StackLayout>
-            
+                
             <StackLayout x:Name="Stack2" HeightRequest="500">
                 <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite"  x:Name="Map" >
                 </maps:Map>
             </StackLayout>
-        
-                
-            <StackLayout x:Name="Stacky1" IsVisible="False">
+             
+
+                <StackLayout x:Name="Stacky1" IsVisible="False">
             <ListView x:Name="MyListView"
             ItemsSource="{Binding jelas}"
             BackgroundColor="Transparent"
@@ -132,6 +133,7 @@
 
                 <ScrollView>
                     <StackLayout x:Name="info" IsVisible="False">
+                        <Button  Clicked="MyFavs_Clicked"  TextColor="White"  Text="Add to my favourites" x:Name="MyFavs" HorizontalOptions="EndAndExpand"></Button>
 
                         <Image BackgroundColor="Transparent"  HeightRequest="100" WidthRequest="100" x:Name="respicture" Aspect="AspectFit" HorizontalOptions="FillAndExpand"></Image>
                         <Label TextColor="White" >
@@ -192,8 +194,9 @@
                         <Label Text="Write a review:" TextColor="White"></Label>
                         <Entry x:Name="entry" Text="{Binding Sadrzaj}" Placeholder="Share your own experience at this place" BackgroundColor="Transparent" TextColor="White" PlaceholderColor="White" ></Entry>
                         <Button BackgroundColor="DarkRed" TextColor="White" Text="Post" Clicked="postButton_Clicked" x:Name="postButton"></Button>
-                        <Label Padding="10,0,0,0" TextColor="White" />
 
+                       
+                        <Label Padding="10,0,0,0" TextColor="White" />
                     </StackLayout>
                 </ScrollView>
 

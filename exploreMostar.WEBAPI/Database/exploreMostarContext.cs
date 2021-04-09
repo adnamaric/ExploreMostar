@@ -30,6 +30,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual DbSet<KorisnikKategorija> KorisnikKategorija { get; set; }
         public virtual DbSet<Markeri> Markeri { get; set; }
+        public virtual DbSet<MojiFavoriti> MojiFavoriti { get; set; }
         public virtual DbSet<Nightclubs> Nightclubs { get; set; }
         public virtual DbSet<Objava> Objava { get; set; }
         public virtual DbSet<Poruke> Poruke { get; set; }
@@ -378,6 +379,20 @@ namespace exploreMostar.WebAPI.Database
                     .WithMany(p => p.Markeri)
                     .HasForeignKey(d => d.GradId)
                     .HasConstraintName("FK__Markeri__GradID__08B54D69");
+            });
+
+            modelBuilder.Entity<MojiFavoriti>(entity =>
+            {
+                entity.HasKey(e => e.FavoritiId);
+
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
+                entity.Property(e => e.ObjekatId).HasColumnName("ObjekatID");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.MojiFavoriti)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK__MojiFavor__Koris__2EA5EC27");
             });
 
             modelBuilder.Entity<Nightclubs>(entity =>

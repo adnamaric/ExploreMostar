@@ -33,7 +33,9 @@ namespace exploreMostar.Mobile
         public static double VelicinaInboxa { get; set; }
         public static bool MapPage { get; set; }
         public static object modelTemp { get; set; }
+        public static bool postojiFavorit { get; set; }
 
+        public static int ObjekatID { get; set; }
 
 #if DEBUG
         string _apiUrl = "http://localhost:64741/api/";

@@ -100,6 +100,7 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<ICRUDService<Model.Objava, ByNameSearchRequest, ObjavaUpsertRequest, ObjavaUpsertRequest>, ObjavaService>();
             services.AddScoped<ICRUDService<Model.Poruke, ByNameSearchRequest, PorukeUpsertRequest, PorukeUpsertRequest>, PorukeService>();
             services.AddScoped<ICRUDService<Model.Recenzije, ByNameSearchRequest, RecenzijeUpsertRequest, RecenzijeUpsertRequest>, RecenzijeService>();
+            services.AddScoped<ICRUDService<Model.MojiFavoriti, ByNameSearchRequest, MojiFavoritiUpsertRequest, MojiFavoritiUpsertRequest>, MojiFavoritiService>();
 
             services.AddScoped<IService<Model.KorisnickaUloga, ByNameSearchRequest>, KorisnickaUlogaService>();
             services.AddScoped<IService<Model.VrstaAtrakcija, ByNameSearchRequest>, VrstaAtrakcijaService>();
