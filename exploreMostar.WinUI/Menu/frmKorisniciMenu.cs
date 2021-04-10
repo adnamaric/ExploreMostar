@@ -123,7 +123,8 @@ namespace exploreMostar.WinUI.Menu
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            frmOduzimanjePermisija frm = new frmOduzimanjePermisija();
+            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

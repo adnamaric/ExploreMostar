@@ -140,6 +140,12 @@
     <Compile Include="Kategorije\frmKategorijePregled.Designer.cs">
       <DependentUpon>frmKategorijePregled.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnici\frmOduzimanjePermisija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmOduzimanjePermisija.Designer.cs">
+      <DependentUpon>frmOduzimanjePermisija.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\frmObjavaMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -531,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmUrediKorisnika.resx">
       <DependentUpon>frmUrediKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmOduzimanjePermisija.resx">
+      <DependentUpon>frmOduzimanjePermisija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\frmObjavaMenu.resx">
       <DependentUpon>frmObjavaMenu.cs</DependentUpon>

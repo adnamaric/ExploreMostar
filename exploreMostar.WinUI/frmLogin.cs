@@ -67,6 +67,10 @@ namespace exploreMostar.WinUI
                 }
             }
             bool takeThis = false;
+            if (udaljen == true)
+            {
+                MessageBox.Show("Banovani ste sa sistema!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             if (pronadjen2 == true && pronadjen==true && udaljen==false)
             {
                 try
