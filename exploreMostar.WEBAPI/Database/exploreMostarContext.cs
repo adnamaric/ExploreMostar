@@ -38,6 +38,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Recenzije> Recenzije { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
+        public virtual DbSet<UserActivity> UserActivity { get; set; }
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
         public virtual DbSet<VrstaRestorana> VrstaRestorana { get; set; }
 
@@ -543,6 +544,25 @@ namespace exploreMostar.WebAPI.Database
                 entity.Property(e => e.Naziv).HasMaxLength(25);
 
                 entity.Property(e => e.Opis).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<UserActivity>(entity =>
+            {
+                entity.HasKey(e => e.KorisnikId);
+
+                entity.Property(e => e.KorisnikId)
+                    .HasColumnName("KorisnikID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.AdminId).HasColumnName("AdminID");
+
+                entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithOne(p => p.UserActivity)
+                    .HasForeignKey<UserActivity>(d => d.KorisnikId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserActiv__Koris__43A1090D");
             });
 
             modelBuilder.Entity<VrstaAtrakcija>(entity =>

@@ -1,4 +1,5 @@
-﻿using exploreMostar.WinUI.Menu;
+﻿using exploreMostar.Model.Requests;
+using exploreMostar.WinUI.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace exploreMostar.WinUI
     public partial class frmLogin : Form
     {
         APIService _service = new APIService("Korisnici");
+        APIService _uaservice = new APIService("UserActivity");
+
         public frmLogin()
         {
             InitializeComponent();
@@ -26,6 +29,8 @@ namespace exploreMostar.WinUI
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             var result = await _service.Get<List<Model.Korisnici>>(null);
+            var resultUA = await _uaservice.Get<List<Model.UserActivity>>(null);
+
             Model.Korisnici korisnik = new Model.Korisnici();
             bool pronadjen = false;
             bool pronadjen2 = false;
@@ -46,28 +51,109 @@ namespace exploreMostar.WinUI
                
                
             }
-          
-           if (pronadjen2 == true && pronadjen==true)
+            Model.UserActivity userActivity = null;
+            bool udaljen = false;
+            foreach(var item in resultUA)
+            {
+                if (item.KorisnikId == korisnik.KorisnikId)
+                {
+                    userActivity = item;
+                    if (item.BrojNeuspjesnihPrijavljivanja >= 3)
+                    {
+                        item.Onemogucen = true;
+                        MessageBox.Show("Nemate pravo pristupa", "Authentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        udaljen = true;
+                    }
+                }
+            }
+            bool takeThis = false;
+            if (pronadjen2 == true && pronadjen==true && udaljen==false)
             {
                 try
                 {
                     APIService.Username = txtUsername.Text;
                     APIService.Password = txtPassword.Text;
-
+                    if(userActivity!=null)
+                         userActivity.BrojPrijavljivanja += 1;
                     await _service.Get<dynamic>(null);
-
+                   
                     frmMenu frmMenu = new frmMenu();
                     frmMenu.Show();
                     //this.Hide();
+                    takeThis = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Authentifikacija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(userActivity!=null)
+                       userActivity.BrojNeuspjesnihPrijavljivanja += 1;
+                    takeThis = false;
                 }
-
+                
+               
+            }
+            else if(pronadjen==true && udaljen == false)
+            {
+                if (userActivity != null)
+                    userActivity.BrojNeuspjesnihPrijavljivanja += 1;
+                takeThis = false;
+                MessageBox.Show("Molimo vas unesite ispravno korisničko ime i/ili lozinku", "Pokušajte ponovo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
                 MessageBox.Show("Molimo vas unesite ispravno korisničko ime i/ili lozinku", "Pokušajte ponovo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            try
+            {
+                if (userActivity != null)
+                {
+                    
+                    var request = new UserActivityUpsertRequest
+                    {
+                        KorisnikId = userActivity.KorisnikId,
+                        BrojPrijavljivanja = userActivity.BrojPrijavljivanja,
+                        BrojNeuspjesnihPrijavljivanja = userActivity.BrojNeuspjesnihPrijavljivanja,
+                        Datum = DateTime.Now,
+                        Razlog = "",
+                        Onemogucen = false
+
+                    };
+                    await _uaservice.Update<Model.UserActivity>(userActivity.KorisnikId, request);
+                }
+                else
+                {
+                    if (takeThis)
+                    {
+                        var request = new UserActivityUpsertRequest
+                        {
+                            KorisnikId = korisnik.KorisnikId,
+                            BrojPrijavljivanja = 1,
+                            BrojNeuspjesnihPrijavljivanja = 0,
+                            Datum = DateTime.Now,
+                            Razlog = "",
+                            Onemogucen = false
+
+                        };
+                        await _uaservice.Insert<Model.UserActivity>(request);
+                    }
+                    else
+                    {
+                        var request = new UserActivityUpsertRequest
+                        {
+                            KorisnikId = korisnik.KorisnikId,
+                            BrojPrijavljivanja = 0,
+                            BrojNeuspjesnihPrijavljivanja =1,
+                            Datum = DateTime.Now,
+                            Razlog = "",
+                            Onemogucen = false
+
+                        };
+                        await _uaservice.Insert<Model.UserActivity>(request);
+                    }
+                }
+            }
+            catch
+            {
 
             }
         }

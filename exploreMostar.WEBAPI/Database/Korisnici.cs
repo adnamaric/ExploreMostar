@@ -32,6 +32,7 @@ namespace exploreMostar.WebAPI.Database
         public int? BrojPrijavljivanja { get; set; }
 
         public Gradovi Grad { get; set; }
+        public UserActivity UserActivity { get; set; }
         public ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public ICollection<KorisnikKategorija> KorisnikKategorija { get; set; }
         public ICollection<MojiFavoriti> MojiFavoriti { get; set; }
