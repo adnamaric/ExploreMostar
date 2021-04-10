@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Mobile.Views;
+using exploreMostar.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,7 @@ namespace exploreMostar.Mobile.ViewModels
    public  class UserPreferenceModel : BaseViewModel
     {
         private readonly APIService _service = new APIService("Korisnici");
+        private readonly APIService _ua = new APIService("UserActivity");
 
         public UserPreferenceModel()
         {
@@ -86,6 +88,62 @@ namespace exploreMostar.Mobile.ViewModels
                 Application.Current.MainPage = new PreferenceListPage();
             }
 
+        }
+        public async void SetPreferences()
+        {
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            var resultUA = await _ua.Get<List<Model.UserActivity>>(null);
+
+            Model.Korisnici korisnik = null;
+            Model.UserActivity user = null;
+            foreach(var item in result)
+            {
+                if (APIService.Username == item.KorisnickoIme)
+                {
+                    korisnik = item;
+                }
+            }
+            if (korisnik != null)
+            {
+                foreach (var item in resultUA)
+                {
+                    if (korisnik.KorisnikId == item.KorisnikId)
+                    {
+                        user = item;
+                    }
+                }
+                if (user != null)
+                {
+                    user.IsApartman = APIService.Apartments;
+                    user.IsAtrakcija = APIService.Atraction;
+                    user.IsHotel = APIService.Hotels;
+                    user.IsKafic = APIService.Coffeeshops;
+                    user.IsNightClub = APIService.Nightclubs;
+                    user.IsRestoran = APIService.Food;
+                 
+                    await _ua.Update<Model.UserActivity>(user.KorisnikId, user);
+                }
+                else
+                {
+                    var request = new UserActivityUpsertRequest
+                    {
+                        KorisnikId = korisnik.KorisnikId,
+                        BrojPrijavljivanja = 1,
+                        BrojNeuspjesnihPrijavljivanja = 0,
+                        Datum = DateTime.Now,
+                        Razlog = "",
+                        Onemogucen = false,
+                        IsApartman=APIService.Apartments,
+                        IsAtrakcija=APIService.Atraction,
+                        IsHotel=APIService.Hotels,
+                        IsNightClub=APIService.Nightclubs,
+                        IsKafic=APIService.Coffeeshops,
+                        IsRestoran=APIService.Food
+
+                    };
+                    await _ua.Insert<Model.UserActivity>(request);
+                }
+            }
         }
     }
 }

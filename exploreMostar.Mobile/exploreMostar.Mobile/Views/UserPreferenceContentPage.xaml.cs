@@ -116,7 +116,7 @@ namespace exploreMostar.Mobile.Views
 
             if (m.Submit.CanExecute(null))
                 m.Submit.Execute(null);
-
+            m.SetPreferences();
         }
 
         private async void opImage_Clicked(object sender, EventArgs e)
@@ -200,5 +200,6 @@ namespace exploreMostar.Mobile.Views
         {
             Application.Current.MainPage = new MyFavouritesPage();
         }
+      
     }
 }

@@ -558,6 +558,18 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.Datum).HasColumnType("datetime");
 
+                entity.Property(e => e.IsApartman).HasColumnName("isApartman");
+
+                entity.Property(e => e.IsAtrakcija).HasColumnName("isAtrakcija");
+
+                entity.Property(e => e.IsHotel).HasColumnName("isHotel");
+
+                entity.Property(e => e.IsKafic).HasColumnName("isKafic");
+
+                entity.Property(e => e.IsNightClub).HasColumnName("isNightClub");
+
+                entity.Property(e => e.IsRestoran).HasColumnName("isRestoran");
+
                 entity.HasOne(d => d.Korisnik)
                     .WithOne(p => p.UserActivity)
                     .HasForeignKey<UserActivity>(d => d.KorisnikId)

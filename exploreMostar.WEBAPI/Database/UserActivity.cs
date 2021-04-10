@@ -13,6 +13,12 @@ namespace exploreMostar.WebAPI.Database
         public DateTime? Datum { get; set; }
         public int? AdminId { get; set; }
         public string ListaOdabranihStavki { get; set; }
+        public bool? IsApartman { get; set; }
+        public bool? IsAtrakcija { get; set; }
+        public bool? IsRestoran { get; set; }
+        public bool? IsHotel { get; set; }
+        public bool? IsKafic { get; set; }
+        public bool? IsNightClub { get; set; }
 
         public Korisnici Korisnik { get; set; }
     }
