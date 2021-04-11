@@ -89,6 +89,39 @@ namespace exploreMostar.Mobile.ViewModels
             }
 
         }
+       
+        public async void DeleteUnsuccessfulLogins()
+        {
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            var resultUA = await _ua.Get<List<Model.UserActivity>>(null);
+
+            Model.Korisnici korisnik = null;
+            Model.UserActivity user = null;
+            foreach (var item in result)
+            {
+                if (APIService.Username == item.KorisnickoIme)
+                {
+                    korisnik = item;
+                }
+            }
+            if (korisnik != null)
+            {
+                foreach (var item in resultUA)
+                {
+                    if (korisnik.KorisnikId == item.KorisnikId)
+                    {
+                        user = item;
+                    }
+                }
+                if (user != null)
+                {
+                    user.BrojNeuspjesnihPrijavljivanja = 0;
+                    await _ua.Update<Model.UserActivity>(user.KorisnikId, user);
+                }
+            }
+            APIService.Username = null;
+            APIService.Password = null;
+        }
         public async void SetPreferences()
         {
             var result = await _service.Get<List<Model.Korisnici>>(null);

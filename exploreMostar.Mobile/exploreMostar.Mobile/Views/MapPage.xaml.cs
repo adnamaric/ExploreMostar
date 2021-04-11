@@ -749,9 +749,7 @@ namespace exploreMostar.Mobile.Views
 
         private void logout_Clicked(object sender, EventArgs e)
         {
-            APIService.Username = null;
-            APIService.Password = null;
-
+            model.DeleteUnsuccessfulLogins();
             Application.Current.MainPage = new OpeningPage();
         }
 

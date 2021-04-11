@@ -13,6 +13,7 @@ namespace exploreMostar.Mobile.Views
     public partial class UserPreferenceContentPage : ContentPage
     {
         private APIService korisnici = new APIService("Korisnici");
+        private readonly APIService _ua = new APIService("UserActivity");
         private bool isClicked = false;
         public UserPreferenceContentPage()
         {
@@ -31,6 +32,9 @@ namespace exploreMostar.Mobile.Views
             goBack.HeightRequest = 20;
             APIService.UPContentPage = true;
             APIService.PreferenceListPage = false;
+             m.SetExistingPreferences();
+            SetExisting();
+            
         }
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
@@ -40,7 +44,97 @@ namespace exploreMostar.Mobile.Views
             m._food = true;
             m.Hrana = true;
         }
+        public async void SetExisting()
+        {
+          
+            var result = await korisnici.Get<List<Model.Korisnici>>(null);
+            var resultUA = await _ua.Get<List<Model.UserActivity>>(null);
 
+            Model.Korisnici korisnik = null;
+            Model.UserActivity user = null;
+            foreach (var item in result)
+            {
+                if (APIService.Username == item.KorisnickoIme)
+                {
+                    korisnik = item;
+                }
+            }
+            if (korisnik != null)
+            {
+                foreach (var item in resultUA)
+                {
+                    if (korisnik.KorisnikId == item.KorisnikId)
+                    {
+                        user = item;
+                    }
+                }
+                if (user != null)
+                {
+                    if (user.BrojPrijavljivanja >= 1)
+                    {
+                        if (user.IsApartman != null)
+                            APIService.Apartments = (bool)user.IsApartman;
+                        if (user.IsAtrakcija != null)
+                            APIService.Atraction = (bool)user.IsAtrakcija;
+                        if (user.IsHotel != null)
+                            APIService.Hotels = (bool)user.IsHotel;
+                        if (user.IsKafic != null)
+                            APIService.Coffeeshops = (bool)user.IsKafic;
+                        if (user.IsNightClub != null)
+                            APIService.Nightclubs = (bool)user.IsNightClub;
+                        if (user.IsRestoran != null)
+                            APIService.Food = (bool)user.IsRestoran;
+
+                    }
+                }
+            }
+            Set();
+        }
+        public void Set()
+        {
+            if (APIService.Apartments)
+            {
+                btn4.BackgroundColor = Color.DarkRed;
+                btn4.TextColor = Color.White;
+                m.Apartman = true;
+                m._apartment = true;
+            }
+            if (APIService.Atraction)
+            {
+                btn2.BackgroundColor = Color.DarkRed;
+                btn2.TextColor = Color.White;
+                m._atraction = true;
+                m.Atrakcija = true;
+            }
+            if (APIService.Coffeeshops)
+            {
+                btn6.BackgroundColor = Color.DarkRed;
+                btn6.TextColor = Color.White;
+                m._coffeeshops = true;
+                m.Kafic = true;
+            }
+            if (APIService.Hotels)
+            {
+                btn3.BackgroundColor = Color.DarkRed;
+                btn3.TextColor = Color.White;
+                m._hotel = true;
+                m.Hotel = true;
+            }
+            if (APIService.Food)
+            {
+                btn1.BackgroundColor = Color.DarkRed;
+                btn1.TextColor = Color.White;
+                m._food = true;
+                m.Hrana = true;
+            }
+            if (APIService.Nightclubs)
+            {
+                btn7.BackgroundColor = Color.DarkRed;
+                btn7.TextColor = Color.White;
+                m._nightclubs = true;
+                m.NK = true;
+            }
+        }
         private void Button2_Cliked(object sender, EventArgs e)
         {
             btn2.BackgroundColor = Color.DarkRed;
@@ -159,8 +253,8 @@ namespace exploreMostar.Mobile.Views
 
         private void logout_Clicked(object sender, EventArgs e)
         {
-            APIService.Username = null;
-            APIService.Password = null;
+            m.DeleteUnsuccessfulLogins();
+           
             Application.Current.MainPage = new OpeningPage();
         }
 

@@ -26,6 +26,7 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _jela = new APIService("Jela");
         private readonly APIService _recenzije = new APIService("Recenzije");
         private readonly APIService _favoriti = new APIService("MojiFavoriti");
+        private readonly APIService _ua = new APIService("UserActivity");
 
 
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
@@ -468,7 +469,38 @@ namespace exploreMostar.Mobile.ViewModels
         {
             Postoji();
         }
-      
+        public async void DeleteUnsuccessfulLogins()
+        {
+            var result = await _service.Get<List<Model.Korisnici>>(null);
+            var resultUA = await _ua.Get<List<Model.UserActivity>>(null);
+
+            Model.Korisnici korisnik = null;
+            Model.UserActivity user = null;
+            foreach (var item in result)
+            {
+                if (APIService.Username == item.KorisnickoIme)
+                {
+                    korisnik = item;
+                }
+            }
+            if (korisnik != null)
+            {
+                foreach (var item in resultUA)
+                {
+                    if (korisnik.KorisnikId == item.KorisnikId)
+                    {
+                        user = item;
+                    }
+                }
+                if (user != null)
+                {
+                    user.BrojNeuspjesnihPrijavljivanja = 0;
+                    await _ua.Update<Model.UserActivity>(user.KorisnikId, user);
+                }
+            }
+            APIService.Username = null;
+            APIService.Password = null;
+        }
         public void NearMe()
         {
             //if (Food == true)
