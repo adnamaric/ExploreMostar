@@ -22,7 +22,7 @@ namespace exploreMostar.Mobile.Views
             goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
             goBack.WidthRequest = 20;
             goBack.HeightRequest = 20;
-
+            //model.GetRecommend();
         }
         protected async override void OnAppearing()
         {

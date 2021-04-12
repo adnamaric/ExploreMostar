@@ -203,6 +203,7 @@ namespace exploreMostar.Mobile.Views
             APIService.PreferenceListPage = false;
             APIService.MapPage = true;
             APIService.modelTemp = model1;
+            model.CheckIfFavourite();
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
@@ -524,9 +525,15 @@ namespace exploreMostar.Mobile.Views
                 MyFavs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.addedheart.png");
                 MyFavs.Text = "";
             }
+            if (APIService.postojiFavorit)
+            {
+                model.CheckIfFavourite();
+                Recommend.IsVisible = true;
+                lista.IsVisible = true;
+                lista.HeightRequest = 100;
+            }
 
-
-            info.HeightRequest = 500;
+            info.HeightRequest = 650;
             Map.IsVisible = false;
             Stacky1.IsVisible = false;
             Stack2.IsVisible = false;
@@ -771,6 +778,16 @@ namespace exploreMostar.Mobile.Views
         private void favs_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new MyFavouritesPage();
+        }
+
+        private void Recomend_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
    

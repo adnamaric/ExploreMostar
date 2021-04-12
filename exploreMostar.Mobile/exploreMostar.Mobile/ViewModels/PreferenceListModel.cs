@@ -392,6 +392,190 @@ namespace exploreMostar.Mobile.ViewModels
             }
             
         }
+        public async void CheckIfFavourite()
+        {
+            var list = await _service.Get<IList<Model.Korisnici>>(null);
+            var listApartmana = await _apartmani.Get<IList<Model.Apartmani>>(null);
+            var listaAtrakcija = await _atrakcije.Get<IList<Model.Atrakcije>>(null);
+            var listaKafica = await _kafici.Get<IList<Model.Kafici>>(null);
+            var listaHotela = await _hoteli.Get<IList<Model.Hoteli>>(null);
+            var listaRestorana = await _restorani.Get<IList<Model.Restorani>>(null);
+            var listaNk = await _nocniklubovi.Get<IList<Model.Nightclubs>>(null);
+
+            Model.Korisnici korisnikS = null;
+            foreach (var item in list)
+            {
+                if (item.KorisnickoIme == APIService.Username)
+                {
+                    korisnikS = item;
+
+                    break;
+                }
+            }
+            var listaFavorita = await _favoriti.Get<IList<Model.MojiFavoriti>>(null);
+            List<Model.MojiFavoriti> moji = new List<Model.MojiFavoriti>();
+            bool postoji = false;
+
+            foreach(var item in listaFavorita)
+            {
+                if(item.KorisnikId==korisnikS.KorisnikId)
+                    moji.Add(item);
+                if (item.Naziv == APIService.Naziv && item.KorisnikId==korisnikS.KorisnikId)
+                {
+                 
+                    postoji = true;
+                }
+            }
+            bool vecUFavoritima = false;
+            if (postoji)
+            {
+                temp.Clear();
+                if (APIService.Vrsta == "Apartman")
+                {
+                    foreach(var item in listApartmana)
+                    {
+                        if(item.Naziv!=APIService.Naziv && item.Ocjena >= 4)
+                        {
+                            
+                            foreach(var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                   
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+                if (APIService.Vrsta == "Atrakcija")
+                {
+                    foreach (var item in listaAtrakcija)
+                    {
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        {
+
+                            foreach (var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                 
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+                if (APIService.Vrsta == "Kafic")
+                {
+                    foreach (var item in listaKafica)
+                    {
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        {
+
+                            foreach (var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                   
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+                if (APIService.Vrsta == "Hotel")
+                {
+                    foreach (var item in listaHotela)
+                    {
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        {
+
+                            foreach (var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                    
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+                if (APIService.Vrsta == "Restoran")
+                {
+                    foreach (var item in listaRestorana)
+                    {
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        {
+
+                            foreach (var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                  
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+                if (APIService.Vrsta == "Nocni klub")
+                {
+                    foreach (var item in listaNk)
+                    {
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        {
+
+                            foreach (var item2 in moji)
+                            {
+
+                                if (item2.Naziv == item.Naziv)
+                                {
+                                    vecUFavoritima = true;
+                                    
+                                }
+                            }
+                            if (!vecUFavoritima)
+                            {
+                                temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
         public async void GetReviews()
         {
             if (APIService.Naziv != null)

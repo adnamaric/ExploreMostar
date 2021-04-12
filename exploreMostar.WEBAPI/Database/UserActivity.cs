@@ -19,6 +19,12 @@ namespace exploreMostar.WebAPI.Database
         public bool? IsHotel { get; set; }
         public bool? IsKafic { get; set; }
         public bool? IsNightClub { get; set; }
+        public int? BrojApartmanaFavoriti { get; set; }
+        public int? BrojAtrakcijaFavoriti { get; set; }
+        public int? BrojRestoranaFavoriti { get; set; }
+        public int? BrojHotelaFavoriti { get; set; }
+        public int? BrojKaficaFavoriti { get; set; }
+        public int? BrojNocnihKlubovaFavoriti { get; set; }
 
         public Korisnici Korisnik { get; set; }
     }

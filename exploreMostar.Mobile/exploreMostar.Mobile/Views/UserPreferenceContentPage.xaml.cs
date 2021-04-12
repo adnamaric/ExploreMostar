@@ -32,7 +32,7 @@ namespace exploreMostar.Mobile.Views
             goBack.HeightRequest = 20;
             APIService.UPContentPage = true;
             APIService.PreferenceListPage = false;
-             m.SetExistingPreferences();
+            
             SetExisting();
             
         }
