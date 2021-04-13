@@ -37,6 +37,7 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<Prevoz> Prevoz { get; set; }
         public virtual DbSet<Recenzije> Recenzije { get; set; }
         public virtual DbSet<Restorani> Restorani { get; set; }
+        public virtual DbSet<SearchTrack> SearchTrack { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<UserActivity> UserActivity { get; set; }
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
@@ -535,6 +536,22 @@ namespace exploreMostar.WebAPI.Database
                     .HasForeignKey(d => d.VrstaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Restorani__Vrsta__1DB06A4F");
+            });
+
+            modelBuilder.Entity<SearchTrack>(entity =>
+            {
+                entity.HasKey(e => e.SearchId);
+
+                entity.Property(e => e.SearchId).HasColumnName("SearchID");
+
+                entity.Property(e => e.DatumPretrage).HasColumnType("datetime");
+
+                entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
+
+                entity.HasOne(d => d.Korisnik)
+                    .WithMany(p => p.SearchTrack)
+                    .HasForeignKey(d => d.KorisnikId)
+                    .HasConstraintName("FK__SearchTra__Koris__54CB950F");
             });
 
             modelBuilder.Entity<Uloge>(entity =>

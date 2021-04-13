@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exploreMostar.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -13,6 +14,9 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _restorani = new APIService("Restorani");
         private readonly APIService _kafici = new APIService("Kafici");
         private readonly APIService _nocniklubovi = new APIService("Nightclubs");
+        private readonly APIService _searchS = new APIService("Search");
+        private readonly APIService korisnici = new APIService("Korisnici");
+
         public ObservableCollection<Model.ReportClass> temp { get; set; } = new ObservableCollection<Model.ReportClass>();
         public string _search = string.Empty;
 
@@ -34,11 +38,29 @@ namespace exploreMostar.Mobile.ViewModels
             var listaHotela = await _hoteli.Get<IList<Model.Hoteli>>(null);
             var listaRestorana = await _restorani.Get<IList<Model.Restorani>>(null);
             var listaNk = await _nocniklubovi.Get<IList<Model.Nightclubs>>(null);
-         
+            var listaK = await korisnici.Get<IList<Model.Korisnici>>(null);
+            Model.Korisnici korisnik = null;
             List<Model.ReportClass> sviObjektiNadjeni = new List<Model.ReportClass>();
             object trazeniModel = null;
+            foreach(var item in listaK)
+            {
+                if (item.KorisnickoIme == APIService.Username)
+                {
+                    korisnik = item;
+                }
+            }
             if (_search != string.Empty)
             {
+                if (korisnik != null)
+                {
+                    await _searchS.Insert<Model.Search>(new SearchUpsertRequest()
+                    {
+                        KorisnikId=korisnik.KorisnikId,
+                        Sadrzaj=_search,
+                        DatumPretrage=DateTime.Now,
+                        ImePrezime=korisnik.Ime+" "+korisnik.Prezime
+                    });
+                }
                 if (_search == "apartman" || _search == "apartment")
                 {
                     // vraca listu apartmana

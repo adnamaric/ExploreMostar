@@ -47,6 +47,8 @@ namespace exploreMostar.WebAPI.Mappers
             CreateMap<Database.Kategorije, Model.Kategorije>().ReverseMap();
             CreateMap<Database.UserActivity, Model.UserActivity>().ReverseMap();
             CreateMap<Database.UserActivity, UserActivityUpsertRequest>().ReverseMap();
+            CreateMap<Database.SearchTrack, SearchUpsertRequest>().ReverseMap();
+            CreateMap<Database.SearchTrack, Model.Search>().ReverseMap();
 
             CreateMap<Database.Kategorije, KategorijeUpsertRequest>().ReverseMap();
             CreateMap<Database.MojiFavoriti, Model.MojiFavoriti>().ReverseMap();

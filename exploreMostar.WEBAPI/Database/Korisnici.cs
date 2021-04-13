@@ -14,6 +14,7 @@ namespace exploreMostar.WebAPI.Database
             PorukePosiljalacNavigation = new HashSet<Poruke>();
             PorukePrimalacNavigation = new HashSet<Poruke>();
             Recenzije = new HashSet<Recenzije>();
+            SearchTrack = new HashSet<SearchTrack>();
         }
 
         public string Ime { get; set; }
@@ -40,5 +41,6 @@ namespace exploreMostar.WebAPI.Database
         public ICollection<Poruke> PorukePosiljalacNavigation { get; set; }
         public ICollection<Poruke> PorukePrimalacNavigation { get; set; }
         public ICollection<Recenzije> Recenzije { get; set; }
+        public ICollection<SearchTrack> SearchTrack { get; set; }
     }
 }
