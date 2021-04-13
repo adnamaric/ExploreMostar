@@ -1,4 +1,5 @@
-﻿using exploreMostar.Model.Requests;
+﻿using exploreMostar.Mobile.Views;
+using exploreMostar.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +28,13 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _recenzije = new APIService("Recenzije");
         private readonly APIService _favoriti = new APIService("MojiFavoriti");
         private readonly APIService _ua = new APIService("UserActivity");
+        string _search = string.Empty;
 
+        public string Search
+        {
+            get { return _search; }
+            set { SetProperty(ref _search, value); }
+        }
 
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
         public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();
@@ -684,6 +691,11 @@ namespace exploreMostar.Mobile.ViewModels
             }
             APIService.Username = null;
             APIService.Password = null;
+        }
+        public async void CheckSearchRequest()
+        {
+            Application.Current.MainPage = new SearchFoundItems(_search);
+      
         }
         public void NearMe()
         {

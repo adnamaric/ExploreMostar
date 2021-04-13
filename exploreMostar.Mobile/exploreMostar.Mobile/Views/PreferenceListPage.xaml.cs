@@ -353,5 +353,11 @@ namespace exploreMostar.Mobile.Views
         {
             Application.Current.MainPage = new MyFavouritesPage();
         }
+
+        private void Entry_Completed(object sender, EventArgs e)
+        {
+            
+            model.CheckSearchRequest();
+        }
     }
 }

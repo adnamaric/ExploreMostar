@@ -17,9 +17,12 @@
         <ScrollView>
             <StackLayout BackgroundColor="#252526">
                 <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
-                    <ImageButton x:Name="goBack" Clicked="goBack_Clicked_1" HorizontalOptions="StartAndExpand"></ImageButton>
+                    <ImageButton  x:Name="goBack" Clicked="goBack_Clicked_1" HorizontalOptions="StartAndExpand"></ImageButton>
+
                     <ImageButton x:Name="navmenu" Clicked="navmenu_Clicked" HorizontalOptions="EndAndExpand"></ImageButton>
                 </StackLayout>
+                <Entry  Placeholder="Search" BackgroundColor="#252526" PlaceholderColor="White" TextColor="White" Text="{Binding Search}" Completed="Entry_Completed" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Entry>
+
                 <StackLayout x:Name="NavigationPane"  IsVisible="false">
                     <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">

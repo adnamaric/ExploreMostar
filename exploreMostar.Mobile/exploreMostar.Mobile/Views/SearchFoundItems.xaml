@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels"
+             x:Class="exploreMostar.Mobile.Views.SearchFoundItems">
+    <ContentPage.BindingContext>
+        <viewmodels:SearchResultModel></viewmodels:SearchResultModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        
+        <StackLayout BackgroundColor="#252526">
+            <Label TextColor="White">
+                <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Results for search: " />
+                        <Span FontAttributes="Bold" Text="{Binding Search}"/>
+                </FormattedString>
+            </Label.FormattedText>
+            </Label>
+            <ListView x:Name="MyRecenzijeView"
+            ItemsSource="{Binding temp}"
+            BackgroundColor="Transparent"
+            CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
+                <!--Built in Cells-->
+
+
+                <!--Custom View Cells-->
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout>
+                                <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
+
+                                </Label>
+                                <Label   Padding="440,0,0,0" FontSize="Medium"  TextColor="Red" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                    <Label.FormattedText >
+                                        <FormattedString >
+                                            <Span FontAttributes="Bold"  Text="{Binding Ocjena}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Name: " />
+                                            <Span Text="{Binding Naziv}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Name: " />
+                                            <Span Text="{Binding Vrsta}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                               
+
+                               
+                                <Label Padding="0,10,0,0"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+
+
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
