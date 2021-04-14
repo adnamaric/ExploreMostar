@@ -39,7 +39,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.Restorani> restoranis { get; set; } = new ObservableCollection<Model.Restorani>();
         public ObservableCollection<Model.Atrakcije> atrakcije { get; set; } = new ObservableCollection<Model.Atrakcije>();
         public ObservableCollection<Model.ReportClass> temp { get; set; } = new ObservableCollection<Model.ReportClass>();
-        public ObservableCollection<Model.ReportClass> temp1 { get; set; } = new ObservableCollection<Model.ReportClass>();
+        public ObservableCollection<Model.Prevoz> transport { get; set; } = new ObservableCollection<Model.Prevoz>();
         public ObservableCollection<Model.ReportClass> temp2 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.ReportClass> temp3 { get; set; } = new ObservableCollection<Model.ReportClass>();
         public ObservableCollection<Model.ReportClass> temp4 { get; set; } = new ObservableCollection<Model.ReportClass>();
@@ -138,7 +138,7 @@ namespace exploreMostar.Mobile.ViewModels
                     var list = await _atrakcije.Get<IEnumerable<Model.Atrakcije>>(null);
                
                 atrakcije.Clear();
-                    temp1.Clear();
+                   
                 foreach(var item in list)
                 {
                     if (location != null)
@@ -867,6 +867,18 @@ namespace exploreMostar.Mobile.ViewModels
         {
             Application.Current.MainPage = new SearchFoundItems(_search);
       
+        }
+        public async void CheckDistance(double distance)
+        {
+            var list = await _prevoz.Get<IList<Model.Prevoz>>(null);
+            transport.Clear();
+            if (distance >= 3)
+            {
+                foreach(var item in list)
+                {
+                    transport.Add(item);
+                }
+            }
         }
         public void NearMe()
         {

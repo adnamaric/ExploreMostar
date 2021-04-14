@@ -14,6 +14,7 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
     public partial class frmListaRestorana : Form
     {
         private readonly APIService _restorani = new APIService("restorani");
+        private readonly APIService _recenzije = new APIService("Recenzije");
         public frmListaRestorana()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
             comboBox1.Items.Add("SortByGrade");
             comboBox1.Items.Add("SortByType");
             comboBox1.Items.Add("SortByYear");
+            SetOcjene();
 
         }
 
@@ -45,7 +47,35 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
                 cmbFilterByGrade.Items.Add(start1++.ToString());
             }
         }
+        private async void SetOcjene()
+        {
+            var result = await _restorani.Get<List<Model.Restorani>>(null);
+            var recenzije = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+
+                foreach (var item in recenzije)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _restorani.Update<Model.Restorani>(i.RestoranId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var temp = 0;

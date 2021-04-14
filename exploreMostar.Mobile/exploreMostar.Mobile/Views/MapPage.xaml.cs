@@ -37,6 +37,8 @@ namespace exploreMostar.Mobile.Views
         public bool isNightClub;
         public bool isKafic;
         public bool isHotel;
+        public double udaljenost;
+
         private readonly APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
         public object trenutniObj = null;
@@ -304,6 +306,7 @@ namespace exploreMostar.Mobile.Views
                 if (location1 != null)
                 {
                     double kilometers = Location.CalculateDistance(resto, location1, DistanceUnits.Kilometers);
+                    udaljenost = kilometers;
                     double meters = kilometers * 1000;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
@@ -324,6 +327,7 @@ namespace exploreMostar.Mobile.Views
                 {
                     double kilometers = Location.CalculateDistance(aparto, location1, DistanceUnits.Kilometers);
                     double meters = kilometers * 1000;
+                    udaljenost = kilometers;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
                 }
@@ -334,6 +338,19 @@ namespace exploreMostar.Mobile.Views
                     Type = PinType.Place,
                     Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
                 };
+                
+                Circle polygon = new Circle {
+                    StrokeColor = Color.Red,
+                    StrokeWidth = 12,
+                    Center = new Position((double)selectedap.Latitude, (double)selectedap.Longitude),
+                    Radius = new Distance(250),
+                    //             Geopath =
+                    //             {
+                    //new Position(location1.Latitude, location1.Longitude),
+                    // new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
+                    //             }
+                };
+                Map.MapElements.Add(polygon);
                 Map.Pins.Add(pin);
             }
             if (isAtrakcija == true)
@@ -343,6 +360,7 @@ namespace exploreMostar.Mobile.Views
                 {
                     double kilometers = Location.CalculateDistance(atraction, location1, DistanceUnits.Kilometers);
                     double meters = kilometers * 1000;
+                    udaljenost = kilometers;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
                 }
@@ -362,6 +380,7 @@ namespace exploreMostar.Mobile.Views
                 {
                     double kilometers = Location.CalculateDistance(hotel, location1, DistanceUnits.Kilometers);
                     double meters = kilometers * 1000;
+                    udaljenost = kilometers;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
                 }
@@ -381,6 +400,7 @@ namespace exploreMostar.Mobile.Views
                 {
                     double kilometers = Location.CalculateDistance(kafic, location1, DistanceUnits.Kilometers);
                     double meters = kilometers * 1000;
+                    udaljenost = kilometers;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
                 }
@@ -400,6 +420,7 @@ namespace exploreMostar.Mobile.Views
                 {
                     double kilometers = Location.CalculateDistance(hotel, location1, DistanceUnits.Kilometers);
                     double meters = kilometers * 1000;
+                    udaljenost = kilometers;
                     meters = Math.Round(meters);
                     await Application.Current.MainPage.DisplayAlert("Alert", $"Udaljenost vas i traženog objekta iznosi:{meters}metara", "OK");
                 }
@@ -412,6 +433,11 @@ namespace exploreMostar.Mobile.Views
                 };
                 Map.Pins.Add(pin);
                 
+            }
+            if (udaljenost >= 3)
+            {
+                model.CheckDistance(udaljenost);
+              
             }
         }
         Task<Xamarin.Essentials.Location> GetLocationFromPhone()
@@ -470,7 +496,12 @@ namespace exploreMostar.Mobile.Views
         private  void btn2_Clicked(object sender, EventArgs e)
         {
             Stack2.IsVisible = true;
-            
+            if (udaljenost >= 3)
+            {
+                model.CheckDistance(udaljenost);
+                transport.IsVisible = true;
+                
+            }
             
             Stack2.HeightRequest = 500;
             Map.IsVisible = true;
@@ -487,6 +518,7 @@ namespace exploreMostar.Mobile.Views
             info.IsVisible = false;
             Recenzije.IsVisible = false;
             Recenzije.HeightRequest = 0;
+          
             btnRecenzije.TextColor = Color.White;
             btnRecenzije.BackgroundColor = Color.DarkRed;
         }

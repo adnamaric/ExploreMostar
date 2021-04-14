@@ -14,7 +14,7 @@ namespace exploreMostar.Mobile.Views
     {
         private APIService korisnici = new APIService("Korisnici");
         private readonly APIService _ua = new APIService("UserActivity");
-        private bool isClicked = false;
+       
         public UserPreferenceContentPage()
         {
             InitializeComponent();

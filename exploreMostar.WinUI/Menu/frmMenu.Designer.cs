@@ -41,17 +41,22 @@ namespace exploreMostar.WinUI.Menu
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AtrakcijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AtrakcijeBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // button4
@@ -181,42 +186,6 @@ namespace exploreMostar.WinUI.Menu
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(-1, 213);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(234, 263);
-            this.groupBox2.TabIndex = 31;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(239, 213);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(234, 263);
-            this.groupBox3.TabIndex = 32;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(479, 213);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(234, 263);
-            this.groupBox4.TabIndex = 33;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Location = new System.Drawing.Point(719, 213);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(234, 263);
-            this.groupBox5.TabIndex = 34;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
-            // 
             // groupBox9
             // 
             this.groupBox9.Location = new System.Drawing.Point(-1, 482);
@@ -253,12 +222,84 @@ namespace exploreMostar.WinUI.Menu
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "groupBox6";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Silver;
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Location = new System.Drawing.Point(-1, 213);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(306, 250);
+            this.groupBox3.TabIndex = 32;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(125, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "#FOOD";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Silver;
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox5.Location = new System.Drawing.Point(625, 213);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(321, 250);
+            this.groupBox5.TabIndex = 33;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "groupBox5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(125, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "#FOOD";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.BackColor = System.Drawing.Color.Silver;
+            this.groupBox10.Controls.Add(this.label5);
+            this.groupBox10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox10.Location = new System.Drawing.Point(311, 213);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(308, 250);
+            this.groupBox10.TabIndex = 33;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "groupBox10";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(125, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "#FOOD";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(975, 629);
+            this.ClientSize = new System.Drawing.Size(958, 629);
+            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox8);
@@ -266,10 +307,6 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button8);
@@ -288,6 +325,12 @@ namespace exploreMostar.WinUI.Menu
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AtrakcijeBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -303,13 +346,15 @@ namespace exploreMostar.WinUI.Menu
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.BindingSource AtrakcijeBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -14,13 +14,15 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
     public partial class frmListaKafica : Form
     {
         private readonly APIService _kafici = new APIService("kafici");
+        private readonly APIService _recenzije = new APIService("Recenzije");
+
         public frmListaKafica()
         {
             InitializeComponent();
             comboBox1.Items.Add("");
             comboBox1.Items.Add("SortByName");
             comboBox1.Items.Add("SortByGrade");
-        
+            SetOcjene();
         }
 
         private async void frmListaKafica_Load(object sender, EventArgs e)
@@ -38,7 +40,35 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
                 cmbFilterByGrade.Items.Add(start1++.ToString());
             }
         }
+        private async void SetOcjene()
+        {
+            var result = await _kafici.Get<List<Model.Kafici>>(null);
+            var recenzije = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+
+                foreach (var item in recenzije)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _kafici.Update<Model.Kafici>(i.KaficId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var temp = 0;

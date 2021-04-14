@@ -14,12 +14,15 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
     public partial class frmListaNightClubs : Form
     {
         private readonly APIService _nightclubs = new APIService("nightclubs");
+        private readonly APIService _recenzije = new APIService("Recenzije");
+
         public frmListaNightClubs()
         {
             InitializeComponent();
             comboBox1.Items.Add("");
             comboBox1.Items.Add("SortByName");
             comboBox1.Items.Add("SortByGrade");
+            SetOcjene();
         }
 
         private async void frmListaNightClubs_Load(object sender, EventArgs e)
@@ -38,7 +41,35 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
         {
 
         }
+        private async void SetOcjene()
+        {
+            var result = await _nightclubs.Get<List<Model.Nightclubs>>(null);
+            var recenzije = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+
+                foreach (var item in recenzije)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _nightclubs.Update<Model.Nightclubs>(i.NightClubId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var temp = 0;

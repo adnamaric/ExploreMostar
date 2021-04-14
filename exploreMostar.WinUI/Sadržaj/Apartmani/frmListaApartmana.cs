@@ -15,6 +15,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
     {
         private readonly APIService _apartmani = new APIService("apartmani");
         private readonly APIService _kategorije = new APIService("kategorije");
+        private readonly APIService _recenzije = new APIService("Recenzije");
 
         public frmListaApartmana()
         {
@@ -24,7 +25,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             comboBox1.Items.Add("SortByGrade");
             comboBox1.Items.Add("SortByYear");
             comboBox1.Items.Add("SortByCategory");
-
+            SetOcjene();
         }
 
         private async void frmListaApartmana_Load(object sender, EventArgs e)
@@ -48,7 +49,35 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             }
 
         }
+        private async void SetOcjene()
+        {
+            var result = await _apartmani.Get<List<Model.Apartmani>>(null);
+            var recenzijeApartmana = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+               
+                foreach (var item in recenzijeApartmana)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _apartmani.Update<Model.Apartmani>(i.ApartmanId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var temp = 0;
@@ -57,13 +86,13 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                 Naziv = txtPretraga.Text
 
             };
-            //pogledati ovo
             var result = await _apartmani.Get<List<Model.Apartmani>>(search);
-           
-            foreach(var i in result)
+
+           foreach(var item in result)
             {
-                i.Rbr = ++temp;
+                item.Rbr = ++temp;
             }
+
             if (search.Naziv != "")
             {
                 foreach(var item in result)

@@ -61,8 +61,57 @@
                 </StackLayout>
 
                 <StackLayout x:Name="Stack2" HeightRequest="500">
-                    <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite"  x:Name="Map" >
-                    </maps:Map>
+                    <StackLayout HeightRequest="500">
+                    <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
+                            
+                        </maps:Map>
+                    </StackLayout>
+                    <Label Padding="0,20,0,0"></Label>
+                    <StackLayout x:Name="transport"  IsVisible="true">
+                        <Label  IsEnabled="{Binding transport}" IsVisible="{Binding transport}" TextColor="White" FontAttributes="Bold"  Text="Choose transport:"
+                   Grid.Row="2"
+				   VerticalOptions="End"/>
+                        <RelativeLayout IsVisible="{Binding transport}" Grid.Row="1" 
+							HeightRequest="100"
+							VerticalOptions="Start">
+                            <ListView BackgroundColor="#252526" Rotation="270" ItemsSource="{Binding transport}" RowHeight="100" SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                              CachingStrategy="RecycleElement" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                                <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                                   
+                                                    <Label TextColor="White" Text="{Binding Naziv}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+                                                    <Label TextColor="White" Text="{Binding Vrsta}"
+										   HorizontalTextAlignment="Center"
+                                           LineBreakMode="MiddleTruncation"/>
+
+                                                    <Label TextColor="White" VerticalTextAlignment="Center">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding Telefon}" />
+                                                                <Span Text="km away"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    
+                                                </StackLayout>
+                                            </ContentView>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </RelativeLayout>
+                    </StackLayout>
+
                 </StackLayout>
 
 

@@ -15,11 +15,13 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
     {
         private readonly APIService _atrakcije = new APIService("atrakcije");
         private readonly APIService _vrsteatrakcija = new APIService("VrstaAtrakcija");
+        private readonly APIService _recenzije = new APIService("Recenzije");
 
 
         public frmListaAtrakcija()
         {
             InitializeComponent();
+            SetOcjene();
         }
 
         private async void frmListaAtrakcija_Load(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             comboBox1.Items.Add("SortByName");
             comboBox1.Items.Add("SortByGrade");
             comboBox1.Items.Add("SortByType");
-
+           
 
         }
 
@@ -55,7 +57,35 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         {
 
         }
+        private async void SetOcjene()
+        {
+            var result = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+            var recenzije = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+
+                foreach (var item in recenzije)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _atrakcije.Update<Model.Atrakcije>(i.AtrakcijaId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var temp = 0;

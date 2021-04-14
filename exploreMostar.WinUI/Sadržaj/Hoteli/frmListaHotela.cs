@@ -14,6 +14,8 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
     public partial class frmListaHotela : Form
     {
         private readonly APIService _hoteli = new APIService("hoteli");
+        private readonly APIService _recenzije = new APIService("Recenzije");
+
         public frmListaHotela()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             {
                 cmbFilterByGrade.Items.Add(start1++.ToString());
             }
+            SetOcjene();
         }
 
         private async void frmListaHotela_Load(object sender, EventArgs e)
@@ -41,7 +44,35 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             label5.Text = result.Count().ToString();
 
         }
+        private async void SetOcjene()
+        {
+            var result = await _hoteli.Get<List<Model.Hoteli>>(null);
+            var recenzije = await _recenzije.Get<List<Model.Recenzije>>(null);
 
+            foreach (var i in result)
+            {
+                if (i.Ocjena == null)
+                    i.Ocjena = 0;
+                double ukupna = (double)i.Ocjena;
+                int brojac = 0;
+                if (i.Ocjena != 0)
+                    brojac++;
+
+                foreach (var item in recenzije)
+                {
+                    if (item.Objekat == i.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                if (brojac == 0)
+                    brojac++;
+                ukupna /= brojac;
+                i.Ocjena = ukupna;
+                await _hoteli.Update<Model.Hoteli>(i.HotelId, i);
+            }
+        }
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var search = new ByNameSearchRequest()
