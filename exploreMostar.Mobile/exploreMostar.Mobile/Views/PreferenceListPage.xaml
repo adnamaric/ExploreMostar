@@ -21,7 +21,7 @@
 
                     <ImageButton x:Name="navmenu" Clicked="navmenu_Clicked" HorizontalOptions="EndAndExpand"></ImageButton>
                 </StackLayout>
-                <Entry  Placeholder="Search" BackgroundColor="#252526" PlaceholderColor="White" TextColor="White" Text="{Binding Search}" Completed="Entry_Completed" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Entry>
+                <Entry  Placeholder="Search" BackgroundColor="#252526" PlaceholderColor="White" TextColor="White" Text="{Binding Search}" Completed="Entry_Completed"  ></Entry>
 
                 <StackLayout x:Name="NavigationPane"  IsVisible="false">
                     <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 

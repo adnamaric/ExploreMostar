@@ -199,7 +199,7 @@
                         <Button BackgroundColor="DarkRed" TextColor="White" Text="Post" Clicked="postButton_Clicked" x:Name="postButton"></Button>
                         <Label Padding="10,0,0,0" TextColor="White" />
                         <StackLayout x:Name="Recommend" SizeChanged="Recomend_SizeChanged" IsVisible="{Binding temp}">
-                            <Label  TextColor="White" FontAttributes="Bold"  Text="Because you added this place to your favourites, you might also like:"
+                            <Label  TextColor="White" FontAttributes="Bold"  x:Name="because" IsVisible="false" Text="Because you added this place to your favourites, you might also like:"
                    Grid.Row="2"
 				   VerticalOptions="End"/>
                             <RelativeLayout IsVisible="{Binding temp}" Grid.Row="3" 

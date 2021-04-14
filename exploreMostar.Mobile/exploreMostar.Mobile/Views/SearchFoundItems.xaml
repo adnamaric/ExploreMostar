@@ -12,9 +12,11 @@
             <Label TextColor="White">
                 <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="Results for search: " />
-                        <Span FontAttributes="Bold" Text="{Binding Search}"/>
-                </FormattedString>
+                    <Span  Text="Results for search " />
+                        <Span Text="&quot;"/>
+                        <Span x:Name="spanSearch" FontAttributes="Bold" />
+                        <Span Text="&quot;"/>
+                    </FormattedString>
             </Label.FormattedText>
             </Label>
             <ListView x:Name="MyRecenzijeView"

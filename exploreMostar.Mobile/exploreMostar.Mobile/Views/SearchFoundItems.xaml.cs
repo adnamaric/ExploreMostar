@@ -20,7 +20,7 @@ namespace exploreMostar.Mobile.Views
             InitializeComponent();
             BindingContext = model = new SearchResultModel();
             model.SearchResult(_search);
-
+            spanSearch.Text = _search;
         }
         protected  override void OnAppearing()
         {

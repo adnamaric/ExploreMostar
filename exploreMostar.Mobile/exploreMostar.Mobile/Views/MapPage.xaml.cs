@@ -23,6 +23,7 @@ namespace exploreMostar.Mobile.Views
     {
         private readonly APIService _favoriti = new APIService("MojiFavoriti");
         private readonly APIService _service = new APIService("Korisnici");
+        private readonly APIService _recenzije = new APIService("Recenzije");
 
         public Model.Restorani selected=new Model.Restorani();
         public Model.Atrakcije selecteda = new Model.Atrakcije();
@@ -176,6 +177,7 @@ namespace exploreMostar.Mobile.Views
                     APIService.Vrsta = "Hotel";
                     APIService.ObjekatID = selectedh.HotelId;
                 }
+                because.IsVisible = false;
             }
            
             BindingContext = model = new PreferenceListModel();
@@ -505,6 +507,8 @@ namespace exploreMostar.Mobile.Views
                 }
             }
             var listaFavorita = await _favoriti.Get<IList<Model.MojiFavoriti>>(null);
+            var listaRecenzija = await _recenzije.Get<IList<Model.Recenzije>>(null);
+       
 
             foreach (var item in listaFavorita)
             {
@@ -528,6 +532,7 @@ namespace exploreMostar.Mobile.Views
             if (APIService.postojiFavorit)
             {
                 model.CheckIfFavourite();
+                because.IsVisible = true;
                 Recommend.IsVisible = true;
                 lista.IsVisible = true;
                 lista.HeightRequest = 100;
@@ -548,17 +553,32 @@ namespace exploreMostar.Mobile.Views
             btn1.TextColor = Color.White;
             btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
+            double ukupna = 0.0;
+            int brojac = 0;
             if (isRestoran == true)
             {
                 if (selected.Naziv == "Megamarkt")
                     respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.png");
                 if (selected.Naziv == "restoran 1")
                     respicture.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.restoran1.jpg");
-
+                foreach(var item in listaRecenzija)
+                {
+                    if (item.Objekat == selected.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna +=(double) selected.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+               
+                Rating.Text = ukupna.ToString();
                 Naziv.Text = selected.Naziv;
                 Lokacija.Text = selected.Lokacija;
                 Godina.Text = selected.GodinaIzgradnje.ToString();
-                Rating.Text = selected.Ocjena.ToString();
+
+               
                 if (selected.VrstaId == 1)
                     Type.Text = "Restaurant";
                 if (selected.VrstaId == 2)
@@ -575,13 +595,36 @@ namespace exploreMostar.Mobile.Views
                 Naziv.Text = selectedap.Naziv;
                 Lokacija.Text = selectedap.Lokacija;
                 Godina.Text = selectedap.GodinaIzgradnje.ToString();
-                Rating.Text = selectedap.Ocjena.ToString();
+                foreach (var item in listaRecenzija)
+                {
+                    if (item.Objekat == selectedap.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna += (double)selectedap.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+                Rating.Text = ukupna.ToString();
+                
             }
             if (isAtrakcija == true)
             {
                 Naziv.Text = selecteda.Naziv;
                 Lokacija.Text = selecteda.Lokacija;
-                Rating.Text = selecteda.Ocjena.ToString();
+                foreach (var item in listaRecenzija)
+                {
+                    if (item.Objekat == selecteda.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna += (double)selecteda.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+                Rating.Text = ukupna.ToString();
                 if (selected.VrstaId == 1)
                     Type.Text = "Natural atraction";
                 if (selected.VrstaId == 2)
@@ -592,6 +635,57 @@ namespace exploreMostar.Mobile.Views
                 {
                     Type.Text = "N/A";
                 }
+            }
+            if (isHotel == true)
+            {
+                Naziv.Text = selectedh.Naziv;
+                Lokacija.Text = selectedh.Lokacija;
+                foreach (var item in listaRecenzija)
+                {
+                    if (item.Objekat == selectedh.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna += (double)selectedh.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+                Rating.Text = ukupna.ToString();
+            }
+            if (isKafic == true)
+            {
+                Naziv.Text = selectedk.Naziv;
+                Lokacija.Text = selectedk.Lokacija;
+                foreach (var item in listaRecenzija)
+                {
+                    if (item.Objekat == selectedk.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna += (double)selectedk.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+                Rating.Text = ukupna.ToString();
+            }
+            if (isNightClub == true)
+            {
+                Naziv.Text = selectedn.Naziv;
+                Lokacija.Text = selectedn.Lokacija;
+                foreach (var item in listaRecenzija)
+                {
+                    if (item.Objekat == selectedn.Naziv)
+                    {
+                        ukupna += (double)item.Ocjena;
+                        brojac++;
+                    }
+                }
+                ukupna += (double)selectedn.Ocjena;
+                brojac++;
+                ukupna /= brojac;
+                Rating.Text = ukupna.ToString();
             }
             //if (model.GetRecenzije.CanExecute(null))
             // model.GetRecenzije.Execute(null);

@@ -369,6 +369,14 @@ namespace exploreMostar.Mobile.ViewModels
         public async void AddReview()
         {
             var list = await _service.Get<IList<Model.Korisnici>>(null);
+            var listApartmana = await _apartmani.Get<IList<Model.Apartmani>>(null);
+            var listaAtrakcija = await _atrakcije.Get<IList<Model.Atrakcije>>(null);
+            var listaKafica = await _kafici.Get<IList<Model.Kafici>>(null);
+            var listaHotela = await _hoteli.Get<IList<Model.Hoteli>>(null);
+            var listaRestorana = await _restorani.Get<IList<Model.Restorani>>(null);
+            var listaNk = await _nocniklubovi.Get<IList<Model.Nightclubs>>(null);
+            var listaRecenzija = await _recenzije.Get<IList<Model.Recenzije>>(null);
+
             Model.Korisnici korisnik = new Model.Korisnici();
             foreach(var item in list)
             {
@@ -393,7 +401,168 @@ namespace exploreMostar.Mobile.ViewModels
                     Objekat = APIService.Naziv,
                     Vrsta = APIService.Vrsta
                 }) ;
-               await Application.Current.MainPage.DisplayAlert("Success", "Successfully Added Review", "OK");
+                double ukupna = 0.0;
+                int brojac = 0;
+                ukupna += (double)ocjena;
+                brojac++;
+              
+                if (APIService.Vrsta == "Apartman")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Apartmani selectedap = null;
+                    foreach (var item in listApartmana)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selectedap = item;
+                        }
+                    }
+                    if (selectedap != null)
+                    {
+                        selectedap.Ocjena = ukupna / brojac;
+                        await _apartmani.Update<Model.Apartmani>(selectedap.ApartmanId, selectedap);
+                    }
+                }
+                if (APIService.Vrsta == "Atrakcija")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Atrakcije selecteda = null;
+                    foreach (var item in listaAtrakcija)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selecteda = item;
+                        }
+                    }
+                    if (selecteda != null)
+                    {
+                        selecteda.Ocjena = ukupna / brojac;
+                        await _atrakcije.Update<Model.Atrakcije>(selecteda.AtrakcijaId, selecteda);
+                    }
+                }
+                if (APIService.Vrsta == "Kafic")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Kafici selectedk = null;
+                    foreach (var item in listaKafica)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selectedk = item;
+                        }
+                    }
+                    if (selectedk != null)
+                    {
+                        selectedk.Ocjena = ukupna / brojac;
+                        await _kafici.Update<Model.Kafici>(selectedk.KaficId, selectedk);
+                    }
+                }
+                if (APIService.Vrsta == "Hotel")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Hoteli selectedh = null;
+                    foreach (var item in listaHotela)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selectedh = item;
+                        }
+                    }
+                    if (selectedh != null)
+                    {
+                        selectedh.Ocjena = ukupna / brojac;
+                        await _hoteli.Update<Model.Hoteli>(selectedh.HotelId, selectedh);
+                    }
+                }
+                if (APIService.Vrsta == "Restoran")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Restorani selectedr = null;
+                    foreach (var item in listaRestorana)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selectedr = item;
+                        }
+                    }
+                    if (selectedr != null)
+                    {
+                        selectedr.Ocjena = ukupna / brojac;
+                        await _restorani.Update<Model.Restorani>(selectedr.RestoranId, selectedr);
+                    }
+                }
+                if (APIService.Vrsta == "Nocni klub")
+                {
+                    foreach (var item in listaRecenzija)
+                    {
+                        if (item.Objekat == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                        }
+                    }
+                    Model.Nightclubs selectedn = null;
+                    foreach (var item in listaNk)
+                    {
+                        if (item.Naziv == APIService.Naziv)
+                        {
+                            ukupna += (double)item.Ocjena;
+                            brojac++;
+                            selectedn = item;
+                        }
+                    }
+                    if (selectedn != null)
+                    {
+                        selectedn.Ocjena = ukupna / brojac;
+                        await _nocniklubovi.Update<Model.Nightclubs>(selectedn.NightClubId, selectedn);
+                    }
+                }
+                await Application.Current.MainPage.DisplayAlert("Success", "Successfully Added Review", "OK");
 
                
             }
@@ -585,6 +754,8 @@ namespace exploreMostar.Mobile.ViewModels
         }
         public async void GetReviews()
         {
+            
+
             if (APIService.Naziv != null)
             {
                 recenzijes.Clear();
