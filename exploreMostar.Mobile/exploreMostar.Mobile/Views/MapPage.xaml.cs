@@ -15,6 +15,7 @@ using exploreMostar.Mobile.Models;
 using System.Diagnostics;
 using Xamarin.Forms.PlatformConfiguration;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace exploreMostar.Mobile.Views
 {
@@ -339,19 +340,60 @@ namespace exploreMostar.Mobile.Views
                     Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
                 };
                 
-                Circle polygon = new Circle {
-                    StrokeColor = Color.Red,
-                    StrokeWidth = 12,
-                    Center = new Position((double)selectedap.Latitude, (double)selectedap.Longitude),
-                    Radius = new Distance(250),
-                    //             Geopath =
-                    //             {
-                    //new Position(location1.Latitude, location1.Longitude),
-                    // new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
-                    //             }
-                };
-                Map.MapElements.Add(polygon);
+                //Circle polygon = new Circle {
+                //    StrokeColor = Color.Red,
+                //    StrokeWidth = 12,
+                //    Center = new Position((double)selectedap.Latitude, (double)selectedap.Longitude),
+                //    Radius = new Distance(250),
+                //    //             Geopath =
+                //    //             {
+                //    //new Position(location1.Latitude, location1.Longitude),
+                //    // new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
+                //    //             }
+                //};
+                //Map.MapElements.Add(polygon);
                 Map.Pins.Add(pin);
+                var client = new System.Net.Http.HttpClient();
+                var lat1 = selectedap.Latitude;
+                var lon1 = selectedap.Longitude;
+                var lat2 = location1.Latitude;
+                var lon2 = location1.Longitude;
+                var lat3 = 43.355280;
+                var lng3 = 17.809992;
+                string trazeniUrl= @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat3 + "," + lng3 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                var response = await client.GetAsync(trazeniUrl);
+                string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                GoogleDirection ObjContactList = new GoogleDirection();
+                if (response != null)
+                {
+                    ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                }
+                Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                {
+                    StrokeColor = Color.Blue,
+                    StrokeWidth = 12,
+                };
+                var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+
+                for (int i = 0; i < brojRouta; i++)
+                {
+                   
+
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+
+                }
+                Map.MapElements.Add(polyline);
+                
+
+
+
+
+
             }
             if (isAtrakcija == true)
             {
@@ -439,6 +481,8 @@ namespace exploreMostar.Mobile.Views
                 model.CheckDistance(udaljenost);
               
             }
+           
+
         }
         Task<Xamarin.Essentials.Location> GetLocationFromPhone()
         {
@@ -726,7 +770,21 @@ namespace exploreMostar.Mobile.Views
             btnRecenzije.TextColor = Color.White;
             btnRecenzije.BackgroundColor = Color.DarkRed;
         }
+        //internal async Task<System.Collections.Generic.List<Xamarin.Forms.Maps.Position>> LoadRoute()
+        //{
+        //    var client = new System.Net.Http.HttpClient();
+        //    string googleDirection = @"https://maps.googleapis.com/maps/api/directions/json?origin=43.370205,17.853197&destination=43.3403544,17.8167406&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+        //    var response = await client.GetAsync(googleDirection);
+        //    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+       
+        //    if (contactsJson.Length>0)
+        //    {
+        //        var positions = (Enumerable.ToList(PolylineHelper.Decode(googleDirection)));
+        //        return positions;
+        //    }
+         
 
+        //}
         private void btn1_Clicked(object sender, EventArgs e)
         {
           
@@ -751,7 +809,66 @@ namespace exploreMostar.Mobile.Views
             btnRecenzije.TextColor = Color.White;
             btnRecenzije.BackgroundColor = Color.DarkRed;
         }
+        //List<Android.Locations.Location> FnDecodePolylinePoints(string encodedPoints)
+        //{
+        //    if (string.IsNullOrEmpty(encodedPoints))
+        //        return null;
+        //    var poly = new List<Android.Locations.Location>();
+        //    char[] polylinechars = encodedPoints.ToCharArray();
+        //    int index = 0;
 
+        //    int currentLat = 0;
+        //    int currentLng = 0;
+        //    int next5bits;
+        //    int sum;
+        //    int shifter;
+
+        //    try
+        //    {
+        //        while (index < polylinechars.Length)
+        //        {
+        //            // calculate next latitude
+        //            sum = 0;
+        //            shifter = 0;
+        //            do
+        //            {
+        //                next5bits = (int)polylinechars[index++] - 63;
+        //                sum |= (next5bits & 31) << shifter;
+        //                shifter += 5;
+        //            } while (next5bits >= 32 && index < polylinechars.Length);
+
+        //            if (index >= polylinechars.Length)
+        //                break;
+
+        //            currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
+
+        //            //calculate next longitude
+        //            sum = 0;
+        //            shifter = 0;
+        //            do
+        //            {
+        //                next5bits = (int)polylinechars[index++] - 63;
+        //                sum |= (next5bits & 31) << shifter;
+        //                shifter += 5;
+        //            } while (next5bits >= 32 && index < polylinechars.Length);
+
+        //            if (index >= polylinechars.Length && next5bits >= 32)
+        //                break;
+
+        //            currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
+        //            Android.Locations.Location p = new Android.Locations.Location("");
+        //            p.Latitude = Convert.ToDouble(currentLat) / 100000.0;
+        //            p.Longitude = Convert.ToDouble(currentLng) / 100000.0;
+        //            poly.Add(p);
+        //        }
+        //    }
+        //    catch
+        //    {
+
+
+        //    }
+        //    return poly;
+        //}
         private async void btn4_Clicked(object sender, EventArgs e)
         {
           //  await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-calendar"));
