@@ -78,9 +78,9 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnSnimi.BackColor = System.Drawing.Color.DarkRed;
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSnimi.Location = new System.Drawing.Point(386, 348);
+            this.btnSnimi.Location = new System.Drawing.Point(401, 348);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(178, 57);
+            this.btnSnimi.Size = new System.Drawing.Size(163, 57);
             this.btnSnimi.TabIndex = 75;
             this.btnSnimi.Text = "Oduzmi permisije";
             this.btnSnimi.UseVisualStyleBackColor = false;

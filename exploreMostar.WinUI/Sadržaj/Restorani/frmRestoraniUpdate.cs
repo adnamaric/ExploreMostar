@@ -135,7 +135,7 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
                         request.VrstaId = (int)comboBox1.SelectedValue;
                     if (openFileDialog1.FileName.Length != 0)
                         request.PutanjaSlike = txtSlikaInput.Text;
-                    if (cmbGodine.SelectedIndex != 0)
+                    if (cmbGodine.SelectedIndex != -1)
                         request.GodinaIzgradnje = int.Parse(cmbGodine.SelectedItem.ToString());
                     if (comboBox1.SelectedIndex != 0)
                     {
@@ -156,12 +156,58 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
                             MessageBox.Show("Operacija uspješna!");
                         }
 
+                LoadRestorani();
+
+                    }
+
+
+                }
+            }
+
+        }
+        private async void LoadRestorani()
+        {
+            if (txtSlikaInput.Text.Length != 0)
+            {
+                btnSlika.Image = null;
+                txtSlikaInput.Clear();
+            }
+            var apid = (Model.Restorani)comboBox2.SelectedItem;
+
+
+
+            var result = await _restorani.Get<List<Model.Restorani>>(null);
+            if (apid.RestoranId != 0)
+            {
+                var odabrani = result.Where(y => y.RestoranId == apid.RestoranId).FirstOrDefault();
+                txtNazivA.Text = odabrani.Naziv;
+                txtLok.Text = odabrani.Lokacija;
+                txtLat.Text = odabrani.Latitude.ToString();
+                txtLong.Text = odabrani.Longitude.ToString();
+                comboBox1.SelectedItem = odabrani.VrstaId;
+                _id = odabrani.RestoranId;
+
+                txtOcjena.Text = odabrani.Ocjena.ToString();
+                if (odabrani.GodinaIzgradnje != null)
+                {
+                    cmbGodine.SelectedItem = odabrani.GodinaIzgradnje.ToString();
+                }
+
+                if (odabrani.Slika.Length != 0)
+                {
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        txtSlikaInput.Text = odabrani.PutanjaSlike;
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
+
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        btnSlika.Image = image;
                     }
 
                 }
             }
         }
-
+  
         private async void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (txtSlikaInput.Text.Length != 0)

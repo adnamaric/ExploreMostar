@@ -358,9 +358,10 @@ namespace exploreMostar.Mobile.Views
                 var lon1 = selectedap.Longitude;
                 var lat2 = location1.Latitude;
                 var lon2 = location1.Longitude;
+                //fit-lokacija
                 var lat3 = 43.355280;
                 var lng3 = 17.809992;
-                string trazeniUrl= @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat3 + "," + lng3 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                string trazeniUrl= @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
                 var response = await client.GetAsync(trazeniUrl);
                 string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 
@@ -414,6 +415,42 @@ namespace exploreMostar.Mobile.Views
                     Position = new Position((double)selecteda.Latitude, (double)selecteda.Longitude)
                 };
                 Map.Pins.Add(pin);
+                var client = new System.Net.Http.HttpClient();
+                var lat1 = selecteda.Latitude;
+                var lon1 = selecteda.Longitude;
+                var lat2 = location1.Latitude;
+                var lon2 = location1.Longitude;
+                //fit-lokacija
+                var lat3 = 43.355280;
+                var lng3 = 17.809992;
+                string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                var response = await client.GetAsync(trazeniUrl);
+                string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                GoogleDirection ObjContactList = new GoogleDirection();
+                if (response != null)
+                {
+                    ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                }
+                Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                {
+                    StrokeColor = Color.Blue,
+                    StrokeWidth = 12,
+                };
+                var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+
+                for (int i = 0; i < brojRouta; i++)
+                {
+
+
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+
+                }
+                Map.MapElements.Add(polyline);
             }
             if (isHotel == true)
             {
@@ -434,6 +471,42 @@ namespace exploreMostar.Mobile.Views
                     Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
                 };
                 Map.Pins.Add(pin);
+                var client = new System.Net.Http.HttpClient();
+                var lat1 = selectedh.Latitude;
+                var lon1 = selectedh.Longitude;
+                var lat2 = location1.Latitude;
+                var lon2 = location1.Longitude;
+                //fit-lokacija
+                var lat3 = 43.355280;
+                var lng3 = 17.809992;
+                string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                var response = await client.GetAsync(trazeniUrl);
+                string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                GoogleDirection ObjContactList = new GoogleDirection();
+                if (response != null)
+                {
+                    ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                }
+                Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                {
+                    StrokeColor = Color.Blue,
+                    StrokeWidth = 12,
+                };
+                var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+
+                for (int i = 0; i < brojRouta; i++)
+                {
+
+
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+
+                }
+                Map.MapElements.Add(polyline);
             }
             if (isKafic == true)
             {
@@ -454,10 +527,46 @@ namespace exploreMostar.Mobile.Views
                     Position = new Position((double)selectedk.Latitude, (double)selectedk.Longitude)
                 };
                 Map.Pins.Add(pin);
+                var client = new System.Net.Http.HttpClient();
+                var lat1 = selectedk.Latitude;
+                var lon1 = selectedk.Longitude;
+                var lat2 = location1.Latitude;
+                var lon2 = location1.Longitude;
+                //fit-lokacija
+                var lat3 = 43.355280;
+                var lng3 = 17.809992;
+                string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                var response = await client.GetAsync(trazeniUrl);
+                string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                GoogleDirection ObjContactList = new GoogleDirection();
+                if (response != null)
+                {
+                    ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                }
+                Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                {
+                    StrokeColor = Color.Blue,
+                    StrokeWidth = 12,
+                };
+                var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+
+                for (int i = 0; i < brojRouta; i++)
+                {
+
+
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+
+                }
+                Map.MapElements.Add(polyline);
             }
-            if (isHotel == true)
+            if (isNightClub == true)
             {
-                Location hotel = new Location((double)selectedh.Longitude, (double)selectedh.Latitude);
+                Location hotel = new Location((double)selectedn.Longitude, (double)selectedn.Latitude);
                 if (location1 != null)
                 {
                     double kilometers = Location.CalculateDistance(hotel, location1, DistanceUnits.Kilometers);
@@ -468,13 +577,48 @@ namespace exploreMostar.Mobile.Views
                 }
                 Pin pin = new Pin
                 {
-                    Label = selectedh.Naziv,
-                    Address = selectedh.Lokacija,
+                    Label = selectedn.Naziv,
+                    Address = selectedn.Lokacija,
                     Type = PinType.Place,
-                    Position = new Position((double)selectedh.Latitude, (double)selectedh.Longitude)
+                    Position = new Position((double)selectedn.Latitude, (double)selectedn.Longitude)
                 };
                 Map.Pins.Add(pin);
-                
+                var client = new System.Net.Http.HttpClient();
+                var lat1 = selectedn.Latitude;
+                var lon1 = selectedn.Longitude;
+                var lat2 = location1.Latitude;
+                var lon2 = location1.Longitude;
+                //fit-lokacija
+                var lat3 = 43.355280;
+                var lng3 = 17.809992;
+                string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY";
+                var response = await client.GetAsync(trazeniUrl);
+                string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                GoogleDirection ObjContactList = new GoogleDirection();
+                if (response != null)
+                {
+                    ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                }
+                Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                {
+                    StrokeColor = Color.Blue,
+                    StrokeWidth = 12,
+                };
+                var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
+                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+
+                for (int i = 0; i < brojRouta; i++)
+                {
+
+
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                    polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+
+                }
+                Map.MapElements.Add(polyline);
             }
             if (udaljenost >= 3)
             {

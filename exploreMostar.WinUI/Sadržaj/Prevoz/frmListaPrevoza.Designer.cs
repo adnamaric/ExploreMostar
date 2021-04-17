@@ -36,6 +36,8 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vrsta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).BeginInit();
             this.SuspendLayout();
@@ -102,11 +104,29 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
             this.Telefon.HeaderText = "Telefon";
             this.Telefon.Name = "Telefon";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Pretraga po nazivu";
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(132, 25);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(203, 20);
+            this.txtPretraga.TabIndex = 64;
+            // 
             // frmListaPrevoza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 530);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmListaPrevoza";
@@ -116,6 +136,7 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApartmani)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,5 +148,7 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vrsta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPretraga;
     }
 }

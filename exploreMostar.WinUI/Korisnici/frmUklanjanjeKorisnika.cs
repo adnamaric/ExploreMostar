@@ -15,7 +15,11 @@ namespace exploreMostar.WinUI.Korisnici
     {
         private readonly APIService _korisnici = new APIService("korisnici");
         private readonly APIService _gradovi = new APIService("gradovi");
-        
+        private readonly APIService _poruke = new APIService("poruke");
+        private readonly APIService _recenzije = new APIService("Recenzije");
+        private readonly APIService _favoriti = new APIService("MojiFavoriti");
+        private readonly APIService _useractivity = new APIService("UserActivity");
+
         private int? _id = null;
         public frmUklanjanjeKorisnika(int? korisnikId = null)
         {
@@ -34,7 +38,7 @@ namespace exploreMostar.WinUI.Korisnici
             var korid = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
 
 
-            var gradovi = await _gradovi.Get<List<Model.Korisnici>>(null);
+            var gradovi = await _gradovi.Get<List<Model.Gradovi>>(null);
 
             var result = await _korisnici.Get<List<Model.Korisnici>>(null);
             if (korid.KorisnikId != 0)
@@ -47,10 +51,10 @@ namespace exploreMostar.WinUI.Korisnici
                 txtTelefon.Text = odabrani.Telefon;
                 txtKorisnickoIme.Text = odabrani.KorisnickoIme;
                 _id = korid.KorisnikId;
-                if (odabrani.GradId != 0 && odabrani.Grad !=null)
+                if (odabrani.GradId != 0 )
                 {
                     var grad=gradovi.Where(y => y.GradId == odabrani.GradId).FirstOrDefault();
-                    cmbGradovi.SelectedValue = grad;
+                    txtGrad.Text = grad.Naziv;
                 }
                 //else
                 //{
@@ -149,8 +153,42 @@ namespace exploreMostar.WinUI.Korisnici
         {
             var result = await _korisnici.Get<List<Model.Korisnici>>(null);
             var odabrani = (Model.Korisnici)cmbOdaberiKorisnika.SelectedItem;
-            
-            
+            var poruke = await _poruke.Get<IList<Model.Poruke>>(null);
+            var recenzijes = await _recenzije.Get<IList<Model.Recenzije>>(null);
+            var mojifavoriti = await _favoriti.Get<List<Model.MojiFavoriti>>(null);
+            var userActivity = await _useractivity.Get<List<Model.UserActivity>>(null);
+
+            if (odabrani.KorisnikId != 0)
+            {
+                foreach (var item in poruke)
+                {
+                    if (item.PosiljalacId == odabrani.KorisnikId || item.PrimalacId == odabrani.KorisnikId)
+                    {
+                        await _poruke.Delete(item.PorukaId);
+                    }
+                }
+                foreach(var item in mojifavoriti)
+                {
+                    if (item.KorisnikId == odabrani.KorisnikId)
+                    {
+                        await _favoriti.Delete(item.FavoritiId);
+                    }
+                }
+                foreach(var item in recenzijes)
+                {
+                    if (item.KorisnikId == odabrani.KorisnikId)
+                    {
+                        await _recenzije.Delete(item.RecenzijaId);
+                    }
+                }
+                foreach(var item in userActivity)
+                {
+                    if (item.KorisnikId == odabrani.KorisnikId)
+                    {
+                        await _useractivity.Delete(item.KorisnikId);
+                    }
+                }
+            }
             if (odabrani.KorisnikId != 0)
             {
                 await _korisnici.Delete(odabrani.KorisnikId);

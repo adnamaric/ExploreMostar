@@ -24,7 +24,7 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
             var temp = 0;
             var search = new ByNameSearchRequest()
             {
-             //   Naziv = txtPretraga.Text
+              Naziv = txtPretraga.Text
 
             };
             //pogledati ovo

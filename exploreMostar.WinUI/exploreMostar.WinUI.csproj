@@ -793,7 +793,9 @@
   <ItemGroup>
     <None Include="Resources\User-Group-256.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\useruser.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Webp.net-resizeimage %2830%29.png" />
   </ItemGroup>
@@ -814,6 +816,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled design %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-432.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-196.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-4321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-1961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Profile-414.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Row-104.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -73,6 +73,26 @@ namespace exploreMostar.WinUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Minus_44 {
+            get {
+                object obj = ResourceManager.GetObject("Minus-44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Row_104 {
+            get {
+                object obj = ResourceManager.GetObject("Row-104", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Untitled_design__2_ {
             get {
                 object obj = ResourceManager.GetObject("Untitled design (2)", resourceCulture);
@@ -96,6 +116,66 @@ namespace exploreMostar.WinUI.Properties {
         public static System.Drawing.Bitmap User_Group_2561 {
             get {
                 object obj = ResourceManager.GetObject("User-Group-2561", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Profile_196 {
+            get {
+                object obj = ResourceManager.GetObject("User-Profile-196", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Profile_1961 {
+            get {
+                object obj = ResourceManager.GetObject("User-Profile-1961", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Profile_414 {
+            get {
+                object obj = ResourceManager.GetObject("User-Profile-414", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Profile_432 {
+            get {
+                object obj = ResourceManager.GetObject("User-Profile-432", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Profile_4321 {
+            get {
+                object obj = ResourceManager.GetObject("User-Profile-4321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap useruser {
+            get {
+                object obj = ResourceManager.GetObject("useruser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

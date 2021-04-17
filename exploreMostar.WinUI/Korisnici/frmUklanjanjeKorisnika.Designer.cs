@@ -35,12 +35,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSlikaInput = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lbObaveznoP = new System.Windows.Forms.Label();
-            this.cmbGradovi = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.lbObaveznoPrezime = new System.Windows.Forms.Label();
-            this.lbObaveznoPolje = new System.Windows.Forms.Label();
             this.btnUkloni = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPasswordConfrirm = new System.Windows.Forms.TextBox();
@@ -58,6 +53,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtIme = new System.Windows.Forms.TextBox();
             this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtGrad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cmbOdaberiKorisnika
@@ -103,37 +99,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtSlikaInput.Size = new System.Drawing.Size(320, 20);
             this.txtSlikaInput.TabIndex = 81;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(84, 358);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 13);
-            this.label10.TabIndex = 79;
-            this.label10.Text = "Obavezno polje";
-            this.label10.Visible = false;
-            // 
-            // lbObaveznoP
-            // 
-            this.lbObaveznoP.AutoSize = true;
-            this.lbObaveznoP.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoP.Location = new System.Drawing.Point(87, 227);
-            this.lbObaveznoP.Name = "lbObaveznoP";
-            this.lbObaveznoP.Size = new System.Drawing.Size(81, 13);
-            this.lbObaveznoP.TabIndex = 78;
-            this.lbObaveznoP.Text = "Obavezno polje";
-            this.lbObaveznoP.Visible = false;
-            // 
-            // cmbGradovi
-            // 
-            this.cmbGradovi.FormattingEnabled = true;
-            this.cmbGradovi.Location = new System.Drawing.Point(87, 295);
-            this.cmbGradovi.Name = "cmbGradovi";
-            this.cmbGradovi.Size = new System.Drawing.Size(320, 21);
-            this.cmbGradovi.TabIndex = 77;
-            this.cmbGradovi.Text = "Odaberite grad";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -143,31 +108,9 @@ namespace exploreMostar.WinUI.Korisnici
             this.label8.TabIndex = 76;
             this.label8.Text = "Grad";
             // 
-            // lbObaveznoPrezime
-            // 
-            this.lbObaveznoPrezime.AutoSize = true;
-            this.lbObaveznoPrezime.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPrezime.Location = new System.Drawing.Point(90, 175);
-            this.lbObaveznoPrezime.Name = "lbObaveznoPrezime";
-            this.lbObaveznoPrezime.Size = new System.Drawing.Size(81, 13);
-            this.lbObaveznoPrezime.TabIndex = 75;
-            this.lbObaveznoPrezime.Text = "Obavezno polje";
-            this.lbObaveznoPrezime.Visible = false;
-            // 
-            // lbObaveznoPolje
-            // 
-            this.lbObaveznoPolje.AutoSize = true;
-            this.lbObaveznoPolje.ForeColor = System.Drawing.Color.Red;
-            this.lbObaveznoPolje.Location = new System.Drawing.Point(84, 123);
-            this.lbObaveznoPolje.Name = "lbObaveznoPolje";
-            this.lbObaveznoPolje.Size = new System.Drawing.Size(81, 13);
-            this.lbObaveznoPolje.TabIndex = 74;
-            this.lbObaveznoPolje.Text = "Obavezno polje";
-            this.lbObaveznoPolje.Visible = false;
-            // 
             // btnUkloni
             // 
-            this.btnUkloni.Location = new System.Drawing.Point(459, 479);
+            this.btnUkloni.Location = new System.Drawing.Point(481, 474);
             this.btnUkloni.Name = "btnUkloni";
             this.btnUkloni.Size = new System.Drawing.Size(112, 44);
             this.btnUkloni.TabIndex = 73;
@@ -304,23 +247,26 @@ namespace exploreMostar.WinUI.Korisnici
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // txtGrad
+            // 
+            this.txtGrad.Location = new System.Drawing.Point(87, 296);
+            this.txtGrad.Name = "txtGrad";
+            this.txtGrad.Size = new System.Drawing.Size(320, 20);
+            this.txtGrad.TabIndex = 86;
+            // 
             // frmUklanjanjeKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 540);
+            this.Controls.Add(this.txtGrad);
             this.Controls.Add(this.cmbOdaberiKorisnika);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDodajSliku);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtSlikaInput);
             this.Controls.Add(this.circleButton1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.lbObaveznoP);
-            this.Controls.Add(this.cmbGradovi);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lbObaveznoPrezime);
-            this.Controls.Add(this.lbObaveznoPolje);
             this.Controls.Add(this.btnUkloni);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPasswordConfrirm);
@@ -353,12 +299,7 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSlikaInput;
         private CircleButton circleButton1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbObaveznoP;
-        private System.Windows.Forms.ComboBox cmbGradovi;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbObaveznoPrezime;
-        private System.Windows.Forms.Label lbObaveznoPolje;
         private System.Windows.Forms.Button btnUkloni;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPasswordConfrirm;
@@ -375,5 +316,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox txtGrad;
     }
 }

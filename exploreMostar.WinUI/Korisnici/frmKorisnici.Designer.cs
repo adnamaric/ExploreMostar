@@ -201,13 +201,14 @@ namespace exploreMostar.WinUI.Korisnici
             // 
             // btnPrikazi
             // 
-            this.btnPrikazi.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPrikazi.Location = new System.Drawing.Point(715, 41);
+            this.btnPrikazi.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrikazi.ForeColor = System.Drawing.Color.Black;
+            this.btnPrikazi.Location = new System.Drawing.Point(728, 12);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(112, 50);
+            this.btnPrikazi.Size = new System.Drawing.Size(125, 60);
             this.btnPrikazi.TabIndex = 1;
             this.btnPrikazi.Text = "Prikaži";
-            this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.UseVisualStyleBackColor = false;
             this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // label4

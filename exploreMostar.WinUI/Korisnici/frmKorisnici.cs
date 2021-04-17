@@ -30,7 +30,7 @@ namespace exploreMostar.WinUI.Korisnici
             await LoadGradovi();
             cmbSort.Items.Add("SortByName");
             cmbSort.Items.Add("SortByLastName");
-            cmbSort.Items.Add("SortByUser");
+            cmbSort.Items.Add("SortByUsername");
             var result = await _aPIService.Get<IList<Model.Korisnici>>(null);
             brojK.Text = result.Count().ToString();
 
@@ -53,11 +53,13 @@ namespace exploreMostar.WinUI.Korisnici
             var gradovi = await _gradovi.Get<IList<Model.Gradovi>>(null);
             if (search.Ime != "")
             {
-                result = result.Where(y => y.Ime == search.Ime).ToList();
+                var ime = search.Ime.ToLower();
+                result = result.Where(y => y.Ime.ToLower() == ime).ToList();
             }
             if (txtPrezimePretraga.Text != "")
             {
-                result = result.Where(y => y.Prezime == txtPrezimePretraga.Text).ToList();
+                var prezime = txtPrezimePretraga.Text.ToLower();
+                result = result.Where(y => y.Prezime.ToLower() == prezime).ToList();
 
             }
             if (cmbSort.SelectedIndex == 0)

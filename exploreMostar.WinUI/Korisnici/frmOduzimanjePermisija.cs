@@ -128,8 +128,8 @@ namespace exploreMostar.WinUI.Korisnici
                 txtPrezime.Text = odabrani.Prezime;
               
                 txtKorisnickoIme.Text = odabrani.KorisnickoIme;
-              
-              
+
+
                 //else
                 //{
                 //    //cmbGradovi.DisplayMember = -1;
@@ -137,14 +137,25 @@ namespace exploreMostar.WinUI.Korisnici
                 if (odabrani.Slika.Length != 0)
                 {
                     txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
+                    if (txtSlikaInput.Text != "" && txtSlikaInput.Text != "openFileDialog1" && txtSlikaInput.Text!=null)
+                    {
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    circleButton1.Image = image;
-
-
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        circleButton1.Image = image;
+                    }
+                    else
+                    {
+                        using (MemoryStream ms = new MemoryStream(odabrani.Slika))
+                        {
+                            // Do something with ms..
+                            circleButton1.Image = Image.FromStream(ms);
+                            txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
+                        }
+                    }
                 }
+
+
                 
 
             }
