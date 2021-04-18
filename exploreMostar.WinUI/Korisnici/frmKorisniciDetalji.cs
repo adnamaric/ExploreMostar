@@ -34,19 +34,59 @@ namespace exploreMostar.WinUI.Korisnici
         public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            if (cmbGradovi.SelectedIndex == 0)
-                MessageBox.Show("Molimo vas odaberite grad!", "GradError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (txtIme.Text == "")
+                MessageBox.Show("Molimo vas unesite ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else if (txtPrezime.Text == "")
+            {
+                MessageBox.Show("Molimo vas unesite prezime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else if  (cmbGradovi.SelectedIndex == 0)
+                MessageBox.Show("Molimo vas odaberite grad!", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+          
+            else if (txtKorisnickoIme.Text == "")
+            {
+                MessageBox.Show("Molimo vas unesite korisnicko ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            }
+            else if (txtTelefon.Text == "")
+            {
+                MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else if( txtEmail.Text=="")
+            {
+                MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            if (txtEmail.TextLength > 0)
+            {
+                try
+                {
+                    new System.Net.Mail.MailAddress(this.txtEmail.Text);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Prazno polje za email", "MailError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Nepravilan format za email", "MailError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+            }
             else
             {
                 if (this.ValidateChildren())
                 {
                     var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y => y.UlogaId).ToList();
+                    var phoneNumber = txtTelefon.Text.Trim()
+                                                     .Replace(" ", "")
+                                                     .Replace("-", "")
+                                                     .Replace("(", "")
+                                                     .Replace(")", "");
                     var request = new KorisniciInsertRequest
                     {
                         Ime = txtIme.Text,
                         Prezime = txtPrezime.Text,
                         Email = txtEmail.Text,
-                        Telefon = txtTelefon.Text,
+                        Telefon = phoneNumber,
                         KorisnickoIme = txtKorisnickoIme.Text,
                         GradId = cmbGradovi.SelectedIndex,
                         PutanjaSlike = openFileDialog1.FileName,

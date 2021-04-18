@@ -13,21 +13,29 @@ namespace exploreMostar.WinUI.Menu
 {
     public partial class frmSadrzajMenu : Form
     {
+        private readonly APIService _service = new APIService("korisnici");
+        private readonly APIService _korisniciuloge = new APIService("KorisniciUloge");
+        private readonly APIService _uloge = new APIService("Uloge");
         public frmSadrzajMenu()
         {
             InitializeComponent();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
 
         }
-
+       
         private void button7_Click(object sender, EventArgs e)
         {
-            frmAtrakcijeMenu frmAtrakcijeMenu = new frmAtrakcijeMenu();
-            button7.BackColor = Color.Indigo;
-            frmAtrakcijeMenu.Show();
+         
+         
+                frmAtrakcijeMenu frmAtrakcijeMenu = new frmAtrakcijeMenu();
+                button7.BackColor = Color.Indigo;
+                frmAtrakcijeMenu.Show();
+           
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -87,5 +95,6 @@ namespace exploreMostar.WinUI.Menu
             frmOstaloMenu frm = new frmOstaloMenu();
             frm.Show();
         }
+       
     }
 }

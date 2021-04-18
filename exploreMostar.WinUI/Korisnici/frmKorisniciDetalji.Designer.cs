@@ -37,7 +37,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
             this.btnSnimi = new System.Windows.Forms.Button();
@@ -60,12 +59,13 @@ namespace exploreMostar.WinUI.Korisnici
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPasswordConfrirm = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.circleButton1 = new exploreMostar.WinUI.CircleButton();
             this.SuspendLayout();
             // 
             // txtIme
@@ -127,14 +127,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Telefon";
-            // 
-            // txtTelefon
-            // 
-            this.txtTelefon.Location = new System.Drawing.Point(31, 234);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(320, 20);
-            this.txtTelefon.TabIndex = 7;
-            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // label5
             // 
@@ -238,7 +230,7 @@ namespace exploreMostar.WinUI.Korisnici
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 410);
+            this.label11.Location = new System.Drawing.Point(31, 411);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(30, 13);
             this.label11.TabIndex = 25;
@@ -343,18 +335,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.dateTimePicker1.Size = new System.Drawing.Size(317, 20);
             this.dateTimePicker1.TabIndex = 36;
             // 
-            // circleButton1
-            // 
-            this.circleButton1.BackColor = System.Drawing.Color.White;
-            this.circleButton1.FlatAppearance.BorderSize = 0;
-            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton1.Location = new System.Drawing.Point(418, 22);
-            this.circleButton1.Name = "circleButton1";
-            this.circleButton1.Size = new System.Drawing.Size(131, 130);
-            this.circleButton1.TabIndex = 23;
-            this.circleButton1.UseVisualStyleBackColor = false;
-            this.circleButton1.Click += new System.EventHandler(this.circleButton1_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -400,11 +380,32 @@ namespace exploreMostar.WinUI.Korisnici
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 50;
             // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Location = new System.Drawing.Point(31, 234);
+            this.txtTelefon.Mask = "(999) 000-0000";
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(317, 20);
+            this.txtTelefon.TabIndex = 55;
+            // 
+            // circleButton1
+            // 
+            this.circleButton1.BackColor = System.Drawing.Color.White;
+            this.circleButton1.FlatAppearance.BorderSize = 0;
+            this.circleButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton1.Location = new System.Drawing.Point(418, 22);
+            this.circleButton1.Name = "circleButton1";
+            this.circleButton1.Size = new System.Drawing.Size(131, 130);
+            this.circleButton1.TabIndex = 23;
+            this.circleButton1.UseVisualStyleBackColor = false;
+            this.circleButton1.Click += new System.EventHandler(this.circleButton1_Click);
+            // 
             // frmKorisniciDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 629);
+            this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPasswordConfrirm);
@@ -433,7 +434,6 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKorisnickoIme);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
@@ -457,7 +457,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKorisnickoIme;
         private System.Windows.Forms.Button btnSnimi;
@@ -486,5 +485,6 @@ namespace exploreMostar.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtPasswordConfrirm;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.MaskedTextBox txtTelefon;
     }
 }

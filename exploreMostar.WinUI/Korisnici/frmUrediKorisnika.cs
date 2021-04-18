@@ -68,6 +68,11 @@ namespace exploreMostar.WinUI.Korisnici
                 txtEmail.Text = odabrani.Email;
                 txtTelefon.Text = odabrani.Telefon;
                 txtKorisnickoIme.Text = odabrani.KorisnickoIme;
+                //var salt = odabrani.LozinkaSalt;
+                //var password = ASCIIEncoding.UTF8.GetString(salt);
+               
+         
+
                 _id = korid.KorisnikId;
                 if (odabrani.GradId != null)
                 {
@@ -80,11 +85,22 @@ namespace exploreMostar.WinUI.Korisnici
                 if (odabrani.Slika.Length != 0)
                 {
                     txtSlikaInput.Text = odabrani.PutanjaSlike;
-                    var file = File.ReadAllBytes(txtSlikaInput.Text);
+                    if (odabrani.PutanjaSlike != null)
+                    {
+                        var file = File.ReadAllBytes(txtSlikaInput.Text);
 
-                    Image image = Image.FromFile(txtSlikaInput.Text);
-                    circleButton1.Image = image;
-
+                        Image image = Image.FromFile(txtSlikaInput.Text);
+                        circleButton1.Image = image;
+                    }
+                    else
+                    {
+                        using (MemoryStream ms = new MemoryStream(odabrani.Slika))
+                        {
+                            // Do something with ms..
+                            circleButton1.Image = Image.FromStream(ms);
+                            txtSlikaInput.Text = System.Text.Encoding.UTF8.GetString(odabrani.Slika);
+                        }
+                    }
 
 
                 }
@@ -134,17 +150,59 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 //   txtSlikaInput = Convert.ToBase64String(circleButton1.Image.);
                 byte[] bytes = Encoding.ASCII.GetBytes(txtSlikaInput.Text);
+                if (txtIme.Text == "")
+                    MessageBox.Show("Molimo vas unesite ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                else if (txtPrezime.Text == "")
+                {
+                    MessageBox.Show("Molimo vas unesite prezime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                else if (cmbGradovi.SelectedIndex == 0)
+                    MessageBox.Show("Molimo vas odaberite grad!", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
+                else if (txtKorisnickoIme.Text == "")
+                {
+                    MessageBox.Show("Molimo vas unesite korisnicko ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                }
+                else if (txtEmail.Text == "")
+                {
+                    MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                else if (txtTelefon.Text == "(   )    -")
+                {
+                    MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                if (txtEmail.TextLength > 0)
+                {
+                    try
+                    {
+                        new System.Net.Mail.MailAddress(this.txtEmail.Text);
+                    }
+                    catch (ArgumentException)
+                    {
+                        MessageBox.Show("Prazno polje za email", "MailError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Nepravilan format za email", "MailError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                }
+                var phoneNumber = txtTelefon.Text.Trim()
+          .Replace(" ", "")
+          .Replace("-", "")
+          .Replace("(", "")
+          .Replace(")", "");
                 var request = new KorisniciInsertRequest
                 {
                     Ime = txtIme.Text,
                     Prezime = txtPrezime.Text,
                     Email = txtEmail.Text,
-                    Telefon = txtTelefon.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordConfrirm.Text,
+                    Telefon = phoneNumber,
                     KorisnickoIme = txtKorisnickoIme.Text,
-                    Slika = bytes
+                    Slika = bytes,
+                    DatumRodjenja=dateTimePicker1.Value,
+                    PutanjaSlike=txtSlikaInput.Text,
+
 
 
 
