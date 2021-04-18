@@ -31,13 +31,19 @@ namespace exploreMostar.WinUI.Reports
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.ApartmaniBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cmbkategorija = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ApartmaniBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ApartmaniBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ApartmaniBindingSource
+            // 
+            this.ApartmaniBindingSource.DataSource = typeof(exploreMostar.Model.Apartmani);
             // 
             // label1
             // 
@@ -83,15 +89,30 @@ namespace exploreMostar.WinUI.Reports
             this.reportViewer1.Size = new System.Drawing.Size(908, 474);
             this.reportViewer1.TabIndex = 17;
             // 
-            // ApartmaniBindingSource
+            // label2
             // 
-            this.ApartmaniBindingSource.DataSource = typeof(exploreMostar.Model.Apartmani);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Sortiranje";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(126, 60);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(239, 21);
+            this.comboBox1.TabIndex = 19;
             // 
             // frmPregled
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 584);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbkategorija);
@@ -112,5 +133,7 @@ namespace exploreMostar.WinUI.Reports
         private System.Windows.Forms.Button button1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource ApartmaniBindingSource;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

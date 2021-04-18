@@ -57,6 +57,7 @@ namespace exploreMostar.WinUI.Reports
                       
                     }
                     
+
                 }
                 else if(cmbkategorija.SelectedItem.ToString() == "Atractions")
                 {
@@ -123,9 +124,12 @@ namespace exploreMostar.WinUI.Reports
                 }
                 if (temp != null)
                 {
-
-                    temp=temp.OrderByDescending(y => y.Ocjena).ToList();
-                    foreach(var item in temp)
+                    if (comboBox1.SelectedItem.ToString() == "BestRated")
+                        temp = temp.OrderByDescending(y => y.Ocjena).ToList();
+                    else if (comboBox1.SelectedItem.ToString() == "WorstRated")
+                        temp = temp.OrderBy(y => y.Ocjena).ToList();
+                    //temp=temp.OrderByDescending(y => y.Ocjena).ToList();
+                    foreach (var item in temp)
                     {
                         item.Rbr=++rbr1;
                     }
@@ -164,7 +168,9 @@ namespace exploreMostar.WinUI.Reports
             cmbkategorija.Items.Add("Coffee shops");
             cmbkategorija.Items.Add("Accommodation");
             cmbkategorija.Items.Add("Transport");
-            
+            comboBox1.Items.Add("BestRated");
+            comboBox1.Items.Add("WorstRated");
+
             this.reportViewer1.RefreshReport();
 
             //cmbkategorija.DataSource = result;

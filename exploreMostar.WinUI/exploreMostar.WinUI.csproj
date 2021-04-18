@@ -320,6 +320,24 @@
     <Compile Include="Reports\frmPregled.Designer.cs">
       <DependentUpon>frmPregled.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmPregledKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPregledKorisnika.Designer.cs">
+      <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmPregledZemalja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPregledZemalja.Designer.cs">
+      <DependentUpon>frmPregledZemalja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportsSubMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportsSubMenu.Designer.cs">
+      <DependentUpon>frmReportsSubMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sadržaj\Apartmani\frmApartmaniAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -617,7 +635,18 @@
     <EmbeddedResource Include="Reports\frmPregled.resx">
       <DependentUpon>frmPregled.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPregledKorisnika.resx">
+      <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPregledZemalja.resx">
+      <DependentUpon>frmPregledZemalja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportsSubMenu.resx">
+      <DependentUpon>frmReportsSubMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\R.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\ReportUserActivity.rdlc" />
     <EmbeddedResource Include="Sadržaj\Apartmani\frmApartmaniAdd.resx">
       <DependentUpon>frmApartmaniAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -734,6 +763,7 @@
     <None Include="Properties\DataSources\exploreMostar.Model.ObjectExtension.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Prevoz.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Proizvod.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.ReportClass.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.ApartmaniUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.AtrakcijeUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.ByNameSearchRequest.datasource" />
@@ -754,6 +784,7 @@
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.RestoraniUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Restorani.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Uloge.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.UserActivity.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.VrstaAtrakcija.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.VrstaRestorana.datasource" />
     <None Include="Properties\Settings.settings">

@@ -26,5 +26,6 @@ namespace exploreMostar.Model
         public int? BrojHotelaFavoriti { get; set; }
         public int? BrojKaficaFavoriti { get; set; }
         public int? BrojNocnihKlubovaFavoriti { get; set; }
+        
     }
 }

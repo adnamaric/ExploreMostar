@@ -45,8 +45,10 @@ namespace exploreMostar.WinUI.Menu
 
         private  void button7_Click(object sender, EventArgs e)
         {
-            frmPregled nova = new frmPregled();
-            nova.Show();
+            frmReportsSubMenu novi= new frmReportsSubMenu();
+            novi.Show();
+            //frmPregled nova = new frmPregled();
+            //nova.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,6 +85,16 @@ namespace exploreMostar.WinUI.Menu
         {
             frmInbox n = new frmInbox();
             n.Show();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
