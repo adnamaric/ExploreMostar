@@ -22,5 +22,17 @@ namespace exploreMostar.WinUI.Reports
             frmPregled nova = new frmPregled();
             nova.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmPregledKorisnika frm = new frmPregledKorisnika();
+            frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmPregledZemalja frm = new frmPregledZemalja();
+            frm.Show();
+        }
     }
 }

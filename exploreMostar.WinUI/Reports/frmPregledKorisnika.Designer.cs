@@ -31,6 +31,8 @@ namespace exploreMostar.WinUI.Reports
         {
             this.button1 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -55,17 +57,37 @@ namespace exploreMostar.WinUI.Reports
             this.reportViewer1.Size = new System.Drawing.Size(809, 439);
             this.reportViewer1.TabIndex = 18;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(109, 31);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(239, 21);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Sortiranje";
+            // 
             // frmPregledKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 523);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);
             this.Name = "frmPregledKorisnika";
             this.Text = "frmPregledKorisnika";
             this.Load += new System.EventHandler(this.frmPregledKorisnika_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -73,5 +95,7 @@ namespace exploreMostar.WinUI.Reports
 
         private System.Windows.Forms.Button button1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

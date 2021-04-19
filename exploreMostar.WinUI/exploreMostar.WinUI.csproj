@@ -759,11 +759,18 @@
     <None Include="Properties\DataSources\exploreMostar.Model.KorisnikKategorija.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Markeri.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Menu.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.MojiFavoriti.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Nightclubs.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Objava.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.ObjectExtension.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Poruke.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Prevoz.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Proizvod.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Recenzije.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.RecommendedLista1.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.ReportClass.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.ReportClassByCountries.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.ReportClassUA.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.ApartmaniUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.AtrakcijeUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.ByNameSearchRequest.datasource" />
@@ -783,6 +790,7 @@
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.PrevozUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Requests.RestoraniUpsertRequest.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Restorani.datasource" />
+    <None Include="Properties\DataSources\exploreMostar.Model.Search.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.Uloge.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.UserActivity.datasource" />
     <None Include="Properties\DataSources\exploreMostar.Model.VrstaAtrakcija.datasource" />

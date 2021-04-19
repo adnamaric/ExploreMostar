@@ -96,55 +96,64 @@ namespace exploreMostar.WinUI.Kategorije
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var r = await _restorani.Get<List<Model.Restorani>>(null);
-            var a = await _apartmani.Get<List<Model.Apartmani>>(null);
-            var at = await _atrakcije.Get<List<Model.Atrakcije>>(null);
-            var h = await _hoteli.Get<List<Model.Hoteli>>(null);
-            var k = await _kafici.Get<List<Model.Kafici>>(null);
-            var nk = await _nightclubs.Get<List<Model.Nightclubs>>(null);
-            var p = await _prevoz.Get<List<Model.Prevoz>>(null);
-            if (this.ValidateChildren())
+            if (txtIme.Text == "")
             {
-                string sadrzaj = "";
-                int ukupno = 0;
-               foreach(var item in listaSadrzaja)
-                {
-                    sadrzaj += item + ", ";
-                    if (item == "Apartmani")
-                        ukupno += a.Count();
-                    else if (item == "Atrakcije")
-                        ukupno += at.Count();
-                    else if (item == "Restorani")
-                        ukupno += r.Count();
-                    else if (item == "Hoteli")
-                        ukupno += h.Count();
-                    else if (item == "Kafici")
-                        ukupno += k.Count();
-                    else if (item == "Nocni klubovi")
-                        ukupno += nk.Count();
-                    else if (item == "Prevoz")
-                        ukupno += p.Count();
-                }
-                var request = new KategorijeUpsertRequest
-                {
-                    Naziv = txtIme.Text,
-                    Opis = txtPrezime.Text,
-                    Sadrzaj=sadrzaj,
-                    Ukupno=ukupno
-                };
-             
-                if(request!=null)
-                {
-                    await _kategorije.Insert<Model.Kategorije>(request);
-                    MessageBox.Show("Operacija uspješna!");
-                }
-                else
-                {
-                    MessageBox.Show("Pokušajte ponovo!");
-                }
 
-               
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
+            }
+            else
+            {
+                var r = await _restorani.Get<List<Model.Restorani>>(null);
+                var a = await _apartmani.Get<List<Model.Apartmani>>(null);
+                var at = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+                var h = await _hoteli.Get<List<Model.Hoteli>>(null);
+                var k = await _kafici.Get<List<Model.Kafici>>(null);
+                var nk = await _nightclubs.Get<List<Model.Nightclubs>>(null);
+                var p = await _prevoz.Get<List<Model.Prevoz>>(null);
+                if (this.ValidateChildren())
+                {
+                    string sadrzaj = "";
+                    int ukupno = 0;
+                    foreach (var item in listaSadrzaja)
+                    {
+                        sadrzaj += item + ", ";
+                        if (item == "Apartmani")
+                            ukupno += a.Count();
+                        else if (item == "Atrakcije")
+                            ukupno += at.Count();
+                        else if (item == "Restorani")
+                            ukupno += r.Count();
+                        else if (item == "Hoteli")
+                            ukupno += h.Count();
+                        else if (item == "Kafici")
+                            ukupno += k.Count();
+                        else if (item == "Nocni klubovi")
+                            ukupno += nk.Count();
+                        else if (item == "Prevoz")
+                            ukupno += p.Count();
+                    }
+                    var request = new KategorijeUpsertRequest
+                    {
+                        Naziv = txtIme.Text,
+                        Opis = txtPrezime.Text,
+                        Sadrzaj = sadrzaj,
+                        Ukupno = ukupno
+                    };
+
+                    if (request != null)
+                    {
+                        await _kategorije.Insert<Model.Kategorije>(request);
+                        MessageBox.Show("Operacija uspješna!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pokušajte ponovo!");
+                    }
+
+
+
+                }
             }
         }
     }

@@ -52,35 +52,44 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Jela
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new JelaUpsertRequest
+            if (txtNazivA.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Sastojci = txtOpis.Text,
-                PutanjaSlike = openFileDialog1.FileName
-            };
-            if (comboBox1.SelectedIndex != 0)
-            {
-                request.KategorijaJelaId = (int) comboBox1.SelectedValue;
+
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
             }
             else
             {
-                request.KategorijaJelaId = 3;
-            }
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-     
-            if (request != null)
-            {
-                try
+                var request = new JelaUpsertRequest
                 {
-                    await _jela.Insert<Model.Jela>(request);
-                    MessageBox.Show("Uspješno ste dodali hranu!");
-                    //Obrisi();
+                    Naziv = txtNazivA.Text,
+                    Sastojci = txtOpis.Text,
+                    PutanjaSlike = openFileDialog1.FileName
+                };
+                if (comboBox1.SelectedIndex != 0)
+                {
+                    request.KategorijaJelaId = (int)comboBox1.SelectedValue;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    request.KategorijaJelaId = 3;
+                }
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
 
+                if (request != null)
+                {
+                    try
+                    {
+                        await _jela.Insert<Model.Jela>(request);
+                        MessageBox.Show("Uspješno ste dodali hranu!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }

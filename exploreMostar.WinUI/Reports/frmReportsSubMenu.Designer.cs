@@ -47,6 +47,7 @@ namespace exploreMostar.WinUI.Reports
             this.button3.TabIndex = 5;
             this.button3.Text = "Pregled najaktivnijih korisnika aplikacije";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -75,8 +76,9 @@ namespace exploreMostar.WinUI.Reports
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(641, 54);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Pregled zemalja korisnika aplikacije";
+            this.button1.Text = "Pregled država korisnika aplikacije";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmReportsSubMenu
             // 
@@ -87,6 +89,7 @@ namespace exploreMostar.WinUI.Reports
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmReportsSubMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReportsSubMenu";
             this.ResumeLayout(false);
 

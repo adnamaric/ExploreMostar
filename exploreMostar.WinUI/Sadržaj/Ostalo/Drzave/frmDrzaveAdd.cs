@@ -44,33 +44,42 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Drzave
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new DrzaveUpsertRequest
+            if (txtNazivA.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Oznaka = textBox1.Text,
 
-            };
-            if (request.Oznaka == "")
-            {
-                request.Oznaka = "/";
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
             }
-            if (openFileDialog1.FileName.Length !=0)
+            else
             {
-                request.PutanjaSlike = openFileDialog1.FileName;
-            }
-            request.Slika = slika;
-            if (request != null)
-            {
-                try
+                var request = new DrzaveUpsertRequest
                 {
-                    await _drzave.Insert<Model.Drzave>(request);
-                    MessageBox.Show("Uspješno ste dodali državu!");
-                    //Obrisi();
+                    Naziv = txtNazivA.Text,
+                    Oznaka = textBox1.Text,
+
+                };
+                if (request.Oznaka == "")
+                {
+                    request.Oznaka = "/";
                 }
-                catch
+                if (openFileDialog1.FileName.Length != 0)
                 {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    request.PutanjaSlike = openFileDialog1.FileName;
+                }
+                request.Slika = slika;
+                if (request != null)
+                {
+                    try
+                    {
+                        await _drzave.Insert<Model.Drzave>(request);
+                        MessageBox.Show("Uspješno ste dodali državu!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
 
+                    }
                 }
             }
         }

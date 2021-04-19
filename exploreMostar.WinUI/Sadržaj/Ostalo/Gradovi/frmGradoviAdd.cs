@@ -33,37 +33,46 @@ namespace exploreMostar.WinUI.Sadržaj.Ostalo.Gradovi
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new GradoviUpsertRequest
+            if (txtNazivA.Text == "")
             {
-                Naziv = txtNazivA.Text,
 
-            };
-            if (comboBox1.SelectedIndex != 0)
-            {
-                request.DrzavaId = (int)comboBox1.SelectedValue;
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
             }
             else
             {
-               
-                MessageBox.Show("Molimo odaberite državu!");
-                
-            }
-
-            if (request != null && comboBox1.SelectedIndex != 0)
-            {
-                try
+                var request = new GradoviUpsertRequest
                 {
-                    await _gradovi.Insert<Model.Gradovi>(request);
-                    MessageBox.Show("Uspješno ste dodali grad!");
-                    //Obrisi();
+                    Naziv = txtNazivA.Text,
+
+                };
+                if (comboBox1.SelectedIndex != 0)
+                {
+                    request.DrzavaId = (int)comboBox1.SelectedValue;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Greška prilikom dodavanja!");
 
+                    MessageBox.Show("Molimo odaberite državu!");
+
+                }
+
+                if (request != null && comboBox1.SelectedIndex != 0)
+                {
+                    try
+                    {
+                        await _gradovi.Insert<Model.Gradovi>(request);
+                        MessageBox.Show("Uspješno ste dodali grad!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }
-    }
+        }
     }
 

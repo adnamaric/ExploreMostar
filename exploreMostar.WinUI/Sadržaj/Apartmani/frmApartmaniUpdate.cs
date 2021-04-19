@@ -97,7 +97,8 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
                     cmbGodine.SelectedItem =  odabrani.GodinaIzgradnje.ToString();
                 }
                 bool?[] niz = { b1, b2, b3, b4, b5, b6 };
-                Check(niz);
+                if(b1!=null && b2!=null && b3!=null && b4!=null && b5!=null && b6!=null)
+                      Check(niz);
                 if (odabrani.Slika.Length != 0)
                 {
                     if (odabrani.PutanjaSlike != null)

@@ -186,84 +186,90 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new ApartmaniUpsertRequest
+            if (txtNazivA.Text == "" && txtLok.Text == "")
             {
-                Naziv=txtNazivA.Text,
-                Lokacija = txtLok.Text,
-                Latitude = latitude,
-                Longitude = longitude,
-                KategorijaId=5,
-                PutanjaSlike = openFileDialog1.FileName
-
-            };
-            
-           request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-            request.KategorijaApartmana = comboBox1.SelectedItem.ToString();
-            if (button1.BackColor == Color.DarkGreen)
-            {
-                request.Wifi = true;
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
             else
             {
-                request.Wifi = false;
-            }
-            if(bb3.BackColor== Color.DarkGreen)
-            {
-                request.Bazen = true;
-            }
-            else
-            {
-                request.Bazen = false;
-            }
-            if (bb5.BackColor == Color.DarkGreen)
-            {
-                request.Parking = true;
-            }
-            else
-            {
-                request.Parking = false;
-            }
-            if (bb7.BackColor == Color.DarkGreen)
-            {
-                request.Tv = true;
-            }
-            else
-            {
-                request.Tv = false;
-            }
-            if (bb9.BackColor == Color.DarkGreen)
-            {
-                request.Klima = true;
-            }
-            else
-            {
-                request.Klima = false;
-            }
-            if (bb11.BackColor == Color.DarkGreen)
-            {
-                request.AparatZaKafu = true;
-            }
-            else
-            {
-                request.AparatZaKafu = false;
-            }
-            if (request != null)
-            {
-                try
+                var request = new ApartmaniUpsertRequest
                 {
-                    await _apartmani.Insert<Model.Apartmani>(request);
-                    MessageBox.Show("Uspješno ste dodali apartman!");
-                    Obrisi();
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Lokacija = txtLok.Text,
+                    Latitude = latitude,
+                    Longitude = longitude,
+                    KategorijaId = 5,
+                    PutanjaSlike = openFileDialog1.FileName
 
+                };
+
+                request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
+                request.KategorijaApartmana = comboBox1.SelectedItem.ToString();
+                if (button1.BackColor == Color.DarkGreen)
+                {
+                    request.Wifi = true;
+                }
+                else
+                {
+                    request.Wifi = false;
+                }
+                if (bb3.BackColor == Color.DarkGreen)
+                {
+                    request.Bazen = true;
+                }
+                else
+                {
+                    request.Bazen = false;
+                }
+                if (bb5.BackColor == Color.DarkGreen)
+                {
+                    request.Parking = true;
+                }
+                else
+                {
+                    request.Parking = false;
+                }
+                if (bb7.BackColor == Color.DarkGreen)
+                {
+                    request.Tv = true;
+                }
+                else
+                {
+                    request.Tv = false;
+                }
+                if (bb9.BackColor == Color.DarkGreen)
+                {
+                    request.Klima = true;
+                }
+                else
+                {
+                    request.Klima = false;
+                }
+                if (bb11.BackColor == Color.DarkGreen)
+                {
+                    request.AparatZaKafu = true;
+                }
+                else
+                {
+                    request.AparatZaKafu = false;
+                }
+                if (request != null)
+                {
+                    try
+                    {
+                        await _apartmani.Insert<Model.Apartmani>(request);
+                        MessageBox.Show("Uspješno ste dodali apartman!");
+                        Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
-           
         }
         public double latitude;
         public double longitude;

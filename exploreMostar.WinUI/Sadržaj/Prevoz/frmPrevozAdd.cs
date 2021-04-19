@@ -28,31 +28,38 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new PrevozUpsertRequest
+            if (txtNazivA.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Telefon=textBox2.Text,
-                Vrsta=textBox1.Text
-
-            };
-         
-            if (openFileDialog1.FileName.Length != 0)
-            {
-                request.PutanjaSlike = openFileDialog1.FileName;
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-            request.Slika = slika;
-            if (request != null)
+            else
             {
-                try
+                var request = new PrevozUpsertRequest
                 {
-                    await _prevoz.Insert<Model.Prevoz>(request);
-                    MessageBox.Show("Uspješno ste dodali prevoz!");
-                    //Obrisi();
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Telefon = textBox2.Text,
+                    Vrsta = textBox1.Text
 
+                };
+
+                if (openFileDialog1.FileName.Length != 0)
+                {
+                    request.PutanjaSlike = openFileDialog1.FileName;
+                }
+                request.Slika = slika;
+                if (request != null)
+                {
+                    try
+                    {
+                        await _prevoz.Insert<Model.Prevoz>(request);
+                        MessageBox.Show("Uspješno ste dodali prevoz!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }

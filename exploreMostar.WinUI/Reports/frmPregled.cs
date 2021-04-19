@@ -124,10 +124,13 @@ namespace exploreMostar.WinUI.Reports
                 }
                 if (temp != null)
                 {
-                    if (comboBox1.SelectedItem.ToString() == "BestRated")
-                        temp = temp.OrderByDescending(y => y.Ocjena).ToList();
-                    else if (comboBox1.SelectedItem.ToString() == "WorstRated")
-                        temp = temp.OrderBy(y => y.Ocjena).ToList();
+                    if (comboBox1.SelectedItem != null)
+                    {
+                        if (comboBox1.SelectedItem.ToString() == "BestRated")
+                            temp = temp.OrderByDescending(y => y.Ocjena).ToList();
+                        else if (comboBox1.SelectedItem.ToString() == "WorstRated")
+                            temp = temp.OrderBy(y => y.Ocjena).ToList();
+                    }
                     //temp=temp.OrderByDescending(y => y.Ocjena).ToList();
                     foreach (var item in temp)
                     {

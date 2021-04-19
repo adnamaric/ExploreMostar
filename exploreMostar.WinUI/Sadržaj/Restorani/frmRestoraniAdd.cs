@@ -44,37 +44,46 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
         }
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new RestoraniUpsertRequest
+            if (txtNazivA.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Lokacija = txtLok.Text,
-                Latitude = latitude,
-                Longitude = longitude,
-                KategorijaId = 5,
-                PutanjaSlike = openFileDialog1.FileName
 
-            };
-            if ((int)comboBox1.SelectedValue != 0)
-                request.VrstaId = int.Parse(comboBox1.SelectedValue.ToString());
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
             else
-                request.VrstaId = 3;
-
-            request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-          
-            if (request != null)
             {
-                try
+                var request = new RestoraniUpsertRequest
                 {
-                    await _restorani.Insert<Model.Restorani>(request);
-                    MessageBox.Show("Uspješno ste dodali restoran!");
-                   
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Lokacija = txtLok.Text,
+                    Latitude = latitude,
+                    Longitude = longitude,
+                    KategorijaId = 5,
+                    PutanjaSlike = openFileDialog1.FileName
 
+                };
+                if ((int)comboBox1.SelectedValue != 0)
+                    request.VrstaId = int.Parse(comboBox1.SelectedValue.ToString());
+                else
+                    request.VrstaId = 3;
+
+                request.GodinaIzgradnje = int.Parse(dateTimePicker1.Value.Year.ToString());
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
+
+                if (request != null)
+                {
+                    try
+                    {
+                        await _restorani.Insert<Model.Restorani>(request);
+                        MessageBox.Show("Uspješno ste dodali restoran!");
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }

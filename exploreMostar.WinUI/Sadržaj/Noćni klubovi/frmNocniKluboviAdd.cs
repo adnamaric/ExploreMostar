@@ -30,34 +30,40 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
         public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new NightClubsUpsertRequest
+            if (txtNazivA.Text == "" && txtLok.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Lokacija = txtLok.Text,
-                Latitude = latitude,
-                Longitude = longitude,
-                KategorijaId = 7,
-                PutanjaSlike = openFileDialog1.FileName
-
-            };
-
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-            if (request != null)
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else
             {
-                try
+                var request = new NightClubsUpsertRequest
                 {
-                    await _nightclubs.Insert<Model.Nightclubs>(request);
-                    MessageBox.Show("Uspješno ste dodali noćni klub!");
-                    //Obrisi();
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Lokacija = txtLok.Text,
+                    Latitude = latitude,
+                    Longitude = longitude,
+                    KategorijaId = 7,
+                    PutanjaSlike = openFileDialog1.FileName
 
+                };
+
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
+                if (request != null)
+                {
+                    try
+                    {
+                        await _nightclubs.Insert<Model.Nightclubs>(request);
+                        MessageBox.Show("Uspješno ste dodali noćni klub!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
-
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)

@@ -30,34 +30,41 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new KaficiUpsertRequest
+            if (txtNazivA.Text == "" && txtLok.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Lokacija = txtLok.Text,
-                Latitude = latitude,
-                Longitude = longitude,
-                KategorijaId = 4,
-                PutanjaSlike = openFileDialog1.FileName
-
-            };
-
-         
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-           
-          
-            if (request != null)
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else
             {
-                try
+                var request = new KaficiUpsertRequest
                 {
-                    await _kafici.Insert<Model.Kafici>(request);
-                    MessageBox.Show("Uspješno ste dodali kafić!");
-                    //Obrisi();
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Lokacija = txtLok.Text,
+                    Latitude = latitude,
+                    Longitude = longitude,
+                    KategorijaId = 4,
+                    PutanjaSlike = openFileDialog1.FileName
 
+                };
+
+
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
+
+
+                if (request != null)
+                {
+                    try
+                    {
+                        await _kafici.Insert<Model.Kafici>(request);
+                        MessageBox.Show("Uspješno ste dodali kafić!");
+                        //Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }

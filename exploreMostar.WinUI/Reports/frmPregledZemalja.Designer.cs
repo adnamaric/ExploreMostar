@@ -30,6 +30,7 @@ namespace exploreMostar.WinUI.Reports
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // button1
@@ -43,15 +44,27 @@ namespace exploreMostar.WinUI.Reports
             this.button1.TabIndex = 18;
             this.button1.Text = "Generiši";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "exploreMostar.WinUI.Reports.R.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(2, 93);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(797, 356);
+            this.reportViewer1.TabIndex = 19;
             // 
             // frmPregledZemalja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);
             this.Name = "frmPregledZemalja";
             this.Text = "frmPregledZemalja";
+            this.Load += new System.EventHandler(this.frmPregledZemalja_Load);
             this.ResumeLayout(false);
 
         }
@@ -59,5 +72,6 @@ namespace exploreMostar.WinUI.Reports
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

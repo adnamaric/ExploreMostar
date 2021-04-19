@@ -43,34 +43,40 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         public byte[] slika;
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new AtrakcijeUpsertRequest
+            if (txtNazivA.Text == "" && txtLok.Text == "")
             {
-                Naziv = txtNazivA.Text,
-                Lokacija = txtLok.Text,
-                Latitude = latitude,
-                Longitude = longitude,
-                Opis=txtOpis.Text,
-                KategorijaId = 3,
-                PutanjaSlike = openFileDialog1.FileName
-            };
-            request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
-            request.Ocjena = double.Parse(txtOcjena.Text);
-            request.Slika = slika;
-            if (request != null)
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else
             {
-                try
+                var request = new AtrakcijeUpsertRequest
                 {
-                    await _atrakcije.Insert<Model.Atrakcije>(request);
-                    MessageBox.Show("Uspješno ste dodali atrakciju!");
-                 //   Obrisi();
-                }
-                catch
+                    Naziv = txtNazivA.Text,
+                    Lokacija = txtLok.Text,
+                    Latitude = latitude,
+                    Longitude = longitude,
+                    Opis = txtOpis.Text,
+                    KategorijaId = 3,
+                    PutanjaSlike = openFileDialog1.FileName
+                };
+                request.VrstaAtrakcijeId = int.Parse(cmbVrsta.SelectedValue.ToString());
+                request.Ocjena = double.Parse(txtOcjena.Text);
+                request.Slika = slika;
+                if (request != null)
                 {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    try
+                    {
+                        await _atrakcije.Insert<Model.Atrakcije>(request);
+                        MessageBox.Show("Uspješno ste dodali atrakciju!");
+                        //   Obrisi();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
 
+                    }
                 }
             }
-
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)
