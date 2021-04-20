@@ -9,6 +9,12 @@
 
         
         <StackLayout BackgroundColor="#252526">
+            <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                <ImageButton Clicked="goBack_Clicked" BackgroundColor="#252526"  x:Name="goBack"  HorizontalOptions="StartAndExpand"></ImageButton>
+
+
+            </StackLayout>
+            
             <Label TextColor="White">
                 <Label.FormattedText>
                 <FormattedString>

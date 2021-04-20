@@ -61,6 +61,17 @@
                 </StackLayout>
 
                 <StackLayout x:Name="Stack2" HeightRequest="500">
+                    <StackLayout x:Name="udaljenostStack" IsVisible="true">
+                        <Label >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span   TextColor="White" Text="The distance between you and selected object is: " />
+                                    <Span TextColor="White" FontAttributes="Bold" x:Name="spanUdaljenost"/>
+                                    <Span TextColor="White" Text="km"></Span>
+                                </FormattedString>
+                                </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
                     <StackLayout HeightRequest="500">
                     <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
                             
@@ -98,7 +109,7 @@
                                                         <Label.FormattedText>
                                                             <FormattedString>
                                                                 <Span Text="{Binding Telefon}" />
-                                                                <Span Text="km away"/>
+                                                               
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label>

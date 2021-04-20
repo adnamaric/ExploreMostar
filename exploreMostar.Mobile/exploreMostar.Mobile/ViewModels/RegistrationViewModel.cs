@@ -121,69 +121,83 @@ namespace exploreMostar.Mobile.ViewModels
         public ICommand Submit { get; set; }
         async Task Registracija()
         {
-          
-            var temp = _selectedGrad;
-            try
+            if (Ime == string.Empty && Prezime == string.Empty && _username == string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", "You can not save an empty user", "OK");
+            else if(_username==string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " Username is mandatory field", "OK");
+            else if (_email == string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " Email is mandatory field", "OK");
+            else if (Ime == string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " First name is mandatory field", "OK");
+            else if (Prezime == string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " Last name is mandatory field", "OK");
+            else if(Password== string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " Password is mandatory field", "OK");
+            else if (ConfirmPassword == string.Empty)
+                await Application.Current.MainPage.DisplayAlert("Error", " Confirmation of password is mandatory field", "OK");
+            else if (_selectedGrad == null)
+                await Application.Current.MainPage.DisplayAlert("Error", " City is mandatory field", "OK");
+            else
             {
-                if (ConfirmPassword != Password)
+                var temp = _selectedGrad;
+                try
                 {
-                    throw new Exception("Passwords do not match.");
-                }
-                if (_selectedGrad == null)
-                {
-                    throw new Exception("Please choose a city.");
-
-                }
-
-                List<KorisniciUloge> n = new List<KorisniciUloge>();
-
-                List<int> novaLista = new List<int>();
-                novaLista.Add(2);
-                IsBusy = true;
-                var incase = 1;
-                if (temp != null)
-                {
-                    await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                    if (ConfirmPassword != Password)
                     {
-                        Ime = _firstname,
-                        Prezime = _lastname,
-                        Telefon = _mobile,
-                        KorisnickoIme = _username,
-                        Password = Password,
-                        PasswordConfirmation = _confirmPassword,
-                        Email = _email,
-                        GradId = temp.GradId,
-                        DatumRodjenja = _birthdate,
-                        Uloge = novaLista
-                    });
-                }
-                else
-                {
-                    await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
-                    {
-                        Ime = _firstname,
-                        Prezime = _lastname,
-                        Telefon = _mobile,
-                        KorisnickoIme = _username,
-                        Password = Password,
-                        PasswordConfirmation = _confirmPassword,
-                        Email = _email,
-                        GradId = incase,
-                        DatumRodjenja = _birthdate,
-                        Uloge = novaLista
-                    });
-                }
+                        throw new Exception("Passwords do not match.");
+                    }
+                
 
-                Application.Current.MainPage = new OpeningPage();
-            }
-            catch
-            {
-                if(_selectedGrad==null && _firstname!="" && _lastname!="")
-                    await Application.Current.MainPage.DisplayAlert("Error", "You haven't selected a city!", "OK");
-                else if (ConfirmPassword != Password)
-                    await Application.Current.MainPage.DisplayAlert("Error", "Passwords do not match!", "OK");
-                else
-                     await Application.Current.MainPage.DisplayAlert("Error", "Invalid information passed", "OK");
+                    List<KorisniciUloge> n = new List<KorisniciUloge>();
+
+                    List<int> novaLista = new List<int>();
+                    novaLista.Add(2);
+                    IsBusy = true;
+                    var incase = 1;
+                    if (temp != null)
+                    {
+                        await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                        {
+                            Ime = _firstname,
+                            Prezime = _lastname,
+                            Telefon = _mobile,
+                            KorisnickoIme = _username,
+                            Password = Password,
+                            PasswordConfirmation = _confirmPassword,
+                            Email = _email,
+                            GradId = temp.GradId,
+                            DatumRodjenja = _birthdate,
+                            Uloge = novaLista
+                        });
+                    }
+                    else
+                    {
+                        await korisnici.Insert<Korisnici>(new KorisniciInsertRequest()
+                        {
+                            Ime = _firstname,
+                            Prezime = _lastname,
+                            Telefon = _mobile,
+                            KorisnickoIme = _username,
+                            Password = Password,
+                            PasswordConfirmation = _confirmPassword,
+                            Email = _email,
+                            GradId = incase,
+                            DatumRodjenja = _birthdate,
+                            Uloge = novaLista
+                        });
+                    }
+
+                    Application.Current.MainPage = new OpeningPage();
+                }
+                catch
+                {
+                    if (_selectedGrad == null && _firstname != "" && _lastname != "")
+                        await Application.Current.MainPage.DisplayAlert("Error", "You haven't selected a city!", "OK");
+                    else if (ConfirmPassword != Password)
+                        await Application.Current.MainPage.DisplayAlert("Error", "Passwords do not match!", "OK");
+                    else
+                        await Application.Current.MainPage.DisplayAlert("Error", "Invalid information passed", "OK");
+                }
             }
         }
 

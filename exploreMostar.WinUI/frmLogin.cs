@@ -119,7 +119,20 @@ namespace exploreMostar.WinUI
                         BrojNeuspjesnihPrijavljivanja = userActivity.BrojNeuspjesnihPrijavljivanja,
                         Datum = DateTime.Now,
                         Razlog = "",
-                        Onemogucen = false
+                        Onemogucen = false,
+                        IsApartman=userActivity.IsApartman,
+                        IsAtrakcija=userActivity.IsAtrakcija,
+                        IsHotel=userActivity.IsHotel,
+                        IsKafic=userActivity.IsKafic,
+                        IsNightClub=userActivity.IsNightClub,
+                        IsRestoran=userActivity.IsRestoran,
+                        BrojApartmanaFavoriti=userActivity.BrojApartmanaFavoriti,
+                        BrojAtrakcijaFavoriti=userActivity.BrojApartmanaFavoriti,
+                        BrojHotelaFavoriti=userActivity.BrojHotelaFavoriti,
+                        BrojKaficaFavoriti=userActivity.BrojKaficaFavoriti,
+                        BrojNocnihKlubovaFavoriti=userActivity.BrojNocnihKlubovaFavoriti,
+                        BrojRestoranaFavoriti=userActivity.BrojRestoranaFavoriti,
+                        
 
                     };
                     await _uaservice.Update<Model.UserActivity>(userActivity.KorisnikId, request);

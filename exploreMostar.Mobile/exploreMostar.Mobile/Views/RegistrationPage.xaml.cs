@@ -17,13 +17,20 @@ namespace exploreMostar.Mobile.Views
         public RegistationPage()
         {
             InitializeComponent();
-          
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
         }
 
         private void btnRegi_Focused(object sender, FocusEventArgs e)
         {
           
 
+        }
+
+        private void goBack_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new OpeningPage();
         }
         //protected async override void OnAppearing()
         //{
@@ -34,7 +41,7 @@ namespace exploreMostar.Mobile.Views
         //    //    gradovi.Add(item.Naziv);
         //    //}
         //    //ListView.ItemsSource = gradovi;
-            
+
         //}
     }
 }

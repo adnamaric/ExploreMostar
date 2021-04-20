@@ -52,7 +52,7 @@ namespace exploreMostar.WinUI.Menu
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__1_;
             this.button4.Location = new System.Drawing.Point(12, 54);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 92);
@@ -81,8 +81,8 @@ namespace exploreMostar.WinUI.Menu
             this.button8.BackColor = System.Drawing.Color.DarkViolet;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(641, 54);
+            this.button8.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__5_;
+            this.button8.Location = new System.Drawing.Point(645, 53);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(140, 92);
             this.button8.TabIndex = 26;
@@ -95,7 +95,7 @@ namespace exploreMostar.WinUI.Menu
             this.button1.BackColor = System.Drawing.Color.LightSlateGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__12_;
             this.button1.Location = new System.Drawing.Point(480, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 92);
@@ -109,7 +109,7 @@ namespace exploreMostar.WinUI.Menu
             this.button2.BackColor = System.Drawing.Color.Indigo;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__15_;
             this.button2.Location = new System.Drawing.Point(165, 54);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 92);
@@ -123,7 +123,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3.BackColor = System.Drawing.Color.Black;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__17_;
             this.button3.Location = new System.Drawing.Point(800, 54);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 92);
@@ -135,7 +135,7 @@ namespace exploreMostar.WinUI.Menu
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Brown;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__11_;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(395, 100);
             this.pictureBox1.Name = "pictureBox1";
@@ -150,7 +150,7 @@ namespace exploreMostar.WinUI.Menu
             this.pictureBox3.BackColor = System.Drawing.Color.LightSlateGray;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::exploreMostar.WinUI.Properties.Resources.Webp_net_resizeimage__14_;
             this.pictureBox3.Location = new System.Drawing.Point(553, 74);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(28, 21);

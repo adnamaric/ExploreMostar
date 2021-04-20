@@ -877,5 +877,86 @@
   <ItemGroup>
     <None Include="Resources\Row-104.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explore Mostar %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explore Mostar %287%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explore Mostar %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explore Mostar %2811%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %282%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wifi-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock-256 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Login-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-Group-2561.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button3.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button2.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button5.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button7.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button8.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pictureBox1.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pictureBox1.InitialImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pictureBox3.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2815%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2811%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2812%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2814%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2816%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webp.net-resizeimage %2817%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

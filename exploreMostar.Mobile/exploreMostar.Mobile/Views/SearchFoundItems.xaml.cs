@@ -21,12 +21,20 @@ namespace exploreMostar.Mobile.Views
             BindingContext = model = new SearchResultModel();
             model.SearchResult(_search);
             spanSearch.Text = _search;
+            goBack.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Left-Arrow-84.png");
+            goBack.WidthRequest = 20;
+            goBack.HeightRequest = 20;
         }
         protected  override void OnAppearing()
         {
             base.OnAppearing();
             // await model.Init();
           
+        }
+
+        private void goBack_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new PreferenceListPage();
         }
     }
 }

@@ -73,6 +73,56 @@ namespace exploreMostar.WinUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Explore_Mostar__10_ {
+            get {
+                object obj = ResourceManager.GetObject("Explore Mostar (10)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Explore_Mostar__11_ {
+            get {
+                object obj = ResourceManager.GetObject("Explore Mostar (11)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Explore_Mostar__5_ {
+            get {
+                object obj = ResourceManager.GetObject("Explore Mostar (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Explore_Mostar__7_ {
+            get {
+                object obj = ResourceManager.GetObject("Explore Mostar (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Lock_256__4_ {
+            get {
+                object obj = ResourceManager.GetObject("Lock-256 (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Minus_44 {
             get {
                 object obj = ResourceManager.GetObject("Minus-44", resourceCulture);
@@ -103,6 +153,26 @@ namespace exploreMostar.WinUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Untitled_design__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Untitled_design__2_2 {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design (2)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap User_Group_256 {
             get {
                 object obj = ResourceManager.GetObject("User-Group-256", resourceCulture);
@@ -116,6 +186,26 @@ namespace exploreMostar.WinUI.Properties {
         public static System.Drawing.Bitmap User_Group_2561 {
             get {
                 object obj = ResourceManager.GetObject("User-Group-2561", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Group_2562 {
+            get {
+                object obj = ResourceManager.GetObject("User-Group-2562", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap User_Login_256 {
+            get {
+                object obj = ResourceManager.GetObject("User-Login-256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -192,6 +282,76 @@ namespace exploreMostar.WinUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__11_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (11)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__12_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (12)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__14_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (14)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__15_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (15)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__16_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (16)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__17_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (17)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Webp_net_resizeimage__30_ {
             get {
                 object obj = ResourceManager.GetObject("Webp.net-resizeimage (30)", resourceCulture);
@@ -235,6 +395,26 @@ namespace exploreMostar.WinUI.Properties {
         public static System.Drawing.Bitmap Webp_net_resizeimage__44_ {
             get {
                 object obj = ResourceManager.GetObject("Webp.net-resizeimage (44)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Webp_net_resizeimage__5_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wifi_256 {
+            get {
+                object obj = ResourceManager.GetObject("Wifi-256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

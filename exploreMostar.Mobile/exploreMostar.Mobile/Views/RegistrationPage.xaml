@@ -8,9 +8,15 @@
     <ContentPage.Content>
       
         <ScrollView>
+            
             <StackLayout x:Name="s2" Padding="6" BackgroundColor=" #252526" >
-                <Label Padding="0,0,0,20"></Label> 
-                <Label TextColor="White" Text="User name"></Label>
+                <StackLayout x:Name="NavigationBar" Margin="10,10,12,10" Orientation="Horizontal">
+                    <ImageButton Clicked="goBack_Clicked" BackgroundColor="#252526"  x:Name="goBack"  HorizontalOptions="StartAndExpand"></ImageButton>
+
+
+                </StackLayout>
+           
+                <Label TextColor="White" Text="Username"></Label>
                 <Entry TextColor="White" Placeholder="Enter your username" PlaceholderColor="white" BackgroundColor="#252526" Text="{Binding KorisnickoIme}"></Entry>
 
                 <Label TextColor="White" Text="Email"></Label>

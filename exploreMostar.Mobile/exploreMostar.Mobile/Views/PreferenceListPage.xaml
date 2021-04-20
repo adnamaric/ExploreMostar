@@ -61,7 +61,7 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
-                <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Chose a restaurant:" FontAttributes="Bold"></Label>
+                <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Choose a restaurant:" FontAttributes="Bold"></Label>
                 <RelativeLayout  IsEnabled="{Binding Food}" IsVisible="{Binding Food}" Grid.Row="1" 
 							HeightRequest="100"
 							VerticalOptions="Start">
@@ -127,7 +127,7 @@
 										   HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
                                                
-                                                <Label TextColor="DarkRed" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
+                                                <Label TextColor="Red" VerticalTextAlignment="Center" Text="{Binding Ocjena}"/>
                                                 <Label TextColor="White" VerticalTextAlignment="Center">
                                                     <Label.FormattedText>
                                                         <FormattedString>
