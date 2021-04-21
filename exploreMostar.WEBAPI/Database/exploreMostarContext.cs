@@ -424,7 +424,11 @@ namespace exploreMostar.WebAPI.Database
             {
                 entity.Property(e => e.Autor).HasMaxLength(40);
 
+                entity.Property(e => e.AutorModifikacije).HasMaxLength(250);
+
                 entity.Property(e => e.Datum).HasColumnType("datetime");
+
+                entity.Property(e => e.DatumModificiranja).HasColumnType("datetime");
 
                 entity.Property(e => e.KorisnikId).HasColumnName("KorisnikID");
 

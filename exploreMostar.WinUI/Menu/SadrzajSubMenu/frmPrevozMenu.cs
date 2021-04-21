@@ -63,6 +63,8 @@ namespace exploreMostar.WinUI.Menu
         {
             if (admintf == true)
             {
+                APIService.isUpdate = true;
+                APIService.isDelete = false;
                 frmPrevozUpdate frm = new frmPrevozUpdate();
                 frm.Show();
             }
@@ -91,7 +93,18 @@ namespace exploreMostar.WinUI.Menu
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (admintf == true)
+            {
+                APIService.isUpdate = false;
+                APIService.isDelete = true;
+                frmPrevozUpdate frm = new frmPrevozUpdate();
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
+            }
         }
     }
 }

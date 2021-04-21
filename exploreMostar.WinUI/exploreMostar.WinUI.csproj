@@ -140,6 +140,12 @@
     <Compile Include="Kategorije\frmKategorijePregled.Designer.cs">
       <DependentUpon>frmKategorijePregled.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kategorije\frmKategorijeUpdateDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeUpdateDelete.Designer.cs">
+      <DependentUpon>frmKategorijeUpdateDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Korisnici\frmOduzimanjePermisija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,12 @@
     </Compile>
     <Compile Include="Objava\frmObjavaAdd.Designer.cs">
       <DependentUpon>frmObjavaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objava\frmObjavaUpdateDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objava\frmObjavaUpdateDelete.Designer.cs">
+      <DependentUpon>frmObjavaUpdateDelete.cs</DependentUpon>
     </Compile>
     <Compile Include="Poruke\Form1.cs">
       <SubType>Form</SubType>
@@ -543,6 +555,9 @@
     <EmbeddedResource Include="Kategorije\frmKategorijePregled.resx">
       <DependentUpon>frmKategorijePregled.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeUpdateDelete.resx">
+      <DependentUpon>frmKategorijeUpdateDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
     </EmbeddedResource>
@@ -615,6 +630,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Objava\frmObjavaAdd.resx">
       <DependentUpon>frmObjavaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Objava\frmObjavaUpdateDelete.resx">
+      <DependentUpon>frmObjavaUpdateDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

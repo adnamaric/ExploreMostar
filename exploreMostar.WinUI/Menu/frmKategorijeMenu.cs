@@ -69,5 +69,31 @@ namespace exploreMostar.WinUI.Menu
             else
                 MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (admintf == true)
+            {
+                APIService.isUpdate = true;
+                APIService.isDelete = false;
+                frmKategorijeUpdateDelete frm = new frmKategorijeUpdateDelete();
+                frm.Show();
+            }
+            else
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (admintf == true)
+            {
+                APIService.isUpdate = false;
+                APIService.isDelete = true;
+                frmKategorijeUpdateDelete frm = new frmKategorijeUpdateDelete();
+                frm.Show();
+            }
+            else
+                MessageBox.Show("Nemate pravo pristupa", "401-Unauthorized", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        }
     }
 }

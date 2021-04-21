@@ -49,6 +49,7 @@ namespace exploreMostar.WinUI.Menu
             this.button4.TabIndex = 8;
             this.button4.Text = "Brisanje objava";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -64,6 +65,7 @@ namespace exploreMostar.WinUI.Menu
             this.button3.TabIndex = 7;
             this.button3.Text = "Modificiranje objava";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -109,6 +111,7 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.Name = "frmObjavaMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmObjavaMenu";
             this.ResumeLayout(false);
 

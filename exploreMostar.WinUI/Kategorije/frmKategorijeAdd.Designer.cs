@@ -43,12 +43,15 @@ namespace exploreMostar.WinUI.Kategorije
             // 
             // btnSnimi
             // 
+            this.btnSnimi.BackColor = System.Drawing.Color.Green;
+            this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSnimi.ForeColor = System.Drawing.Color.White;
             this.btnSnimi.Location = new System.Drawing.Point(335, 319);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(103, 54);
             this.btnSnimi.TabIndex = 29;
             this.btnSnimi.Text = "Sačuvaj";
-            this.btnSnimi.UseVisualStyleBackColor = true;
+            this.btnSnimi.UseVisualStyleBackColor = false;
             this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // lbObaveznoPrezime
@@ -152,6 +155,7 @@ namespace exploreMostar.WinUI.Kategorije
             this.Controls.Add(this.txtIme);
             this.Controls.Add(this.btnSnimi);
             this.Name = "frmKategorijeAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKategorijeAdd";
             this.Load += new System.EventHandler(this.frmKategorijeAdd_Load);
             this.ResumeLayout(false);

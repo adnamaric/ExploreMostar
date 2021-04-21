@@ -79,6 +79,7 @@ namespace exploreMostar.WinUI.Reports
                 item.Rbr = ++temp;
             }
             ReportDataSource rds = new ReportDataSource("DataSet1", users);
+            
             this.reportViewer1.LocalReport.DataSources.Clear();
 
             this.reportViewer1.LocalReport.DataSources.Add(rds);

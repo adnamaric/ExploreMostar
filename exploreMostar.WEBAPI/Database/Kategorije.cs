@@ -22,6 +22,7 @@ namespace exploreMostar.WebAPI.Database
         public int KategorijaId { get; set; }
         public string Sadrzaj { get; set; }
         public int? Ukupno { get; set; }
+        public string VrstaKategorije { get; set; }
 
         public ICollection<Apartmani> Apartmani { get; set; }
         public ICollection<Atrakcije> Atrakcije { get; set; }

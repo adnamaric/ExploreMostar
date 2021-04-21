@@ -24,39 +24,47 @@ namespace exploreMostar.WinUI.Objava
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var result = await _korisnici.Get<List<Model.Korisnici>>(null);
-            var trazeniId = 0;
-            var usename = APIService.Username;
-            var autor = String.Empty;
-            foreach(var item in result){
-                if (item.KorisnickoIme == APIService.Username)
-                {
-                    trazeniId = item.KorisnikId;
-                    autor = item.Ime + " " + item.Prezime;
-                }
+            if (txtNazivA.Text == "")
+            {
+                MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
-            var request = new ObjavaUpsertRequest
+            else
             {
-                Naziv = txtNazivA.Text,
-                 Datum=DateTime.Now,
-               PutanjaSlike=openFileDialog1.FileName,
-               Sadrzaj=txtOpis.Text,
-               KorisnikId=trazeniId,
-               Autor=autor
-
-            };
-            if (request != null)
-            {
-                try
+                var result = await _korisnici.Get<List<Model.Korisnici>>(null);
+                var trazeniId = 0;
+                var usename = APIService.Username;
+                var autor = String.Empty;
+                foreach (var item in result)
                 {
-                    await _objave.Insert<Model.Objava>(request);
-                    MessageBox.Show("Uspješno ste dodali apartman!");
-                   
+                    if (item.KorisnickoIme == APIService.Username)
+                    {
+                        trazeniId = item.KorisnikId;
+                        autor = item.Ime + " " + item.Prezime;
+                    }
                 }
-                catch
+                var request = new ObjavaUpsertRequest
                 {
-                    MessageBox.Show("Greška prilikom dodavanja!");
+                    Naziv = txtNazivA.Text,
+                    Datum = DateTime.Now,
+                    PutanjaSlike = openFileDialog1.FileName,
+                    Sadrzaj = txtOpis.Text,
+                    KorisnikId = trazeniId,
+                    Autor = autor
 
+                };
+                if (request != null)
+                {
+                    try
+                    {
+                        await _objave.Insert<Model.Objava>(request);
+                        MessageBox.Show("Uspješno ste dodali objavu!");
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Greška prilikom dodavanja!");
+
+                    }
                 }
             }
         }

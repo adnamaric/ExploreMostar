@@ -19,8 +19,21 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
         public frmPrevozUpdate()
         {
             InitializeComponent();
+            if (APIService.isDelete)
+            {
+                btnSnimi.BackColor = Color.Red;
+                btnSnimi.Text = "Obrišite prevoz";
+            }
         }
+        public async Task LoadPrevoz()
+        {
+            var result = await _prevoz.Get<List<Model.Prevoz>>(null);
 
+
+            comboBox2.DataSource = result;
+            comboBox2.DisplayMember = "Naziv";
+            comboBox2.ValueMember = "PrevozId";
+        }
         private async void frmPrevozUpdate_Load(object sender, EventArgs e)
         {
             var result = await _prevoz.Get<List<Model.Prevoz>>(null);
@@ -79,7 +92,13 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
                 //circleButton1.Image.Height = 100;
             }
         }
-
+        private void FreeUp()
+        {
+            txtNazivA.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            txtSlikaInput.Clear();
+        }
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
@@ -106,17 +125,22 @@ namespace exploreMostar.WinUI.Sadržaj.Prevoz
                     request.PutanjaSlike = txtSlikaInput.Text;
 
 
-                if (_id != null || _id != 0)
+                if (_id != null || _id != 0 )
                 {
-                    await _prevoz.Update<Model.Prevoz>(_id, request);
-                    MessageBox.Show("Operacija uspješna!");
-
+                    if (APIService.isUpdate)
+                    {
+                        await _prevoz.Update<Model.Prevoz>(_id, request);
+                        MessageBox.Show("Operacija uspješna!");
+                    }
+                    else if(APIService.isDelete)
+                    {
+                        await _prevoz.Delete((int)_id);
+                        MessageBox.Show("Uspješno ste obrisali prevoz!");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Greška prilikom updejtovanja podataka!");
-
-                }
+               
+                FreeUp();
+                await LoadPrevoz();
             }
         }
     }

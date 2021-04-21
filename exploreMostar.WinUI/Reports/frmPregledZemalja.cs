@@ -87,6 +87,11 @@ namespace exploreMostar.WinUI.Reports
                     }
                 }
             }
+            var temp = 0;
+            foreach(var item in lista)
+            {
+                item.DrzavaId = ++temp;
+            }
             ReportDataSource rds = new ReportDataSource("DataSet1", lista);
             this.reportViewer1.LocalReport.DataSources.Clear();
 

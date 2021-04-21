@@ -14,6 +14,8 @@ namespace exploreMostar.Model.Requests
         public int? KorisnikId { get; set; }
         public string Autor { get; set; }
         public DateTime? Datum { get; set; }
+        public DateTime? DatumModificiranja { get; set; }
+        public string AutorModifikacije { get; set; }
 
     }
 }

@@ -135,6 +135,8 @@ namespace exploreMostar.WinUI
                         
 
                     };
+                    //privremeno
+                    request.BrojNeuspjesnihPrijavljivanja = 0;
                     await _uaservice.Update<Model.UserActivity>(userActivity.KorisnikId, request);
                 }
                 else

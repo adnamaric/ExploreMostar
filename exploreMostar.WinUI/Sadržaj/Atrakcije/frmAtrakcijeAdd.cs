@@ -30,7 +30,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
         private async Task LoadVrsteAtrakcija()
         {
             var result = await _vrsteatrakcija.Get<List<Model.VrstaAtrakcija>>(null);
-            result.Insert(0, new Model.VrstaAtrakcija() { Naziv = "Odaberite atrakciju",VrstaAtrakcijeId = -1 });
+            result.Insert(0, new Model.VrstaAtrakcija() { Naziv = "Odaberite vrstu",VrstaAtrakcijeId = -1 });
 
 
             cmbVrsta.DataSource = result;

@@ -141,6 +141,7 @@ namespace exploreMostar.WinUI.Objava
             this.Controls.Add(this.txtNazivA);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmObjavaAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmObjavaAdd";
             this.Load += new System.EventHandler(this.frmObjavaAdd_Load);
             this.ResumeLayout(false);

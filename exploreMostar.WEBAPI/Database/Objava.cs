@@ -13,6 +13,8 @@ namespace exploreMostar.WebAPI.Database
         public int? KorisnikId { get; set; }
         public string Autor { get; set; }
         public DateTime? Datum { get; set; }
+        public DateTime? DatumModificiranja { get; set; }
+        public string AutorModifikacije { get; set; }
 
         public Korisnici Korisnik { get; set; }
     }

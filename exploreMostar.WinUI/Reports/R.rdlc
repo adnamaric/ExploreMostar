@@ -65,7 +65,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Drzava Id</Value>
+                              <Value>Redni broj</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>

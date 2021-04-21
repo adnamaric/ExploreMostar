@@ -68,6 +68,7 @@ namespace exploreMostar.WinUI.Korisnici
 
                         };
                         await _uaservice.Update<Model.UserActivity>(korisnik.KorisnikId, request);
+                        MessageBox.Show("Uspješno ste unbanovali korisnika", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -82,8 +83,12 @@ namespace exploreMostar.WinUI.Korisnici
 
                         };
                         await _uaservice.Update<Model.UserActivity>(korisnik.KorisnikId, request);
+                        MessageBox.Show("Uspješno ste banovali korisnika", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
+                   
                 }
+
             }
            
         }

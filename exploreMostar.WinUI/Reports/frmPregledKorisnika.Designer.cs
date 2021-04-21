@@ -84,6 +84,7 @@ namespace exploreMostar.WinUI.Reports
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);
             this.Name = "frmPregledKorisnika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPregledKorisnika";
             this.Load += new System.EventHandler(this.frmPregledKorisnika_Load);
             this.ResumeLayout(false);

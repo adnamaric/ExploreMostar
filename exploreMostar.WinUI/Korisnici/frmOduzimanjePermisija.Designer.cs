@@ -178,6 +178,7 @@ namespace exploreMostar.WinUI.Korisnici
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Name = "frmOduzimanjePermisija";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OduzimanjePermisija";
             this.Load += new System.EventHandler(this.OduzimanjePermisija_Load);
             this.ResumeLayout(false);

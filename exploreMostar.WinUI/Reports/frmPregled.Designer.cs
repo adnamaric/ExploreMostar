@@ -31,15 +31,19 @@ namespace exploreMostar.WinUI.Reports
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.ApartmaniBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cmbkategorija = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.ApartmaniBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ApartmaniBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ApartmaniBindingSource
+            // 
+            this.ApartmaniBindingSource.DataSource = typeof(exploreMostar.Model.Apartmani);
             // 
             // label1
             // 
@@ -102,10 +106,6 @@ namespace exploreMostar.WinUI.Reports
             this.comboBox1.Size = new System.Drawing.Size(239, 21);
             this.comboBox1.TabIndex = 19;
             // 
-            // ApartmaniBindingSource
-            // 
-            this.ApartmaniBindingSource.DataSource = typeof(exploreMostar.Model.Apartmani);
-            // 
             // frmPregled
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +118,7 @@ namespace exploreMostar.WinUI.Reports
             this.Controls.Add(this.cmbkategorija);
             this.Controls.Add(this.label1);
             this.Name = "frmPregled";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPregled";
             this.Load += new System.EventHandler(this.frmPregled_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ApartmaniBindingSource)).EndInit();

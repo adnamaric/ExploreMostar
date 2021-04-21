@@ -12,5 +12,6 @@ namespace exploreMostar.Model
         public int Rbr { get; set; }
         public int Ukupno { get; set; }
         public string Sadrzaj { get; set; }
+        public string VrstaKategorije { get; set; }
     }
 }

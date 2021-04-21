@@ -63,6 +63,7 @@ namespace exploreMostar.WinUI.Reports
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);
             this.Name = "frmPregledZemalja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPregledZemalja";
             this.Load += new System.EventHandler(this.frmPregledZemalja_Load);
             this.ResumeLayout(false);

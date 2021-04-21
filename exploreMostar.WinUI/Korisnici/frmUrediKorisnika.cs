@@ -188,10 +188,10 @@ namespace exploreMostar.WinUI.Korisnici
                     }
                 }
                 var phoneNumber = txtTelefon.Text.Trim()
-          .Replace(" ", "")
-          .Replace("-", "")
-          .Replace("(", "")
-          .Replace(")", "");
+                                              .Replace(" ", "")
+                                              .Replace("-", "")
+                                              .Replace("(", "")
+                                              .Replace(")", "");
                 var request = new KorisniciInsertRequest
                 {
                     Ime = txtIme.Text,
