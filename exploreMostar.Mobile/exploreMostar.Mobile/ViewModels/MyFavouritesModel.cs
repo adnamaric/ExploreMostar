@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace exploreMostar.Mobile.ViewModels
@@ -40,92 +41,118 @@ namespace exploreMostar.Mobile.ViewModels
             }
             favoriti.Clear();
             var temp = 0;
+            bool postoji = false;
             foreach (var item in list)
             {
                 if (item.KorisnikId == korisnik.KorisnikId)
                 {
-                    item.Rbr = ++temp;
-                    favoriti.Add(item);
+                    foreach(var item2 in favoriti)
+                    {
+                        if (item.Naziv == item2.Naziv)
+                        {
+                            postoji = true;
+                        }
+                    }
+                    if (!postoji)
+                    {
+                        item.Rbr = ++temp;
+                        favoriti.Add(item);
+                        
+                    }
+                    postoji = false;
                 }
             }
+           
         }
 
         public async void GetFavorite(object e)
         {
-            var favorit = e as Model.MojiFavoriti;
-            if (favorit.Vrsta == "Apartman")
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status.ToString() == "Denied")
             {
-                var listaApartmana = await _apartmani.Get<List<Model.Apartmani>>(null);
-                foreach (var item in listaApartmana)
+                await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location!", "OK");
+
+
+            }
+            if (status.ToString() == "Granted")
+            {
+                var favorit = e as Model.MojiFavoriti;
+                if (favorit.Vrsta == "Apartman")
                 {
-                    if (item.Naziv == favorit.Naziv)
+                    var listaApartmana = await _apartmani.Get<List<Model.Apartmani>>(null);
+                    foreach (var item in listaApartmana)
                     {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
+                    }
+
+                }
+                if (favorit.Vrsta == "Atrakcija")
+                {
+                    var listaAtrakcija = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+                    foreach (var item in listaAtrakcija)
+                    {
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
+                    }
+                }
+                if (favorit.Vrsta == "Restoran")
+                {
+                    var listaRestorana = await _restorani.Get<List<Model.Restorani>>(null);
+                    foreach (var item in listaRestorana)
+                    {
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
+                    }
+                }
+                if (favorit.Vrsta == "Hotel")
+                {
+                    var listaHotela = await _hoteli.Get<List<Model.Hoteli>>(null);
+                    foreach (var item in listaHotela)
+                    {
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
+                    }
+                }
+                if (favorit.Vrsta == "Nocni klub")
+                {
+                    var listaNk = await _nk.Get<List<Model.Nightclubs>>(null);
+                    foreach (var item in listaNk)
+                    {
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
+                    }
+                }
+                if (favorit.Vrsta == "Kafic")
+                {
+                    var listaKafica = await _kafici.Get<List<Model.Kafici>>(null);
+                    foreach (var item in listaKafica)
+                    {
+                        if (item.Naziv == favorit.Naziv)
+                        {
+                            APIService.modelTemp = item;
+                            Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                        }
                     }
                 }
 
             }
-            if (favorit.Vrsta == "Atrakcija")
-            {
-                var listaAtrakcija = await _atrakcije.Get<List<Model.Atrakcije>>(null);
-                foreach (var item in listaAtrakcija)
-                {
-                    if (item.Naziv == favorit.Naziv)
-                    {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
-                    }
-                }
-            }
-            if (favorit.Vrsta == "Restoran")
-            {
-                var listaRestorana = await _restorani.Get<List<Model.Restorani>>(null);
-                foreach (var item in listaRestorana)
-                {
-                    if (item.Naziv == favorit.Naziv)
-                    {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
-                    }
-                }
-            }
-            if (favorit.Vrsta == "Hotel")
-            {
-                var listaHotela = await _hoteli.Get<List<Model.Hoteli>>(null);
-                foreach (var item in listaHotela)
-                {
-                    if (item.Naziv == favorit.Naziv)
-                    {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
-                    }
-                }
-            }
-            if (favorit.Vrsta == "Nocni klub")
-            {
-                var listaNk = await _nk.Get<List<Model.Nightclubs>>(null);
-                foreach (var item in listaNk)
-                {
-                    if (item.Naziv == favorit.Naziv)
-                    {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
-                    }
-                }
-            }
-            if (favorit.Vrsta == "Kafic")
-            {
-                var listaKafica = await _kafici.Get<List<Model.Kafici>>(null);
-                foreach (var item in listaKafica)
-                {
-                    if (item.Naziv == favorit.Naziv)
-                    {
-                        APIService.modelTemp = item;
-                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
-                    }
-                }
-            }
+           
         }
         //public async void GetRecommended()
         //{

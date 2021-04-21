@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -77,7 +77,18 @@ namespace exploreMostar.Mobile.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            Location location1 = null;
+            if (status.ToString() == "Denied")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location!", "OK");
+               
+
+            }
+            if (status.ToString() == "Granted")
+            {
+                await model.Init();
+            }
         }
 
         private void StackLayout_SizeChanged(object sender, EventArgs e)
@@ -265,9 +276,21 @@ namespace exploreMostar.Mobile.Views
 
         private async void btn2_Clicked(object sender, EventArgs e)
         {
-  
-            APIService.NearOn = true;
-            await model.Init();
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status.ToString() == "Denied")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location!", "OK");
+
+
+            }
+            if (status.ToString() == "Granted")
+            {
+                
+                APIService.NearOn = true;
+
+                await model.Init();
+            }
+            
             btn2.TextColor = Color.DarkRed;
             btn2.BackgroundColor = Color.White;
             btn2.FontAttributes = FontAttributes.Bold;
@@ -282,7 +305,18 @@ namespace exploreMostar.Mobile.Views
         private  async void btn3_Clicked(object sender, EventArgs e)
         {
             APIService.NearOn = false;
-            await model.Init();
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status.ToString() == "Denied")
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "In order to use this, you need to enable your current location!", "OK");
+
+
+            }
+            else if (status.ToString() == "Granted")
+            {
+                await model.Init();
+
+            }
             btn3.TextColor = Color.DarkRed;
             btn3.BackgroundColor = Color.White;
             btn3.FontAttributes = FontAttributes.Bold;
