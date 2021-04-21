@@ -1149,7 +1149,11 @@ namespace exploreMostar.Mobile.Views
 
         private void goBack_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new PreferenceListPage();
+            if (APIService.PreferenceListPage && !APIService.SearchLista)
+               Application.Current.MainPage = new PreferenceListPage(); 
+            else if (APIService.SearchLista && !APIService.PreferenceListPage)
+                Application.Current.MainPage = new SearchFoundItems(APIService.Pretraga);
+
         }
 
         private async void navmenu_Clicked(object sender, EventArgs e)
@@ -1222,7 +1226,9 @@ namespace exploreMostar.Mobile.Views
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            
+            model.SelectedItem(e.SelectedItem);
+           
         }
     }
    

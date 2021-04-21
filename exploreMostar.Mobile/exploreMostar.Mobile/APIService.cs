@@ -29,6 +29,8 @@ namespace exploreMostar.Mobile
         public static bool UPContentPage { get; set; }
         public static bool PreferenceListPage { get; set; }
         public static bool InboxLista { get; set; }
+        public static bool SearchLista { get; set; }
+        public static string Pretraga { get; set; }
         public static double VelicinaListe { get; set; }
         public static double VelicinaInboxa { get; set; }
         public static bool MapPage { get; set; }

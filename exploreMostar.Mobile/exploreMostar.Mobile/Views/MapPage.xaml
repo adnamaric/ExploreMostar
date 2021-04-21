@@ -79,7 +79,7 @@
                     </StackLayout>
                     <Label Padding="0,20,0,0"></Label>
                     <StackLayout x:Name="transport"  IsVisible="true">
-                        <Label  IsEnabled="{Binding transport}" IsVisible="{Binding transport}" TextColor="White" FontAttributes="Bold"  Text="Choose transport:"
+                        <Label  IsEnabled="{Binding transport}" IsVisible="{Binding transport}" TextColor="White" FontAttributes="Bold"  Text="View transport:"
                    Grid.Row="2"
 				   VerticalOptions="End"/>
                         <RelativeLayout IsVisible="{Binding transport}" Grid.Row="1" 
@@ -94,18 +94,18 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <ContentView  Rotation="90" BackgroundColor="Transparent">
+                                            <ContentView  Rotation="90" BackgroundColor="Transparent" >
                                                 <StackLayout HeightRequest="100"
-												 WidthRequest="100">
+												 WidthRequest="100" >
                                                    
                                                     <Label TextColor="White" Text="{Binding Naziv}"
-										   HorizontalTextAlignment="Center"
+										   VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
                                                     <Label TextColor="White" Text="{Binding Vrsta}"
-										   HorizontalTextAlignment="Center"
+										   VerticalTextAlignment="Center"
                                            LineBreakMode="MiddleTruncation"/>
 
-                                                    <Label TextColor="White" VerticalTextAlignment="Center">
+                                                    <Label TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
                                                         <Label.FormattedText>
                                                             <FormattedString>
                                                                 <Span Text="{Binding Telefon}" />

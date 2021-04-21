@@ -24,32 +24,37 @@
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout>
-                                <Label Padding="10,0,0,0" TextColor="White" Text="{Binding Rbr}">
-
-                                </Label>
-                                <Label   Padding="440,0,0,0" FontSize="Medium"  TextColor="Red" 
+                                <Label  HorizontalOptions="Start"  FontSize="Medium"  TextColor="White" 
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                     <Label.FormattedText >
                                         <FormattedString >
-                                            <Span FontAttributes="Bold"  Text="{Binding Naziv}"/>
+                                            <Span FontAttributes="Bold"  Text="{Binding Rbr}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
-                   Style="{DynamicResource ListItemTextStyle}">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Name: " />
-                                            <Span Text="{Binding Sadrzaj}"/>
+                                <Label  HorizontalOptions="Center"  FontSize="Medium"  TextColor="White" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                    <Label.FormattedText >
+                                        <FormattedString >
+                                            <Span FontAttributes="Bold"  Text="{Binding Datum}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                                <Label VerticalTextAlignment="Start" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemTextStyle}">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Name: " />
-                                            <Span Text="{Binding Datum}"/>
+                                            <Span Text="Title: " />
+                                            <Span Text="{Binding Naziv}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label VerticalTextAlignment="End" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemTextStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Author: " />
+                                            <Span Text="{Binding Autor}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
@@ -58,8 +63,8 @@
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Rating: " />
-                                            <Span Text="{Binding Autor}"/>
+                                       
+                                            <Span Text="{Binding Sadrzaj}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
 

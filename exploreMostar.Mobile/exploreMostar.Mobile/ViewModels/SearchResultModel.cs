@@ -1,8 +1,10 @@
-﻿using exploreMostar.Model.Requests;
+﻿using exploreMostar.Mobile.Views;
+using exploreMostar.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace exploreMostar.Mobile.ViewModels
 {
@@ -29,8 +31,87 @@ namespace exploreMostar.Mobile.ViewModels
         {
 
         }
+        public async void GetResult(object model)
+        {
+            var trazeniObj = model as Model.ReportClass;
+         
+            if (trazeniObj.Vrsta == "Apartman")
+            {
+                var listaApartmana = await _apartmani.Get<List<Model.Apartmani>>(null);
+                foreach (var item in listaApartmana)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+
+            }
+            else if (trazeniObj.Vrsta == "Atrakcija")
+            {
+                var listaAtrakcija = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+                foreach (var item in listaAtrakcija)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+           else if (trazeniObj.Vrsta == "Restoran")
+            {
+                var listaRestorana = await _restorani.Get<List<Model.Restorani>>(null);
+                foreach (var item in listaRestorana)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+          else  if (trazeniObj.Vrsta == "Hotel")
+            {
+                var listaHotela = await _hoteli.Get<List<Model.Hoteli>>(null);
+                foreach (var item in listaHotela)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+          else  if (trazeniObj.Vrsta == "Nocni klub")
+            {
+                var listaNk = await _nocniklubovi.Get<List<Model.Nightclubs>>(null);
+                foreach (var item in listaNk)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+            if (trazeniObj.Vrsta == "Kafic")
+            {
+                var listaKafica = await _kafici.Get<List<Model.Kafici>>(null);
+                foreach (var item in listaKafica)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+        }
         public async void SearchResult(string search)
         {
+            
             _search = search;
             var listApartmana = await _apartmani.Get<IList<Model.Apartmani>>(null);
             var listaAtrakcija = await _atrakcije.Get<IList<Model.Atrakcije>>(null);
@@ -51,8 +132,9 @@ namespace exploreMostar.Mobile.ViewModels
             }
             if (_search != string.Empty)
             {
-                if (korisnik != null)
+                if (korisnik != null && APIService.Pretraga == string.Empty)
                 {
+
                     await _searchS.Insert<Model.Search>(new SearchUpsertRequest()
                     {
                         KorisnikId=korisnik.KorisnikId,

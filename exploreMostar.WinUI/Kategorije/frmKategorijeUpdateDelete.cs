@@ -16,6 +16,11 @@ namespace exploreMostar.WinUI.Kategorije
         public frmKategorijeUpdateDelete()
         {
             InitializeComponent();
+            if (APIService.isDelete == true)
+            {
+                btnSnimi.BackColor = Color.Red;
+                btnSnimi.Text = "Obrišite kategoriju";
+            }
         }
         private int? _id = null;
         private readonly APIService _kategorije = new APIService("Kategorije");
@@ -30,31 +35,81 @@ namespace exploreMostar.WinUI.Kategorije
         private readonly APIService _nightclubs = new APIService("nightclubs");
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var request = new KategorijeUpsertRequest
+            var result = await _kategorije.Get<List<Model.Kategorije>>(null);
+            var r = await _restorani.Get<List<Model.Restorani>>(null);
+            var a = await _apartmani.Get<List<Model.Apartmani>>(null);
+            var at = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+            var h = await _hoteli.Get<List<Model.Hoteli>>(null);
+            var k = await _kafici.Get<List<Model.Kafici>>(null);
+            var nk = await _nightclubs.Get<List<Model.Nightclubs>>(null);
+            var p = await _prevoz.Get<List<Model.Prevoz>>(null);
+            if (this.ValidateChildren())
             {
-                Naziv = txtIme.Text,
-                Opis = txtPrezime.Text,
-                Sadrzaj=sadrzaj.Text
-            };
 
-            sadrzaj.Visible = true;
-            if (APIService.isUpdate == true && APIService.isDelete == false)
-            {
-                await _kategorije.Update<Model.Objava>(_id, request);
-                MessageBox.Show("Uspješno ste modificirali objavu!");
+                int ukupno = 0;
+                if (stringPrije.Contains("Apartmani"))
+                    ukupno += a.Count();
+                if (stringPrije.Contains("Atrakcije"))
+                    ukupno += at.Count();
+                if (stringPrije.Contains("Restorani"))
+                    ukupno += r.Count();
+                if (stringPrije.Contains("Hoteli"))
+                    ukupno += h.Count();
+                if (stringPrije.Contains("Kafici"))
+                    ukupno += k.Count();
+                if (stringPrije.Contains("Nocni klubovi"))
+                    ukupno += nk.Count();
+                if (stringPrije.Contains("Prevoz"))
+                    ukupno += p.Count();
+
+                var request = new KategorijeUpsertRequest
+                {
+                    Naziv = txtIme.Text,
+                    Opis = txtPrezime.Text,
+                    Sadrzaj = sadrzaj.Text,
+                    Ukupno = ukupno,
+                    
+                };
+                
+                foreach (var item in result)
+                {
+                    if (item.Naziv == request.Naziv)
+                    {
+                        _id = item.KategorijaId;
+                        if (item.Naziv == "Food" || item.Naziv == "Atractions" || item.Naziv == "Coffee shops" || item.Naziv == "Accommodation" || item.Naziv == "Transport" || item.Naziv == "Others")
+                            request.VrstaKategorije = "Default";
+                        else
+                            request.VrstaKategorije = "New";
+                    }
+                  
+
+                }
+                sadrzaj.Visible = true;
+                if (_id != 0 && _id != null)
+                {
+                    if (APIService.isUpdate == true && APIService.isDelete == false)
+                    {
+                        await _kategorije.Update<Model.Objava>(_id, request);
+                        MessageBox.Show("Uspješno ste modificirali objavu!");
+                    }
+                    else if (APIService.isUpdate == false && APIService.isDelete == true)
+                    {
+                        await _kategorije.Delete((int)_id);
+                        MessageBox.Show("Uspješno ste obrisali objavu!");
+                    }
+                    FreeUp();
+                    await LoadKategorije();
+
+                }
             }
-            else if (APIService.isUpdate == false && APIService.isDelete == true)
-            {
-                await _kategorije.Delete((int)_id);
-                MessageBox.Show("Uspješno ste obrisali objavu!");
-            }
-           
-            await LoadKategorije();
         }
         private async Task LoadKategorije()
         {
             var result = await _kategorije.Get<List<Model.Kategorije>>(null);
-
+            if (APIService.isDelete)
+            {
+                result = result.Where(y => y.VrstaKategorije != "Default").ToList();
+            }
             result.Insert(0, new Model.Kategorije() { Naziv = "Odaberite kategoriju", KategorijaId = 0 });
 
             cmbOdabirKategorije.DataSource = result;
@@ -65,7 +120,10 @@ namespace exploreMostar.WinUI.Kategorije
         private async void frmKategorijeUpdateDelete_Load(object sender, EventArgs e)
         {
             var result = await _kategorije.Get<List<Model.Kategorije>>(null);
-
+            if (APIService.isDelete)
+            {
+                result = result.Where(y => y.VrstaKategorije != "Default").ToList();
+            }
             result.Insert(0, new Model.Kategorije() { Naziv = "Odaberite kategoriju", KategorijaId = 0 });
 
             cmbOdabirKategorije.DataSource = result;
@@ -110,17 +168,23 @@ namespace exploreMostar.WinUI.Kategorije
         {
 
         }
+        private void FreeUp()
+        {
+            sadrzaj.Clear();
+            txtIme.Clear();
+            txtPrezime.Clear();
+        }
 
         private void listBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             var temp = listBox1.SelectedValue.ToString();
             if (txtIme.Text != "" && temp != "")
             {
-                if (listaSadrzaja.Count() == 0 && stringPrije==string.Empty)
+                if ( stringPrije==string.Empty)
                 {
                     listaSadrzaja.Add(temp);
                     sadrzaj.Text += "\n" + temp.ToString() + "";
-                    
+                    stringPrije= temp.ToString() + ",";
                 }
                 bool postoji = false;
                 //foreach (var item in listaSadrzaja)
@@ -141,7 +205,8 @@ namespace exploreMostar.WinUI.Kategorije
                 {
                     listaSadrzaja.Add(temp);
                     
-                    sadrzaj.Text += "\n" + temp.ToString() + ", ";
+                    sadrzaj.Text += temp.ToString() + ", ";
+                    stringPrije += temp.ToString()+",";
                 }
             }
         }

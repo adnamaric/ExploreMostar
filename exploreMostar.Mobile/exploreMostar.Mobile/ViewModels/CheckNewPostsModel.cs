@@ -23,8 +23,10 @@ namespace exploreMostar.Mobile.ViewModels
         {
             var list = await _objave.Get<IList<Model.Objava>>(null);
             objave.Clear();
+            var temp = 0;
             foreach(var objava in list)
             {
+                objava.Rbr = ++temp;
                 objave.Add(objava);
             }
         }

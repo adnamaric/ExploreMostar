@@ -28,7 +28,7 @@
             <ListView x:Name="MyRecenzijeView"
             ItemsSource="{Binding temp}"
             BackgroundColor="Transparent"
-            CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
+            CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed" ItemSelected="MyRecenzijeView_ItemSelected">
                 <!--Built in Cells-->
 
 

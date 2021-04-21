@@ -61,7 +61,7 @@ namespace exploreMostar.Mobile.ViewModels
             InitCommand = new Command(async () => await Init());
             //GetSelectedOne = new Command(async () => await GetT());
             // GetRecenzije = new Command(async () => await GetRecenzijeFunction());
-          
+            AddOcjene();
         }
         GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
         CancellationTokenSource cts = new CancellationTokenSource();
@@ -222,18 +222,15 @@ namespace exploreMostar.Mobile.ViewModels
                 }
                 if (Kafici == true)
                 {
-                    var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
-                    if (APIService.NearOn == true)
-                        list = list.Where(y => y.Udaljenost != null).OrderBy(y => y.Udaljenost).ToList();
-                    else
-                        list = list.OrderByDescending(y => y.Ocjena).ToList();
-                    kafici.Clear();
-                        temp3.Clear();
+                var list = await _kafici.Get<IEnumerable<Model.Kafici>>(null);
+
+                kafici.Clear();
+                   
 
                     foreach (var item in list)
                     {
                         kafici.Add(item);
-                        temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
+                       // temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
                         if (location != null)
                         {
                             if (item.Latitude != null && item.Longitude != null)
@@ -244,7 +241,11 @@ namespace exploreMostar.Mobile.ViewModels
                             }
                         }
                     }
-                }
+                if (APIService.NearOn == true)
+                    list = list.Where(y => y.Udaljenost != null).OrderBy(y => y.Udaljenost).ToList();
+                else
+                    list = list.OrderByDescending(y => y.Ocjena).ToList();
+            }
                 if (Prevoz == true)
                 {
                     var list = await _prevoz.Get<IEnumerable<Model.Prevoz>>(null);
@@ -285,7 +286,7 @@ namespace exploreMostar.Mobile.ViewModels
                 }
           
            
-            AddOcjene();
+            
 
         }
         //public ICommand GetRecenzije { get; set; }
@@ -610,7 +611,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach(var item in listApartmana)
                     {
-                        if(item.Naziv!=APIService.Naziv && item.Ocjena >= 4)
+                        if(item.Naziv!=APIService.Naziv && item.Ocjena >= 3.5)
                         {
                             
                             foreach(var item2 in moji)
@@ -634,7 +635,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach (var item in listaAtrakcija)
                     {
-                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 3.5)
                         {
 
                             foreach (var item2 in moji)
@@ -658,7 +659,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach (var item in listaKafica)
                     {
-                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 3.5)
                         {
 
                             foreach (var item2 in moji)
@@ -682,7 +683,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach (var item in listaHotela)
                     {
-                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 3.5)
                         {
 
                             foreach (var item2 in moji)
@@ -706,7 +707,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach (var item in listaRestorana)
                     {
-                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 3.5)
                         {
 
                             foreach (var item2 in moji)
@@ -730,7 +731,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     foreach (var item in listaNk)
                     {
-                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 4)
+                        if (item.Naziv != APIService.Naziv && item.Ocjena >= 3.5)
                         {
 
                             foreach (var item2 in moji)
@@ -915,6 +916,86 @@ namespace exploreMostar.Mobile.ViewModels
             //    nightclubs= new ObservableCollection<Model.Nightclubs>(nightclubs.OrderBy(y => y.Udaljenost));
 
             //}
+        }
+        public async void SelectedItem(object model)
+        {
+            var vrsta = APIService.Vrsta;
+            var trazeniObj = model as Model.ReportClass;
+
+            if (APIService.Vrsta == "Apartman")
+            {
+                var listaApartmana = await _apartmani.Get<List<Model.Apartmani>>(null);
+                foreach (var item in listaApartmana)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+
+            }
+            else if (APIService.Vrsta == "Atrakcija")
+            {
+                var listaAtrakcija = await _atrakcije.Get<List<Model.Atrakcije>>(null);
+                foreach (var item in listaAtrakcija)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+            else if (APIService.Vrsta == "Restoran")
+            {
+                var listaRestorana = await _restorani.Get<List<Model.Restorani>>(null);
+                foreach (var item in listaRestorana)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+            else if (APIService.Vrsta == "Hotel")
+            {
+                var listaHotela = await _hoteli.Get<List<Model.Hoteli>>(null);
+                foreach (var item in listaHotela)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+            else if (APIService.Vrsta == "Nocni klub")
+            {
+                var listaNk = await _nocniklubovi.Get<List<Model.Nightclubs>>(null);
+                foreach (var item in listaNk)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+            if (APIService.Vrsta == "Kafic")
+            {
+                var listaKafica = await _kafici.Get<List<Model.Kafici>>(null);
+                foreach (var item in listaKafica)
+                {
+                    if (item.Naziv == trazeniObj.Naziv)
+                    {
+                        APIService.modelTemp = item;
+                        Application.Current.MainPage = new MapPage(APIService.modelTemp);
+                    }
+                }
+            }
+
         }
     }
 }
