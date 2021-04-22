@@ -266,7 +266,7 @@ namespace exploreMostar.WinUI.Sadržaj.Atrakcije
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Sadrzaj);
             this.Name = "frmAtrakcijeAdd";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAtrakcijeAdd";
             this.Load += new System.EventHandler(this.frmAtrakcijeAdd_Load);
             this.ResumeLayout(false);
