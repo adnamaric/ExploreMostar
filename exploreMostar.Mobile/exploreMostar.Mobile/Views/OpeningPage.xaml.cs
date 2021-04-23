@@ -11,8 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace exploreMostar.Mobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
+
     public partial class OpeningPage : ContentPage
     {
+      
         public OpeningPage()
         {
             InitializeComponent();
@@ -20,11 +23,11 @@ namespace exploreMostar.Mobile
             opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.Explore Mostar (6).png");
            // opImage.Source = ImageSource.FromResource("exploreMostar.Mobile.Resources.1.png");
 
+    }
 
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
+        private  void Button_Clicked(object sender, EventArgs e)
         {
+            
             //try
             //{
             //    Application.Current.MainPage = new RegistationPage();

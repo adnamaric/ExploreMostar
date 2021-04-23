@@ -31,7 +31,7 @@ namespace exploreMostar.Mobile.UWP
 
             //// if you want not to have any window smaller than this size...
             //ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(480, 800));
-            Xamarin.FormsMaps.Init("AuRdBkvQJxfJOPvHr03c8Ne058fyLkaf74i3odVWKA3QdaBk-uAJLP2oOussl89E");
+            //Xamarin.FormsMaps.Init("AuRdBkvQJxfJOPvHr03c8Ne058fyLkaf74i3odVWKA3QdaBk-uAJLP2oOussl89E");
             LoadApplication(new exploreMostar.Mobile.App());
             GetLocationPermission();
         }
@@ -41,7 +41,7 @@ namespace exploreMostar.Mobile.UWP
             if (status.ToString() == "Denied")
             {
                 var messageDialog = new MessageDialog("Please enable your location!");
-           
+
                 await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
 
 

@@ -16,6 +16,7 @@ namespace exploreMostar.Mobile
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()

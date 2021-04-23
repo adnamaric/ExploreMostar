@@ -40,10 +40,10 @@ namespace exploreMostar.Mobile
         public static int ObjekatID { get; set; }
 
 #if DEBUG
-        string _apiUrl = "http://localhost:64741/api/";
+        string _apiUrl = "http://localhost:5050/api";
 #endif
 #if RELEASE
- string _apiUrl = "https://mywebsite.com/api/";
+ 
 #endif
 
         public APIService(string route)
@@ -66,7 +66,7 @@ namespace exploreMostar.Mobile
                     url += await search.ToQueryString();
                 }
 
-                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                return await url.GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -75,7 +75,8 @@ namespace exploreMostar.Mobile
                     //MessageBox.Show("Niste authentificirani");
                  await Application.Current.MainPage.DisplayAlert("Greška", "Niste authentificirani", "OK");
                 }
-                throw;
+                
+                    throw new Exception( "Niste authentificirani");
             }
 
 

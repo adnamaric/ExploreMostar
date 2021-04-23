@@ -1,33 +1,33 @@
 version: '3'
-services:
-#mssql docker
-  exploremostar-sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    restart: unless-stopped
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=QWElkj132!
-      - MSSQL_PID=Developer
-    ports:
-      - 1401:1433
-    networks:
-      - exploremostarnet
 
-    exploremostar-api:
-    restart: unless-stopped
-    build:
-      context: .
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
     environment:
-      - ConnectionStrings:exploreMostar=Server=exploremostar-sql,1433;Database=exploreMostarDocker;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Pa55w0rd2020"
+      MSSQL_PID: Express
     ports:
-      - 64741:80 
+        - "1433:1433"
     networks:
-      - exploremostarnet
-    links:
-      - exploremostar-sql
-    depends_on:
-      - exploremostar-sql
-      
+        - seminarski-net
+
+  seminarski-api:
+      build: 
+        context: .
+      volumes:
+        - './exploreMostar.Mobile/exploreMostar.Mobile/Resources:/app/Slike'
+      environment:
+          ConnectionStrings:Docker: Server=ms-sql-server,1433;Database=exploreMostar;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
+      ports: 
+        - "5050:80"
+      networks:
+          - seminarski-net
+      links:
+          - ms-sql-server
+      depends_on: 
+          - ms-sql-server
+
 networks:
-    exploremostarnet:
-    driver: bridge  
+  seminarski-net:
+    driver: bridge
