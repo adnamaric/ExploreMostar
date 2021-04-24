@@ -41,6 +41,7 @@ namespace exploreMostar.Mobile
 
 #if DEBUG
         string _apiUrl = "http://localhost:5050/api";
+       // string _apiUrl = "http://localhost:64741/api/";
 #endif
 #if RELEASE
  

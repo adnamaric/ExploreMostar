@@ -182,13 +182,14 @@ namespace exploreMostar.Mobile.Views
             bool isNightClub = (nocniklub == null) ? false : true;
             bool isKafic = (kafic == null) ? false : true;
             bool isHotel = (hotel == null) ? false : true;
-
+            APIService.PreferenceListPage = true; 
             if (isRestoran==true)
             {
                
                 APIService.Naziv = restoran.Naziv;
                 try
                 {
+                    
                     Application.Current.MainPage = new MapPage(restoran);
 
                 }

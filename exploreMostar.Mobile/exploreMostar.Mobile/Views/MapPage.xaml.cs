@@ -39,7 +39,8 @@ namespace exploreMostar.Mobile.Views
         public bool isKafic;
         public bool isHotel;
         public double udaljenost;
-
+       static bool preference = APIService.PreferenceListPage;
+        static bool search = APIService.SearchLista;
         private readonly APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
         public object trenutniObj = null;
@@ -208,7 +209,7 @@ namespace exploreMostar.Mobile.Views
             APIService.PreferenceListPage = false;
             APIService.MapPage = true;
             APIService.modelTemp = model1;
-            model.CheckIfFavourite();
+           model.CheckIfFavourite();
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
@@ -1149,9 +1150,9 @@ namespace exploreMostar.Mobile.Views
 
         private void goBack_Clicked(object sender, EventArgs e)
         {
-            if (APIService.PreferenceListPage && !APIService.SearchLista)
+            if (APIService.SearchLista)
                Application.Current.MainPage = new PreferenceListPage(); 
-            else if (APIService.SearchLista && !APIService.PreferenceListPage)
+            else 
                 Application.Current.MainPage = new SearchFoundItems(APIService.Pretraga);
 
         }
