@@ -35,8 +35,7 @@ namespace exploreMostar.Mobile.ViewModels
         {
             var trazeniObj = model as Model.ReportClass;
          
-            if (trazeniObj.Vrsta == "Apartman")
-            {
+            
                 var listaApartmana = await _apartmani.Get<List<Model.Apartmani>>(null);
                 foreach (var item in listaApartmana)
                 {
@@ -47,9 +46,8 @@ namespace exploreMostar.Mobile.ViewModels
                     }
                 }
 
-            }
-            else if (trazeniObj.Vrsta == "Atrakcija")
-            {
+            
+           
                 var listaAtrakcija = await _atrakcije.Get<List<Model.Atrakcije>>(null);
                 foreach (var item in listaAtrakcija)
                 {
@@ -59,9 +57,8 @@ namespace exploreMostar.Mobile.ViewModels
                         Application.Current.MainPage = new MapPage(APIService.modelTemp);
                     }
                 }
-            }
-           else if (trazeniObj.Vrsta == "Restoran")
-            {
+            
+          
                 var listaRestorana = await _restorani.Get<List<Model.Restorani>>(null);
                 foreach (var item in listaRestorana)
                 {
@@ -71,9 +68,8 @@ namespace exploreMostar.Mobile.ViewModels
                         Application.Current.MainPage = new MapPage(APIService.modelTemp);
                     }
                 }
-            }
-          else  if (trazeniObj.Vrsta == "Hotel")
-            {
+            
+         
                 var listaHotela = await _hoteli.Get<List<Model.Hoteli>>(null);
                 foreach (var item in listaHotela)
                 {
@@ -83,9 +79,8 @@ namespace exploreMostar.Mobile.ViewModels
                         Application.Current.MainPage = new MapPage(APIService.modelTemp);
                     }
                 }
-            }
-          else  if (trazeniObj.Vrsta == "Nocni klub")
-            {
+            
+          
                 var listaNk = await _nocniklubovi.Get<List<Model.Nightclubs>>(null);
                 foreach (var item in listaNk)
                 {
@@ -95,9 +90,8 @@ namespace exploreMostar.Mobile.ViewModels
                         Application.Current.MainPage = new MapPage(APIService.modelTemp);
                     }
                 }
-            }
-            if (trazeniObj.Vrsta == "Kafic")
-            {
+            
+           
                 var listaKafica = await _kafici.Get<List<Model.Kafici>>(null);
                 foreach (var item in listaKafica)
                 {
@@ -107,7 +101,7 @@ namespace exploreMostar.Mobile.ViewModels
                         Application.Current.MainPage = new MapPage(APIService.modelTemp);
                     }
                 }
-            }
+            
         }
         public async void SearchResult(string search)
         {

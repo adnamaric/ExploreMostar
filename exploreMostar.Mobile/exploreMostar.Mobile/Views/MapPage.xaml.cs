@@ -1150,11 +1150,9 @@ namespace exploreMostar.Mobile.Views
 
         private void goBack_Clicked(object sender, EventArgs e)
         {
-            if (APIService.SearchLista)
+       
                Application.Current.MainPage = new PreferenceListPage(); 
-            else 
-                Application.Current.MainPage = new SearchFoundItems(APIService.Pretraga);
-
+           
         }
 
         private async void navmenu_Clicked(object sender, EventArgs e)
