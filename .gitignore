@@ -21,6 +21,8 @@
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
+x64/
+x86/
 [Bb]in/
 [Oo]bj/
 [Ll]og/

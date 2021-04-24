@@ -40,7 +40,7 @@ namespace exploreMostar.Mobile
         public static int ObjekatID { get; set; }
 
 #if DEBUG
-        string _apiUrl = "http://localhost:5050/api";
+        string _apiUrl = "http://localhost:6060/api";
        // string _apiUrl = "http://localhost:64741/api/";
 #endif
 #if RELEASE
