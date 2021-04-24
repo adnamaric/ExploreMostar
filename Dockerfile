@@ -5,15 +5,12 @@ EXPOSE 6060
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
 
-COPY ["exploreMostar.WebApi/exploreMostar.WebAPI.csproj", "exploreMostar.WebAPI/"]
-COPY ["exploreMostar.Model/exploreMostar.Model.csproj", "exploreMostar.Model/"]
-RUN dotnet restore "exploreMostar.WebAPI"
+COPY ["exploreMostar.WEBAPI/exploreMostar.WebAPI.csproj", "exploreMostar.WebAPI/"]
 COPY . .
 
 
-
 FROM build AS publish
-RUN dotnet publish "exploreMostar.WebApi" -c Release -o /app/publish
+RUN dotnet publish "exploreMostar.WEBAPI" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
