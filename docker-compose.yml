@@ -15,8 +15,6 @@ services:
   seminarski-api:
       build: 
         context: .
-      volumes:
-        - './exploreMostar.Mobile/exploreMostar.Mobile/Resources:/app/Slike'
       environment:
           ConnectionStrings:Docker: Server=ms-sql-server,1433;Database=exploreMostar;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
       ports: 
