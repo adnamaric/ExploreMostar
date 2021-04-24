@@ -98,7 +98,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     if (location != null)
                     {
-                        if (item.Latitude != null && item.Longitude != null)
+                        if (item.Latitude != 0 && item.Longitude != 0)
                         {
                             Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                             item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -114,8 +114,8 @@ namespace exploreMostar.Mobile.ViewModels
                     {
                         if (item.PutanjaSlike != null)
                             APIService.PutanjaSlike = item.PutanjaSlike;
-
-                        restoranis.Add(item);
+                        if(item.Lokacija!="")
+                            restoranis.Add(item);
                        
                     }
 
@@ -143,7 +143,7 @@ namespace exploreMostar.Mobile.ViewModels
                 {
                     if (location != null)
                     {
-                        if (item.Latitude != null && item.Longitude != null)
+                        if (item.Latitude != 0 && item.Longitude != 0)
                         {
                             Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                             item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -157,6 +157,7 @@ namespace exploreMostar.Mobile.ViewModels
                     list = list.OrderByDescending(y => y.Ocjena).ToList();
                 foreach (var item in list)
                  {
+                    if(item.Lokacija!="")
                         atrakcije.Add(item);
                         // temp1.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
                        
@@ -173,7 +174,7 @@ namespace exploreMostar.Mobile.ViewModels
                     {
                         if (location != null)
                         {
-                            if (item.Latitude != null && item.Longitude != null)
+                            if (item.Latitude != 0 && item.Longitude != 0)
                             {
                                 Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                                 item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -187,7 +188,8 @@ namespace exploreMostar.Mobile.ViewModels
                         list = list.OrderByDescending(y => y.Ocjena).ToList();
                     foreach (var item in list)
                         {
-                            apartmanis.Add(item);
+                    if (item.Lokacija != "")
+                        apartmanis.Add(item);
                             // temp2.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
                       
                         }
@@ -200,7 +202,7 @@ namespace exploreMostar.Mobile.ViewModels
                     {
                         if (location != null)
                         {
-                            if (item.Latitude != null && item.Longitude != null)
+                            if (item.Latitude != 0 && item.Longitude != 0)
                             {
                                 Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                                 item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -216,6 +218,7 @@ namespace exploreMostar.Mobile.ViewModels
                         
                    foreach (var item in list)
                     {
+                    if(item.Lokacija!="")
                        hotelis.Add(item);
                      
                   }
@@ -229,11 +232,12 @@ namespace exploreMostar.Mobile.ViewModels
 
                     foreach (var item in list)
                     {
+                    if(item.Lokacija!="")
                         kafici.Add(item);
                        // temp3.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena });
                         if (location != null)
                         {
-                            if (item.Latitude != null && item.Longitude != null)
+                            if (item.Latitude != 0 && item.Longitude != 0)
                             {
                                 Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                                 item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -267,7 +271,7 @@ namespace exploreMostar.Mobile.ViewModels
                     {
                         if (location != null)
                         {
-                            if (item.Latitude != null && item.Longitude != null)
+                            if (item.Latitude != 0 && item.Longitude != 0)
                             {
                                 Location resto = new Location((double)item.Latitude, (double)item.Longitude);
                                 item.Udaljenost = Location.CalculateDistance(resto, location, DistanceUnits.Kilometers);
@@ -281,7 +285,9 @@ namespace exploreMostar.Mobile.ViewModels
                     list = list.OrderByDescending(y => y.Ocjena).ToList();
                  nightclubs.Clear();
                  foreach (var item in list)
-                { nightclubs.Add(item);
+                {
+                    if (item.Lokacija != "")
+                        nightclubs.Add(item);
                 }
                 }
           

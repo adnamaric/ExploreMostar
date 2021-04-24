@@ -30,9 +30,13 @@ namespace exploreMostar.WinUI.Sadržaj.Kafići
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            if (txtNazivA.Text == "" && txtLok.Text == "")
+            if (txtNazivA.Text == "")
             {
                 MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            if (txtLok.Text == "")
+            {
+                MessageBox.Show("Objekat mora imati lokaciju", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
             else
             {

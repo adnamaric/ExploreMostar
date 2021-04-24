@@ -50,6 +50,10 @@ namespace exploreMostar.WinUI.Sadržaj.Restorani
                 MessageBox.Show("Molimo pokušajte ponovo sa unosom", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
             }
+            if (txtLok.Text == "")
+            {
+                MessageBox.Show("Objekat mora imati lokaciju", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
             else
             {
                 var request = new RestoraniUpsertRequest
