@@ -93,7 +93,7 @@ namespace exploreMostar.WinUI.Sadržaj.Noćni_klubovi
             if (txtLok.Text != "")
             {
                 var address = txtLok.Text;
-                var locationService = new GoogleLocationService("AIzaSyAcTROi9rcud66EEqgDjPB7w8zXrdfL1yY");
+                var locationService = new GoogleLocationService("AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q");
                 var point = locationService.GetLatLongFromAddress(address);
                 var latitude = point.Latitude;
                 var longitude = point.Longitude;

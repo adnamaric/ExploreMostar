@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace exploreMostar.WebAPI.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -673,6 +673,212 @@ namespace exploreMostar.WebAPI.Migrations
                         principalTable: "Korisnici",
                         principalColumn: "KorisnikID",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Drzave",
+                columns: new[] { "DrzavaID", "Naziv", "Oznaka", "PutanjaSlike", "Slika" },
+                values: new object[,]
+                {
+                    { 1, "Bosna i Hercegovina", "BiH", "", null },
+                    { 2, "Hrvatska", "HR", "", null },
+                    { 3, "Srbija", "SR", "", null },
+                    { 4, "Slovenija", "SL", "", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "KategorijaJela",
+                columns: new[] { "KategorijaJelaID", "Naziv" },
+                values: new object[,]
+                {
+                    { 1, "Slatka jela" },
+                    { 2, "Slana jela" },
+                    { 3, "N/A" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Kategorije",
+                columns: new[] { "KategorijaID", "Naziv", "Opis", "Sadrzaj", "Ukupno", "VrstaKategorije" },
+                values: new object[,]
+                {
+                    { 6, "Others", "Not yet defined", "", 0, "Default" },
+                    { 4, "Accommodation", "", "Apartmani, Hoteli", 0, "Default" },
+                    { 5, "Transport", "", "Prevoz", 0, "Default" },
+                    { 2, "Atractions", "", "Atrakcije", 0, "Default" },
+                    { 1, "Food", "", "Restorani", 0, "Default" },
+                    { 3, "Coffee shops", "", "Kafici", 0, "Default" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Uloge",
+                columns: new[] { "UlogaId", "Naziv", "Opis" },
+                values: new object[,]
+                {
+                    { 1, "Administrator", "" },
+                    { 2, "Korisnik", "" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VrstaAtrakcija",
+                columns: new[] { "VrstaAtrakcijeID", "Naziv" },
+                values: new object[,]
+                {
+                    { 1, "Prirodne" },
+                    { 2, "Historijske" },
+                    { 3, "Religijske" },
+                    { 4, "Adrenalinske" },
+                    { 5, "N/A" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VrstaRestorana",
+                columns: new[] { "VrstaID", "Naziv" },
+                values: new object[,]
+                {
+                    { 2, "Fast Food" },
+                    { 1, "Restoran" },
+                    { 3, "N/A" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Apartmani",
+                columns: new[] { "ApartmanID", "AparatZaKafu", "Bazen", "GodinaIzgradnje", "KategorijaApartmana", "KategorijaID", "Klima", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "Parking", "Perilica", "PutanjaSlike", "Slika", "SlikaThumb", "TV", "Udaljenost", "Wifi" },
+                values: new object[,]
+                {
+                    { 2, true, false, 1999, "A", 4, true, 43.3456693, "Braće Trbonja 6, Mostar 88000", 17.8131764, "Apartman Solis", 4.3, true, true, "", null, null, true, null, true },
+                    { 5, true, false, 2003, "C", 4, false, 43.3403544, "Braće Čišića 23, Mostar 88000", 17.8167406, "Apartman Aylin", 3.29, true, false, "", null, null, true, null, true },
+                    { 4, true, false, 2002, "B", 4, false, 43.3421271, "Rizikala 8, Mostar 88000", 17.813691, "Dream Apartments Mostar", 4.0, true, true, "", null, null, true, null, true },
+                    { 3, true, true, 2001, "C", 4, false, 43.3399835, "Braće Šarića 15, 88000 Mostar", 17.8172949, "Apartman Aida Mostar", 3.5, false, true, "", null, null, true, null, true },
+                    { 1, true, false, 2000, "D", 4, true, 43.3537666, "Maršala Tita 33a, Mostar 88000", 17.8125038, "Apartment Dalia", 2.5, false, true, "", null, null, true, null, true }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Atrakcije",
+                columns: new[] { "AtrakcijaID", "KategorijaID", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "Opis", "PutanjaSlike", "Slika", "SlikaThumn", "Udaljenost", "VrstaAtrakcijeID" },
+                values: new object[,]
+                {
+                    { 3, 2, 43.35029582798046, "Fortica,Mostar 88000", 17.832039071950071, "ZIPLine Fortica", 3.0, "Although not an official name, Fortica is a well-established name for a hill above Mostar through which leads the local road to Podveležje, and most probably originates from the Italian word fortezza = fort.", "", null, null, null, 4 },
+                    { 2, 2, 43.3418210027799, "Osmana Džikića 41, Mostar 88000", 17.816525157088339, "Muslibegovic House", 3.4, "Forming part of a 17th-century heritage complex, this historic, rustic-chic hotel is a 1-minute walk from the Karagöz Bey Mosque and 8 minutes on foot from Stari Most, a restored 16th-century bridge.", "", null, null, null, 3 },
+                    { 5, 2, 43.339720130675644, "Mala Tepa 16, Mostar 80807", 17.816927109510132, "Koskin-Mehmed Pasha's Mosque", 5.0, "Small mosque dating to the 17th century, with striking views of the river & surrounding town.", "", null, null, null, 2 },
+                    { 1, 2, 43.337101, "Stari Most, Mostar 88000", 17.81485, "Old Bridge (Stari Most)", 5.0, "Over the Neretva river in the city of Mostar, Bosnia and Herzegovina, you will find the beautiful stone bridge Stari Most.", "", null, null, null, 2 },
+                    { 4, 2, 43.257167860613059, "Blagaj", 17.904669589166819, "Vrelo Bune", 5.0, "Natural spring flowing from a cavern, forming picturesque falls near waterfront restaurants.", "", null, null, null, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Gradovi",
+                columns: new[] { "GradID", "DrzavaID", "Naziv" },
+                values: new object[,]
+                {
+                    { 15, 3, "Subotica" },
+                    { 14, 3, "Kragujevac" },
+                    { 1, 1, "Mostar" },
+                    { 12, 3, "Novi sad" },
+                    { 11, 3, "Beograd" },
+                    { 2, 1, "Sarajevo" },
+                    { 3, 1, "Tuzla" },
+                    { 4, 1, "Zenica" },
+                    { 5, 1, "Konjic" },
+                    { 6, 2, "Zagred" },
+                    { 13, 3, "Niš" },
+                    { 10, 2, "Osijek" },
+                    { 9, 2, "Dubrovnik" },
+                    { 8, 2, "Split" },
+                    { 7, 2, "Karlovac" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Hoteli",
+                columns: new[] { "HotelID", "AparatZaKafu", "Bazen", "GodinaIzgradnje", "Kategorija", "KategorijaID", "Klima", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "Parking", "PutanjaSlike", "Slika", "SlikaThumn", "TV", "Udaljenost", "Wifi" },
+                values: new object[,]
+                {
+                    { 5, true, false, 2003, "B", 4, false, 43.33719935014247, "Onešćukova 32, 88000 Mostar", 17.813126851831623, "Hotel Emen", 3.29, true, "", null, null, true, null, true },
+                    { 4, true, false, 2002, "B", 4, false, 43.344693051503221, "Mostarskog bataljona bb, 88000 Mostar", 17.812161670884688, "Hotel Bristol", 4.34, true, "", null, null, true, null, true },
+                    { 2, true, false, 1999, "B", 4, true, 43.3503297, "Kneza Višeslava, Mostar 88000", 17.804026, "Hotel Mepas", 3.2, true, "", null, null, true, null, true },
+                    { 3, true, true, 2001, "C", 4, false, 43.339569731156907, "Konak 18, 88000 Mostar", 17.822071547070191, "Hotel Eden", 3.5, false, "", null, null, true, null, true },
+                    { 1, true, true, 2000, "A", 4, true, 43.3455656, "Kneza Domagoja, Mostar 88000", 17.8057751, "Hotel Mostar", 4.5, true, "", null, null, true, null, true }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Jela",
+                columns: new[] { "JeloID", "KategorijaJelaID", "Naziv", "Ocjena", "PutanjaSlike", "Sastojci", "Slika" },
+                values: new object[,]
+                {
+                    { 3, 1, "Ćevapi", null, "", "...", null },
+                    { 2, 1, "Pohovani fileti", null, "", "...", null },
+                    { 1, 1, "Hamburger", null, "", "...", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Kafici",
+                columns: new[] { "KaficID", "KategorijaID", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "PutanjaSlike", "Slika", "Udaljenost" },
+                values: new object[,]
+                {
+                    { 5, 3, 43.33554505503043, "Mostar 88000", 17.817228391411266, "Caffe Bar Fratello", 4.7, "", null, null },
+                    { 4, 3, 43.337564943914067, "Rade Bitange, Mostar 88000", 17.814320673596402, "Café de Alma", 4.4, "", null, null },
+                    { 3, 3, 43.343148574040683, "Braće Fejića 35, Mostar 88000", 17.81306363263667, "Cafe Bar IL MOORO", 4.362, "", null, null },
+                    { 2, 3, 43.345981010588361, "Kralja Tvrtka 22, Mostar 88000", 17.804500037023651, "Black Pearl", 4.5, "", null, null },
+                    { 1, 3, 43.3586019, "Zalik 1, Mostar 88000", 17.8145922, "Spago pub", 5.0, "", null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Nightclubs",
+                columns: new[] { "NightClubID", "KategorijaID", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "PutanjaSlike", "Slika", "Udaljenost" },
+                values: new object[,]
+                {
+                    { 2, 6, 43.3418, "Kralja Petra Krešimira IV, Mostar 88000", 17.8017, "Drugi način", 3.0, null, null, null },
+                    { 1, 6, 43.3454941, "Midhad Hujdur Hujka sportska dvorana", 17.8058701, "Art", 3.0, null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Prevoz",
+                columns: new[] { "PrevozID", "KategorijaID", "Naziv", "PutanjaSlike", "Slika", "Telefon", "Vrsta" },
+                values: new object[,]
+                {
+                    { 1, 5, "Arny", "", null, "1507", "Taxi" },
+                    { 2, 5, "Herc", "", null, "1599", "Taxi" },
+                    { 3, 5, "Moj Taxi", "", null, "1503", "Taxi" },
+                    { 4, 5, "Green Taxi", "", null, "1500", "Taxi" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Restorani",
+                columns: new[] { "RestoranID", "GodinaIzgradnje", "KategorijaID", "Latitude", "Lokacija", "Longitude", "Naziv", "Ocjena", "PutanjaSlike", "Slika", "Udaljenost", "VrstaID" },
+                values: new object[,]
+                {
+                    { 4, 2001, 1, 43.338915, "Mala Tepa bb, Mostar 88000", 17.8151488, "Urban Grill", 3.4, "", null, null, 1 },
+                    { 5, 2002, 1, 43.3402981, "Kraljice Katarine 11a, Mostar 88000", 17.8027823, "Restoran Radobolja", 4.7, "", null, null, 1 },
+                    { 1, 2000, 1, 43.3553315, "Muje Pašica bb, Mostar 88000", 17.8133241, "Megamarkt", 5.0, "", null, null, 1 },
+                    { 2, 1999, 1, 43.3501688, "Kralja Tomislava 29, Mostar 88000", 17.8007839, "Megi", 4.5, "", null, null, 1 },
+                    { 3, 1998, 1, 43.350002, "Vukovarska, Mostar 88000", 17.7975807, "TABOO Restaurant", 4.362, "", null, null, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Korisnici",
+                columns: new[] { "KorisnikID", "BrojPrijavljivanja", "DatumRodjenja", "Email", "GradID", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "PutanjaSlike", "Slika", "SlikaThumb", "Telefon" },
+                values: new object[] { 1, 0, null, "desktop@edu.fit.ba", 1, "desktop", "testing2", "25BXwlT+alXTy1YgGuVNeFJx7vE=", "nfB0WOkoOSuHIlkbdGETHQ==", "desktop", "", null, null, "036598745" });
+
+            migrationBuilder.InsertData(
+                table: "Korisnici",
+                columns: new[] { "KorisnikID", "BrojPrijavljivanja", "DatumRodjenja", "Email", "GradID", "Ime", "KorisnickoIme", "LozinkaHash", "LozinkaSalt", "Prezime", "PutanjaSlike", "Slika", "SlikaThumb", "Telefon" },
+                values: new object[] { 2, 0, null, "mobile@edu.fit.ba", 2, "mobile", "mobile", "QMQxyTHTDQPbB99C327FoldOy1g=", "Nr1JgKhL6v1dQtHGc+ytkw==", "mobile", "", null, null, "036593745" });
+
+            migrationBuilder.InsertData(
+                table: "KorisniciUloge",
+                columns: new[] { "KorisnickaUlogaID", "DatumIzmjene", "KorisnikID", "UlogaID" },
+                values: new object[,]
+                {
+                    { 1, null, 1, 1 },
+                    { 2, null, 1, 2 },
+                    { 3, null, 2, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Poruke",
+                columns: new[] { "PorukaID", "Datum", "Posiljalac", "PosiljalacID", "Primalac", "PrimalacID", "Sadrzaj" },
+                values: new object[,]
+                {
+                    { 1, null, "desktop desktop", 1, "desktop desktop", 1, "Welcome to explore Mostar!" },
+                    { 2, null, "desktop desktop", 1, "mobile mobile", 2, "Hello and welcome to our app" }
                 });
 
             migrationBuilder.CreateIndex(

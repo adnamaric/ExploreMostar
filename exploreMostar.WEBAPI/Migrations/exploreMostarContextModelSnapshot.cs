@@ -76,6 +76,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaId");
 
                     b.ToTable("Apartmani");
+
+                    b.HasData(
+                        new { ApartmanId = 1, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 2000, KategorijaApartmana = "D", KategorijaId = 4, Klima = true, Latitude = 43.3537666, Lokacija = "Maršala Tita 33a, Mostar 88000", Longitude = 17.8125038, Naziv = "Apartment Dalia", Ocjena = 2.5, Parking = false, Perilica = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { ApartmanId = 2, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 1999, KategorijaApartmana = "A", KategorijaId = 4, Klima = true, Latitude = 43.3456693, Lokacija = "Braće Trbonja 6, Mostar 88000", Longitude = 17.8131764, Naziv = "Apartman Solis", Ocjena = 4.3, Parking = true, Perilica = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { ApartmanId = 3, AparatZaKafu = true, Bazen = true, GodinaIzgradnje = 2001, KategorijaApartmana = "C", KategorijaId = 4, Klima = false, Latitude = 43.3399835, Lokacija = "Braće Šarića 15, 88000 Mostar", Longitude = 17.8172949, Naziv = "Apartman Aida Mostar", Ocjena = 3.5, Parking = false, Perilica = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { ApartmanId = 4, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 2002, KategorijaApartmana = "B", KategorijaId = 4, Klima = false, Latitude = 43.3421271, Lokacija = "Rizikala 8, Mostar 88000", Longitude = 17.813691, Naziv = "Dream Apartments Mostar", Ocjena = 4.0, Parking = true, Perilica = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { ApartmanId = 5, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 2003, KategorijaApartmana = "C", KategorijaId = 4, Klima = false, Latitude = 43.3403544, Lokacija = "Braće Čišića 23, Mostar 88000", Longitude = 17.8167406, Naziv = "Apartman Aylin", Ocjena = 3.29, Parking = true, Perilica = false, PutanjaSlike = "", Tv = true, Wifi = true }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Atrakcije", b =>
@@ -123,6 +131,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("VrstaAtrakcijeId");
 
                     b.ToTable("Atrakcije");
+
+                    b.HasData(
+                        new { AtrakcijaId = 1, KategorijaId = 2, Latitude = 43.337101, Lokacija = "Stari Most, Mostar 88000", Longitude = 17.81485, Naziv = "Old Bridge (Stari Most)", Ocjena = 5.0, Opis = "Over the Neretva river in the city of Mostar, Bosnia and Herzegovina, you will find the beautiful stone bridge Stari Most.", PutanjaSlike = "", VrstaAtrakcijeId = 2 },
+                        new { AtrakcijaId = 2, KategorijaId = 2, Latitude = 43.3418210027799, Lokacija = "Osmana Džikića 41, Mostar 88000", Longitude = 17.816525157088339, Naziv = "Muslibegovic House", Ocjena = 3.4, Opis = "Forming part of a 17th-century heritage complex, this historic, rustic-chic hotel is a 1-minute walk from the Karagöz Bey Mosque and 8 minutes on foot from Stari Most, a restored 16th-century bridge.", PutanjaSlike = "", VrstaAtrakcijeId = 3 },
+                        new { AtrakcijaId = 3, KategorijaId = 2, Latitude = 43.35029582798046, Lokacija = "Fortica,Mostar 88000", Longitude = 17.832039071950071, Naziv = "ZIPLine Fortica", Ocjena = 3.0, Opis = "Although not an official name, Fortica is a well-established name for a hill above Mostar through which leads the local road to Podveležje, and most probably originates from the Italian word fortezza = fort.", PutanjaSlike = "", VrstaAtrakcijeId = 4 },
+                        new { AtrakcijaId = 4, KategorijaId = 2, Latitude = 43.257167860613059, Lokacija = "Blagaj", Longitude = 17.904669589166819, Naziv = "Vrelo Bune", Ocjena = 5.0, Opis = "Natural spring flowing from a cavern, forming picturesque falls near waterfront restaurants.", PutanjaSlike = "", VrstaAtrakcijeId = 1 },
+                        new { AtrakcijaId = 5, KategorijaId = 2, Latitude = 43.339720130675644, Lokacija = "Mala Tepa 16, Mostar 80807", Longitude = 17.816927109510132, Naziv = "Koskin-Mehmed Pasha's Mosque", Ocjena = 5.0, Opis = "Small mosque dating to the 17th century, with striking views of the river & surrounding town.", PutanjaSlike = "", VrstaAtrakcijeId = 2 }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.DodatneOpcije", b =>
@@ -166,6 +182,13 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("DrzavaId");
 
                     b.ToTable("Drzave");
+
+                    b.HasData(
+                        new { DrzavaId = 1, Naziv = "Bosna i Hercegovina", Oznaka = "BiH", PutanjaSlike = "" },
+                        new { DrzavaId = 2, Naziv = "Hrvatska", Oznaka = "HR", PutanjaSlike = "" },
+                        new { DrzavaId = 3, Naziv = "Srbija", Oznaka = "SR", PutanjaSlike = "" },
+                        new { DrzavaId = 4, Naziv = "Slovenija", Oznaka = "SL", PutanjaSlike = "" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Gradovi", b =>
@@ -187,6 +210,24 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("DrzavaId");
 
                     b.ToTable("Gradovi");
+
+                    b.HasData(
+                        new { GradId = 1, DrzavaId = 1, Naziv = "Mostar" },
+                        new { GradId = 2, DrzavaId = 1, Naziv = "Sarajevo" },
+                        new { GradId = 3, DrzavaId = 1, Naziv = "Tuzla" },
+                        new { GradId = 4, DrzavaId = 1, Naziv = "Zenica" },
+                        new { GradId = 5, DrzavaId = 1, Naziv = "Konjic" },
+                        new { GradId = 6, DrzavaId = 2, Naziv = "Zagred" },
+                        new { GradId = 7, DrzavaId = 2, Naziv = "Karlovac" },
+                        new { GradId = 8, DrzavaId = 2, Naziv = "Split" },
+                        new { GradId = 9, DrzavaId = 2, Naziv = "Dubrovnik" },
+                        new { GradId = 10, DrzavaId = 2, Naziv = "Osijek" },
+                        new { GradId = 11, DrzavaId = 3, Naziv = "Beograd" },
+                        new { GradId = 12, DrzavaId = 3, Naziv = "Novi sad" },
+                        new { GradId = 13, DrzavaId = 3, Naziv = "Niš" },
+                        new { GradId = 14, DrzavaId = 3, Naziv = "Kragujevac" },
+                        new { GradId = 15, DrzavaId = 3, Naziv = "Subotica" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Hoteli", b =>
@@ -244,6 +285,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaId");
 
                     b.ToTable("Hoteli");
+
+                    b.HasData(
+                        new { HotelId = 1, AparatZaKafu = true, Bazen = true, GodinaIzgradnje = 2000, Kategorija = "A", KategorijaId = 4, Klima = true, Latitude = 43.3455656, Lokacija = "Kneza Domagoja, Mostar 88000", Longitude = 17.8057751, Naziv = "Hotel Mostar", Ocjena = 4.5, Parking = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { HotelId = 2, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 1999, Kategorija = "B", KategorijaId = 4, Klima = true, Latitude = 43.3503297, Lokacija = "Kneza Višeslava, Mostar 88000", Longitude = 17.804026, Naziv = "Hotel Mepas", Ocjena = 3.2, Parking = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { HotelId = 3, AparatZaKafu = true, Bazen = true, GodinaIzgradnje = 2001, Kategorija = "C", KategorijaId = 4, Klima = false, Latitude = 43.339569731156907, Lokacija = "Konak 18, 88000 Mostar", Longitude = 17.822071547070191, Naziv = "Hotel Eden", Ocjena = 3.5, Parking = false, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { HotelId = 4, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 2002, Kategorija = "B", KategorijaId = 4, Klima = false, Latitude = 43.344693051503221, Lokacija = "Mostarskog bataljona bb, 88000 Mostar", Longitude = 17.812161670884688, Naziv = "Hotel Bristol", Ocjena = 4.34, Parking = true, PutanjaSlike = "", Tv = true, Wifi = true },
+                        new { HotelId = 5, AparatZaKafu = true, Bazen = false, GodinaIzgradnje = 2003, Kategorija = "B", KategorijaId = 4, Klima = false, Latitude = 43.33719935014247, Lokacija = "Onešćukova 32, 88000 Mostar", Longitude = 17.813126851831623, Naziv = "Hotel Emen", Ocjena = 3.29, Parking = true, PutanjaSlike = "", Tv = true, Wifi = true }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Jela", b =>
@@ -274,6 +323,12 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaJelaId");
 
                     b.ToTable("Jela");
+
+                    b.HasData(
+                        new { JeloId = 1, KategorijaJelaId = 1, Naziv = "Hamburger", PutanjaSlike = "", Sastojci = "..." },
+                        new { JeloId = 2, KategorijaJelaId = 1, Naziv = "Pohovani fileti", PutanjaSlike = "", Sastojci = "..." },
+                        new { JeloId = 3, KategorijaJelaId = 1, Naziv = "Ćevapi", PutanjaSlike = "", Sastojci = "..." }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Jelovnik", b =>
@@ -344,6 +399,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaId");
 
                     b.ToTable("Kafici");
+
+                    b.HasData(
+                        new { KaficId = 1, KategorijaId = 3, Latitude = 43.3586019, Lokacija = "Zalik 1, Mostar 88000", Longitude = 17.8145922, Naziv = "Spago pub", Ocjena = 5.0, PutanjaSlike = "" },
+                        new { KaficId = 2, KategorijaId = 3, Latitude = 43.345981010588361, Lokacija = "Kralja Tvrtka 22, Mostar 88000", Longitude = 17.804500037023651, Naziv = "Black Pearl", Ocjena = 4.5, PutanjaSlike = "" },
+                        new { KaficId = 3, KategorijaId = 3, Latitude = 43.343148574040683, Lokacija = "Braće Fejića 35, Mostar 88000", Longitude = 17.81306363263667, Naziv = "Cafe Bar IL MOORO", Ocjena = 4.362, PutanjaSlike = "" },
+                        new { KaficId = 4, KategorijaId = 3, Latitude = 43.337564943914067, Lokacija = "Rade Bitange, Mostar 88000", Longitude = 17.814320673596402, Naziv = "Café de Alma", Ocjena = 4.4, PutanjaSlike = "" },
+                        new { KaficId = 5, KategorijaId = 3, Latitude = 43.33554505503043, Lokacija = "Mostar 88000", Longitude = 17.817228391411266, Naziv = "Caffe Bar Fratello", Ocjena = 4.7, PutanjaSlike = "" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.KategorijaJela", b =>
@@ -359,6 +422,12 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("KategorijaJelaId");
 
                     b.ToTable("KategorijaJela");
+
+                    b.HasData(
+                        new { KategorijaJelaId = 1, Naziv = "Slatka jela" },
+                        new { KategorijaJelaId = 2, Naziv = "Slana jela" },
+                        new { KategorijaJelaId = 3, Naziv = "N/A" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Kategorije", b =>
@@ -385,6 +454,15 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("KategorijaId");
 
                     b.ToTable("Kategorije");
+
+                    b.HasData(
+                        new { KategorijaId = 1, Naziv = "Food", Opis = "", Sadrzaj = "Restorani", Ukupno = 0, VrstaKategorije = "Default" },
+                        new { KategorijaId = 2, Naziv = "Atractions", Opis = "", Sadrzaj = "Atrakcije", Ukupno = 0, VrstaKategorije = "Default" },
+                        new { KategorijaId = 3, Naziv = "Coffee shops", Opis = "", Sadrzaj = "Kafici", Ukupno = 0, VrstaKategorije = "Default" },
+                        new { KategorijaId = 4, Naziv = "Accommodation", Opis = "", Sadrzaj = "Apartmani, Hoteli", Ukupno = 0, VrstaKategorije = "Default" },
+                        new { KategorijaId = 5, Naziv = "Transport", Opis = "", Sadrzaj = "Prevoz", Ukupno = 0, VrstaKategorije = "Default" },
+                        new { KategorijaId = 6, Naziv = "Others", Opis = "Not yet defined", Sadrzaj = "", Ukupno = 0, VrstaKategorije = "Default" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Korisnici", b =>
@@ -439,6 +517,11 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("GradId");
 
                     b.ToTable("Korisnici");
+
+                    b.HasData(
+                        new { KorisnikId = 1, BrojPrijavljivanja = 0, Email = "desktop@edu.fit.ba", GradId = 1, Ime = "desktop", KorisnickoIme = "testing2", LozinkaHash = "25BXwlT+alXTy1YgGuVNeFJx7vE=", LozinkaSalt = "nfB0WOkoOSuHIlkbdGETHQ==", Prezime = "desktop", PutanjaSlike = "", Telefon = "036598745" },
+                        new { KorisnikId = 2, BrojPrijavljivanja = 0, Email = "mobile@edu.fit.ba", GradId = 2, Ime = "mobile", KorisnickoIme = "mobile", LozinkaHash = "QMQxyTHTDQPbB99C327FoldOy1g=", LozinkaSalt = "Nr1JgKhL6v1dQtHGc+ytkw==", Prezime = "mobile", PutanjaSlike = "", Telefon = "036593745" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.KorisniciUloge", b =>
@@ -464,6 +547,12 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("UlogaId");
 
                     b.ToTable("KorisniciUloge");
+
+                    b.HasData(
+                        new { KorisnickaUlogaId = 1, KorisnikId = 1, UlogaId = 1 },
+                        new { KorisnickaUlogaId = 2, KorisnikId = 1, UlogaId = 2 },
+                        new { KorisnickaUlogaId = 3, KorisnikId = 2, UlogaId = 2 }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.KorisnikKategorija", b =>
@@ -581,6 +670,11 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaId");
 
                     b.ToTable("Nightclubs");
+
+                    b.HasData(
+                        new { NightClubId = 1, KategorijaId = 6, Latitude = 43.3454941, Lokacija = "Midhad Hujdur Hujka sportska dvorana", Longitude = 17.8058701, Naziv = "Art", Ocjena = 3.0 },
+                        new { NightClubId = 2, KategorijaId = 6, Latitude = 43.3418, Lokacija = "Kralja Petra Krešimira IV, Mostar 88000", Longitude = 17.8017, Naziv = "Drugi način", Ocjena = 3.0 }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Objava", b =>
@@ -653,6 +747,11 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("PrimalacId");
 
                     b.ToTable("Poruke");
+
+                    b.HasData(
+                        new { PorukaId = 1, Posiljalac = "desktop desktop", PosiljalacId = 1, Primalac = "desktop desktop", PrimalacId = 1, Sadrzaj = "Welcome to explore Mostar!" },
+                        new { PorukaId = 2, Posiljalac = "desktop desktop", PosiljalacId = 1, Primalac = "mobile mobile", PrimalacId = 2, Sadrzaj = "Hello and welcome to our app" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Prevoz", b =>
@@ -686,6 +785,13 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("KategorijaId");
 
                     b.ToTable("Prevoz");
+
+                    b.HasData(
+                        new { PrevozId = 1, KategorijaId = 5, Naziv = "Arny", PutanjaSlike = "", Telefon = "1507", Vrsta = "Taxi" },
+                        new { PrevozId = 2, KategorijaId = 5, Naziv = "Herc", PutanjaSlike = "", Telefon = "1599", Vrsta = "Taxi" },
+                        new { PrevozId = 3, KategorijaId = 5, Naziv = "Moj Taxi", PutanjaSlike = "", Telefon = "1503", Vrsta = "Taxi" },
+                        new { PrevozId = 4, KategorijaId = 5, Naziv = "Green Taxi", PutanjaSlike = "", Telefon = "1500", Vrsta = "Taxi" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Recenzije", b =>
@@ -760,6 +866,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasIndex("VrstaId");
 
                     b.ToTable("Restorani");
+
+                    b.HasData(
+                        new { RestoranId = 1, GodinaIzgradnje = 2000, KategorijaId = 1, Latitude = 43.3553315, Lokacija = "Muje Pašica bb, Mostar 88000", Longitude = 17.8133241, Naziv = "Megamarkt", Ocjena = 5.0, PutanjaSlike = "", VrstaId = 1 },
+                        new { RestoranId = 2, GodinaIzgradnje = 1999, KategorijaId = 1, Latitude = 43.3501688, Lokacija = "Kralja Tomislava 29, Mostar 88000", Longitude = 17.8007839, Naziv = "Megi", Ocjena = 4.5, PutanjaSlike = "", VrstaId = 1 },
+                        new { RestoranId = 3, GodinaIzgradnje = 1998, KategorijaId = 1, Latitude = 43.350002, Lokacija = "Vukovarska, Mostar 88000", Longitude = 17.7975807, Naziv = "TABOO Restaurant", Ocjena = 4.362, PutanjaSlike = "", VrstaId = 2 },
+                        new { RestoranId = 4, GodinaIzgradnje = 2001, KategorijaId = 1, Latitude = 43.338915, Lokacija = "Mala Tepa bb, Mostar 88000", Longitude = 17.8151488, Naziv = "Urban Grill", Ocjena = 3.4, PutanjaSlike = "", VrstaId = 1 },
+                        new { RestoranId = 5, GodinaIzgradnje = 2002, KategorijaId = 1, Latitude = 43.3402981, Lokacija = "Kraljice Katarine 11a, Mostar 88000", Longitude = 17.8027823, Naziv = "Restoran Radobolja", Ocjena = 4.7, PutanjaSlike = "", VrstaId = 1 }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.SearchTrack", b =>
@@ -801,6 +915,11 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("UlogaId");
 
                     b.ToTable("Uloge");
+
+                    b.HasData(
+                        new { UlogaId = 1, Naziv = "Administrator", Opis = "" },
+                        new { UlogaId = 2, Naziv = "Korisnik", Opis = "" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.UserActivity", b =>
@@ -873,6 +992,14 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("VrstaAtrakcijeId");
 
                     b.ToTable("VrstaAtrakcija");
+
+                    b.HasData(
+                        new { VrstaAtrakcijeId = 1, Naziv = "Prirodne" },
+                        new { VrstaAtrakcijeId = 2, Naziv = "Historijske" },
+                        new { VrstaAtrakcijeId = 3, Naziv = "Religijske" },
+                        new { VrstaAtrakcijeId = 4, Naziv = "Adrenalinske" },
+                        new { VrstaAtrakcijeId = 5, Naziv = "N/A" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.VrstaRestorana", b =>
@@ -888,6 +1015,12 @@ namespace exploreMostar.WebAPI.Migrations
                     b.HasKey("VrstaId");
 
                     b.ToTable("VrstaRestorana");
+
+                    b.HasData(
+                        new { VrstaId = 1, Naziv = "Restoran" },
+                        new { VrstaId = 2, Naziv = "Fast Food" },
+                        new { VrstaId = 3, Naziv = "N/A" }
+                    );
                 });
 
             modelBuilder.Entity("exploreMostar.WebAPI.Database.Apartmani", b =>

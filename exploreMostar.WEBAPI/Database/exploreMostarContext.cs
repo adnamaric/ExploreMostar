@@ -43,14 +43,14 @@ namespace exploreMostar.WebAPI.Database
         public virtual DbSet<VrstaAtrakcija> VrstaAtrakcija { get; set; }
         public virtual DbSet<VrstaRestorana> VrstaRestorana { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-HB2VMU2\\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=True;");
-            }
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Server=DESKTOP-HB2VMU2\\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=True;");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -617,6 +617,8 @@ namespace exploreMostar.WebAPI.Database
 
                 entity.Property(e => e.Naziv).HasMaxLength(50);
             });
+            OnModelCreatingPartial(modelBuilder);
         }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

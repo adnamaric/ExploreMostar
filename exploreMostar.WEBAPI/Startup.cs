@@ -17,6 +17,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -64,7 +65,8 @@ namespace exploreMostar.WEBAPI
                 });
             });
             // statički konekšn string
-           // var connection =  @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
+            // var connection =  @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
+          
 
             var connection = Configuration.GetConnectionString("Docker");
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
