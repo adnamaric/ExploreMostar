@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class BaseController<T, TSearch> : ControllerBase
     {
         private readonly IService<T, TSearch> _service;

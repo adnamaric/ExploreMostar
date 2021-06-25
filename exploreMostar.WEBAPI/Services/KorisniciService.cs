@@ -26,7 +26,7 @@ namespace exploreMostar.WebAPI.Services
         }
         public Model.Korisnici Authenticiraj(string username, string pass)
         {
-            var user = _context.Korisnici.Include("KorisniciUloge.Uloga").FirstOrDefault(x => x.KorisnickoIme == username);
+            var user = _context.Korisnici.Include("KorisniciUloge.Uloga").Where(x => x.KorisnickoIme == username).FirstOrDefault();
 
             if (user != null)
             {

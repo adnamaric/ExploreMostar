@@ -66,10 +66,8 @@ namespace exploreMostar.WEBAPI
             });
             // statički konekšn string
             // var connection =  @"Server=DESKTOP-HB2VMU2\ADNASQLSERVER;Database=exploreMostar;Trusted_Connection=true;ConnectRetryCount=0";
-          
+            services.AddAuthentication("BasicAuthentication").AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            var connection = Configuration.GetConnectionString("Docker");
-            services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
            
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IDodatneOpcijeService, DodatneOpcijeService>();
@@ -117,8 +115,9 @@ namespace exploreMostar.WEBAPI
 
             services.AddAutoMapper();
 
-            //services.AddAuthentication("BasicAuthentication")
-            //  .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+            var connection = Configuration.GetConnectionString("Docker");
+            services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
 
         }
 
@@ -133,8 +132,9 @@ namespace exploreMostar.WEBAPI
             {
                 app.UseHsts();
             }
+            app.UseAuthentication();
 
-          //  app.UseHttpsRedirection();
+            //  app.UseHttpsRedirection();
             app.UseMvc();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -145,7 +145,7 @@ namespace exploreMostar.WEBAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            app.UseAuthentication();
+          
 
         }
     }
