@@ -38,7 +38,7 @@ namespace exploreMostar.WinUI
                     url += await search.ToQueryString();
                 }
 
-                return await url.WithBasicAuth( Username, Password ).GetJsonAsync<T>();
+                return await url.GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -56,7 +56,7 @@ namespace exploreMostar.WinUI
            
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
           
-             return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+             return await url.GetJsonAsync<T>();
             
         }
         public async Task<T> Insert<T>(object request)

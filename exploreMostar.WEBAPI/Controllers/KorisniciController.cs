@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class KorisniciController : ControllerBase
@@ -22,6 +22,7 @@ namespace exploreMostar.WebAPI.Controllers
              _service = service;
         }
         [HttpGet]
+       
         public IList<Model.Korisnici> Get([FromQuery] KorisniciSearchRequest request)
         {
             return _service.Get(request);
