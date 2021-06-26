@@ -12,7 +12,7 @@ namespace exploreMostar.WebAPI.Controllers
 {
     //[Route("api/[controller]")]
     //[ApiController]
-
+   
     public class ApartmaniController : BaseCRUDController<Model.Apartmani, ByNameSearchRequest, ApartmaniUpsertRequest, ApartmaniUpsertRequest>
     {
 

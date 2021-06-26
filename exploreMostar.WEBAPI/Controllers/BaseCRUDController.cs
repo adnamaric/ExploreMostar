@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace exploreMostar.WebAPI.Controllers
 {
 
-    [Authorize]
+    
     public class BaseCRUDController<T, TSearch,TInsert,TUpdate> : BaseController<T, TSearch>
     {
         private readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service = null;
@@ -31,6 +31,7 @@ namespace exploreMostar.WebAPI.Controllers
         {
             return _service.Update(id, request);
         }
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public bool Delete(int id)
         {

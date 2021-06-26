@@ -11,7 +11,8 @@ namespace exploreMostar.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+   
+
 
     public class BaseController<T, TSearch> : ControllerBase
     {
@@ -22,6 +23,7 @@ namespace exploreMostar.WebAPI.Controllers
             _service = service;
         }
         [HttpGet]
+        [AllowAnonymous]
         public List<T> Get([FromQuery] TSearch search)
         {
             return _service.Get(search);

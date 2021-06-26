@@ -1,6 +1,7 @@
 ﻿using exploreMostar.Model;
 using exploreMostar.Model.Requests;
 using exploreMostar.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

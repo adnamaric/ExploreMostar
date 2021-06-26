@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace exploreMostar.WebAPI.Controllers
 {
-
+  
     public class AtrakcijeController : BaseCRUDController<Model.Atrakcije, ByNameSearchRequest, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest>
     {
         public AtrakcijeController(ICRUDService<Model.Atrakcije, ByNameSearchRequest, AtrakcijeUpsertRequest, AtrakcijeUpsertRequest> service) : base(service)

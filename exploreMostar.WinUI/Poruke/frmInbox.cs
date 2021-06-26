@@ -392,7 +392,7 @@ namespace exploreMostar.WinUI.Poruke
             {
                 try
                 {
-                    await _poruke.Insert<Model.Apartmani>(request);
+                    await _poruke.Insert<Model.Poruke>(request);
                     this.panel1.Controls.Clear();
                     GetPoruke();
 
@@ -403,6 +403,11 @@ namespace exploreMostar.WinUI.Poruke
 
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
