@@ -118,10 +118,74 @@ namespace exploreMostar.WinUI.Reports
                     }
                     
                 }
-                else
+               
+                }
+            else
+            {
+                var list = await _restorani.Get<List<Model.Restorani>>(null);
+                foreach (var item in list)
                 {
+                    string vrstaa = "";
+
+                    var tempna = list.Where(y => y.Naziv == item.Naziv).FirstOrDefault();
+
+                    if (item.VrstaId == 1)
+                        vrstaa = "Restoran";
+                    else if (item.VrstaId == 2)
+                        vrstaa = "Fast Food";
+                    else
+                        vrstaa = "N/A";
+
+                    temp.Add(new ReportClass() { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = vrstaa });
 
                 }
+                var list1 = await _atrakacije.Get<List<Model.Atrakcije>>(null);
+                foreach (var item in list1)
+                {
+                    string vrstaa = "";
+                    var tempna = list1.Where(y => y.Naziv == item.Naziv).FirstOrDefault();
+
+                    if (tempna.VrstaAtrakcijeId == 1)
+                        vrstaa = "Prirodna atrakcija";
+                    else if (tempna.VrstaAtrakcijeId == 2)
+                        vrstaa = "Historijska atrakcija";
+                    else if (tempna.VrstaAtrakcijeId == 3)
+                        vrstaa = "Religijska atrakcija";
+                    else
+                        vrstaa = "N/A";
+                    temp.Add(new ReportClass() { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = vrstaa });
+
+
+                }
+                var list2 = await _kafici.Get<List<Model.Kafici>>(null);
+                foreach (var item in list2)
+                {
+                    temp.Add(new ReportClass() { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+                var list3 = await _apartmani.Get<List<Model.Apartmani>>(null);
+                var list4 = await _hoteli.Get<List<Model.Hoteli>>(null);
+
+                foreach (var item in list3)
+                {
+                    temp.Add(new ReportClass() { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+                foreach (var item in list4)
+                {
+                    temp.Add(new ReportClass() { Naziv = item.Naziv, Ocjena = item.Ocjena });
+
+                }
+                var list5 = await _prevoz.Get<List<Model.Prevoz>>(null);
+
+
+                foreach (var item in list5)
+                {
+
+                    temp.Add(new ReportClass() { Naziv = item.Naziv });//Ocjena = item.Ocjena });
+
+                }
+                temp = temp.OrderByDescending(y => y.Ocjena).ToList();
                 if (temp != null)
                 {
                     if (comboBox1.SelectedItem != null)

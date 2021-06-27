@@ -309,12 +309,6 @@
     <Compile Include="Objava\frmObjavaUpdateDelete.Designer.cs">
       <DependentUpon>frmObjavaUpdateDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Poruke\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Poruke\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Poruke\frmInbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -630,9 +624,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Objava\frmObjavaUpdateDelete.resx">
       <DependentUpon>frmObjavaUpdateDelete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Poruke\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke\frmInbox.resx">
       <DependentUpon>frmInbox.cs</DependentUpon>

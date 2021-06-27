@@ -46,6 +46,7 @@ namespace exploreMostar.Mobile.ViewModels
                 item.Rbr = ++temp;
                 if (item.GradId != null)
                 {
+                    int brojac = 0;
                     foreach (var item1 in listaGradova)
                     {
                         if (item1.GradId == item.GradId)
@@ -58,7 +59,12 @@ namespace exploreMostar.Mobile.ViewModels
                         {
                             if (item1.DrzavaId == item2.DrzavaId)
                                 item.Drzava = item2.Naziv;
+                          
+                           
                     }
+                        if (brojac == listKorisnika.Count)
+                            break;
+                        brojac++;
                     }
                     
                 }
