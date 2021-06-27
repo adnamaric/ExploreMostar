@@ -59,26 +59,51 @@
                         <Button Clicked="btnRecenzije_Clicked"   x:Name="btnRecenzije"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Reviews"/>
                     </StackLayout>
                 </StackLayout>
-
+                
                 <StackLayout x:Name="Stack2" HeightRequest="500">
                     <StackLayout x:Name="udaljenostStack" IsVisible="true">
+                     
                         <Label >
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span   TextColor="White" Text="The distance between you and selected object is: " />
                                     <Span TextColor="White" FontAttributes="Bold" x:Name="spanUdaljenost"/>
-                                    <Span TextColor="White" Text="km"></Span>
+                                    <Span TextColor="White" Text=" km"></Span>
                                 </FormattedString>
-                                </Label.FormattedText>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span   TextColor="White" Text="Start address: " />
+                                    <Span TextColor="White" FontAttributes="Bold" x:Name="start"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span   TextColor="White" Text="End address: " />
+                                    <Span TextColor="White" FontAttributes="Bold" x:Name="end"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span   TextColor="White" Text="Duration: " />
+                                    <Span TextColor="White" FontAttributes="Bold" x:Name="trajanjeP"/>
+                                </FormattedString>
+                            </Label.FormattedText>
                         </Label>
                     </StackLayout>
                     <StackLayout HeightRequest="500">
-                    <maps:Map  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
-                            
+                        <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
+
                         </maps:Map>
                     </StackLayout>
                     <Label Padding="0,20,0,0"></Label>
-                    <StackLayout x:Name="transport"  IsVisible="true">
+                    <StackLayout x:Name="transport"  IsVisible="false">
                         <Label  IsEnabled="{Binding transport}" IsVisible="{Binding transport}" TextColor="White" FontAttributes="Bold"  Text="View transport:"
                    Grid.Row="2"
 				   VerticalOptions="End"/>
@@ -306,11 +331,7 @@
             ItemsSource="{Binding recenzijes}"
             BackgroundColor="Transparent"
             CachingStrategy="RecycleElement" SeparatorVisibility="Default" SelectionMode="Single" SeparatorColor="DarkRed">
-                            <!--Built in Cells-->
-
-
-                            <!--Custom View Cells-->
-
+                     
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell >

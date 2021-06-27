@@ -281,7 +281,7 @@
                 </RelativeLayout>
             </StackLayout>
                 <StackLayout  x:Name="MyStackLayout5" SizeChanged="MyStackLayout5_SizeChanged" IsVisible="{Binding NocniKlubovi}">
-                    <Label  IsVisible="{Binding NocniKlubovi}" TextColor="White" FontAttributes="Bold"  Text="Choose hotel:"
+                    <Label  IsVisible="{Binding NocniKlubovi}" TextColor="White" FontAttributes="Bold"  Text="Choose night club:"
                    Grid.Row="2"
 				   VerticalOptions="End"/>
                     <RelativeLayout IsVisible="{Binding NocniKlubovi}" Grid.Row="1" 

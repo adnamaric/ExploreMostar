@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using System.Threading;
 using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
@@ -44,6 +42,9 @@ namespace exploreMostar.Mobile.Views
         private readonly APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
         public object trenutniObj = null;
+        public List<string> distanca = new List<string>();
+        public List<string> trajanje = new List<string>();
+
         public MapPage(object model1)
         {
             InitializeComponent();
@@ -223,44 +224,6 @@ namespace exploreMostar.Mobile.Views
         async Task GetCurrentLocation()
         {
 
-
-                //Position position = new Position((double)selected.Longitude, (double)selected.Longitude);
-         //   Location restoran = new Location((double)selected.Longitude, (double)selected.Longitude);
-
-            try
-            {
-                
-                //var lat = 47.673988;
-                //var lon = -122.121513;
-
-                //var placemarks = await Geocoding.GetPlacemarksAsync(lat, lon);
-
-                //var placemark = placemarks?.FirstOrDefault();
-                //if (placemark != null)
-                //{
-                //    var geocodeAddress =
-                //        $"AdminArea:       {placemark.AdminArea}\n" +
-                //        $"CountryCode:     {placemark.CountryCode}\n" +
-                //        $"CountryName:     {placemark.CountryName}\n" +
-                //        $"FeatureName:     {placemark.FeatureName}\n" +
-                //        $"Locality:        {placemark.Locality}\n" +
-                //        $"PostalCode:      {placemark.PostalCode}\n" +
-                //        $"SubAdminArea:    {placemark.SubAdminArea}\n" +
-                //        $"SubLocality:     {placemark.SubLocality}\n" +
-                //        $"SubThoroughfare: {placemark.SubThoroughfare}\n" +
-                //        $"Thoroughfare:    {placemark.Thoroughfare}\n";
-
-                //    Console.WriteLine(geocodeAddress);
-                //}
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                // Feature not supported on device
-            }
-            catch (Exception ex)
-            {
-                // Handle exception that may have occurred in geocoding
-            }
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             Location location1=null;
             if (status.ToString() == "Denied")
@@ -272,7 +235,7 @@ namespace exploreMostar.Mobile.Views
             {
                 btn2.BackgroundColor = Color.White;
                 btn2.TextColor = Color.DarkRed;
-                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 tcs = new TaskCompletionSource<PermissionStatus>();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
@@ -283,7 +246,7 @@ namespace exploreMostar.Mobile.Views
                   //  await Application.Current.MainPage.DisplayAlert("Your location", $"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}", "OK");
                     //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }
-               
+                
 
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -302,6 +265,10 @@ namespace exploreMostar.Mobile.Views
             {
                 // Unable to get location
             }
+            List<string> rute = new List<string>();
+            //List<string> distanca = new List<string>();
+            //List<string> duration = new List<string>();
+
             if (isRestoran == true)
             {
                 
@@ -329,9 +296,6 @@ namespace exploreMostar.Mobile.Views
                 var lon1 = selected.Longitude;
                 var lat2 = location1.Latitude;
                 var lon2 = location1.Longitude;
-                ////fit-lokacija
-                //var lat3 = 43.355280;
-                //var lng3 = 17.809992;
                 string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
                 var response = await client.GetAsync(trazeniUrl);
                 string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
@@ -347,8 +311,7 @@ namespace exploreMostar.Mobile.Views
                     StrokeWidth = 12,
                 };
                 var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+              
 
                 for (int i = 0; i < brojRouta; i++)
                 {
@@ -356,10 +319,34 @@ namespace exploreMostar.Mobile.Views
 
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
-
-
+                    rute.Add(ObjContactList.Routes[0].Legs[0].Steps[i].HtmlInstructions);
+                    distanca.Add(ObjContactList.Routes[0].Legs[0].Steps[i].HtmlInstructions);
+                    trajanje.Add(ObjContactList.Routes[0].Legs[0].Steps[i].Duration.Text);
                 }
-                Map.MapElements.Add(polyline);
+         
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text= ObjContactList.Routes[0].Legs[0].EndAddress;
+                foreach (var item in distanca)
+                {
+                    
+                }
+                
+                //if (Device.RuntimePlatform == Device.iOS)
+                //{
+                //    // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+                //    await Launcher.OpenAsync("http://maps.apple.com/?q=394+Pacific+Ave+San+Francisco+CA");
+                //}
+                //else if (Device.RuntimePlatform == Device.Android)
+                //{
+                //    // open the maps app directly
+                //    await Launcher.OpenAsync("geo:0,0?q=394+Pacific+Ave+San+Francisco+CA");
+                //}
+                //else if (Device.RuntimePlatform == Device.UWP)
+                //{
+                //    await Launcher.OpenAsync("http://maps.google.com/?daddr=San+Francisco,+CA&saddr=Mountain+View");
+                //}
+                    Map.MapElements.Add(polyline);
             }
             if (isApartman == true)
             {
@@ -429,8 +416,10 @@ namespace exploreMostar.Mobile.Views
 
                 }
                 Map.MapElements.Add(polyline);
-              
 
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text = ObjContactList.Routes[0].Legs[0].EndAddress;
 
 
 
@@ -490,6 +479,9 @@ namespace exploreMostar.Mobile.Views
 
 
                 }
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text = ObjContactList.Routes[0].Legs[0].EndAddress;
                 Map.MapElements.Add(polyline);
             }
             if (isHotel == true)
@@ -548,6 +540,9 @@ namespace exploreMostar.Mobile.Views
 
 
                 }
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text = ObjContactList.Routes[0].Legs[0].EndAddress;
                 Map.MapElements.Add(polyline);
             }
             if (isKafic == true)
@@ -604,6 +599,9 @@ namespace exploreMostar.Mobile.Views
 
 
                 }
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text = ObjContactList.Routes[0].Legs[0].EndAddress;
                 Map.MapElements.Add(polyline);
             }
             if (isNightClub == true)
@@ -649,16 +647,19 @@ namespace exploreMostar.Mobile.Views
                 var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
                 //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
                 //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
-
+                
                 for (int i = 0; i < brojRouta; i++)
                 {
 
 
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
-
+                    
 
                 }
+                trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
+                start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
+                end.Text = ObjContactList.Routes[0].Legs[0].EndAddress;
                 Map.MapElements.Add(polyline);
             }
             if (udaljenost >= 3)

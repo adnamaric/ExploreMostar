@@ -49,6 +49,7 @@ namespace exploreMostar.Mobile.ViewModels
         public ObservableCollection<Model.Hoteli> hotelis { get; set; } = new ObservableCollection<Model.Hoteli>();
         public ObservableCollection<Model.Nightclubs> nightclubs { get; set; } = new ObservableCollection<Model.Nightclubs>();
         public ObservableCollection<Model.Recenzije> recenzijes { get; set; } = new ObservableCollection<Model.Recenzije>();
+      
 
         public ICommand InitCommand { get; set; }
         public ICommand GetSelectedOne { get; set; }
