@@ -1,11 +1,15 @@
-﻿using exploreMostar.Mobile.ViewModels;
+﻿using exploreMostar.Mobile.Models;
+using exploreMostar.Mobile.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace exploreMostar.Mobile.Views
@@ -15,6 +19,12 @@ namespace exploreMostar.Mobile.Views
     {
         private APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
+        private readonly APIService _atrakcije = new APIService("Atrakcije");
+        private readonly APIService _apartmani = new APIService("Apartmani");
+        private readonly APIService _hoteli = new APIService("Hoteli");
+        private readonly APIService _restorani = new APIService("Restorani");
+        private readonly APIService _kafici = new APIService("Kafici");
+        private readonly APIService _nocniklubovi = new APIService("Nightclubs");
         public PreferenceListPage()
         {
             InitializeComponent();
@@ -33,7 +43,7 @@ namespace exploreMostar.Mobile.Views
             newsBox.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.Newspaper-80.png");
             APIService.PreferenceListPage = true;
             APIService.UPContentPage = false;
-
+            
         }
         public void Set()
         {
@@ -299,7 +309,9 @@ namespace exploreMostar.Mobile.Views
 
             btn3.BackgroundColor = Color.DarkRed;
             btn3.TextColor = Color.White;
-       
+            StackMapa.IsVisible = false;
+            btn32.BackgroundColor = Color.DarkRed;
+            btn32.TextColor = Color.White;
 
         }
 
@@ -325,6 +337,10 @@ namespace exploreMostar.Mobile.Views
 
             btn2.BackgroundColor = Color.DarkRed;
             btn2.TextColor = Color.White;
+            btn32.BackgroundColor = Color.DarkRed;
+            btn32.TextColor = Color.White;
+            StackMapa.IsVisible = false;
+          
         }
 
       
@@ -393,6 +409,245 @@ namespace exploreMostar.Mobile.Views
         {
             
             model.CheckSearchRequest();
+        }
+        CancellationTokenSource cts;
+        TaskCompletionSource<PermissionStatus> tcs;
+        private async void btn32_Clicked(object sender, EventArgs e)
+        {
+            Mapa1.IsShowingUser = true;
+            btn32.TextColor = Color.DarkRed;
+            btn32.BackgroundColor = Color.White;
+            btn32.FontAttributes = FontAttributes.Bold;
+            //   Stack2.IsVisible = false;
+
+            btn2.BackgroundColor = Color.DarkRed;
+            btn2.TextColor = Color.White;
+            btn3.BackgroundColor = Color.DarkRed;
+            btn3.TextColor = Color.White;
+            var listApartmana = await _apartmani.Get<IList<Model.Apartmani>>(null);
+            var listaAtrakcija = await _atrakcije.Get<IList<Model.Atrakcije>>(null);
+            var listaKafica = await _kafici.Get<IList<Model.Kafici>>(null);
+            var listaHotela = await _hoteli.Get<IList<Model.Hoteli>>(null);
+            var listaRestorana = await _restorani.Get<IList<Model.Restorani>>(null);
+            var listaNk = await _nocniklubovi.Get<IList<Model.Nightclubs>>(null);
+            StackMapa.IsVisible = true;
+            var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+            cts = new CancellationTokenSource();
+            tcs = new TaskCompletionSource<PermissionStatus>();
+            var location = await Geolocation.GetLocationAsync(request, cts.Token);
+            var client = new System.Net.Http.HttpClient();
+
+            if (APIService.Atraction)
+            {
+                foreach(var item in listaAtrakcija)
+                {
+                    Pin pin = new Pin
+                    {
+                        Label = item.Naziv,
+                        Address = item.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)item.Latitude, (double)item.Longitude)
+                    };
+                    Mapa1.Pins.Add(pin);
+                    var lat1 = item.Latitude;
+                    var lon1 = item.Longitude;
+                    var lat2 = location.Latitude;
+                    var lon2 = location.Longitude;
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    var response = await client.GetAsync(trazeniUrl);
+                    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                    GoogleDirection ObjContactList = new GoogleDirection();
+                    if (response != null)
+                    {
+                        ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                    }
+                    Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                    {
+                        StrokeColor = Color.Blue,
+                        StrokeWidth = 12,
+                    };
+                    var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+
+
+                    for (int i = 0; i < brojRouta; i++)
+                    {
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+                    }
+                    Mapa1.MapElements.Add(polyline);
+                }
+            }
+            if (APIService.Apartments)
+            {
+                foreach (var item in listApartmana)
+                {
+                    Pin pin = new Pin
+                    {
+                        Label = item.Naziv,
+                        Address = item.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)item.Latitude, (double)item.Longitude)
+                    };
+                    Mapa1.Pins.Add(pin);
+                    var lat1 = item.Latitude;
+                    var lon1 = item.Longitude;
+                    var lat2 = location.Latitude;
+                    var lon2 = location.Longitude;
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    var response = await client.GetAsync(trazeniUrl);
+                    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                    GoogleDirection ObjContactList = new GoogleDirection();
+                    if (response != null)
+                    {
+                        ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                    }
+                    Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                    {
+                        StrokeColor = Color.Blue,
+                        StrokeWidth = 12,
+                    };
+                    var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+
+
+                    for (int i = 0; i < brojRouta; i++)
+                    {
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+                    }
+                    Mapa1.MapElements.Add(polyline);
+                }
+            }
+            if (APIService.Food)
+            {
+                foreach (var item in listaRestorana)
+                {
+                    Pin pin = new Pin
+                    {
+                        Label = item.Naziv,
+                        Address = item.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)item.Latitude, (double)item.Longitude)
+                    };
+                    Mapa1.Pins.Add(pin);
+                    var lat1 = item.Latitude;
+                    var lon1 = item.Longitude;
+                    var lat2 = location.Latitude;
+                    var lon2 = location.Longitude;
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    var response = await client.GetAsync(trazeniUrl);
+                    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                    GoogleDirection ObjContactList = new GoogleDirection();
+                    if (response != null)
+                    {
+                        ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                    }
+                    Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                    {
+                        StrokeColor = Color.Blue,
+                        StrokeWidth = 12,
+                    };
+                    var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+
+
+                    for (int i = 0; i < brojRouta; i++)
+                    {
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+                    }
+                    Mapa1.MapElements.Add(polyline);
+                }
+            }
+            if (APIService.Nightclubs)
+            {
+                foreach (var item in listaNk)
+                {
+                    Pin pin = new Pin
+                    {
+                        Label = item.Naziv,
+                        Address = item.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)item.Latitude, (double)item.Longitude)
+                    };
+                    Mapa1.Pins.Add(pin);
+                    var lat1 = item.Latitude;
+                    var lon1 = item.Longitude;
+                    var lat2 = location.Latitude;
+                    var lon2 = location.Longitude;
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    var response = await client.GetAsync(trazeniUrl);
+                    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                    GoogleDirection ObjContactList = new GoogleDirection();
+                    if (response != null)
+                    {
+                        ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                    }
+                    Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                    {
+                        StrokeColor = Color.Blue,
+                        StrokeWidth = 12,
+                    };
+                    var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+
+
+                    for (int i = 0; i < brojRouta; i++)
+                    {
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+                    }
+                    Mapa1.MapElements.Add(polyline);
+                }
+            }
+            if (APIService.Coffeeshops)
+            {
+                foreach (var item in listaKafica)
+                {
+                    Pin pin = new Pin
+                    {
+                        Label = item.Naziv,
+                        Address = item.Lokacija,
+                        Type = PinType.Place,
+                        Position = new Position((double)item.Latitude, (double)item.Longitude)
+                    };
+                    Mapa1.Pins.Add(pin);
+                    var lat1 = item.Latitude;
+                    var lon1 = item.Longitude;
+                    var lat2 = location.Latitude;
+                    var lon2 = location.Longitude;
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    var response = await client.GetAsync(trazeniUrl);
+                    string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
+                    GoogleDirection ObjContactList = new GoogleDirection();
+                    if (response != null)
+                    {
+                        ObjContactList = JsonConvert.DeserializeObject<GoogleDirection>(contactsJson);
+                    }
+                    Xamarin.Forms.Maps.Polyline polyline = new Xamarin.Forms.Maps.Polyline
+                    {
+                        StrokeColor = Color.Blue,
+                        StrokeWidth = 12,
+                    };
+                    var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
+
+
+                    for (int i = 0; i < brojRouta; i++)
+                    {
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
+                        polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
+
+                    }
+                    Mapa1.MapElements.Add(polyline);
+                }
+               
+            }
         }
     }
 }

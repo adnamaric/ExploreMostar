@@ -39,10 +39,19 @@ namespace exploreMostar.Mobile.Views
         public UserPreferenceModel m = new UserPreferenceModel();
     private void Button_Clicked(object sender, EventArgs e)
         {
-            btn1.BackgroundColor = Color.DarkRed;
-            btn1.TextColor = Color.White;
-            m._food = true;
-            m.Hrana = true;
+            if (m._food)
+            {
+                btn1.BackgroundColor = Color.White;
+                btn1.TextColor = Color.Black;
+                m._food = false;
+                m.Hrana = false;
+            }
+            else {
+                btn1.BackgroundColor = Color.DarkRed;
+                btn1.TextColor = Color.White;
+                m._food = true;
+                m.Hrana = true;
+            }
         }
         public async void SetExisting()
         {
@@ -137,28 +146,58 @@ namespace exploreMostar.Mobile.Views
         }
         private void Button2_Cliked(object sender, EventArgs e)
         {
-            btn2.BackgroundColor = Color.DarkRed;
-            btn2.TextColor = Color.White;
-            m._atraction = true;
-            m.Atrakcija = true;
+            if (m._atraction)
+            {
+                btn2.BackgroundColor = Color.White;
+                btn2.TextColor = Color.Black;
+                m._atraction = false;
+                m.Atrakcija = false;
+            }
+            else
+            {
+                btn2.BackgroundColor = Color.DarkRed;
+                btn2.TextColor = Color.White;
+                m._atraction = true;
+                m.Atrakcija = true;
+            }
+            
         }
 
         private void Button3_Cliked(object sender, EventArgs e)
         {
-            btn3.BackgroundColor = Color.DarkRed;
-            btn3.TextColor = Color.White;
-            m._hotel = true;
-            m.Hotel = true;
+            if (m.Hotel)
+            {
+                btn3.BackgroundColor = Color.White;
+                btn3.TextColor = Color.Black;
+                m._hotel = false;
+                m.Hotel = false;
+            }
+            else
+            {
+                btn3.BackgroundColor = Color.DarkRed;
+                btn3.TextColor = Color.White;
+                m._hotel = true;
+                m.Hotel = true;
+            }
            
         }
 
         private void Button4_Cliked(object sender, EventArgs e)
         {
-            btn4.BackgroundColor = Color.DarkRed;
-            btn4.TextColor = Color.White;
-            m.Apartman = true;
-            m._apartment = true;
-           
+            if (m.Apartman)
+            {
+                btn4.BackgroundColor = Color.White;
+                btn4.TextColor = Color.Black;
+                m.Apartman = false;
+                m._apartment = false;
+            }
+            else
+            {
+                btn4.BackgroundColor = Color.DarkRed;
+                btn4.TextColor = Color.White;
+                m.Apartman = true;
+                m._apartment = true;
+            }
         }
 
         private void Button5_Cliked(object sender, EventArgs e)
@@ -172,19 +211,40 @@ namespace exploreMostar.Mobile.Views
 
         private void Button6_Cliked(object sender, EventArgs e)
         {
-            btn6.BackgroundColor = Color.DarkRed;
-            btn6.TextColor = Color.White;
-            m._coffeeshops = true;
-            m.Kafic = true;
+            if (m._coffeeshops)
+            {
+                btn6.BackgroundColor = Color.White;
+                btn6.TextColor = Color.Black;
+                m._coffeeshops = false;
+                m.Kafic = false;
+            }
+            else
+            {
+                btn6.BackgroundColor = Color.DarkRed;
+                btn6.TextColor = Color.White;
+                m._coffeeshops = true;
+                m.Kafic = true;
+            }
+          
          
         }
 
         private void Button7_Cliked(object sender, EventArgs e)
         {
-            btn7.BackgroundColor = Color.DarkRed;
-            btn7.TextColor = Color.White;
-            m._nightclubs = true;
-            m.NK = true;
+            if (m._nightclubs)
+            {
+                btn7.BackgroundColor = Color.White;
+                btn7.TextColor = Color.Black;
+                m._nightclubs = false;
+                m.NK = false;
+            }
+            else
+            {
+                btn7.BackgroundColor = Color.DarkRed;
+                btn7.TextColor = Color.White;
+                m._nightclubs = true;
+                m.NK = true;
+            }
         }
 
         private void Button8_Cliked(object sender, EventArgs e)

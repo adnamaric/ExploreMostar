@@ -98,8 +98,8 @@
                         </Label>
                     </StackLayout>
                     <StackLayout HeightRequest="500">
-                        <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
-
+                        <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Hybrid" x:Name="Map"  >
+                          
                         </maps:Map>
                     </StackLayout>
                     <Label Padding="0,20,0,0"></Label>

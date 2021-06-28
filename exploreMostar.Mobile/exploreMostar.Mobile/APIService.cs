@@ -2,6 +2,7 @@
 using Flurl.Http;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -35,8 +36,9 @@ namespace exploreMostar.Mobile
         public static double VelicinaInboxa { get; set; }
         public static bool MapPage { get; set; }
         public static object modelTemp { get; set; }
+        public static string SearchCon { get; set; }
         public static bool postojiFavorit { get; set; }
-
+        public static ObservableCollection<Model.ReportClass> searchListaObjekata { get; set; } = new ObservableCollection<ReportClass>();
         public static int ObjekatID { get; set; }
 
 #if DEBUG

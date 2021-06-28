@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" 
              xmlns:local="clr-namespace:exploreMostar.Mobile.Controls" 
-             xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters"
+             xmlns:converters="clr-namespace:exploreMostar.Mobile.Converters" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="exploreMostar.Mobile.Views.PreferenceListPage">
     <ContentPage.BindingContext>
         <viewmodels:PreferenceListModel></viewmodels:PreferenceListModel>
@@ -59,6 +59,14 @@
                     <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
                         <Button Clicked="btn2_Clicked" x:Name="btn2"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="Near me"/>
                     </StackLayout>
+                    <StackLayout Orientation="Vertical" WidthRequest="25"  HorizontalOptions="FillAndExpand">
+                        <Button Clicked="btn32_Clicked" x:Name="btn32"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="View all"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="StackMapa" IsVisible="false">
+                    <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" IsShowingUser="True" TrafficEnabled="true" HorizontalOptions="FillAndExpand" HeightRequest="500" VerticalOptions="FillAndExpand" MapType="Hybrid" x:Name="Mapa1"  >
+
+                    </maps:Map>
                 </StackLayout>
                 <StackLayout  x:Name="MyStackLayout"  SizeChanged="StackLayout_SizeChanged" IsVisible="{Binding Food}" >
                 <Label  IsEnabled="{Binding Food}"  IsVisible="{Binding Food}" TextColor="White" Text="Choose restaurant:" FontAttributes="Bold"></Label>

@@ -10,7 +10,9 @@ namespace exploreMostar.Model
         public string Naziv { get; set; }
         public double? Ocjena { get; set; }
         public string Vrsta { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
+        public string Adresa { get; set; }
        
-
     }
 }

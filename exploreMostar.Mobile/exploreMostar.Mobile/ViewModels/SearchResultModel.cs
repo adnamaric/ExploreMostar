@@ -1,4 +1,5 @@
 ﻿using exploreMostar.Mobile.Views;
+using exploreMostar.Model;
 using exploreMostar.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace exploreMostar.Mobile.ViewModels
         private readonly APIService _nocniklubovi = new APIService("Nightclubs");
         private readonly APIService _searchS = new APIService("Search");
         private readonly APIService korisnici = new APIService("Korisnici");
-
+        public List<ReportClass> searchItems = new List<ReportClass>();
         public ObservableCollection<Model.ReportClass> temp { get; set; } = new ObservableCollection<Model.ReportClass>();
         public string _search = string.Empty;
 
@@ -29,7 +30,12 @@ namespace exploreMostar.Mobile.ViewModels
         }
         public SearchResultModel()
         {
-
+           
+         
+        }
+        public ObservableCollection<Model.ReportClass> GetSearchList()
+        {
+            return temp;
         }
         public async void GetResult(object model)
         {
@@ -149,8 +155,8 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = item.Vrsta });
+                        
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = item.Vrsta,Latitude=item.Latitude, Longitude=item.Longitude,Adresa=item.Lokacija });
                     }
                 }
 
@@ -161,7 +167,7 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = item.Vrsta });
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = item.Vrsta, Latitude = item.Latitude, Longitude = item.Longitude,Adresa=item.Lokacija });
                     }
                 }
 
@@ -174,7 +180,7 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Hotel" });
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Hotel", Latitude = item.Latitude, Longitude = item.Longitude,Adresa=item.Lokacija });
                     }
                 }
 
@@ -187,7 +193,7 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Kafic" });
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Kafic", Latitude = item.Latitude, Longitude = item.Longitude,Adresa=item.Lokacija });
                     }
                 }
 
@@ -199,7 +205,7 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Restoran" });
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Restoran", Latitude = item.Latitude, Longitude = item.Longitude , Adresa = item.Lokacija });
                     }
                 }
 
@@ -211,11 +217,14 @@ namespace exploreMostar.Mobile.ViewModels
                     if (lowerLetters.Contains(lowerSearch))
                     {
                         trazeniModel = item;
-                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Nightclub" });
+                        temp.Add(new Model.ReportClass { Naziv = item.Naziv, Ocjena = item.Ocjena, Vrsta = "Nightclub", Latitude = item.Latitude, Longitude = item.Longitude, Adresa=item.Lokacija });
                     }
                 }
-
+                int brojac = 0;
+                foreach (var item in temp)
+                    item.Rbr = ++brojac;
             }
+            APIService.searchListaObjekata = temp;
         }
     }
 }

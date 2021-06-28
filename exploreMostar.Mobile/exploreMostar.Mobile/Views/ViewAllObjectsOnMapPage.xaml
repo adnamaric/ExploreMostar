@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:exploreMostar.Mobile.ViewModels" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="exploreMostar.Mobile.Views.ViewAllObjectsOnMapPage">
+    <ContentPage.BindingContext>
+        <viewmodels:PreferenceListModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  BackgroundColor="#252526" HeightRequest="500">
+                <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Satellite" x:Name="Map" >
+
+                </maps:Map>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

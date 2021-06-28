@@ -42,8 +42,7 @@ namespace exploreMostar.Mobile.Views
         private readonly APIService korisnici = new APIService("Korisnici");
         private PreferenceListModel model = null;
         public object trenutniObj = null;
-        public List<string> distanca = new List<string>();
-        public List<string> trajanje = new List<string>();
+    
 
         public MapPage(object model1)
         {
@@ -235,11 +234,11 @@ namespace exploreMostar.Mobile.Views
             {
                 btn2.BackgroundColor = Color.White;
                 btn2.TextColor = Color.DarkRed;
-                var request = new GeolocationRequest(GeolocationAccuracy.High, TimeSpan.FromSeconds(10));
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 tcs = new TaskCompletionSource<PermissionStatus>();
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
-                location1 = location;
+                location1 = await Geolocation.GetLocationAsync(request);
                 if (location != null)
                 {
                     Map.IsShowingUser = true;
@@ -290,6 +289,8 @@ namespace exploreMostar.Mobile.Views
                     Type = PinType.Place,
                     Position = new Position((double)selected.Latitude, (double)selected.Longitude)
                 };
+               
+                
                 Map.Pins.Add(pin);
                 var client = new System.Net.Http.HttpClient();
                 var lat1 = selected.Latitude;
@@ -320,32 +321,13 @@ namespace exploreMostar.Mobile.Views
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].StartLocation.Lng));
                     polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].Steps[i].EndLocation.Lng));
                     rute.Add(ObjContactList.Routes[0].Legs[0].Steps[i].HtmlInstructions);
-                    distanca.Add(ObjContactList.Routes[0].Legs[0].Steps[i].HtmlInstructions);
-                    trajanje.Add(ObjContactList.Routes[0].Legs[0].Steps[i].Duration.Text);
+                  
                 }
          
                 trajanjeP.Text = ObjContactList.Routes[0].Legs[0].Duration.Text;
                 start.Text = ObjContactList.Routes[0].Legs[0].StartAddress;
                 end.Text= ObjContactList.Routes[0].Legs[0].EndAddress;
-                foreach (var item in distanca)
-                {
-                    
-                }
                 
-                //if (Device.RuntimePlatform == Device.iOS)
-                //{
-                //    // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
-                //    await Launcher.OpenAsync("http://maps.apple.com/?q=394+Pacific+Ave+San+Francisco+CA");
-                //}
-                //else if (Device.RuntimePlatform == Device.Android)
-                //{
-                //    // open the maps app directly
-                //    await Launcher.OpenAsync("geo:0,0?q=394+Pacific+Ave+San+Francisco+CA");
-                //}
-                //else if (Device.RuntimePlatform == Device.UWP)
-                //{
-                //    await Launcher.OpenAsync("http://maps.google.com/?daddr=San+Francisco,+CA&saddr=Mountain+View");
-                //}
                     Map.MapElements.Add(polyline);
             }
             if (isApartman == true)
@@ -366,10 +348,12 @@ namespace exploreMostar.Mobile.Views
                     Label = selectedap.Naziv,
                     Address = selectedap.Lokacija,
                     Type = PinType.Place,
-                    Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
+                    Position = new Position((double)selectedap.Latitude, (double)selectedap.Longitude),
+                    
                 };
-                
-                //Circle polygon = new Circle {
+
+                //Circle polygon = new Circle
+                //{
                 //    StrokeColor = Color.Red,
                 //    StrokeWidth = 12,
                 //    Center = new Position((double)selectedap.Latitude, (double)selectedap.Longitude),
@@ -380,8 +364,10 @@ namespace exploreMostar.Mobile.Views
                 //    // new Position((double)selectedap.Latitude, (double)selectedap.Longitude)
                 //    //             }
                 //};
+                
                 //Map.MapElements.Add(polygon);
                 Map.Pins.Add(pin);
+                
                 var client = new System.Net.Http.HttpClient();
                 var lat1 = selectedap.Latitude;
                 var lon1 = selectedap.Longitude;
@@ -403,8 +389,7 @@ namespace exploreMostar.Mobile.Views
                     StrokeWidth = 12,
                 };
                 var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+              
 
                 for (int i = 0; i < brojRouta; i++)
                 {
@@ -467,8 +452,7 @@ namespace exploreMostar.Mobile.Views
                     StrokeWidth = 12,
                 };
                 var brojRouta = ObjContactList.Routes[0].Legs[0].Steps.Count();
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].StartLocation.Lat, ObjContactList.Routes[0].Legs[0].StartLocation.Lng));
-                //polyline.Geopath.Add(new Position(ObjContactList.Routes[0].Legs[0].EndLocation.Lat, ObjContactList.Routes[0].Legs[0].EndLocation.Lng));
+ 
 
                 for (int i = 0; i < brojRouta; i++)
                 {
