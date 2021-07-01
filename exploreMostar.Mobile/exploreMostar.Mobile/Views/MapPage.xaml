@@ -103,7 +103,7 @@
                         </maps:Map>
                     </StackLayout>
                     <Label Padding="0,20,0,0"></Label>
-                    <StackLayout x:Name="transport"  IsVisible="false">
+                    <StackLayout x:Name="transportStack"  IsVisible="false">
                         <Label  IsEnabled="{Binding transport}" IsVisible="{Binding transport}" TextColor="White" FontAttributes="Bold"  Text="View transport:"
                    Grid.Row="2"
 				   VerticalOptions="End"/>

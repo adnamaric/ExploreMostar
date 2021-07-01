@@ -287,6 +287,12 @@ namespace exploreMostar.Mobile.Views
 
         private async void btn2_Clicked(object sender, EventArgs e)
         {
+            MyStackLayout.IsVisible = true;
+            MyStackLayout1.IsVisible = true;
+            MyStackLayout2.IsVisible = true;
+            MyStackLayout3.IsVisible = true;
+            MyStackLayout4.IsVisible = true;
+            MyStackLayout5.IsVisible = true;
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             if (status.ToString() == "Denied")
             {
@@ -317,6 +323,12 @@ namespace exploreMostar.Mobile.Views
 
         private  async void btn3_Clicked(object sender, EventArgs e)
         {
+            MyStackLayout.IsVisible = true;
+            MyStackLayout1.IsVisible = true;
+            MyStackLayout2.IsVisible = true;
+            MyStackLayout3.IsVisible = true;
+            MyStackLayout4.IsVisible = true;
+            MyStackLayout5.IsVisible = true;
             APIService.NearOn = false;
             var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             if (status.ToString() == "Denied")
@@ -415,6 +427,13 @@ namespace exploreMostar.Mobile.Views
         private async void btn32_Clicked(object sender, EventArgs e)
         {
             Mapa1.IsShowingUser = true;
+            MyStackLayout.IsVisible = false;
+            MyStackLayout1.IsVisible = false;
+            MyStackLayout2.IsVisible = false;
+            MyStackLayout3.IsVisible = false;
+            MyStackLayout4.IsVisible = false;
+            MyStackLayout5.IsVisible = false;
+           
             btn32.TextColor = Color.DarkRed;
             btn32.BackgroundColor = Color.White;
             btn32.FontAttributes = FontAttributes.Bold;
@@ -436,7 +455,10 @@ namespace exploreMostar.Mobile.Views
             tcs = new TaskCompletionSource<PermissionStatus>();
             var location = await Geolocation.GetLocationAsync(request, cts.Token);
             var client = new System.Net.Http.HttpClient();
+            Position position = new Position(location.Latitude, location.Longitude);
 
+            MapSpan mapSpan = MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(0.444));
+            Mapa1.MoveToRegion(mapSpan);
             if (APIService.Atraction)
             {
                 foreach(var item in listaAtrakcija)
@@ -456,6 +478,7 @@ namespace exploreMostar.Mobile.Views
                     string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
+
 
                     GoogleDirection ObjContactList = new GoogleDirection();
                     if (response != null)

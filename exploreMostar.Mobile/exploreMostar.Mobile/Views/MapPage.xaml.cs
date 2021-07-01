@@ -182,6 +182,12 @@ namespace exploreMostar.Mobile.Views
                     APIService.ObjekatID = selectedh.HotelId;
                 }
                 because.IsVisible = false;
+                if (udaljenost >= 3)
+                {
+                    transportStack.IsVisible = true;
+                    model.CheckDistance(udaljenost);
+
+                }
             }
            
             BindingContext = model = new PreferenceListModel();
@@ -648,6 +654,7 @@ namespace exploreMostar.Mobile.Views
             }
             if (udaljenost >= 3)
             {
+                transportStack.IsVisible = true;
                 model.CheckDistance(udaljenost);
               
             }
@@ -713,7 +720,7 @@ namespace exploreMostar.Mobile.Views
             if (udaljenost >= 3)
             {
                 model.CheckDistance(udaljenost);
-                transport.IsVisible = true;
+                transportStack.IsVisible = true;
                 
             }
             

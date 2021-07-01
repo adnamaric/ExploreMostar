@@ -36,6 +36,7 @@ namespace exploreMostar.WEBAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(x=>x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddAutoMapper();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Explore Mostar", Version = "v1" });
@@ -113,7 +114,7 @@ namespace exploreMostar.WEBAPI
             services.AddScoped<IService<Model.KorisniciUloge, ByNameSearchRequest>, KorisniciUlogeService>();
             //.AddScoped<IService<Model.Recenzije, ByNameSearchRequest>, RecenzijeService>();
 
-            services.AddAutoMapper();
+         
 
 
             var connection = Configuration.GetConnectionString("Docker");
@@ -135,7 +136,7 @@ namespace exploreMostar.WEBAPI
             app.UseAuthentication();
 
             //  app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc().UseAuthentication();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

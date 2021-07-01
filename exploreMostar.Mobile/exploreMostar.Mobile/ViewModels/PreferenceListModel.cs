@@ -878,6 +878,7 @@ namespace exploreMostar.Mobile.ViewModels
         }
         public async void CheckDistance(double distance)
         {
+           
             var list = await _prevoz.Get<IList<Model.Prevoz>>(null);
             transport.Clear();
             if (distance >= 3)

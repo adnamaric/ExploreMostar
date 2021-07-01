@@ -252,6 +252,7 @@ namespace exploreMostar.WinUI.Poruke
                 noviButtoni[i].FlatAppearance.BorderSize = 0;
                 
                 cyl += 136;
+         
                 this.panel1.Controls.Add(noviButtoni[i]);
                 this.panel1.Controls.Add(circleButtons[i]);
                 this.panel1.Controls.Add(labele[i]);

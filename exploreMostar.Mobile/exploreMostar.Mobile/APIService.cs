@@ -69,7 +69,7 @@ namespace exploreMostar.Mobile
                     url += await search.ToQueryString();
                 }
 
-                return await url.GetJsonAsync<T>();
+                return await url.WithBasicAuth(APIService.Username,APIService.Password).GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -89,7 +89,7 @@ namespace exploreMostar.Mobile
 
             var url = $"{_apiUrl}/{_route}/{id}";
 
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            return await url.WithBasicAuth(APIService.Username, APIService.Password).GetJsonAsync<T>();
 
         }
         public async Task<T> Insert<T>(object request)
@@ -100,7 +100,7 @@ namespace exploreMostar.Mobile
             //return await url.PostJsonAsync(request).ReceiveJson<T>();
             try
             {
-                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(APIService.Username, APIService.Password).PostJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -124,7 +124,7 @@ namespace exploreMostar.Mobile
             {
                 var url = $"{_apiUrl}/{_route}/{id}";
 
-                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(APIService.Username, APIService.Password).PutJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -155,7 +155,7 @@ namespace exploreMostar.Mobile
             var url = $"{_apiUrl}/{_route}/{id}";
 
             var result = await url.GetJsonAsync<T>();
-            return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
+            return await url.WithBasicAuth(APIService.Username, APIService.Password).DeleteAsync().ReceiveJson<T>();
         }
       
     }
