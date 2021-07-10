@@ -38,6 +38,7 @@ namespace exploreMostar.Mobile
         public static object modelTemp { get; set; }
         public static string SearchCon { get; set; }
         public static bool postojiFavorit { get; set; }
+       
         public static ObservableCollection<Model.ReportClass> searchListaObjekata { get; set; } = new ObservableCollection<ReportClass>();
         public static int ObjekatID { get; set; }
 

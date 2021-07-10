@@ -97,7 +97,35 @@ namespace exploreMostar.Mobile.Views
                     }
                 }
             }
-            Set();
+            if(user.IsApartman!=null || user.IsAtrakcija!=null || user.IsHotel!=null || user.IsKafic!=null || user.IsRestoran!=null || user.IsNightClub!=null )
+                 Set();
+            else
+            {
+                btn4.BackgroundColor = Color.White;
+                btn4.TextColor = Color.Black;
+                m.Apartman = false;
+                m._apartment = false;
+                btn2.BackgroundColor = Color.White;
+                btn2.TextColor = Color.Black;
+                m._atraction = false;
+                m.Atrakcija = false;
+                btn6.BackgroundColor = Color.White;
+                btn6.TextColor = Color.Black;
+                m._coffeeshops = false;
+                m.Kafic = false;
+                btn3.BackgroundColor = Color.White;
+                btn3.TextColor = Color.Black;
+                m._hotel = false;
+                m.Hotel = false;
+                btn1.BackgroundColor = Color.White;
+                btn1.TextColor = Color.Black;
+                m._food = false;
+                m.Hrana = false;
+                btn7.BackgroundColor = Color.White;
+                btn7.TextColor = Color.Black;
+                m._nightclubs = false;
+                m.NK = false;
+            }
         }
         public void Set()
         {

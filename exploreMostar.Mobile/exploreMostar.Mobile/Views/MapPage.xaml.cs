@@ -64,132 +64,129 @@ namespace exploreMostar.Mobile.Views
             if (isRestoran == true)
             {
                 if (APIService.modelTemp == null)
-                {
                     selected = item;
-                    btn1Stack.IsVisible = true;
-                    btn1.IsVisible = true;
-                    APIService.Vrsta = "Restoran";
-                    APIService.modelTemp = selected;
-                    APIService.ObjekatID = selected.RestoranId;
-                }
                 else
-                {
                     selected = backSelected as Model.Restorani;
-                    btn1Stack.IsVisible = true;
-                    btn1.IsVisible = true;
-                    APIService.Vrsta = "Restoran";
-                    APIService.ObjekatID = selected.RestoranId;
-                }
-    }
+            
+                btn1Stack.IsVisible = true;
+                btn1.IsVisible = true;
+                APIService.Vrsta = "Restoran";
+                APIService.modelTemp = selected;
+                APIService.ObjekatID = selected.RestoranId;
+                APIService.Naziv = selected.Naziv;
+            }
             else if (isApartman == true)
             {
                 if (APIService.modelTemp == null)
                 {
                     selectedap = item2;
-                    btn1Stack.IsVisible = false;
-                    btn1Stack.HeightRequest = 0;
-                    btn1Stack.WidthRequest = 0;
-                    btn1.IsVisible = false;
-                    APIService.Vrsta = "Apartman";
-                    APIService.modelTemp = selectedap;
-                    APIService.ObjekatID = selectedap.ApartmanId;
+                   
                 }
                 else
                 {
                     selectedap = backSelected as Model.Apartmani;
-                    APIService.Vrsta = "Apartman";
-                 
-                    APIService.ObjekatID = selectedap.ApartmanId;
+                    
                 }
+                btn1Stack.IsVisible = false;
+                btn1Stack.HeightRequest = 0;
+                btn1Stack.WidthRequest = 0;
+                btn1.IsVisible = false;
+                APIService.Vrsta = "Apartman";
+                APIService.modelTemp = selectedap;
+                APIService.ObjekatID = selectedap.ApartmanId;
+                APIService.Naziv = selectedap.Naziv;
             }
             else if (isAtrakcija == true)
             {
                 if (APIService.modelTemp == null)
                 {
                     selecteda = item1;
-                    btn1Stack.IsVisible = false;
-                    btn1Stack.HeightRequest = 0;
-                    btn1Stack.WidthRequest = 0;
-                    btn1.IsVisible = false;
-                    APIService.Vrsta = "Atrakcija";
-                    APIService.modelTemp = selecteda;
-                    APIService.ObjekatID = selecteda.AtrakcijaId;
+                  
                 }
                 else
                 {
                     selecteda = backSelected as Model.Atrakcije;
-                    APIService.Vrsta = "Atrakcija";
-                    APIService.ObjekatID = selecteda.AtrakcijaId;
+                   
                 }
+                btn1Stack.IsVisible = false;
+                btn1Stack.HeightRequest = 0;
+                btn1Stack.WidthRequest = 0;
+                btn1.IsVisible = false;
+                APIService.Vrsta = "Atrakcija";
+                APIService.modelTemp = selecteda;
+                APIService.ObjekatID = selecteda.AtrakcijaId;
+                APIService.Naziv = selecteda.Naziv;
             }
             else if (isNightClub == true)
             {
                 if (APIService.modelTemp == null)
                 {
                     selectedn = item5;
-                    btn1Stack.IsVisible = false;
-                    btn1Stack.HeightRequest = 0;
-                    btn1Stack.WidthRequest = 0;
-                    btn1.IsVisible = false;
-                    APIService.Vrsta = "Nocni klub";
-                    APIService.modelTemp = selectedn;
-                    APIService.ObjekatID = selectedn.NightClubId;
                 }
                 else
                 {
                     selectedn = backSelected as Model.Nightclubs;
-                    APIService.Vrsta = "Nocni klub";
-                    APIService.ObjekatID = selectedn.NightClubId;
+                    
                 }
+                btn1Stack.IsVisible = false;
+                btn1Stack.HeightRequest = 0;
+                btn1Stack.WidthRequest = 0;
+                btn1.IsVisible = false;
+                APIService.Vrsta = "Nocni klub";
+                APIService.modelTemp = selectedn;
+                APIService.ObjekatID = selectedn.NightClubId;
+                APIService.Naziv = selectedn.Naziv;
             }
             else if(isKafic== true)
             {
                 if (APIService.modelTemp == null)
                 {
                     selectedk = item4;
-                    btn1Stack.IsVisible = false;
-                    btn1Stack.HeightRequest = 0;
-                    btn1Stack.WidthRequest = 0;
-                    btn1.IsVisible = false;
-                    APIService.Vrsta = "Kafic";
-                    APIService.modelTemp = selectedk;
-                    APIService.ObjekatID = selectedk.KaficId;
+                 
                 }
                 else
                 {
                     selectedk = backSelected as Model.Kafici;
-                    APIService.Vrsta = "Kafic";
-                    APIService.ObjekatID = selectedk.KaficId;
+                  
                 }
+                btn1Stack.IsVisible = false;
+                btn1Stack.HeightRequest = 0;
+                btn1Stack.WidthRequest = 0;
+                btn1.IsVisible = false;
+                APIService.Vrsta = "Kafic";
+                APIService.modelTemp = selectedk;
+                APIService.ObjekatID = selectedk.KaficId;
+                APIService.Naziv = selectedk.Naziv;
             }
             else if(isHotel == true)
             {
                 if (APIService.modelTemp == null)
                 {
                     selectedh = item3;
-                    btn1Stack.IsVisible = false;
-                    btn1Stack.HeightRequest = 0;
-                    btn1Stack.WidthRequest = 0;
-                    btn1.IsVisible = false;
-                    APIService.Vrsta = "Hotel";
-                    APIService.modelTemp = selectedh;
-                    APIService.ObjekatID = selectedh.HotelId;
+                   
                 }
                 else
                 {
                     selectedh = backSelected as Model.Hoteli;
-                    APIService.Vrsta = "Hotel";
-                    APIService.ObjekatID = selectedh.HotelId;
+                 
                 }
-                because.IsVisible = false;
-                if (udaljenost >= 3)
-                {
-                    transportStack.IsVisible = true;
-                    model.CheckDistance(udaljenost);
+                btn1Stack.IsVisible = false;
+                btn1Stack.HeightRequest = 0;
+                btn1Stack.WidthRequest = 0;
+                btn1.IsVisible = false;
+                APIService.Vrsta = "Hotel";
+                APIService.modelTemp = selectedh;
+                APIService.ObjekatID = selectedh.HotelId;
+                
 
-                }
             }
-           
+            because.IsVisible = false;
+            if (udaljenost >= 3)
+            {
+                transportStack.IsVisible = true;
+                model.CheckDistance(udaljenost);
+
+            }
             BindingContext = model = new PreferenceListModel();
          
             Get();
@@ -215,7 +212,9 @@ namespace exploreMostar.Mobile.Views
             APIService.PreferenceListPage = false;
             APIService.MapPage = true;
             APIService.modelTemp = model1;
+
            model.CheckIfFavourite();
+         
         }
         CancellationTokenSource cts;
         TaskCompletionSource<PermissionStatus> tcs;
@@ -226,6 +225,7 @@ namespace exploreMostar.Mobile.Views
             await model.GetT(selected);
             
         }
+     
         async Task GetCurrentLocation()
         {
 
@@ -761,7 +761,7 @@ namespace exploreMostar.Mobile.Views
             }
             var listaFavorita = await _favoriti.Get<IList<Model.MojiFavoriti>>(null);
             var listaRecenzija = await _recenzije.Get<IList<Model.Recenzije>>(null);
-       
+           
 
             foreach (var item in listaFavorita)
             {
@@ -946,6 +946,7 @@ namespace exploreMostar.Mobile.Views
             Recenzije.HeightRequest = 0;
             btnRecenzije.TextColor = Color.White;
             btnRecenzije.BackgroundColor = Color.DarkRed;
+            APIService.postojiFavorit = false;
         }
         //internal async Task<System.Collections.Generic.List<Xamarin.Forms.Maps.Position>> LoadRoute()
         //{
@@ -1187,16 +1188,49 @@ namespace exploreMostar.Mobile.Views
             Application.Current.MainPage = new MyReviewsPage();
         }
 
-        private void MyFavs_Clicked(object sender, EventArgs e)
+        private async void MyFavs_Clicked(object sender, EventArgs e)
         {
-           
+            
+            var list = await _service.Get<IList<Model.Korisnici>>(null);
+            MyFavs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.addedheart.png");
+            MyFavs.Text = "";
+                
+            model.AddFavourite();
+            model.CheckIfFavourite();
+            because.IsVisible = true;
+            Recommend.IsVisible = true;
+            lista.IsVisible = true;
+            lista.HeightRequest = 100;
+
+        }
+        private async void GetRecommend()
+        {
+            Model.Korisnici korisnik = new Model.Korisnici();
+            var listaFavorita = await _favoriti.Get<IList<Model.MojiFavoriti>>(null);
+
+
+
+            foreach (var item in listaFavorita)
+            {
+                if (item.Naziv == APIService.Naziv && item.KorisnikId == korisnik.KorisnikId)
+                {
+                    APIService.postojiFavorit = true;
+
+
+                }
+            }
+            if (!APIService.postojiFavorit)
+            {
+                MyFavs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.heart.png");
+                MyFavs.Text = "Add to my favourites";
+            }
+            else
+            {
                 MyFavs.ImageSource = ImageSource.FromResource("exploreMostar.Mobile.Resources.addedheart.png");
                 MyFavs.Text = "";
-                
-                model.AddFavourite();
-            
+            }
+          
         }
-
         private void favs_Clicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new MyFavouritesPage();

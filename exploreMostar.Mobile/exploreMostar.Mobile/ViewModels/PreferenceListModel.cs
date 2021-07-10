@@ -627,7 +627,7 @@ namespace exploreMostar.Mobile.ViewModels
                                 if (item2.Naziv == item.Naziv)
                                 {
                                     vecUFavoritima = true;
-                                   
+                                    
                                 }
                             }
                             if (!vecUFavoritima)
