@@ -25,7 +25,7 @@ namespace exploreMostar.WebAPI.Controllers
         {
             return _service.Insert(request);
         }
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator,Korisnik")]
         [HttpPut("{id}")]
 
         public T Update(int id, [FromBody] TUpdate request)

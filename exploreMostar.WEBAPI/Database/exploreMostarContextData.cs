@@ -184,6 +184,7 @@ namespace exploreMostar.WebAPI.Database
 
 
                 );
+         
             //modelBuilder.Entity<UserActivity>().HasData(
             //    new UserActivity { KorisnikId=1, BrojPrijavljivanja=0, BrojNeuspjesnihPrijavljivanja=0,Onemogucen=false, Datum=DateTime.Now, IsApartman=false, IsAtrakcija=false, IsHotel=false, IsKafic=false, IsNightClub=false, IsRestoran=false}
             //    new UserActivity { KorisnikId=2, BrojPrijavljivanja=0, BrojNeuspjesnihPrijavljivanja=0,Onemogucen=false, Datum=DateTime.Now, IsApartman=false, IsAtrakcija=false, IsHotel=false, IsKafic=false, IsNightClub=false, IsRestoran=false}

@@ -76,7 +76,7 @@ namespace exploreMostar.WinUI
             {
                 var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-                return await url.PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(APIService.Username, APIService.Password).PutJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
