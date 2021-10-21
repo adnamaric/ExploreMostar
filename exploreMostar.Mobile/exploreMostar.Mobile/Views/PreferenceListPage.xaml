@@ -63,8 +63,8 @@
                         <Button Clicked="btn32_Clicked" x:Name="btn32"  BackgroundColor="DarkRed" TextColor="White" HeightRequest="50" Text="View all"/>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout x:Name="StackMapa" IsVisible="false">
-                    <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" IsShowingUser="True" TrafficEnabled="true" HorizontalOptions="FillAndExpand" HeightRequest="500" VerticalOptions="FillAndExpand" MapType="Hybrid" x:Name="Mapa1"  >
+                <StackLayout x:Name="StackMapa" IsVisible="false" >
+                    <maps:Map   HasScrollEnabled="true" HasZoomEnabled="true" IsShowingUser="True" TrafficEnabled="true" HorizontalOptions="FillAndExpand" HeightRequest="500" VerticalOptions="FillAndExpand" MapType="Hybrid"  x:Name="Mapa1"  >
 
                     </maps:Map>
                 </StackLayout>

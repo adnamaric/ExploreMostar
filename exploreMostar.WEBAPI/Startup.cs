@@ -117,7 +117,7 @@ namespace exploreMostar.WEBAPI
          
 
 
-            var connection = Configuration.GetConnectionString("Docker");
+            var connection = Configuration.GetConnectionString("exploreMostar");
             services.AddDbContext<exploreMostarContext>(options => options.UseSqlServer(connection));
 
         }

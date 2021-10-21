@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /Script2.sh
+/Reports/Report2.pdf
+/Reports/BestRatedAccomodation.pdf

@@ -118,8 +118,23 @@ namespace exploreMostar.WinUI.Reports
                     }
                     
                 }
-               
+                if (temp != null)
+                {
+                    if (comboBox1.SelectedItem != null)
+                    {
+                        if (comboBox1.SelectedItem.ToString() == "BestRated")
+                            temp = temp.OrderByDescending(y => y.Ocjena).ToList();
+                        else if (comboBox1.SelectedItem.ToString() == "WorstRated")
+                            temp = temp.OrderBy(y => y.Ocjena).ToList();
+                    }
+                    //temp=temp.OrderByDescending(y => y.Ocjena).ToList();
+                    foreach (var item in temp)
+                    {
+                        item.Rbr = ++rbr1;
+                    }
                 }
+
+            }
             else
             {
                 var list = await _restorani.Get<List<Model.Restorani>>(null);
@@ -226,6 +241,22 @@ namespace exploreMostar.WinUI.Reports
 
         private async void frmPregled_Load(object sender, EventArgs e)
         {
+            
+           
+        }
+
+        private void kategorija_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void frmPregled_Load_1(object sender, EventArgs e)
+        {
             var result = await _service.Get<List<Model.Kategorije>>(null);
             result.Insert(0, new Model.Kategorije() { Naziv = "Odaberite kategoriju", KategorijaId = -1 });
 
@@ -244,17 +275,6 @@ namespace exploreMostar.WinUI.Reports
             //cmbkategorija.DisplayMember = "Naziv";
             //cmbkategorija.ValueMember = "KategorijaId";
             DataSet ds = new DataSet();
-           
-        }
-
-        private void kategorija_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

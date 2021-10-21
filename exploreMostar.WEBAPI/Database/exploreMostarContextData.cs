@@ -133,7 +133,7 @@ namespace exploreMostar.WebAPI.Database
                   new Gradovi { GradId = 3, Naziv = "Tuzla", DrzavaId = 1 },
                   new Gradovi { GradId = 4, Naziv = "Zenica", DrzavaId = 1 },
                   new Gradovi { GradId = 5, Naziv = "Konjic", DrzavaId = 1 },
-                  new Gradovi { GradId = 6, Naziv = "Zagred", DrzavaId = 2},
+                  new Gradovi { GradId = 6, Naziv = "Zagreb", DrzavaId = 2},
                   new Gradovi { GradId = 7, Naziv = "Karlovac", DrzavaId = 2 },
                   new Gradovi { GradId = 8, Naziv = "Split", DrzavaId = 2 },
                   new Gradovi { GradId = 9, Naziv = "Dubrovnik", DrzavaId = 2 },

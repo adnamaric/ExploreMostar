@@ -87,5 +87,10 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
                 }
             }
         }
+
+        private void frmGradoviMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

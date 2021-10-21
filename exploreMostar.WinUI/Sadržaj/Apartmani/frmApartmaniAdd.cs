@@ -315,7 +315,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             if (txtLok.Text != "")
             {
                 var address = txtLok.Text;
-                var locationService = new GoogleLocationService("AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q");
+                var locationService = new GoogleLocationService("AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q");
                 var point = locationService.GetLatLongFromAddress(address);
                 var latitude = point.Latitude;
                 var longitude = point.Longitude;

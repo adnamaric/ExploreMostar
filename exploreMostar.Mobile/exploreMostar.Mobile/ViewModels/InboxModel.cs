@@ -46,28 +46,37 @@ namespace exploreMostar.Mobile.ViewModels
                 item.Rbr = ++temp;
                 if (item.GradId != null)
                 {
-                    int brojac = 0;
+
+                    bool isFound = false, isFound2 = false;
                     foreach (var item1 in listaGradova)
                     {
+
                         if (item1.GradId == item.GradId)
                         {
                             item.Grad = item1.Naziv;
+                            isFound = true;
+
+                        }
+                        if (isFound)
+                        {
+                            foreach (var item2 in listaDrzava)
+                            {
+                                if (item1.DrzavaId == item2.DrzavaId)
+                                {
+                                    item.Drzava = item2.Naziv;
+                                    isFound2 = true;
+                                    break;
+                                }
+                            }
+                            if (isFound2)
+                                break;
 
 
                         }
-                        foreach (var item2 in listaDrzava)
-                        {
-                            if (item1.DrzavaId == item2.DrzavaId)
-                                item.Drzava = item2.Naziv;
-                          
-                           
                     }
-                        if (brojac == listKorisnika.Count)
-                            break;
-                        brojac++;
-                    }
-                    
+
                 }
+
                 korisnici.Add(item);
             }
             //poruke.Clear();

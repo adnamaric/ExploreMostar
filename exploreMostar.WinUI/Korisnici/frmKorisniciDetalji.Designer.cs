@@ -281,6 +281,9 @@ namespace exploreMostar.WinUI.Korisnici
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Administrator ",
+            "Korisnik"});
             this.checkedListBox1.Location = new System.Drawing.Point(31, 460);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(317, 94);

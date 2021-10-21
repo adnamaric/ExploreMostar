@@ -98,7 +98,7 @@
                         </Label>
                     </StackLayout>
                     <StackLayout HeightRequest="500">
-                        <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Hybrid" x:Name="Map"  >
+                        <maps:Map  HasScrollEnabled="true" HasZoomEnabled="true" TrafficEnabled="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  MapType="Hybrid" x:Name="Map"  >
                           
                         </maps:Map>
                     </StackLayout>
@@ -178,7 +178,15 @@
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
-
+                                        <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   Style="{DynamicResource ListItemDetailTextStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Type of food: " />
+                                                    <Span Text="{Binding Vrsta}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                         <Label VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                             <Label.FormattedText>
@@ -192,22 +200,14 @@
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="Rating: " />
+                                                    <Span Text="Score: " />
                                                     <Span Text="{Binding Ocjena}"/>
                                                 </FormattedString>
                                             </Label.FormattedText>
 
                                         </Label>
-                                        <Label Padding="0,5,0,0" TextDecorations="Underline" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="Red"   
-                   Style="{DynamicResource ListItemDetailTextStyle}">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Rating: " />
-                                                    <Span Text="{Binding Ocjena}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
+                                       
 
-                                        </Label>
                                         <Label Padding="0,10,0,0"></Label>
                                     </StackLayout>
                                 </ViewCell>
@@ -259,7 +259,7 @@
                         <Label TextColor="White">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Rating: " />
+                                    <Span Text="Review: " />
                                     <Span x:Name="Rating"/>
                                 </FormattedString>
                             </Label.FormattedText>
@@ -370,7 +370,7 @@
                    Style="{DynamicResource ListItemDetailTextStyle}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Rating: " />
+                                                        <Span Text="Review: " />
                                                         <Span Text="{Binding Sadrzaj}"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>

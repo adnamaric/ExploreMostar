@@ -130,7 +130,7 @@ namespace exploreMostar.Mobile.Views
             foreach (var item in poruke)
             {
                 StackLayout n = new StackLayout();
-
+                
 
                 n.BackgroundColor = Color.LightBlue;
                 Label texty2 = new Label();
@@ -139,11 +139,12 @@ namespace exploreMostar.Mobile.Views
                 {
                     n.BackgroundColor = Color.LightBlue;
                     n.HorizontalOptions = LayoutOptions.End;
+                     
                     n.WidthRequest = 200;
                 }
                 else
                 {
-                    n.BackgroundColor = Color.LightBlue;
+                    n.BackgroundColor = Color.FromHex("cbe6ef");
                     n.HorizontalOptions = LayoutOptions.Start;
                     n.WidthRequest = 200;
 

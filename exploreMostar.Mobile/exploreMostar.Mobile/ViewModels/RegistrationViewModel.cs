@@ -104,12 +104,12 @@ namespace exploreMostar.Mobile.ViewModels
             get { return _gradId; }
             set { SetProperty(ref _gradId, value); }
         }
-      
-        //List<Model.Gradovi> lista = new List<Model.Gradovi>( async=>await Function());
+
+        //List<Model.Gradovi> lista = new List<Model.Gradovi>(async => await Function());
 
         //public async Task Function()
         //{
-        //       lista = await _aPIService.Get<List<Model.Gradovi>>(null);
+        //    lista = await _aPIService.Get<List<Model.Gradovi>>(null);
 
         //}
         string _naziv = string.Empty;

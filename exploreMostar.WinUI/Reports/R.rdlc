@@ -37,7 +37,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.61458in</Width>
+              <Width>1.5in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.61458in</Width>
@@ -431,7 +431,7 @@
         <Top>0.88889in</Top>
         <Left>0.20708in</Left>
         <Height>0.98958in</Height>
-        <Width>6.22916in</Width>
+        <Width>6.11458in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -446,7 +446,7 @@
   <Width>8.13542in</Width>
   <Page>
     <PageHeader>
-      <Height>1.05778in</Height>
+      <Height>1.07167in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -469,8 +469,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.28299in</Top>
-          <Left>0.85098in</Left>
+          <Top>0.29688in</Top>
+          <Left>0.20708in</Left>
           <Height>0.25in</Height>
           <Width>1.94792in</Width>
           <Style>
@@ -502,8 +502,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.60243in</Top>
-          <Left>0.85098in</Left>
+          <Top>0.61632in</Top>
+          <Left>0.20708in</Left>
           <Height>0.25in</Height>
           <Width>2.78125in</Width>
           <ZIndex>1</ZIndex>
@@ -521,7 +521,7 @@
           <Source>Embedded</Source>
           <Value>ExploreMostar7</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>5.91986in</Left>
+          <Left>5.65944in</Left>
           <Height>1.05778in</Height>
           <Width>1.36458in</Width>
           <ZIndex>2</ZIndex>

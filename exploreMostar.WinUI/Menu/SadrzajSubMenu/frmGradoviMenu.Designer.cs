@@ -94,6 +94,7 @@ namespace exploreMostar.WinUI.Menu.SadrzajSubMenu
             this.Name = "frmGradoviMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGradoviMenu";
+            this.Load += new System.EventHandler(this.frmGradoviMenu_Load);
             this.ResumeLayout(false);
 
         }

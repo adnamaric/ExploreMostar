@@ -53,7 +53,6 @@ namespace exploreMostar.WinUI.Reports
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Odaberi kategoriju:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmbkategorija
             // 
@@ -62,7 +61,6 @@ namespace exploreMostar.WinUI.Reports
             this.cmbkategorija.Name = "cmbkategorija";
             this.cmbkategorija.Size = new System.Drawing.Size(239, 21);
             this.cmbkategorija.TabIndex = 13;
-            this.cmbkategorija.SelectedIndexChanged += new System.EventHandler(this.kategorija_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -120,7 +118,7 @@ namespace exploreMostar.WinUI.Reports
             this.Name = "frmPregled";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPregled";
-            this.Load += new System.EventHandler(this.frmPregled_Load);
+            this.Load += new System.EventHandler(this.frmPregled_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.ApartmaniBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

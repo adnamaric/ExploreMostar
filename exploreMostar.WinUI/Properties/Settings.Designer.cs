@@ -26,6 +26,15 @@ namespace exploreMostar.WinUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:6060/api")]
+        public string APIUrl2 {
+            get {
+                return ((string)(this["APIUrl2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:64741/api")]
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));

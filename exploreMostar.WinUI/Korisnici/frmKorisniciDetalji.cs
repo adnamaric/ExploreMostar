@@ -35,15 +35,15 @@ namespace exploreMostar.WinUI.Korisnici
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             if (txtIme.Text == "")
-                MessageBox.Show("Molimo vas unesite ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            else if (txtPrezime.Text == "")
+                MessageBox.Show("Molimo vas unesite ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+           else  if (txtPrezime.Text == "")
             {
                 MessageBox.Show("Molimo vas unesite prezime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-            else if  (cmbGradovi.SelectedIndex == 0)
+            else if (cmbGradovi.SelectedIndex == 0)
                 MessageBox.Show("Molimo vas odaberite grad!", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-          
-            else if (txtKorisnickoIme.Text == "")
+
+           else  if (txtKorisnickoIme.Text == "")
             {
                 MessageBox.Show("Molimo vas unesite korisnicko ime", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -52,15 +52,68 @@ namespace exploreMostar.WinUI.Korisnici
             {
                 MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-            else if( txtEmail.Text=="")
+           else  if (txtEmail.Text == "")
             {
                 MessageBox.Show("Molimo vas unesite email", "Nedovoljno informacija", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-            if (txtEmail.TextLength > 0)
+            else if (txtEmail.TextLength > 0)
             {
                 try
                 {
                     new System.Net.Mail.MailAddress(this.txtEmail.Text);
+                    if (this.ValidateChildren())
+                    {
+                        //  var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y => y.UlogaId).ToList();
+                        var uloge = checkedListBox1.CheckedItems;
+                        List<int> ulogeInt = new List<int>();
+                        foreach (var item in uloge)
+                        {
+                          
+                            
+                            if (item.Equals("Administrator "))
+                                ulogeInt.Add(1);
+                            else 
+                                ulogeInt.Add(2);
+                        }
+                        var phoneNumber = txtTelefon.Text.Trim()
+                                                         .Replace(" ", "")
+                                                         .Replace("-", "")
+                                                         .Replace("(", "")
+                                                         .Replace(")", "");
+                        var request = new KorisniciInsertRequest
+                        {
+                            Ime = txtIme.Text,
+                            Prezime = txtPrezime.Text,
+                            Email = txtEmail.Text,
+                            Telefon = phoneNumber,
+                            KorisnickoIme = txtKorisnickoIme.Text,
+                            GradId = cmbGradovi.SelectedIndex,
+                            PutanjaSlike = openFileDialog1.FileName,
+                            Password = txtPassword.Text,
+                            PasswordConfirmation = txtPasswordConfrirm.Text,
+                             Uloge = ulogeInt,
+
+                        };
+                        //defaultni datum
+                        var max = new DateTime(2011, 1, 1);
+
+                        if (dateTimePicker1.Value != max)
+                            request.DatumRodjenja = dateTimePicker1.Value;
+                        request.Slika = slika;
+                        // btnDodajSliku_Click();
+                        if (_id.HasValue)
+                        {
+                            await _service.Update<Model.Korisnici>(_id, request);
+                        }
+                        else
+                        {
+                            await _service.Insert<Model.Korisnici>(request);
+
+                        }
+
+                        MessageBox.Show("Operacija uspješna!");
+
+                    }
                 }
                 catch (ArgumentException)
                 {
@@ -71,51 +124,10 @@ namespace exploreMostar.WinUI.Korisnici
                     MessageBox.Show("Nepravilan format za email", "MailError", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 }
             }
-            else
-            {
-                if (this.ValidateChildren())
-                {
-                    var uloge = checkedListBox1.SelectedItems.Cast<Model.Uloge>().Select(y => y.UlogaId).ToList();
-                    var phoneNumber = txtTelefon.Text.Trim()
-                                                     .Replace(" ", "")
-                                                     .Replace("-", "")
-                                                     .Replace("(", "")
-                                                     .Replace(")", "");
-                    var request = new KorisniciInsertRequest
-                    {
-                        Ime = txtIme.Text,
-                        Prezime = txtPrezime.Text,
-                        Email = txtEmail.Text,
-                        Telefon = phoneNumber,
-                        KorisnickoIme = txtKorisnickoIme.Text,
-                        GradId = cmbGradovi.SelectedIndex,
-                        PutanjaSlike = openFileDialog1.FileName,
-                        Password = txtPassword.Text,
-                        PasswordConfirmation = txtPasswordConfrirm.Text,
-                        Uloge = uloge,
-                        
-                    };
-                    //defaultni datum
-                    var max = new DateTime(2011, 1, 1);
 
-                    if (dateTimePicker1.Value != max)
-                        request.DatumRodjenja = dateTimePicker1.Value;
-                    request.Slika = slika;
-                    // btnDodajSliku_Click();
-                    if (_id.HasValue)
-                    {
-                        await _service.Update<Model.Korisnici>(_id, request);
-                    }
-                    else
-                    {
-                        await _service.Insert<Model.Korisnici>(request);
-
-                    }
-                    
-                    MessageBox.Show("Operacija uspješna!");
-
-                }
-            }
+            
+            
+            
 
         }
        
@@ -133,12 +145,12 @@ namespace exploreMostar.WinUI.Korisnici
         private async Task LoadUloge()
         {
             var result = await _uloge.Get<List<Model.Uloge>>(null);
-          
 
-
-            checkedListBox1.DataSource = result;
-            checkedListBox1.DisplayMember = "Naziv";
-            checkedListBox1.ValueMember = "UlogaId";
+            result = result.ToList();
+         
+            //checkedListBox1.DataSource = result;
+            //checkedListBox1.DisplayMember = "Naziv";
+            //checkedListBox1.ValueMember = "UlogaId";
 
         }
         private async void frmKorisniciDetalji_Load(object sender, EventArgs e)

@@ -2,8 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="exploreMostar.WinUI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="APIUrl" Type="System.String" Scope="Application">
+    <Setting Name="APIUrl2" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:6060/api</Value>
+    </Setting>
+    <Setting Name="APIUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:64741/api</Value>
     </Setting>
   </Settings>
 </SettingsFile>

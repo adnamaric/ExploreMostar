@@ -63,7 +63,7 @@
                     <Button x:Name="btn3" Clicked="Button3_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Hotels"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical" WidthRequest="50" HorizontalOptions="FillAndExpand">
-                    <Button x:Name="btn4" Clicked="Button4_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Apartmants"/>
+                    <Button x:Name="btn4" Clicked="Button4_Cliked" BackgroundColor="White" HeightRequest="75" Text="#Apartments"/>
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">

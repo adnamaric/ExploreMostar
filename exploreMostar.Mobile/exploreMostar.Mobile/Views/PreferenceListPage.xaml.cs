@@ -416,8 +416,9 @@ namespace exploreMostar.Mobile.Views
         {
             Application.Current.MainPage = new MyFavouritesPage();
         }
+       
 
-        private void Entry_Completed(object sender, EventArgs e)
+    private void Entry_Completed(object sender, EventArgs e)
         {
             
             model.CheckSearchRequest();
@@ -475,7 +476,7 @@ namespace exploreMostar.Mobile.Views
                     var lon1 = item.Longitude;
                     var lat2 = location.Latitude;
                     var lon2 = location.Longitude;
-                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 
@@ -518,7 +519,7 @@ namespace exploreMostar.Mobile.Views
                     var lon1 = item.Longitude;
                     var lat2 = location.Latitude;
                     var lon2 = location.Longitude;
-                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 
@@ -560,7 +561,7 @@ namespace exploreMostar.Mobile.Views
                     var lon1 = item.Longitude;
                     var lat2 = location.Latitude;
                     var lon2 = location.Longitude;
-                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 
@@ -602,7 +603,7 @@ namespace exploreMostar.Mobile.Views
                     var lon1 = item.Longitude;
                     var lat2 = location.Latitude;
                     var lon2 = location.Longitude;
-                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 
@@ -644,7 +645,7 @@ namespace exploreMostar.Mobile.Views
                     var lon1 = item.Longitude;
                     var lat2 = location.Latitude;
                     var lon2 = location.Longitude;
-                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyDP-0g1tNQWjpbUKC0uLv3tJ7GGm6a3t8Q";
+                    string trazeniUrl = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat2 + "," + lon2 + "&destination=" + lat1 + "," + lon1 + "&key=AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q";
                     var response = await client.GetAsync(trazeniUrl);
                     string contactsJson = await response.Content.ReadAsStringAsync(); //Getting response  
 

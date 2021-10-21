@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,22 @@ namespace exploreMostar.WinUI.Reports
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            string binfolder = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+          
             frmPregledZemalja frm = new frmPregledZemalja();
             frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string directory = Application.StartupPath;
+           
+            directory = directory.Replace("exploreMostar.WinUI\\bin\\Debug", "Reports");
+            Process.Start("explorer.exe", directory);
+           
+            
+
         }
     }
 }

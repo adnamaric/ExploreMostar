@@ -71,7 +71,7 @@ namespace exploreMostar.WinUI.Menu
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(140, 92);
             this.button7.TabIndex = 25;
-            this.button7.Text = "O new reports";
+            this.button7.Text = "3 new reports";
             this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
