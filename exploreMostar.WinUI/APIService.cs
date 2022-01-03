@@ -30,7 +30,7 @@ namespace exploreMostar.WinUI
             //return result.Result;
 
             //var result = await $"{Properties.Settings.Default.APIUrl}/{_route}".GetJsonAsync<T>();
-            var url =  $"{Properties.Settings.Default.APIUrl}/{_route}";
+            var url =  $"{Properties.Settings.Default.APIUrl2}/{_route}";
            try  {
                 if (search != null)
                 {
@@ -54,7 +54,7 @@ namespace exploreMostar.WinUI
         public async Task<T> GetById<T>(object id)
         {
            
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+            var url = $"{Properties.Settings.Default.APIUrl2}/{_route}/{id}";
           
              return await url.WithBasicAuth(APIService.Username, APIService.Password).GetJsonAsync<T>();
             
@@ -62,19 +62,19 @@ namespace exploreMostar.WinUI
         public async Task<T> Insert<T>(object request)
         {
 
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
+            var url = $"{Properties.Settings.Default.APIUrl2}/{_route}";
 
             return await url.WithBasicAuth(APIService.Username, APIService.Password).PostJsonAsync(request).ReceiveJson<T>();
         }
         public async Task<T> Update<T>(object id,object request)
         {
             var nesto = Username;
-            //var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+            //var url = $"{Properties.Settings.Default.APIUrl2}/{_route}/{id}";
 
             //return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
             try
             {
-                var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+                var url = $"{Properties.Settings.Default.APIUrl2}/{_route}/{id}";
 
                 return await url.WithBasicAuth(APIService.Username, APIService.Password).PutJsonAsync(request).ReceiveJson<T>();
             }
@@ -96,7 +96,7 @@ namespace exploreMostar.WinUI
        
         public async Task<bool> Delete(int id)
         {
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+            var url = $"{Properties.Settings.Default.APIUrl2}/{_route}/{id}";
 
           
 

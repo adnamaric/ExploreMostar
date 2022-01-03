@@ -292,7 +292,7 @@ namespace exploreMostar.WinUI.Sadržaj.Hoteli
             if (txtLok.Text != "")
             {
                 var address = txtLok.Text;
-                var locationService = new GoogleLocationService("AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q");
+                var locationService = new GoogleLocationService("AIzaSyDaUNNA6dPjzLjU_xFOb4tZqwM_WwOsJKI");
                 var point = locationService.GetLatLongFromAddress(address);
                 var latitude = point.Latitude;
                 var longitude = point.Longitude;

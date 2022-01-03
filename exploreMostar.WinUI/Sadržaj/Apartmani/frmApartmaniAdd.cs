@@ -315,7 +315,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             if (txtLok.Text != "")
             {
                 var address = txtLok.Text;
-                var locationService = new GoogleLocationService("AIzaSyB62MrChALmKF-AsfInfLwiH6bPvOiHa6Q");
+                var locationService = new GoogleLocationService("AIzaSyDaUNNA6dPjzLjU_xFOb4tZqwM_WwOsJKI");
                 var point = locationService.GetLatLongFromAddress(address);
                 var latitude = point.Latitude;
                 var longitude = point.Longitude;
@@ -378,6 +378,11 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLat_TextChanged(object sender, EventArgs e)
         {
 
         }

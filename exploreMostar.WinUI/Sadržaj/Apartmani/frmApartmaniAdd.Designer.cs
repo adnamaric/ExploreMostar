@@ -106,6 +106,7 @@ namespace exploreMostar.WinUI.Sadržaj.Apartmani
             this.txtLat.Name = "txtLat";
             this.txtLat.Size = new System.Drawing.Size(239, 20);
             this.txtLat.TabIndex = 3;
+            this.txtLat.TextChanged += new System.EventHandler(this.txtLat_TextChanged);
             // 
             // label1
             // 
