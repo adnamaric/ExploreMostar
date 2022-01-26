@@ -188,7 +188,7 @@ namespace exploreMostar.WinUI.Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 400);
+            this.ClientSize = new System.Drawing.Size(859, 397);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -197,10 +197,11 @@ namespace exploreMostar.WinUI.Menu
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSadrzajMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSadrzaj";
+            this.Text = "Sadržaj";
             this.Load += new System.EventHandler(this.frmSadrzaj_Load);
             this.ResumeLayout(false);
 

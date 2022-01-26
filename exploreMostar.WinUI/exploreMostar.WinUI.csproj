@@ -189,18 +189,6 @@
     <Compile Include="CircleButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIndex.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIndex.Designer.cs">
-      <DependentUpon>frmIndex.cs</DependentUpon>
-    </Compile>
     <Compile Include="Korisnici\frmKorisnici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -527,14 +515,8 @@
     <Compile Include="Sadržaj\Restorani\frmRestoraniUpdate.Designer.cs">
       <DependentUpon>frmRestoraniUpdate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmIndex.resx">
-      <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
